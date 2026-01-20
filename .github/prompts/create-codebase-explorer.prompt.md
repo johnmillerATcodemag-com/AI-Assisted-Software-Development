@@ -7,6 +7,6 @@ description: "Create a GitHub Copilot chatmode for reviewing unfamiliar codebase
 
 # Create Codebase Explorer Chatmode
 
-## Help me create a github copilot chatmode for reviewing an unfamiliar codebase
+Create a github copilot chatmode for reviewing an unfamiliar codebase.
 
-## Place the chatmode file in the .github/chatmodes/ directory of the repository
+Place the chatmode file in `.github/chatmodes/` directory.

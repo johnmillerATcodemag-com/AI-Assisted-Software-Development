@@ -2,118 +2,63 @@
 mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["create", "edit"]
-description: Creates a comprehensive prompt that generates Markdown authoring guidelines for creating effective repository prompts
+description: Create prompt that generates use case authoring guidelines
 prompt_metadata:
-	id: prompt-file.instructions-prompt
-	title: Meta Prompt — Generate Prompt Authoring Instructions
-	owner: johnmillerATcodemag-com
-	repository: AI-Assisted-Brownfield-Development
-	version: 1.1.0
-	created: 2025-10-14
-	updated: 2025-01-27
-	output_path: .github/prompts/prompt-file.instructions.prompt.md
-	category: meta-documentation
-	tags: [meta-prompts, documentation, prompt-engineering, authoring-guidelines]
-	output_format: markdown
+  id: create-use-case-instruction-prompt
+  title: Meta Prompt — Generate Use Case Instructions
+  owner: johnmillerATcodemag-com
+  output_path: .github/prompts/create-use-case-instructions.prompt.md
+  category: meta-documentation
+  tags: [meta-prompts, use-cases, documentation]
+  output_format: markdown
 ---
 
-# Meta Prompt — Generate Prompt Authoring Instructions
+# Meta Prompt — Generate Use Case Authoring Instructions
 
-This meta-prompt creates a comprehensive prompt for generating Markdown authoring guidelines that help users create effective, well-structured repository prompts.
+Create prompt that generates use case authoring guidelines.
 
-## Context
+## Output Target
+`.github/prompts/create-use-case-instructions.prompt.md` → creates → `.github/instructions/create-use-case.instructions.md`
 
-This prompt generates instructions for creating prompts that follow repository standards, ensuring consistency, clarity, and effectiveness across all prompt files in the project.
+## Generated Prompt Specs:
 
-## Output Requirements
+### Required Metadata
+- `mode: agent`, `model: Auto (copilot)`, `tools: ["edit", "create"]`
+- `description`: Generate use case authoring guide
+- `prompt_metadata`: id, output_path, title, category, tags
 
-- **Target File**: Create or overwrite `.github/prompts/prompt-file.instructions.prompt.md`
-- **Format**: Valid Markdown with proper YAML frontmatter
-- **Standards Compliance**: Must conform to Repository Prompt File Standards
-- **Completeness**: Include comprehensive guidance for all prompt authoring aspects
+### Content Structure
+Generated instructions must include:
+1. **Audience & Scope**: Contributors authoring use cases, standard format + Mermaid diagrams
+2. **Standard Template** (copy-paste ready):
+```markdown
+# Use Case: <Title>
+- Primary Actor: <Role>
+- Goal: <One sentence>
+- Preconditions: 1. <Condition>
+- Triggers: <Event>
+## Main Success Scenario
+## Alternate/Exception Flows
+## Postconditions
+## Business Rules
+## Non-Functional Notes
+## Diagram
+\`\`\`mermaid
+flowchart TD
+\`\`\`
+```
+3. **Field-by-field Guidance**: Purpose and examples for each template field
+4. **Mermaid Diagram Guidance**: Flowchart vs sequence, when to use each, syntax
+5. **Example Use Case**: Concise but realistic
+6. **Authoring Checklist**: Validation criteria
+7. **Naming/File Conventions**: `use-case-<kebab-case>.md` in appropriate folder
+8. **Tips & Pitfalls**: Common mistakes, best practices
 
-## Generated Prompt Specifications
-
-The generated prompt must instruct users to create `.github/instructions/create-prompt.instructions.md` and include these sections:
-
-### Required Metadata Configuration
-
-The generated prompt must include these top-level YAML frontmatter fields:
-
-- `mode: ` ('agent' if the generated prompt creates a file, otherwise 'chat')
-- `model: ` ('Auto (copilot)' if unspecified)
-- `tools: [<comma delimited list of tools]` (tools needed to execute the generated prompt)
-- `description:` Describe what the generated prompt does
-
-Additional prompt_metadata structure:
-
-- `prompt_metadata.id: prompt-file.instructions-prompt`
-- `output_path: .github/instructions/create-prompt.instructions.md`
-- Title: "Generate Prompt Authoring Instructions (Markdown)"
-- Appropriate version, tags, and category fields
-
-### Content Structure Requirements
-
-1. **Audience and Scope Definition**
-
-   - Target audience (developers, prompt authors)
-   - Skill level expectations
-
-2. **Prompt File Structure Guide**
-
-   - YAML frontmatter requirements with mandatory top-level fields (mode, model, tools, description)
-   - Section organization standards
-   - Metadata field specifications for both top-level and prompt_metadata sections
-
-3. **Field-by-Field Documentation**
-
-   - Required top-level fields: mode ('agent' for file-creating prompts), model ('Auto (copilot)' if unspecified), tools (array of required tools), description (moved from prompt_metadata)
-   - Optional prompt_metadata fields (excluding description)
-   - Field validation rules
-   - Example values and formats
-
-4. **Best Practices Guidelines**
-
-   - Metadata structure: Top-level fields (mode, model, tools, description) + prompt_metadata section
-   - Tool selection: Analyze prompt requirements to determine needed tools (create, edit, search, etc.)
-   - Mode specification: 'agent' for file-creating prompts, 'chat' for interactive prompts
-   - Clarity and specificity requirements
-   - Context provision techniques
-   - Output format specifications
-   - Version control considerations
-
-5. **Quality Assurance Elements**
-
-   - Metadata validation checklist (mode, model, tools, description present at top level)
-   - Tool array verification (matches prompt execution requirements)
-   - Description placement verification (not in prompt_metadata)
-   - Authoring checklist
-   - File naming conventions (kebab-case)
-   - Validation criteria
-   - Testing recommendations
-
-6. **Acceptance Criteria**
-   - Completeness verification
-   - Clarity assessment
-   - Markdown rendering validation
-   - Standards compliance check
-
-### Technical Requirements
-
-- **Output Directive**: Include explicit instruction to output only final Markdown content
-- **Self-Contained**: Instructions must be complete and standalone
-- **Preview Compatible**: Must render correctly in Markdown preview
-- **Actionable**: Provide specific, implementable guidance
-
-## Quality Standards
-
-The generated prompt must ensure the instruction file will:
-
-- Be immediately usable by prompt authors
-- Maintain consistency across the repository
-- Follow established documentation patterns
-- Enable efficient prompt creation workflows
+### Quality Standards
+- Template is copy-paste ready
+- Examples are realistic
+- Mermaid diagrams are clear
+- All standard sections explained
 
 ## Deliverable
-
-Output only the complete `.github/prompts/prompt-file.instructions.prompt.md` file content as Markdown. No additional commentary, explanations, or wrapper text.
+Complete prompt that generates comprehensive use case authoring instructions.

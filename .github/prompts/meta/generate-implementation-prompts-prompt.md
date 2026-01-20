@@ -1,95 +1,81 @@
-# Generate Implementation Prompts for Academia System
+---
+mode: agent
+model: "anthropic/claude-3.5-sonnet@2024-10-22"
+tools: ["create", "edit"]
+description: Generate implementation prompts for systematic system development
+prompt_metadata:
+  id: generate-implementation-prompts
+  title: Generate Implementation Prompts
+  owner: johnmillerATcodemag-com
+  category: meta-documentation
+  tags: [meta-prompts, implementation, system-development]
+  output_format: markdown
+---
 
-## Objective
-Create comprehensive prompt files to systematically implement the Academia System. Each prompt file should guide developers through specific implementation tasks while ensuring quality and continuity across the entire system.
+# Generate Implementation Prompts
 
-## Prompt File Requirements
+Create comprehensive prompt files to systematically implement system components with quality and continuity.
 
-### Structure
-Each implementation prompt file should follow this structure:
-1. **Context & Overview** - Brief description of the component being implemented
-2. **Prerequisites** - Dependencies and prior implementations required
-3. **Implementation Tasks** - Detailed, actionable tasks with acceptance criteria
-4. **Verification Steps** - Specific tests to confirm successful implementation
-5. **Integration Testing** - Cumulative tests to ensure prior implementations remain functional
+## Prompt File Structure
+1. **Context & Overview**: Component description
+2. **Prerequisites**: Dependencies, prior implementations
+3. **Implementation Tasks**: Detailed, actionable with acceptance criteria
+4. **Verification Steps**: Specific tests for confirmation
+5. **Integration Testing**: Cumulative tests ensuring prior functionality
 
-### Content Guidelines
-- **Granularity**: Break down complex features into manageable, focused prompts
-- **Clarity**: Use clear, unambiguous language with specific technical requirements
-- **Completeness**: Include all necessary details (APIs, schemas, UI components, business logic)
-- **Testability**: Every task must have measurable success criteria
+## Content Guidelines
+- **Granularity**: Manageable, focused prompts
+- **Clarity**: Unambiguous, specific technical requirements
+- **Completeness**: All details (APIs, schemas, UI, business logic)
+- **Testability**: Measurable success criteria per task
 
-### Implementation Task Format
-For each task, include:
-- **Task Description**: What needs to be implemented
-- **Technical Requirements**: Specific technologies, patterns, or constraints
-- **Acceptance Criteria**: Measurable outcomes that define completion
-- **Code Quality Standards**: Testing, documentation, and style requirements
+## Task Format
+Per task include:
+- Description (what to implement)
+- Technical requirements (technologies, patterns, constraints)
+- Acceptance criteria (measurable outcomes)
+- Code quality standards (testing, docs, style)
 
-### Verification Framework
-Each prompt must include:
+## Verification Framework
+**Component-Level**:
+- Unit tests, integration tests
+- Performance benchmarks (if applicable)
+- Security validation (sensitive ops)
 
-#### Component-Level Verification
-- Unit tests for new functionality
-- Integration tests for component interactions
-- Performance benchmarks where applicable
-- Security validation for sensitive operations
+**Cumulative System**:
+- Regression testing (verify previous features)
+- End-to-end scenarios (complete workflows)
+- Data integrity (DB consistency)
+- API compatibility (existing contracts valid)
 
-#### Cumulative System Verification
-- **Regression Testing**: Verify all previously implemented features still work
-- **End-to-End Scenarios**: Test complete user workflows spanning multiple components
-- **Data Integrity**: Ensure database consistency across all implementations
-- **API Compatibility**: Verify all existing API contracts remain valid
+## Components to Address
+- **Core**: DB schema/migrations, auth/authz, API gateway, logging/monitoring
+- **Academic**: Student enrollment/profiles, course catalog/scheduling, grades/transcripts, faculty
+- **Admin**: User management/permissions, reporting/analytics, system config, data import/export
+- **UI**: Student portal, faculty dashboard, admin interface, mobile apps
 
-## Academia System Components to Address
-
-### Core Infrastructure
-- Database schema and migrations
-- Authentication and authorization system
-- API gateway and routing
-- Logging and monitoring
-
-### Academic Management
-- Student enrollment and profiles
-- Course catalog and scheduling
-- Grade management and transcripts
-- Faculty management
-
-### Administrative Functions
-- User management and permissions
-- Reporting and analytics
-- System configuration
-- Data import/export
-
-### User Interfaces
-- Student portal
-- Faculty dashboard
-- Administrative interface
-- Mobile applications
-
-## Prompt File Organization
-Create prompts in logical implementation order:
-1. **Foundation**: Database, authentication, core APIs
-2. **Core Features**: Student/faculty management, courses
-3. **Advanced Features**: Scheduling, grading, reporting
-4. **User Interfaces**: Web and mobile applications
-5. **Integration & Deployment**: System integration, deployment automation
+## Implementation Order
+1. Foundation (DB, auth, core APIs)
+2. Core features (student/faculty, courses)
+3. Advanced (scheduling, grading, reporting)
+4. UIs (web, mobile)
+5. Integration & deployment
 
 ## Quality Assurance
-Each prompt should ensure:
-- **Backwards Compatibility**: New implementations don't break existing features
-- **Data Migration**: Handle schema changes and data preservation
-- **Performance**: Maintain or improve system performance
-- **Security**: Follow security best practices and compliance requirements
-- **Scalability**: Consider future growth and extensibility
+Ensure:
+- Backwards compatibility
+- Data migration handling
+- Performance maintenance/improvement
+- Security best practices
+- Scalability for future growth
 
-## Example Verification Checklist Template
+## Verification Checklist Template
 ```
-□ All unit tests pass (>95% coverage)
+□ Unit tests pass (>95% coverage)
 □ Integration tests pass
-□ API documentation updated
-□ Database migrations successful
-□ Previous system functionality verified
+□ API docs updated
+□ DB migrations successful
+□ Previous functionality verified
 □ Performance benchmarks met
 □ Security scan passed
 □ Code review completed
@@ -97,9 +83,8 @@ Each prompt should ensure:
 ```
 
 ## Success Criteria
-The generated prompts should result in:
-- A fully functional Academia System implemented incrementally
-- Each component thoroughly tested and documented
-- Seamless integration between all system parts
-- Maintainable, scalable, and secure codebase
-- Comprehensive test coverage and documentation
+- Fully functional system implemented incrementally
+- Each component tested and documented
+- Seamless integration
+- Maintainable, scalable, secure codebase
+- Comprehensive test coverage and docs

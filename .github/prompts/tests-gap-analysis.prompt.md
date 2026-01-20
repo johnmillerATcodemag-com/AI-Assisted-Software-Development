@@ -1,108 +1,58 @@
 ---
-description: "Analyze current codebase and identify missing tests, with prioritized recommendations and coverage targets"
+description: "Analyze codebase and identify missing tests with prioritized recommendations"
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
 mode: agent
 ---
 
-# Prompt: Tests Gap Analysis
+# Tests Gap Analysis
 
-Looking at the current #codebase, what tests are needed and missing?
-
-## Objective
-
-Perform a read-only audit of the repository to:
-
-- Inventory existing tests by type and coverage signals
-- Identify critical functionalities and surfaces with missing or insufficient tests
-- Recommend concrete test cases with priorities and example scaffolds
-- Propose realistic coverage goals and a stepwise plan to get there
+What tests are needed and missing?
 
 ## Inputs
+Codebase (source + test files), signals (unit/integration/e2e tests, runners, CI steps, coverage reports, fixtures, mocks)
 
-- Codebase: all source files and test files in the repository
-- Signals: presence of unit/integration/e2e tests, test runners, CI steps, coverage reports, fixtures, mocks
+## Exclusions
+`.git/`, `node_modules/`, `dist/`, `build/`, `.venv/`, `.env/`, `.cache/`, `coverage/` artifacts, binaries
 
-## Scope and exclusions
+## Process
+1. **Discover testing setup**: Frameworks/runners (Jest, Vitest, pytest, etc.), test dirs, naming patterns, coverage config/thresholds, CI workflow steps
+2. **Inventory existing tests**: Count by type (unit/integration/e2e/component/contract), critical modules/components with tests, flakiness indicators
+3. **Map critical functionality**: Core domains, public APIs, services, critical UI flows, error handling paths (use naming, folders, entry points)
+4. **Identify gaps/risks**: Per critical area, state if tests exist/adequate, flag untested error paths, boundaries, auth/security checks, integration seams
+5. **Recommend tests**: Prioritized list with type, target, scenario outline (Given/When/Then or Arrange/Act/Assert), rationale (risk/regressions), effort (S/M/L)
+6. **Coverage goals/plan**: Baseline targets (overall + critical areas), 2–3 phase plan with quick wins first
+7. **Summarize**: Executive summary + durations
 
-- Exclude: `.git/`, `node_modules/`, `dist/`, `build/`, `.venv/`, `.env/`, `.cache/`, `coverage/` artifacts (read only), binaries
-- Do not modify files or run commands; static analysis only
-
-## Steps
-
-1. Discover testing setup
-   - Detect test frameworks/runners (e.g., Jest, Vitest, Mocha, pytest, JUnit, MSTest, xUnit, Playwright/Cypress)
-   - Identify test directories and naming patterns
-   - Find any coverage configuration and thresholds
-   - Locate CI workflow steps for tests
-
-2. Inventory existing tests
-   - Count tests by type: unit, integration, e2e, component, contract
-   - List critical modules/components with their existing tests
-   - Note flakiness indicators (e.g., retries, skipped tests)
-
-3. Map critical functionality
-   - Identify core domains, public APIs, services, critical UI flows, and error handling paths
-   - Use naming, folder structure, and entry points to infer importance
-
-4. Identify gaps and risks
-   - For each critical area, state whether tests exist and if they’re adequate
-   - Flag untested error paths, boundary conditions, auth/security checks, and integration seams
-
-5. Recommend tests
-   - Provide a prioritized list of missing tests, each with:
-     - Type (unit/integration/e2e/component/contract)
-     - Target (file/module/flow)
-     - Scenario outline (Given/When/Then or Arrange/Act/Assert)
-     - Rationale (risk covered, regressions prevented)
-     - Est. effort (S/M/L)
-
-6. Coverage goals and plan
-   - Suggest baseline coverage targets (overall and by critical areas)
-   - Propose a 2–3 phase plan to reach targets with quick wins first
-
-7. Summarize and report durations
-   - Provide an executive summary and time breakdown per step and total
-
-## Output format (Markdown)
+## Output (Markdown)
 
 ### Executive summary
-- Current test posture, biggest gaps, and risk level in 2–3 sentences
+Current test posture, biggest gaps, risk level (2–3 sentences)
 
 ### Detected testing setup
-- Frameworks/runners, directories, patterns, CI steps, coverage config
+Frameworks, dirs, patterns, CI steps, coverage config
 
 ### Test inventory
-- Counts by type; notable files/components and their tests
+Counts by type, notable files/components and their tests
 
-### Gaps and risks
-Provide a table. One row per gap.
-
-| Area/Target | Missing test type | Scenario summary | Risk/Impact | Effort |
-|---|---|---|---|---|
-| auth/login flow | e2e | Invalid credentials show error and no session set | Prevents auth regressions | M |
+### Gaps/risks table
+| Area/Target | Missing type | Scenario | Risk/Impact | Effort |
+|-------------|--------------|----------|-------------|--------|
+| auth/login | e2e | Invalid creds show error | Auth regressions | M |
 
 ### Recommended tests (prioritized)
-- Bullet list grouped by High/Medium/Low priority with brief scenario outlines
+Grouped by High/Medium/Low priority with scenario outlines
 
 ### Coverage goals and plan
-- Baseline targets and phased plan with milestones
+Baseline targets, phased plan with milestones
 
 ### Sources scanned
-- Key files and directories consulted
+Key files/dirs consulted
 
 ### Durations
-- Step 1: <duration>
-- Step 2: <duration>
-- Step 3: <duration>
-- Step 4: <duration>
-- Step 5: <duration>
-- Step 6: <duration>
-- Step 7: <duration>
-- Total: <duration>
+Per-step + total
 
 ## Constraints
-
-- Be concrete and evidence-based (file paths, components, modules)
-- Prefer small, high-signal tests early; avoid speculative test cases
-- No network calls or code modifications
+- Concrete, evidence-based (file paths, components)
+- Prefer small, high-signal tests early
+- No network calls/code modifications

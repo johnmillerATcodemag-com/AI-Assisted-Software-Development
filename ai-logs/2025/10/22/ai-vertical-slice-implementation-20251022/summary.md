@@ -113,7 +113,7 @@ Create specialized instruction file to guide AI assistants (GitHub Copilot, Chat
 
 | Artifact                                                                       | Type             | Purpose                                              |
 | ------------------------------------------------------------------------------ | ---------------- | ---------------------------------------------------- |
-| `.github/instructions/vertical-slice-implementation.instructions.md`        | Instruction File | AI-specific guide for generating vertical slice code |
+| `.github/instructions/vertical-slice-implementation.instructions.md`           | Instruction File | AI-specific guide for generating vertical slice code |
 | `ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/conversation.md` | AI Log           | Complete conversation transcript for provenance      |
 | `ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/summary.md`      | Summary          | This session summary for resumability                |
 

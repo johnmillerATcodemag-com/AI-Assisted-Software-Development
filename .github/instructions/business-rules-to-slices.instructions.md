@@ -146,17 +146,14 @@ Present structured output (see templates below)
 Categorize rules as you find them:
 
 1. **Structural Rules** (Facts/Definitions)
-
    - Pattern: "A [entity] has/is/contains [attribute/relationship]"
    - Example: "A customer must have an email address"
 
 2. **Operative Rules** (Constraints)
-
    - Pattern: "A [entity] must/cannot/should [action/condition]"
    - Example: "Users cannot register with duplicate emails"
 
 3. **Derivation Rules** (Calculations)
-
    - Pattern: "[Value] is calculated as/equals [formula]"
    - Example: "Total = subtotal + tax - discounts"
 

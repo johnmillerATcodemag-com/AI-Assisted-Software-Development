@@ -32,7 +32,7 @@ This document provides instructions for AI assistants when analyzing business re
 **Related Documentation**:
 
 - [Business Rules to Vertical Slices (Human Guide)](.github/instructions/business-rules-to-vertical-slices.instructions.md)
-- [AI Vertical Slice Implementation](.github/instructions/ai-vertical-slice-implementation.instructions.md)
+- [AI Vertical Slice Implementation](.github/instructions/vertical-slice-implementation.instructions.md)
 
 ## Table of Contents
 
@@ -1188,5 +1188,5 @@ When requirements describe access control:
 **Related Instructions**:
 
 - `.github/instructions/business-rules-to-vertical-slices.instructions.md` - Human guide
-- `.github/instructions/ai-vertical-slice-implementation.instructions.md` - Code generation
+- `.github/instructions/vertical-slice-implementation.instructions.md` - Code generation
 - `.github/instructions/vertical-slice-architecture.instructions.md` - Architecture guide

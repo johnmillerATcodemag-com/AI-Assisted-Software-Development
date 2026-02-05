@@ -17,7 +17,7 @@
   - `.github/instructions/ai-assisted-output.instructions.md`
   - `.github/instructions/copilot-instructions.md`
   - `.github/instructions/vertical-slice-architecture.instructions.md`
-  - `.github/instructions/ai-vertical-slice-implementation.instructions.md`
+  - `.github/instructions/vertical-slice-implementation.instructions.md`
 
 ## Exchanges
 

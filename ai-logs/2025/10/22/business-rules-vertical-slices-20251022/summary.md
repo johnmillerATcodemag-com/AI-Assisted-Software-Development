@@ -54,7 +54,7 @@ Create comprehensive instruction files (one for human developers, one for AI ass
 
 - Human developers need understanding of WHY (principles, rationale, context)
 - AI assistants need explicit HOW (algorithms, templates, validation rules)
-- Previous experience with vertical-slice-architecture.instructions.md vs ai-vertical-slice-implementation.instructions.md validated this approach
+- Previous experience with vertical-slice-architecture.instructions.md vs vertical-slice-implementation.instructions.md validated this approach
 - Humans benefit from examples and narrative explanations
 - AI benefits from structured procedures and checklists
 

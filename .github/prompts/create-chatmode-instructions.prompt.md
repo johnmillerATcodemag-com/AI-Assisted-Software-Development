@@ -7,7 +7,7 @@ prompt_metadata:
   id: create-chatmode-instructions
   title: Generate Custom Chat Mode Instructions
   owner: johnmillerATcodemag-com
-  output_path: .github/instructions/create-chatmode.instructions.md
+  output_path: .github/instructions/create-chatmode-file.instructions.md
   category: documentation
   tags: [chatmode, copilot, documentation]
   output_format: markdown
@@ -18,12 +18,14 @@ prompt_metadata:
 Create comprehensive guidelines for authoring custom GitHub Copilot chat modes.
 
 ## Context
+
 Instructions for creating specialized AI assistants with specific expertise, personality, and commands.
 Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `copilot-instructions.md`.
 
-## Output: `.github/instructions/create-chatmode.instructions.md`
+## Output: `.github/instructions/create-chatmode-file.instructions.md`
 
 ### Structure:
+
 1. **Overview**: Purpose, benefits, when to create vs use default, integration
 2. **File Structure**:
    - Naming: `<ChatModeName>.chatmode.md` (PascalCase) in `.github/chatmodes/`
@@ -51,12 +53,14 @@ Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `
 11. **Maintenance**: Versioning, feedback loop, iteration, deprecation
 
 ### Templates to Include:
+
 - Security analyzer pattern
 - Documentation assistant pattern
 - Code exploration pattern
 - Architecture review pattern
 
 ### Quality Checklist:
+
 - PascalCase filename with `.chatmode.md`
 - All header fields present
 - Mission clear, expertise listed (5-10)
@@ -65,4 +69,5 @@ Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `
 - Style aligns with domain
 
 ## Deliverable
+
 Complete file with YAML front matter per ai-assisted-output policy, all sections, templates, checklists, examples.

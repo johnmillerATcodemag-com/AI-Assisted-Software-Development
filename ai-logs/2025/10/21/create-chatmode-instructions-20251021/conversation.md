@@ -10,7 +10,7 @@
 ## Context
 
 - Inputs: `.github/prompts/create-chatmode-instructions.prompt.md`, existing chat mode files (SecurityAnalyzer, DocDesignArchitect, CodebaseExplorer, GitFlowStrategist)
-- Targets: `.github/instructions/create-chatmode.instructions.md`
+- Targets: `.github/instructions/create-chatmode-file.instructions.md`
 - Constraints/Policies: `.github/instructions/ai-assisted-output.instructions.md`, `.github/instructions/copilot-instructions.md`
 
 ## Exchanges
@@ -68,7 +68,7 @@ Now generating comprehensive authoring instructions...
 
 ```text
 Created comprehensive chat mode authoring instructions at:
-.github/instructions/create-chatmode.instructions.md
+.github/instructions/create-chatmode-file.instructions.md
 
 The file includes:
 
@@ -102,7 +102,7 @@ Ready for immediate use by chat mode authors.
 
 **Artifacts Produced**:
 
-- `.github/instructions/create-chatmode.instructions.md` - Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes with field specifications, templates, examples, and quality checklists
+- `.github/instructions/create-chatmode-file.instructions.md` - Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes with field specifications, templates, examples, and quality checklists
 
 **Next Steps**:
 

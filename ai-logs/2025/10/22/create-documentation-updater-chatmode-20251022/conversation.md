@@ -11,9 +11,9 @@
 
 - Inputs: Problem statement requesting creation of a chat mode for updating documentation
 - Targets: `.github/chatmodes/DocumentationUpdater.chatmode.md`
-- Constraints/Policies: 
+- Constraints/Policies:
   - `.github/instructions/ai-assisted-output.instructions.md`
-  - `.github/instructions/create-chatmode.instructions.md`
+  - `.github/instructions/create-chatmode-file.instructions.md`
   - `.github/instructions/copilot-instructions.md`
 
 ## Exchanges
@@ -44,7 +44,7 @@ Found existing chat modes:
 - GitFlowStrategist.chatmode.md - Git workflow management
 - update-prompt-models.chatmode.md - Prompt model updates
 
-Reviewed guidelines in create-chatmode.instructions.md and ai-assisted-output.instructions.md.
+Reviewed guidelines in create-chatmode-file.instructions.md and ai-assisted-output.instructions.md.
 
 Creating DocumentationUpdater.chatmode.md focused on:
 - Documentation maintenance and updates

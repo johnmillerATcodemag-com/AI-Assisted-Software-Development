@@ -14,8 +14,7 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
 
 ### Primary Deliverables
 
-1. **Create Chat Mode Instructions** (`.github/instructions/create-chatmode.instructions.md`)
-
+1. **Create Chat Mode Instructions** (`.github/instructions/create-chatmode-file.instructions.md`)
    - Comprehensive 10-section guide covering all aspects of chat mode authoring
    - Field-by-field header specifications with examples
    - Content structure guidelines for mission, expertise, methodology, commands
@@ -27,7 +26,6 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
    - Full AI provenance metadata per repository requirements
 
 2. **AI Conversation Log** (`ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md`)
-
    - Complete transcript of the authoring session
    - Context, exchanges, and work burst closure
    - Artifact and duration tracking
@@ -110,7 +108,7 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
 
 | Artifact                                                                   | Type             | Purpose                                              |
 | -------------------------------------------------------------------------- | ---------------- | ---------------------------------------------------- |
-| `.github/instructions/create-chatmode.instructions.md`                     | Instruction File | Comprehensive chat mode authoring guidelines         |
+| `.github/instructions/create-chatmode-file.instructions.md`                | Instruction File | Comprehensive chat mode authoring guidelines         |
 | `ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md` | Conversation Log | Complete session transcript with provenance          |
 | `ai-logs/2025/10/21/create-chatmode-instructions-20251021/summary.md`      | Summary          | High-level session overview and resumability context |
 

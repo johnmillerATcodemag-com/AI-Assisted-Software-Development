@@ -68,10 +68,9 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 ### Notable Artifacts
 
-- **Prompt Authoring Instructions** ([`.github/instructions/create-prompt.instructions.md`](.github/instructions/create-prompt.instructions.md))
-
+- **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
-  - Generated from: [`.github/prompts/prompt-file.instructions.prompt.md`](.github/prompts/prompt-file.instructions.prompt.md)
+  - Generated from: [`.github/prompts/create-prompt-instructions.prompt.md`](.github/prompts/create-prompt-instructions.prompt.md)
   - Provenance: [Chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md)
 
 - **Instruction Validation Report** ([`validation-report-20251015-212137.md`](validation-report-20251015-212137.md))
@@ -94,6 +93,7 @@ Identify branches with changes that haven't been merged to main:
 - **PowerShell:** [`scripts/check_unmerged_branches.ps1`](scripts/check_unmerged_branches.ps1) - For Windows/PowerShell Core
 
 **Usage:**
+
 ```bash
 # Bash
 ./scripts/check_unmerged_branches.sh
@@ -109,7 +109,7 @@ See [`scripts/README.md`](scripts/README.md) for detailed documentation and conf
 Scripts for managing GitHub security issues:
 
 - `close_duplicate_security_issues.ps1` - Close duplicate security issues
-- `close_latest_security_issues.ps1` - Close latest security issues  
+- `close_latest_security_issues.ps1` - Close latest security issues
 - `close_new_security_issues.ps1` - Close new security issues
 - `close_resolved_security_issues.ps1` - Close resolved security issues
 - `emergency_security_cleanup.ps1` - Emergency security cleanup

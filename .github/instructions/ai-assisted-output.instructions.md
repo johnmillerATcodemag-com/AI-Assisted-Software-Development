@@ -68,6 +68,8 @@ Contributors generating or curating AI-assisted content (code, docs, diagrams, t
 - Require updating the top-level README.md with a brief entry whenever this process generates a new file (what it is, where it lives, and a one-line purpose), including a link to the new artifact.
 - Provide enforcement patterns that make chat scaffolding a prerequisite and block PRs until ai-log linkage exists.
 - Emphasize automatic chat management, context-aware logging, and artifact protection before any artifact is created.
+- **Require that all AI-assisted artifacts be primarily targeted at AI agents for consumption and processing.**
+- **Require optimization of artifacts to minimize token consumption while maintaining completeness and clarity.**
 
 ## Terminology
 
@@ -456,8 +458,8 @@ Before committing AI-assisted content, verify:
 - [ ] Naming conventions followed for files and paths
 - [ ] README.md updated for new notable artifacts
 - [ ] Chat scaffolding in place before artifact creation
-- [ ] Embedded metadata used for Markdown (no sidecar files; see “Metadata placement policy”)
-
+- [ ] Embedded metadata used for Markdown (no sidecar files; see “Metadata placement policy”)- [ ] **Artifact optimized for AI agent consumption and processing**
+- [ ] **Content structured to minimize token usage while maintaining clarity and completeness**
 ## PR and Commit Checklist (Mandatory)
 
 Before submitting pull requests containing AI-assisted content:

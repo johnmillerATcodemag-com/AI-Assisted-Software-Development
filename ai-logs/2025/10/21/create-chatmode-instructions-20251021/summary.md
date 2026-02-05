@@ -40,7 +40,7 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
   - SecurityAnalyzer.chatmode.md (complex, command-driven)
   - documentation-visualizer.chatmode.md (simple, focused)
   - CodebaseExplorer.chatmode.md (comprehensive with methodology)
-  - GitFlowStrategist.chatmode.md (concise, opinionated)
+  - git-expert.chatmode.md (concise, opinionated)
 - Identified common structure elements and variations
 - Created reusable templates based on real examples
 

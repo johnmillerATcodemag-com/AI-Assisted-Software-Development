@@ -41,7 +41,7 @@ Found existing chat modes:
 - documentation-visualizer.chatmode.md - Documentation design and Mermaid diagrams
 - SecurityAnalyzer.chatmode.md - Security analysis and vulnerability detection
 - codebase-explorer.chatmode.md - Codebase understanding
-- GitFlowStrategist.chatmode.md - Git workflow management
+- git-expert.chatmode.md - Git workflow management
 - update-prompt-models.chatmode.md - Prompt model updates
 
 Reviewed guidelines in create-chatmode-file.instructions.md and ai-assisted-output.instructions.md.

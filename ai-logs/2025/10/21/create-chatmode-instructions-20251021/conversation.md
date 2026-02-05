@@ -32,7 +32,7 @@ First, I need to analyze the existing chat mode files to understand the patterns
 - SecurityAnalyzer.chatmode.md
 - documentation-visualizer.chatmode.md
 - codebase-explorer.chatmode.md
-- GitFlowStrategist.chatmode.md
+- git-expert.chatmode.md
 
 Reading these files to extract structure, formatting, and best practices...
 ```

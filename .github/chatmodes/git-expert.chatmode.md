@@ -1,4 +1,4 @@
-# Name: Git Flow Strategist
+# Name: Git Expert
 
 # Focus: Branching policies, merge style enforcement, and CI/CD hygiene
 

@@ -4,7 +4,7 @@ model: "anthropic/claude-3.5-sonnet@2024-10-22"
 operator: "<GITHUB_USERNAME>"
 chat_id: "optimize-instructions-20251023"
 prompt: |
-  Create AI-optimized version of instruction-prompt.instructions.md with minimal tokens
+  Create AI-optimized version of create-instruction-prompts.instructions.md with minimal tokens
 started: "2025-10-23T04:38:00Z"
 ended: "2025-10-23T04:38:00Z"
 task_durations:
@@ -16,20 +16,37 @@ source: "optimization-task"
 applyTo: "**/*.instructions.prompt.md"
 ---
 
-# AI Instructions: Instruction Prompt Requirements
+# AI Instructions: Creating Instruction-Generating Prompts
 
-Requirements for prompts that generate `*.instructions.md` files.
+## Purpose
 
-## Applies To
-Pattern: `**/*.instructions.prompt.md`
+This file provides requirements for creating prompts that generate `*.instructions.md` files. These are **meta-prompts** - prompts whose purpose is to create instruction files for developers and AI assistants.
+
+## Why This Exists
+
+Instruction files (`*.instructions.md`) require strict AI provenance compliance and standardized structure. This file ensures that prompts generating such files automatically include all required metadata and compliance elements, preventing non-compliant instruction files.
+
+## Scope & Application
+
+- **Applies To**: Prompts matching pattern `**/*.instructions.prompt.md`
+- **Purpose**: Generate compliant `*.instructions.md` files with full AI provenance
+- **Distinction**: This is NOT for general prompt creation (see `prompt-file.instructions.md` for that)
+
+## Target Audience
+
+- Developers creating instruction-generating prompts
+- AI assistants tasked with generating instruction files
+- Anyone building meta-prompts for documentation generation
 
 ## Mandatory Requirements
 
 ### 1. Context Section
+
 Must include AI policy reference:
 
 ```markdown
 ## Context
+
 <domain-specific context>
 
 **CRITICAL**: All AI-generated artifacts MUST comply with
@@ -38,16 +55,17 @@ instruction file MUST include full AI provenance metadata.
 ```
 
 ### 2. Deliverable Section
+
 Must include AI provenance template:
 
-```markdown
+`````markdown
 ## Deliverable
 
 Generate `.github/instructions/<domain>.instructions.md` with:
 
 ### Required AI Provenance Metadata (YAML Front Matter)
 
-```yaml
+````yaml
 ai_generated: true
 model: "<model-name-and-version>"
 operator: "<operator-username>"
@@ -77,7 +95,10 @@ prompt_metadata:
   output_path: .github/instructions/<domain>.instructions.md
   category: documentation
   output_format: markdown
-```
+````
+`````
+
+````
 
 ## Complete Template
 
@@ -100,16 +121,19 @@ prompt_metadata:
 # Generate <Domain> Instructions
 
 ## Context
+
 <domain-context>
 
 **CRITICAL**: All AI-generated artifacts MUST comply with
 `.github/instructions/ai-assisted-output.instructions.md`.
 
 ## Deliverable
+
 [Include provenance template from above]
 ```
 
 ## Validation Checklist
+
 - [ ] Context references AI policy
 - [ ] Deliverable includes provenance template with all 10 fields
 - [ ] Output path points to `.github/instructions/<name>.instructions.md`
@@ -118,6 +142,7 @@ prompt_metadata:
 - [ ] ID follows `create-<domain>-instructions` pattern
 
 ## Common Mistakes
+
 ❌ Missing AI provenance section → Add complete YAML template
 ❌ Not referencing AI policy → Add CRITICAL statement
 ❌ Vague deliverable → Be explicit about metadata fields
@@ -126,11 +151,13 @@ prompt_metadata:
 ## Creation Options
 
 **Option 1**: Use meta-prompt
+
 ```
 Submit .github/prompts/meta/create-instruction-prompt.prompt.md
 ```
 
 **Option 2**: Manual
+
 1. Copy existing instruction prompt
 2. Update domain-specific content
 3. Ensure Context references AI policy
@@ -138,4 +165,6 @@ Submit .github/prompts/meta/create-instruction-prompt.prompt.md
 5. Validate against checklist
 
 ## Reference
+
 See `.github/instructions/ai-assisted-output.instructions.md` for complete provenance requirements.
+````

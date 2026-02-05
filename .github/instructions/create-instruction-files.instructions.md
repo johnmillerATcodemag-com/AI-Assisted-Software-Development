@@ -30,7 +30,7 @@ This document provides comprehensive guidance for creating new instruction files
 
 - [AI-Assisted Output Instructions](.github/instructions/ai-assisted-output.instructions.md)
 - [Copilot Instructions](.github/instructions/copilot-instructions.md)
-- [Instruction Prompt Requirements](.github/instructions/ai/instruction-prompt.instructions.md)
+- [Instruction Prompt Requirements](.github/instructions/create-instruction-prompts.instructions.md)
 
 ## Table of Contents
 
@@ -647,4 +647,4 @@ Follow this guide to create instruction files that provide valuable, consistent 
 
 - `.github/instructions/ai-assisted-output.instructions.md`
 - `.github/instructions/copilot-instructions.md`
-- `.github/instructions/ai/instruction-prompt.instructions.md`
+- `.github/instructions/create-instruction-prompts.instructions.md`

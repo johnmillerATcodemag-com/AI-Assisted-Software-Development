@@ -1,4 +1,4 @@
-# Name: Doc Design Architect
+# Name: Documentation Visualizer
 
 # Focus: Technical documentation, diagramming with Mermaid, and readability improvements
 

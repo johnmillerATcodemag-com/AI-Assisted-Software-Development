@@ -38,7 +38,7 @@ I'll create a comprehensive chat mode for documentation updates. Let me first ex
 
 ```text
 Found existing chat modes:
-- DocDesignArchitect.chatmode.md - Documentation design and Mermaid diagrams
+- documentation-visualizer.chatmode.md - Documentation design and Mermaid diagrams
 - SecurityAnalyzer.chatmode.md - Security analysis and vulnerability detection
 - codebase-explorer.chatmode.md - Codebase understanding
 - GitFlowStrategist.chatmode.md - Git workflow management

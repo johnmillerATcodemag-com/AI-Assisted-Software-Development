@@ -170,7 +170,7 @@ Create a custom GitHub Copilot chat mode specialized in documentation maintenanc
 
 - `.github/instructions/create-chatmode-file.instructions.md` - Chat mode authoring guidelines
 - `.github/instructions/ai-assisted-output.instructions.md` - AI provenance requirements
-- `.github/chatmodes/DocDesignArchitect.chatmode.md` - Related documentation chat mode
+- `.github/chatmodes/documentation-visualizer.chatmode.md` - Related documentation chat mode
 - `.github/chatmodes/SecurityAnalyzer.chatmode.md` - Pattern reference for methodology
 - `.github/chatmodes/codebase-explorer.chatmode.md` - Pattern reference for commands
 

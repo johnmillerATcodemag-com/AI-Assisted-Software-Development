@@ -7,7 +7,7 @@ prompt_metadata:
   id: prompt-file.instructions-prompt
   title: Meta Prompt — Generate Prompt Authoring Instructions
   owner: johnmillerATcodemag-com
-  output_path: .github/prompts/prompt-file.instructions.prompt.md
+  output_path: .github/prompts/create-prompt-instructions.prompt.md
   category: meta-documentation
   tags: [meta-prompts, documentation, prompt-engineering]
   output_format: markdown
@@ -18,18 +18,21 @@ prompt_metadata:
 Create prompt for generating Markdown guidelines to help create effective, well-structured repository prompts.
 
 ## Output Target
-`.github/prompts/prompt-file.instructions.prompt.md` → creates → `.github/instructions/create-prompt.instructions.md`
+
+`.github/prompts/create-prompt-instructions.prompt.md` → creates → `.github/instructions/prompt-file.instructions.md`
 
 ## Generated Prompt Must Include:
 
 ### Required Metadata (YAML Frontmatter)
+
 - Top-level: `mode` (agent|chat), `model` (Auto or specific), `tools` (array), `description`
 - `prompt_metadata`: `id: prompt-file.instructions-prompt`, `output_path`, title, version, tags, category
 
 ### Content Structure
+
 1. **Audience & Scope**: Developers, prompt authors, skill expectations
 2. **Prompt File Structure**: YAML frontmatter (mode, model, tools, description at top-level + prompt_metadata), organization standards
-3. **Field-by-Field Docs**: 
+3. **Field-by-Field Docs**:
    - Top-level required: mode (agent for files), model (Auto default), tools (array), description (NOT in metadata)
    - prompt_metadata: id, title, owner, output_path, output_format, tags
    - Validation rules, examples
@@ -41,6 +44,7 @@ Create prompt for generating Markdown guidelines to help create effective, well-
 9. **Quick Reference**: Minimal valid prompt, field reference, tool selection guide
 
 ### Key Requirements to Enforce
+
 - Description at TOP-LEVEL (not in prompt_metadata)
 - Tools array complete and minimal
 - Mode: agent (file ops) or chat (interactive)
@@ -48,4 +52,5 @@ Create prompt for generating Markdown guidelines to help create effective, well-
 - YAML syntax valid
 
 ## Deliverable
+
 Complete prompt that generates comprehensive prompt authoring instructions following all standards.

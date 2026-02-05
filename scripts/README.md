@@ -1,14 +1,95 @@
-# Branch Change Tracking Scripts
+# Repository Utility Scripts
 
-This directory contains scripts to help identify branches with changes that haven't been merged to the main branch.
+This directory contains scripts for repository maintenance, branch tracking, and AI instruction file management.
 
-## Available Scripts
+## AI Instruction Synchronization Scripts
+
+### sync-ai-instructions.ps1
+
+**Purpose:** Comprehensive synchronization script for `ai-assisted-output.instructions.md` files across all repositories in `c:\git`.
+
+**Features:**
+
+- Automatic detection of outdated instruction files
+- Size, timestamp, and content hash comparison
+- Safe update with optional backup creation
+- Detailed progress reporting and error handling
+- WhatIf mode for testing without changes
+
+**Usage:**
+
+```powershell
+# Standard synchronization
+.\scripts\sync-ai-instructions.ps1
+
+# Test mode - see what would be updated
+.\scripts\sync-ai-instructions.ps1 -WhatIf
+
+# Force update all files with backups
+.\scripts\sync-ai-instructions.ps1 -Force -Backup
+
+# Detailed output showing all files
+.\scripts\sync-ai-instructions.ps1 -Detailed
+```
+
+**Parameters:**
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `-WhatIf` | Switch | Show what would be updated without making changes |
+| `-Force` | Switch | Update all files regardless of age (force overwrite) |
+| `-Backup` | Switch | Create timestamped `.bak` files before updating |
+| `-Detailed` | Switch | Show detailed information for all files |
+
+### quick-sync.ps1
+
+**Purpose:** Simplified wrapper for daily use that runs sync with standard options.
+
+**Usage:**
+
+```powershell
+# Quick sync with backup (recommended for daily use)
+.\scripts\quick-sync.ps1
+```
+
+**Features:**
+
+- Automatically runs with backup enabled
+- Provides helpful next-step reminders
+- Perfect for regular maintenance
+
+### Example Output
+
+```
+=== AI Instructions Synchronization Script ===
+
+[SOURCE] Canonical source: c:\git\AIASD\AI-Assisted-Software-Development\.github\instructions\ai-assisted-output.instructions.md
+[SOURCE] Size: 25805 bytes, Modified: 01/20/2026 10:15:06
+
+[SCAN] Scanning c:\git for ai-assisted-output.instructions.md files...
+[SCAN] Found 8 files
+
+[CURRENT] c:\git\ai-practitioner\ai-practitioner-blog\.github\instructions\ai-assisted-output.instructions.md (25805 bytes, 01/20/2026 10:15:06)
+[OUTDATED] c:\git\zeus\zeus.academia.3\.github\instructions\ai-assisted-output.instructions.md (10204 bytes, 10/15/2025 07:20:25)
+[BACKUP] Created backup: c:\git\zeus\zeus.academia.3\.github\instructions\ai-assisted-output.instructions.md.bak.20260204-200239
+[UPDATED] Updated: c:\git\zeus\zeus.academia.3\.github\instructions\ai-assisted-output.instructions.md (25805 bytes)
+
+=== Synchronization Summary ===
+[SUMMARY] Files processed: 7
+[SUMMARY] Files updated: 1
+[SUMMARY] Files current: 6
+[SUMMARY] Errors: 0
+
+[DONE] Synchronization completed successfully!
+```
+
+## Branch Change Tracking Scripts
 
 ### Bash Script (Linux/Mac/WSL)
 
 **File:** `check_unmerged_branches.sh`
 
 **Usage:**
+
 ```bash
 # Basic usage
 ./scripts/check_unmerged_branches.sh
@@ -28,6 +109,7 @@ MAX_COMMITS_TO_SHOW=20 ./scripts/check_unmerged_branches.sh
 **File:** `check_unmerged_branches.ps1`
 
 **Usage:**
+
 ```powershell
 # Basic usage
 .\scripts\check_unmerged_branches.ps1
@@ -46,12 +128,12 @@ MAX_COMMITS_TO_SHOW=20 ./scripts/check_unmerged_branches.sh
 
 Both scripts support the same configuration options:
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `MAIN_BRANCH`/`-MainBranch` | `main` | The main branch to compare against |
-| `REMOTE`/`-Remote` | `origin` | The remote repository name |
-| `SHOW_DETAILS`/`-ShowDetails` | `true` | Whether to show detailed commit and file information |
-| `MAX_COMMITS_TO_SHOW`/`-MaxCommitsToShow` | `10` | Maximum number of commits to display per branch |
+| Option                                    | Default  | Description                                          |
+| ----------------------------------------- | -------- | ---------------------------------------------------- |
+| `MAIN_BRANCH`/`-MainBranch`               | `main`   | The main branch to compare against                   |
+| `REMOTE`/`-Remote`                        | `origin` | The remote repository name                           |
+| `SHOW_DETAILS`/`-ShowDetails`             | `true`   | Whether to show detailed commit and file information |
+| `MAX_COMMITS_TO_SHOW`/`-MaxCommitsToShow` | `10`     | Maximum number of commits to display per branch      |
 
 ## Output
 
@@ -110,11 +192,12 @@ Tip: Review these branches to determine if they should be merged or deleted
 You can run these scripts as part of your CI/CD pipeline:
 
 **GitHub Actions Example:**
+
 ```yaml
 name: Branch Report
 on:
   schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 9 AM
+    - cron: "0 9 * * 1" # Every Monday at 9 AM
   workflow_dispatch:
 
 jobs:
@@ -134,11 +217,23 @@ jobs:
 
 This directory also contains other utility scripts:
 
+### AI Instruction Management
+
+- `sync-ai-instructions.ps1` - Comprehensive AI instruction file synchronization
+- `quick-sync.ps1` - Quick daily sync wrapper with backups
+
+### Security Issue Management
+
 - `close_duplicate_security_issues.ps1` - Close duplicate security issues
 - `close_latest_security_issues.ps1` - Close latest security issues
 - `close_new_security_issues.ps1` - Close new security issues
 - `close_resolved_security_issues.ps1` - Close resolved security issues
 - `emergency_security_cleanup.ps1` - Emergency security cleanup
+
+### Repository Maintenance
+
+- `check_unmerged_branches.sh` / `check_unmerged_branches.ps1` - Branch tracking scripts
+- `copy-copilot-files.ps1` - Copy Copilot configuration files
 
 ## Contributing
 

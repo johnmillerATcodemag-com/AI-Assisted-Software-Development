@@ -52,7 +52,7 @@ This repository enforces provenance and logging for any AI-assisted outputs (cod
 
 Custom chat modes are specialized AI assistants that extend GitHub Copilot's capabilities for specific domains and workflows. Activate with `@<modename>` in GitHub Copilot chat.
 
-- [`.github/chatmodes/DocumentationUpdater.chatmode.md`](.github/chatmodes/DocumentationUpdater.chatmode.md) — Documentation maintenance, accuracy verification, and continuous improvement ([chat log](ai-logs/2025/10/22/create-documentation-updater-chatmode-20251022/conversation.md))
+- [`.github/chatmodes/technical-writer.chatmode.md`](.github/chatmodes/technical-writer.chatmode.md) — Documentation maintenance, accuracy verification, and continuous improvement ([chat log](ai-logs/2025/10/22/create-documentation-updater-chatmode-20251022/conversation.md))
 - [`.github/chatmodes/documentation-visualizer.chatmode.md`](.github/chatmodes/documentation-visualizer.chatmode.md) — Technical documentation, diagramming with Mermaid, and readability improvements
 - [`.github/chatmodes/SecurityAnalyzer.chatmode.md`](.github/chatmodes/SecurityAnalyzer.chatmode.md) — Code security analysis, vulnerability detection, and automated issue creation
 - [`.github/chatmodes/codebase-explorer.chatmode.md`](.github/chatmodes/codebase-explorer.chatmode.md) — Rapid codebase understanding and evaluation

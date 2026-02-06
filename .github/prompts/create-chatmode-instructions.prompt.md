@@ -7,7 +7,7 @@ prompt_metadata:
   id: create-chatmode-instructions
   title: Generate Custom Chat Mode Instructions
   owner: johnmillerATcodemag-com
-  output_path: .github/instructions/create-chatmode-file.instructions.md
+  output_path: .github/instructions/chatmode-file.instructions.md
   category: documentation
   tags: [chatmode, copilot, documentation]
   output_format: markdown
@@ -22,7 +22,7 @@ Create comprehensive guidelines for authoring custom GitHub Copilot chat modes.
 Instructions for creating specialized AI assistants with specific expertise, personality, and commands.
 Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `copilot-instructions.md`.
 
-## Output: `.github/instructions/create-chatmode-file.instructions.md`
+## Output: `.github/instructions/chatmode-file.instructions.md`
 
 ### Structure:
 

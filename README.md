@@ -70,7 +70,7 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
-  - Generated from: [`.github/prompts/create-prompt-instructions.prompt.md`](.github/prompts/create-prompt-instructions.prompt.md)
+  - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)
   - Provenance: [Chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md)
 
 - **Instruction Validation Report** ([`validation-report-20251015-212137.md`](validation-report-20251015-212137.md))

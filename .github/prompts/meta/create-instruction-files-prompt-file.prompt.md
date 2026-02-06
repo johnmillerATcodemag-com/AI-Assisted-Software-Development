@@ -7,7 +7,7 @@ prompt_metadata:
   id: create-instruction-files-prompt-file
   title: Meta Prompt — Generate Prompt Authoring Instructions
   owner: johnmillerATcodemag-com
-  output_path: .github/prompts/create-prompt-instructions.prompt.md
+  output_path: .github/prompts/create-prompt-file-instructions-file.prompt.md
   category: meta-documentation
   tags: [meta-prompts, documentation, prompt-engineering]
   output_format: markdown
@@ -19,7 +19,7 @@ Create prompt for generating Markdown guidelines to help create effective, well-
 
 ## Output Target
 
-`.github/prompts/create-prompt-instructions.prompt.md` → creates → `.github/instructions/prompt-file.instructions.md`
+`.github/prompts/create-prompt-file-instructions-file.prompt.md` → creates → `.github/instructions/prompt-file.instructions.md`
 
 ## Generated Prompt Must Include:
 

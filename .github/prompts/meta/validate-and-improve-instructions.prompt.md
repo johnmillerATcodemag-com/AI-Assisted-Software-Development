@@ -7,6 +7,9 @@ prompt_metadata:
   id: validate-and-improve-instructions-meta-prompt
   title: Validate and Improve Instruction Files (Iterative)
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/instructions/
   category: meta-automation
   tags: [meta-prompt, validation, quality-assurance, iterative-improvement]

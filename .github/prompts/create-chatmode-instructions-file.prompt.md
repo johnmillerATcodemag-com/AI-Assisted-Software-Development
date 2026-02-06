@@ -7,6 +7,9 @@ prompt_metadata:
   id: create-chatmode-instructions
   title: Generate Custom Chat Mode Instructions
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/instructions/chatmode-file.instructions.md
   category: documentation
   tags: [chatmode, copilot, documentation]

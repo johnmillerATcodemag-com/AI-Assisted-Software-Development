@@ -7,6 +7,9 @@ prompt_metadata:
   id: create-instruction-files-prompt-file
   title: Meta Prompt — Generate Prompt Authoring Instructions
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/prompts/create-prompt-file-instructions-file.prompt.md
   category: meta-documentation
   tags: [meta-prompts, documentation, prompt-engineering]

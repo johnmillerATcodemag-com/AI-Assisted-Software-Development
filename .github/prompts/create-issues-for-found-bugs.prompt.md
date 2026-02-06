@@ -1,8 +1,19 @@
 ---
-description: "Identify bugs via static analysis and generate GitHub issues with remediation"
+mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
-mode: agent
+description: "Identify bugs in codebase and generate GitHub issues with fixes"
+prompt_metadata:
+  id: create-issues-found-bugs
+  title: Bug Analysis to GitHub Issues
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: bug-analysis.md
+  category: analysis
+  tags: [bugs, github-issues, analysis, code-quality, debugging]
+  output_format: markdown
 ---
 
 # Bug Hunt — Findings to GitHub Issues

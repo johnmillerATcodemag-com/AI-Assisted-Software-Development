@@ -7,6 +7,9 @@ prompt_metadata:
   id: create-use-case-instructions-file-prompt-file
   title: Meta Prompt — Generate Use Case Instructions
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/prompts/create-use-case-instructions.prompt.md
   category: meta-documentation
   tags: [meta-prompts, use-cases, documentation]

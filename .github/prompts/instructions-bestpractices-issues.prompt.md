@@ -1,8 +1,19 @@
 ---
-description: "Review .github/instructions for deviations from best practices and generate GitHub issue drafts"
+mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
-mode: agent
+description: "Review .github/instructions for deviations from best practices and generate GitHub issue drafts"
+prompt_metadata:
+  id: instructions-best-practices-issues
+  title: Instructions Best Practices Review to GitHub Issues
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: reports/instruction-best-practices-issues.md
+  category: analysis
+  tags: [instructions, best-practices, github-issues, analysis, documentation, quality]
+  output_format: markdown
 ---
 
 # Instruction Files — Best Practices Review to GitHub Issues

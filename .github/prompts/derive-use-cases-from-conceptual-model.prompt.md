@@ -7,6 +7,9 @@ prompt_metadata:
   id: derive-use-cases-from-academia
   title: Generate Use Cases from conceptual model (ORM rules)
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: Model/use-cases/derived-use-cases.index.md
   category: documentation
   tags: [use-cases, orm, modeling, mermaid, automation]

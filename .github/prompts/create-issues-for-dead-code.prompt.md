@@ -1,8 +1,19 @@
 ---
-description: "Detect dead code and generate GitHub issues with remediation"
+mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
-mode: agent
+description: "Detect dead code and generate GitHub issues with remediation"
+prompt_metadata:
+  id: create-issues-dead-code
+  title: Dead Code Analysis to GitHub Issues
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: dead-code-analysis.md
+  category: analysis
+  tags: [dead-code, github-issues, analysis, cleanup, code-quality]
+  output_format: markdown
 ---
 
 # Dead Code Analysis — Findings to GitHub Issues

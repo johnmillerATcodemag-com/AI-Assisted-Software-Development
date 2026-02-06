@@ -30,7 +30,7 @@ This document provides comprehensive guidance for creating new instruction files
 
 - [AI-Assisted Output Instructions](.github/instructions/ai-assisted-output.instructions.md)
 - [Copilot Instructions](.github/instructions/copilot-instructions.md)
-- [Instruction Prompt Requirements](.github/instructions/create-instruction-prompts.instructions.md)
+- [Instruction Prompt Requirements](.github/instructions/instruction-prompts.instructions.md)
 
 ## Table of Contents
 
@@ -285,7 +285,6 @@ For step-by-step processes:
 ## Process Overview
 
 1. **Step 1**: [Action]
-
    - Requirement A
    - Requirement B
 
@@ -536,7 +535,7 @@ Guidelines for conducting thorough, constructive code reviews.
 
 ### Example 2: API Documentation Instructions
 
-````markdown
+`````markdown
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
@@ -584,6 +583,8 @@ GET /api/users/123e4567-e89b-12d3-a456-426614174000
 Authorization: Bearer {token}
 ```
 ````
+`````
+
 ````
 
 Response:
@@ -647,4 +648,5 @@ Follow this guide to create instruction files that provide valuable, consistent 
 
 - `.github/instructions/ai-assisted-output.instructions.md`
 - `.github/instructions/copilot-instructions.md`
-- `.github/instructions/create-instruction-prompts.instructions.md`
+- `.github/instructions/instruction-prompts.instructions.md`
+````

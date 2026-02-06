@@ -4,7 +4,7 @@ model: "anthropic/claude-3.5-sonnet@2024-10-22"
 operator: "<GITHUB_USERNAME>"
 chat_id: "optimize-instructions-20251023"
 prompt: |
-  Create AI-optimized version of create-instruction-prompts.instructions.md with minimal tokens
+  Create AI-optimized version of instruction-prompts.instructions.md with minimal tokens
 started: "2025-10-23T04:38:00Z"
 ended: "2025-10-23T04:38:00Z"
 task_durations:

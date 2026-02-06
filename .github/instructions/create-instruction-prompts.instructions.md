@@ -1,10 +1,14 @@
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-operator: "<GITHUB_USERNAME>"
+operator: "johnmillerATcodemag-com"
 chat_id: "optimize-instructions-20251023"
 prompt: |
+<<<<<<<< HEAD:.github/instructions/instruction-prompt-files.instructions.md
+  Create AI-optimized version of instruction-prompt-files.instructions.md with minimal tokens
+========
   Create AI-optimized version of create-instruction-prompts.instructions.md with minimal tokens
+>>>>>>>> e206ad3781af81d922968edf8fb8c0f073d70e2b:.github/instructions/create-instruction-prompts.instructions.md
 started: "2025-10-23T04:38:00Z"
 ended: "2025-10-23T04:38:00Z"
 task_durations:
@@ -153,7 +157,7 @@ prompt_metadata:
 **Option 1**: Use meta-prompt
 
 ```
-Submit .github/prompts/meta/create-instruction-prompt.prompt.md
+Submit .github/prompts/meta/create-instruction-files-prompt-file.prompt.md
 ```
 
 **Option 2**: Manual

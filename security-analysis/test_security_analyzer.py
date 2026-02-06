@@ -102,9 +102,9 @@ def test_chat_mode():
     print("\n💬 Testing Security Analyzer Chat Mode...")
     print("=" * 50)
 
-    chatmode_file = '.github/chatmodes/SecurityAnalyzer.chatmode.md'
+    chatmode_file = '.github/chatmodes/security-expert.chatmode.md'
     if os.path.exists(chatmode_file):
-        print("✅ SecurityAnalyzer.chatmode.md exists")
+        print("✅ security-expert.chatmode.md exists")
 
         with open(chatmode_file, 'r', encoding='utf-8') as f:
             content = f.read()

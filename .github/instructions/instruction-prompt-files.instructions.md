@@ -153,7 +153,7 @@ prompt_metadata:
 **Option 1**: Use meta-prompt
 
 ```
-Submit .github/prompts/meta/create-instruction-prompt.prompt.md
+Submit .github/prompts/meta/create-instruction-files-prompt-file.prompt.md
 ```
 
 **Option 2**: Manual

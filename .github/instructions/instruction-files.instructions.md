@@ -226,7 +226,7 @@ Closes #123
 
 ### Method 1: Using Meta-Prompt (Recommended)
 
-1. **Submit Meta-Prompt**: Use `.github/prompts/meta/create-instruction-prompt.prompt.md`
+1. **Submit Meta-Prompt**: Use `.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`
 2. **Specify Domain**: Clearly define the instruction domain
 3. **Review Generated Prompt**: Ensure it meets requirements
 4. **Execute Prompt**: Run the generated prompt to create instructions

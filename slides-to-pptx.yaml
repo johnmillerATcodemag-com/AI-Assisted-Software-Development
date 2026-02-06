@@ -1,0 +1,27 @@
+# Pandoc Defaults for Slide Conversions
+# Optimized for Marp slide decks and presentation materials
+# Usage Examples:
+#   pandoc --defaults=slides-to-pptx input.md -o output.pptx
+#   pandoc --defaults=slides-to-pdf input.md -o output.pdf
+
+# Common input settings for all slide conversions
+from: markdown+yaml_metadata_block+fenced_code_blocks+pipe_tables+footnotes+smart+task_lists
+strip-comments: true
+
+# PowerPoint conversion (most common for presentations)
+to: pptx
+slide-level: 2
+incremental: false
+
+# Code block styling
+highlight-style: pygments
+
+# PowerPoint template reference - using working pptx template
+reference-doc: "templates/reference-template.pptx"
+
+# Table and figure handling
+table-of-contents: false
+number-sections: false
+
+# Output quality
+dpi: 300

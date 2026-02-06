@@ -70,6 +70,10 @@ source: "username"
 
 Content here
 
+::: notes
+Speaker notes for this slide explaining key talking points, context, and delivery guidance. Include timing, emphasis, and audience interaction cues.
+:::
+
 ---
 
 ## Slide 2
@@ -77,8 +81,34 @@ Content here
 - Bullet points
 - More content
 
+::: notes
+Detailed speaker notes for slide 2. Explain each bullet point, provide examples, and note any transitions to the next slide.
+:::
+
 ---
 ```
+
+## Speaker Notes Requirements
+
+**MANDATORY**: Every slide MUST include comprehensive speaker notes using pandoc syntax:
+
+```markdown
+::: notes
+Speaker notes content here
+:::
+```
+
+**Speaker Notes Content Guidelines**:
+
+- **Delivery Instructions**: How to present the content effectively
+- **Timing Guidance**: Suggested time allocation for each slide
+- **Key Points**: Essential messages to emphasize
+- **Examples**: Real-world illustrations or case studies
+- **Transitions**: How to connect to the next slide
+- **Audience Interaction**: Questions, polls, or discussion points
+- **Background Context**: Additional details not shown on slide
+
+**Placement**: Speaker notes MUST be placed immediately after each slide's content, before the next slide separator (`---`).
 
 ## Generation Rules
 
@@ -89,12 +119,17 @@ Content here
 - Create `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
 - Capture exact prompt verbatim
 - Use ISO8601 timestamps
+- **Include comprehensive speaker notes for EVERY slide**
+- Use pandoc `:::notes` syntax for speaker notes
+- Ensure speaker notes provide delivery guidance and context
 
 **Prohibited**:
 
 - Generic model names like "github/copilot"
 - Creating slides without active chat context
 - Omitting any required metadata fields
+- **Creating slides without speaker notes**
+- Using incorrect speaker notes syntax
 
 ## Checklist
 
@@ -103,6 +138,9 @@ Content here
 - [ ] `ai_log` path exists with conversation.md
 - [ ] `operator` is GitHub username
 - [ ] Timestamps in ISO8601 format
+- [ ] **Every slide has comprehensive speaker notes**
+- [ ] **Speaker notes use correct pandoc `:::notes` syntax**
+- [ ] **Speaker notes include delivery guidance, timing, and context**
 - [ ] Complete [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
 
 ## README Entry Template

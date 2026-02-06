@@ -1,8 +1,19 @@
 ---
-description: "Analyze instruction files for conflicts and inconsistencies"
-model: "anthropic/claude-3.5-sonnet@2024-10-22"
-tools: ['search', 'edit', 'fetch']
 mode: agent
+model: "anthropic/claude-3.5-sonnet@2024-10-22"
+tools: ["search", "edit", "fetch"]
+description: "Analyze instruction files for conflicts and inconsistencies"
+prompt_metadata:
+  id: check-context-conflicts
+  title: Context Analysis and Conflict Detection
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: analysis-report.md
+  category: analysis
+  tags: [analysis, conflicts, validation, context, instructions]
+  output_format: markdown
 ---
 
 # Context Analysis and Conflict Detection

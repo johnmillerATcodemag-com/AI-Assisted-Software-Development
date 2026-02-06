@@ -592,7 +592,17 @@ Why This Design:
 
 ## Enforcement (CI)
 
-This repository should block PRs when provenance is incomplete. The minimal GitHub Actions job below fails when:
+This repository should block PRs when provenance is incomplete or security issues are detected. The GitHub Actions workflow below enforces:
+
+- AI provenance metadata completeness (chat_id, ai_log, etc.)
+- Secret detection (credentials, API keys)
+- Dependency vulnerability scanning
+- SBOM (Software Bill of Materials) generation and validation
+- Security scan results block PRs on high-severity findings
+
+### AI Provenance Enforcement
+
+The minimal GitHub Actions job below fails when:
 
 - Any changed Markdown file contains `ai_generated: true` but is missing `ai_log` or `chat_id` in front matter
 - The `ai_log` path does not exist in the repository
@@ -600,7 +610,7 @@ This repository should block PRs when provenance is incomplete. The minimal GitH
 Example (Linux/macOS runner using bash):
 
 ```yaml
-name: Verify AI Provenance
+name: Verify AI Provenance and Security
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -611,13 +621,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      # AI Provenance Validation
       - name: Determine changed Markdown files
         run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
           CHANGED=$(git diff --name-only --diff-filter=ACMRT "origin/${{ github.base_ref }}...HEAD" | grep -E '\\.md$' || true)
           echo "$CHANGED" > changed_md.txt
 
-      - name: Validate front matter and ai-logs linkage
+      - name: Validate AI provenance (front matter and ai-logs linkage)
         run: |
           set -euo pipefail
           rc=0
@@ -654,12 +666,122 @@ jobs:
             rm -f fm.yml || true
           done < changed_md.txt
           exit $rc
+
+  # Security Scanning
+  security-scans:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Secret Detection
+      - name: Scan for secrets (TruffleHog)
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.pull_request.base.sha || 'main' }}
+          head: HEAD
+          extra_args: --only-verified --json
+
+      # Dependency Vulnerability Scanning
+      - name: Dependency vulnerability scan
+        uses: github/super-linter@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: false
+          RUN_LOCAL: true
+        with:
+          is-local: true
+          dependency-check: true
+
+      # SBOM Generation (using CycloneDX)
+      - name: Generate Software Bill of Materials (SBOM)
+        uses: CycloneDX/gh-action@v2
+        with:
+          version: v1
+          args: 'generate -o sbom.xml -t application'
+
+      # Verify SBOM integrity
+      - name: Validate SBOM
+        run: |
+          if [ ! -f sbom.xml ]; then
+            echo "::error::SBOM file not generated"
+            exit 1
+          fi
+          echo "✓ SBOM generated successfully: sbom.xml"
+
+      # Upload SBOM as artifact (for dependency tracking)
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v3
+        with:
+          name: sbom
+          path: sbom.xml
+          retention-days: 90
+
+  # Block PR on security failures
+  security-gates:
+    needs: [security-scans]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check security scan results
+        run: |
+          if [ "${{ needs.security-scans.result }}" == "failure" ]; then
+            echo "::error::Security scans failed. Please address identified issues before merging."
+            exit 1
+          fi
+          echo "✓ All security scans passed"
 ```
 
+### Security Scanning Configuration Notes
+
+**Secret Detection**:
+
+- The TruffleHog action scans all changed files for verified secrets
+- Use `--only-verified` flag to reduce false positives
+- Blocks PR if any verified credentials are detected
+- Configure secret types in your TruffleHog config (`.trufflehog.yml`)
+
+**Dependency Scanning**:
+
+- Scans for known vulnerable dependencies
+- Checks direct and transitive dependency versions
+- Requires up-to-date dependency manifests (package.json, requirements.txt, csproj, etc.)
+- Configure failure thresholds via `super-linter` configuration
+
+**SBOM Generation**:
+
+- Generates CycloneDX standard SBOM for compliance tracking
+- Artifacts uploaded for 90 days for dependency review
+- Include SBOM in releases and security documentation
+- SBOM used for supply chain vulnerability analysis
+
+### Hardening & Best Practices
+
+1. **Secrets Management**:
+   - Enable GitHub Secret Scanning in repository settings
+   - Use branch protection rules to require security checks to pass
+   - Rotate any exposed secrets immediately
+
+2. **Dependency Management**:
+   - Enable Dependabot for automated dependency updates
+   - Require security updates to pass PR checks before merging
+   - Maintain SBOM as living artifact alongside releases
+
+3. **PR Blocking Rules**:
+   - Configure branch protection to require all security gates to pass
+   - Set status checks to required: `verify-provenance`, `security-scans`
+   - Require dismissal of stale reviews after security updates
+
+4. **Compliance**:
+   - Archive SBOM alongside release artifacts
+   - Document security scan exemptions in PR description
+   - Audit security check logs regularly for patterns
+
 Note: This example uses bash and is compatible with Linux/macOS runners. For Windows runners, adapt the script to PowerShell or use WSL. For non-GitHub CI systems, apply equivalent logic in your platform’s scripting language. README updates are typically verified during PR review rather than automated CI checks (teams may extend CI to detect new AI-generated files and verify corresponding README entries if desired).
-
 ## Non-Compliance and Remediation
-
 - Missing logs or references: Scaffold `ai-logs/yyyy/mm/dd/<chat-id>/`, add front matter `ai_log` and `chat_id`, update README (optionally link back to the chat folder), then re-request review.
 - Orphaned artifacts: Create or reconstruct `conversation.md` from available history and update artifacts to reference it.
 - Incomplete metadata: Add missing required fields, timestamps, and task durations; verify operator and model details.

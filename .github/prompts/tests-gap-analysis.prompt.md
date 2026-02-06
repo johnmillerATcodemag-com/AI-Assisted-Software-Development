@@ -1,8 +1,19 @@
 ---
-description: "Analyze codebase and identify missing tests with prioritized recommendations"
+mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
-mode: agent
+description: "Analyze codebase and identify missing tests with prioritized recommendations"
+prompt_metadata:
+  id: tests-gap-analysis
+  title: Testing Gap Analysis and Recommendations
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: reports/tests-gap-analysis.md
+  category: analysis
+  tags: [testing, gap-analysis, coverage, quality-assurance, recommendations]
+  output_format: markdown
 ---
 
 # Tests Gap Analysis

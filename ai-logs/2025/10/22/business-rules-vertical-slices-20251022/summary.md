@@ -15,7 +15,6 @@ Create comprehensive instruction files (one for human developers, one for AI ass
 ### Primary Deliverables
 
 1. **Business Rules to Vertical Slices (Human Guide)** (`.github/instructions/business-rules-to-vertical-slices.instructions.md`)
-
    - Comprehensive analysis process (8 steps)
    - Business rule extraction techniques (4 types)
    - Use case identification methods
@@ -27,7 +26,7 @@ Create comprehensive instruction files (one for human developers, one for AI ass
    - Common pitfalls and best practices
    - ~1000+ lines
 
-2. **AI Business Rules to Slices (AI Guide)** (`.github/instructions/ai-business-rules-to-slices.instructions.md`)
+2. **AI Business Rules to Slices (AI Guide)** (`.github/instructions/business-rules-to-slices.instructions.md`)
    - Explicit trigger conditions
    - Step-by-step analysis workflow
    - Business rule extraction rules with algorithms
@@ -55,7 +54,7 @@ Create comprehensive instruction files (one for human developers, one for AI ass
 
 - Human developers need understanding of WHY (principles, rationale, context)
 - AI assistants need explicit HOW (algorithms, templates, validation rules)
-- Previous experience with vertical-slice-architecture.instructions.md vs ai-vertical-slice-implementation.instructions.md validated this approach
+- Previous experience with vertical-slice-architecture.instructions.md vs vertical-slice-implementation.instructions.md validated this approach
 - Humans benefit from examples and narrative explanations
 - AI benefits from structured procedures and checklists
 
@@ -112,7 +111,7 @@ Create comprehensive instruction files (one for human developers, one for AI ass
 | Artifact                                                                     | Type        | Purpose                                                     |
 | ---------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------- |
 | `.github/instructions/business-rules-to-vertical-slices.instructions.md`     | Instruction | Human guide for business analysis to vertical slice design  |
-| `.github/instructions/ai-business-rules-to-slices.instructions.md`           | Instruction | AI assistant guide for analyzing requirements and designing |
+| `.github/instructions/business-rules-to-slices.instructions.md`              | Instruction | AI assistant guide for analyzing requirements and designing |
 | `ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md` | Log         | Full conversation transcript                                |
 | `ai-logs/2025/10/22/business-rules-vertical-slices-20251022/summary.md`      | Summary     | Session summary and resumability context                    |
 

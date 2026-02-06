@@ -68,6 +68,18 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 ### Notable Artifacts
 
+- **VS Code Copilot Agents Overview Slides** ([`Slides/individual-slides/vscode-copilot-agents-overview.md`](Slides/individual-slides/vscode-copilot-agents-overview.md))
+  - Comprehensive Marp slide deck covering VS Code Copilot Agents ecosystem with interactive workflows
+  - 12 slides with detailed speaker notes covering local, background, cloud, and third-party agents
+  - Includes decision matrices, hand-off workflows, and practical implementation guidance
+  - Provenance: [Chat log](ai-logs/2026/02/06/vscode-agents-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/vscode-agents-slides-20260206/summary.md)
+
+- **GitHub Worktrees Guide Slides** ([`Slides/individual-slides/github-worktrees-guide.md`](Slides/individual-slides/github-worktrees-guide.md))
+  - Comprehensive Marp slide deck teaching parallel development with Git worktrees
+  - 12 slides covering introduction, essential commands, practical workflows, hands-on exercises, and best practices
+  - Includes detailed speaker notes, troubleshooting guidance, and resources for continued learning
+  - Provenance: [Chat log](ai-logs/2026/02/06/github-worktrees-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/github-worktrees-slides-20260206/summary.md)
+
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
   - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)
@@ -113,3 +125,27 @@ Scripts for managing GitHub security issues:
 - `close_new_security_issues.ps1` - Close new security issues
 - `close_resolved_security_issues.ps1` - Close resolved security issues
 - `emergency_security_cleanup.ps1` - Emergency security cleanup
+
+## Document Conversion
+
+### Pandoc Configuration Files
+
+Standardized document conversion configurations for slides, documentation, and presentations:
+
+- **[`slides-to-pptx.yaml`](slides-to-pptx.yaml)** - Optimized for converting Marp slides to PowerPoint presentations
+- **[`to-pdf.yaml`](to-pdf.yaml)** - Professional PDF output for slides and documentation
+- **[`pandoc-defaults.yaml`](pandoc-defaults.yaml)** - Comprehensive multi-format configuration
+- **[`PANDOC.md`](PANDOC.md)** - Complete usage guide with examples and customization options
+- **[`templates/`](templates/)** - PowerPoint reference templates for professional formatting
+
+**Quick Examples:**
+
+```bash
+# Convert slide deck to PowerPoint with template support
+pandoc --defaults=slides-to-pptx Slides/individual-slides/github-worktrees-guide.md -o github-worktrees.pptx
+
+# Convert documentation to PDF
+pandoc --defaults=to-pdf README.md -o project-overview.pdf
+```
+
+**Note**: For professional PowerPoint formatting, create a reference template in the `templates/` directory. See [`templates/README.md`](templates/README.md) for instructions.

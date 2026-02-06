@@ -392,9 +392,11 @@ For frequently-used AI instructions, create optimized versions:
 - Use shorthand notation
 - Focus on actionable directives
 
-## Integration Requirements
+### Integration Requirements
 
 ### 1. README Updates
+
+**See**: [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical) for complete requirements.
 
 Add new instruction files to appropriate README section:
 
@@ -414,9 +416,11 @@ Consider creating a corresponding prompt file:
 
 - `.github/prompts/apply-[domain]-instructions.prompt.md`
 
-## Validation Checklist
+### Process Validation
 
 Before finalizing any instruction file:
+
+**Complete Post-Creation Requirements**: See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
 
 ### Content Validation
 
@@ -434,14 +438,6 @@ Before finalizing any instruction file:
 - [ ] Valid markdown formatting
 - [ ] Working internal links
 - [ ] Proper YAML front matter
-
-### Process Validation
-
-- [ ] Conversation log created
-- [ ] Summary file with resumability context
-- [ ] README.md updated
-- [ ] Related files updated if needed
-- [ ] Semantic commit message used
 
 ### Compliance Validation
 
@@ -477,7 +473,7 @@ Before finalizing any instruction file:
 ### Process Mistakes
 
 ❌ **No Documentation**: File created without updating README
-✅ **Complete Documentation**: README and related files updated
+✅ **Complete Documentation**: See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
 
 ❌ **Reused Chat Logs**: Appending to existing conversation files
 ✅ **Unique Chat Logs**: New conversation file for each session
@@ -619,7 +615,7 @@ Update instruction files when:
 2. **Update Content**: Modify instructions while preserving structure
 3. **Update Metadata**: Change `ended` timestamp, add to `task_durations`
 4. **Test Instructions**: Validate updated guidance works
-5. **Update Documentation**: Reflect changes in README and related files
+5. **Complete Post-Creation**: Follow [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
 
 ### Version Control
 

@@ -28,7 +28,7 @@ $patterns = @(
     '.github\instructions\chatmode-file.instructions.md',
     '.github\instructions\prompt-file.instructions.md',
     '.github\instructions\create-instruction-prompts.instructions.md',
-    '.github\instructions\create-instruction-files.instructions.md',
+    '.github\instructions\instruction-files.instructions.md',
     '.github\instructions\chatmode-file.instructions.md',
     '.github\instructions\create-instruction-prompts.instructions.md',
     '.github\prompts\check-context.prompt.md'

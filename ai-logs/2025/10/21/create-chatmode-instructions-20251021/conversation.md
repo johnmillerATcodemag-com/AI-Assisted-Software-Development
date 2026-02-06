@@ -9,7 +9,7 @@
 
 ## Context
 
-- Inputs: `.github/prompts/create-chatmode-instructions.prompt.md`, existing chat mode files (SecurityAnalyzer, DocDesignArchitect, CodebaseExplorer, GitFlowStrategist)
+- Inputs: `.github/prompts/create-chatmode-instructions-file.prompt.md`, existing chat mode files (SecurityAnalyzer, DocDesignArchitect, CodebaseExplorer, GitFlowStrategist)
 - Targets: `.github/instructions/create-chatmode-file.instructions.md`
 - Constraints/Policies: `.github/instructions/ai-assisted-output.instructions.md`, `.github/instructions/copilot-instructions.md`
 
@@ -20,7 +20,7 @@
 [2025-10-21T19:30:00Z] johnmillerATcodemag-com
 
 ```text
-#file:create-chatmode-instructions.prompt.md
+#file:create-chatmode-instructions-file.prompt.md
 ```
 
 [2025-10-21T19:31:00Z] anthropic/claude-3.5-sonnet@2024-10-22

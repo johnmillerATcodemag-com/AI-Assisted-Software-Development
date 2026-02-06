@@ -64,7 +64,7 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 ### Instruction-Generating Prompts
 
-- [`.github/prompts/create-chatmode-instructions.prompt.md`](.github/prompts/create-chatmode-instructions.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
+- [`.github/prompts/create-chatmode-instructions-file.prompt.md`](.github/prompts/create-chatmode-instructions-file.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
 
 ### Notable Artifacts
 

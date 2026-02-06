@@ -4,7 +4,7 @@ model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["edit", "create"]
 description: Generate Markdown authoring guide for creating instruction files
 prompt_metadata:
-  id: create-instruction-file-instructions
+  id: create-instruction-files-instructions
   title: Generate Instruction-File Authoring Instructions
   owner: johnmillerATcodemag-com
   output_path: .github/instructions/instruction-standards.instruction.md
@@ -18,10 +18,12 @@ prompt_metadata:
 Create Markdown guide for authoring repository instruction files consistently.
 
 ## Output
+
 File: `.github/instructions/instruction-standards.instruction.md`
 Self-contained, renders correctly in Markdown
 
 ## Structure Required:
+
 1. Title: "Instruction File Authoring Guide"
 2. Introduction (purpose, when to use)
 3. Audience & Scope
@@ -36,6 +38,7 @@ Self-contained, renders correctly in Markdown
 12. References/Glossary (optional)
 
 ## Standard Sections to Document:
+
 - Introduction, Audience & Scope, Prerequisites
 - Output Requirements, Steps/Procedure
 - Examples/Samples, Templates/Snippets
@@ -46,22 +49,35 @@ Self-contained, renders correctly in Markdown
 - References/Glossary (optional)
 
 ## Template Format:
-````markdown
+
+```markdown
 # Instruction File Title
+
 ## Introduction
+
 ## Audience and Scope
+
 ## Prerequisites
+
 ## Output Requirements
+
 ## Steps
+
 ## Examples
+
 ## Templates
+
 ## Validation Checklist
+
 ## File Placement
+
 ## Versioning
+
 ## Security
-````
+```
 
 ## Quality Checklist:
+
 - All standard sections present
 - Template is copy-paste ready
 - Examples are realistic

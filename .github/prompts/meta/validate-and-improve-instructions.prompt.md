@@ -44,7 +44,7 @@ Record initial state (file count, baseline), initialize iteration counter (max: 
 Execute prompts in sequence:
 
 1. `.github/prompts/create-ai-assisted-output-instructions.prompt.md` → `ai-assisted-output.instructions.md`
-2. `.github/prompts/meta/create-instruction-file-instructions.prompt.md` → `instruction-standards.instruction.md`
+2. `.github/prompts/meta/create-instruction-files-instructions.prompt.md` → `instruction-standards.instruction.md`
 3. `.github/prompts/create-prompt-instructions.prompt.md` → `prompt-file.instructions.md`
 4. `.github/prompts/create-use-case-instructions.prompt.md` → `create-use-case.instructions.md`
 

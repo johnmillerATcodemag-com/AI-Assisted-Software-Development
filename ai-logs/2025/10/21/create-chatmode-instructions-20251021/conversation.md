@@ -9,8 +9,8 @@
 
 ## Context
 
-- Inputs: `.github/prompts/create-chatmode-instructions.prompt.md`, existing chat mode files (SecurityAnalyzer, DocDesignArchitect, CodebaseExplorer, GitFlowStrategist)
-- Targets: `.github/instructions/create-chatmode.instructions.md`
+- Inputs: `.github/prompts/create-chatmode-instructions-file.prompt.md`, existing chat mode files (SecurityAnalyzer, DocDesignArchitect, CodebaseExplorer, GitFlowStrategist)
+- Targets: `.github/instructions/create-chatmode-file.instructions.md`
 - Constraints/Policies: `.github/instructions/ai-assisted-output.instructions.md`, `.github/instructions/copilot-instructions.md`
 
 ## Exchanges
@@ -20,7 +20,7 @@
 [2025-10-21T19:30:00Z] johnmillerATcodemag-com
 
 ```text
-#file:create-chatmode-instructions.prompt.md
+#file:create-chatmode-instructions-file.prompt.md
 ```
 
 [2025-10-21T19:31:00Z] anthropic/claude-3.5-sonnet@2024-10-22
@@ -30,9 +30,9 @@ I'll execute the prompt to generate comprehensive instructions for creating cust
 
 First, I need to analyze the existing chat mode files to understand the patterns:
 - SecurityAnalyzer.chatmode.md
-- DocDesignArchitect.chatmode.md
+- documentation-visualizer.chatmode.md
 - codebase-explorer.chatmode.md
-- GitFlowStrategist.chatmode.md
+- git-expert.chatmode.md
 
 Reading these files to extract structure, formatting, and best practices...
 ```
@@ -68,7 +68,7 @@ Now generating comprehensive authoring instructions...
 
 ```text
 Created comprehensive chat mode authoring instructions at:
-.github/instructions/create-chatmode.instructions.md
+.github/instructions/create-chatmode-file.instructions.md
 
 The file includes:
 
@@ -102,7 +102,7 @@ Ready for immediate use by chat mode authors.
 
 **Artifacts Produced**:
 
-- `.github/instructions/create-chatmode.instructions.md` - Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes with field specifications, templates, examples, and quality checklists
+- `.github/instructions/create-chatmode-file.instructions.md` - Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes with field specifications, templates, examples, and quality checklists
 
 **Next Steps**:
 

@@ -1,8 +1,19 @@
 ---
-description: "Audit codebase against .github/instructions and report deviations"
+mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
-mode: agent
+description: "Audit codebase against .github/instructions and report deviations"
+prompt_metadata:
+  id: codebase-instructions-audit
+  title: Codebase vs Instructions Audit
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: audit-report.md
+  category: audit
+  tags: [audit, compliance, instructions, codebase, analysis]
+  output_format: markdown
 ---
 
 # Codebase vs. Instructions Audit

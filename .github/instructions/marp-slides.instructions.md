@@ -1,10 +1,10 @@
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-operator: "<github-username>"
+operator: "johnmillerATcodemag-com"
 chat_id: "optimize-instructions-20251023"
 prompt: |
-  Create AI-optimized version of create-marp-slides.instructions.md with minimal tokens
+  Create AI-optimized version of marp-slides.instructions.md with minimal tokens
 started: "2025-10-23T04:37:00Z"
 ended: "2025-10-23T04:37:00Z"
 task_durations:
@@ -21,6 +21,7 @@ applyTo: "Slides/individual-slides/**"
 Generate Marp slides in `Slides/individual-slides/` with required AI provenance metadata.
 
 ## File Location & Naming
+
 - Path: `Slides/individual-slides/`
 - Filename: lowercase kebab-case (e.g., `intro-to-aiasd.md`)
 
@@ -82,6 +83,7 @@ Content here
 ## Generation Rules
 
 **Required**:
+
 - Embed YAML front matter (no sidecar `.meta.md`)
 - Use actual model name in format `provider/model@version`
 - Create `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
@@ -89,11 +91,13 @@ Content here
 - Use ISO8601 timestamps
 
 **Prohibited**:
+
 - Generic model names like "github/copilot"
 - Creating slides without active chat context
 - Omitting any required metadata fields
 
 ## Checklist
+
 - [ ] File in `Slides/individual-slides/`
 - [ ] All YAML fields present
 - [ ] `ai_log` path exists with conversation.md
@@ -108,4 +112,5 @@ Content here
 ```
 
 ## Reference
+
 See `.github/instructions/ai-assisted-output.instructions.md` for complete provenance requirements.

@@ -4,10 +4,13 @@ model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["create", "edit"]
 description: Create prompt that generates Markdown authoring guidelines for effective repository prompts
 prompt_metadata:
-  id: prompt-file.instructions-prompt
+  id: create-instruction-files-prompt-file
   title: Meta Prompt — Generate Prompt Authoring Instructions
   owner: johnmillerATcodemag-com
-  output_path: .github/prompts/create-prompt-instructions.prompt.md
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: .github/prompts/create-prompt-file-instructions-file.prompt.md
   category: meta-documentation
   tags: [meta-prompts, documentation, prompt-engineering]
   output_format: markdown
@@ -19,7 +22,7 @@ Create prompt for generating Markdown guidelines to help create effective, well-
 
 ## Output Target
 
-`.github/prompts/create-prompt-instructions.prompt.md` → creates → `.github/instructions/prompt-file.instructions.md`
+`.github/prompts/create-prompt-file-instructions-file.prompt.md` → creates → `.github/instructions/prompt-file.instructions.md`
 
 ## Generated Prompt Must Include:
 

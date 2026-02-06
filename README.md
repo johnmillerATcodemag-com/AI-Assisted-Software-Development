@@ -39,40 +39,38 @@ This repository enforces provenance and logging for any AI-assisted outputs (cod
 ### Guidance & Instructions
 
 - [`.github/instructions/ai-assisted-output.instructions.md`](.github/instructions/ai-assisted-output.instructions.md) — How to generate AI-assisted outputs with required metadata, logging, and CI enforcement
-- [`.github/instructions/ai-business-rules-to-slices.instructions.md`](.github/instructions/ai-business-rules-to-slices.instructions.md) — **AI Assistants**: Explicit procedures for analyzing business rules, extracting use cases, and designing vertical slices ([chat log](ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md))
-- [`.github/instructions/dependency-management-policy.instructions.md`](.github/instructions/dependency-management-policy.instructions.md) — Comprehensive dependency management policy covering selection criteria, security monitoring, license compliance, and AI-specific considerations ([chat log](ai-logs/2026/02/05/dependency-management-policy-20260205/conversation.md))
-- [`.github/instructions/ai-vertical-slice-implementation.instructions.md`](.github/instructions/ai-vertical-slice-implementation.instructions.md) — **AI Assistants**: Comprehensive guide for generating vertical slice code with rules, templates, and validation checklists ([chat log](ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/conversation.md))
+- [`.github/instructions/business-rules-to-slices.instructions.md`](.github/instructions/business-rules-to-slices.instructions.md) — **AI Assistants**: Explicit procedures for analyzing business rules, extracting use cases, and designing vertical slices ([chat log](ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md))
+- [`.github/instructions/vertical-slice.instructions.md`](.github/instructions/vertical-slice.instructions.md) — **AI Assistants**: Comprehensive guide for generating vertical slice code with rules, templates, and validation checklists ([chat log](ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/conversation.md))
 - [`.github/instructions/business-rules-to-vertical-slices.instructions.md`](.github/instructions/business-rules-to-vertical-slices.instructions.md) — **Developers**: Guide for analyzing business requirements, extracting rules, and designing implementable vertical slices ([chat log](ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md))
 - [`.github/instructions/copilot-instructions.md`](.github/instructions/copilot-instructions.md) — **GitHub Copilot Users Start Here** - Comprehensive Copilot-specific guidance for model format, conversation logging, and quality standards ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
-- [`.github/instructions/create-chatmode.instructions.md`](.github/instructions/create-chatmode.instructions.md) — Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes ([chat log](ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md))
+- [`.github/instructions/chatmode-file.instructions.md`](.github/instructions/chatmode-file.instructions.md) — Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes ([chat log](ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md))
 - [`.github/instructions/create-prompt.instructions.md`](.github/instructions/create-prompt.instructions.md) — Comprehensive guidelines for authoring effective repository prompts ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
-- [`.github/instructions/create-instruction-prompts.instructions.md`](.github/instructions/create-instruction-prompts.instructions.md) — Requirements for creating prompts that generate instruction files ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
-- [`.github/instructions/model-version-management.instructions.md`](.github/instructions/model-version-management.instructions.md) — Comprehensive AI model lifecycle management including versioning, deployment, monitoring, drift detection, and governance workflows ([chat log](ai-logs/2026/02/05/model-version-management-20260205/conversation.md))
+- [`.github/instructions/instruction-prompt-files.instructions.md`](.github/instructions/instruction-prompt-files.instructions.md) — Requirements for creating prompts that generate instruction files ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
 - [`.github/instructions/vertical-slice-architecture.instructions.md`](.github/instructions/vertical-slice-architecture.instructions.md) — Comprehensive guide for implementing vertical slice architecture with feature-centric code organization ([chat log](ai-logs/2025/10/22/vertical-slice-instructions-20251022/conversation.md))
 
 ### Custom GitHub Copilot Chat Modes
 
 Custom chat modes are specialized AI assistants that extend GitHub Copilot's capabilities for specific domains and workflows. Activate with `@<modename>` in GitHub Copilot chat.
 
-- [`.github/chatmodes/DocumentationUpdater.chatmode.md`](.github/chatmodes/DocumentationUpdater.chatmode.md) — Documentation maintenance, accuracy verification, and continuous improvement ([chat log](ai-logs/2025/10/22/create-documentation-updater-chatmode-20251022/conversation.md))
-- [`.github/chatmodes/DocDesignArchitect.chatmode.md`](.github/chatmodes/DocDesignArchitect.chatmode.md) — Technical documentation, diagramming with Mermaid, and readability improvements
-- [`.github/chatmodes/SecurityAnalyzer.chatmode.md`](.github/chatmodes/SecurityAnalyzer.chatmode.md) — Code security analysis, vulnerability detection, and automated issue creation
+- [`.github/chatmodes/technical-writer.chatmode.md`](.github/chatmodes/technical-writer.chatmode.md) — Documentation maintenance, accuracy verification, and continuous improvement ([chat log](ai-logs/2025/10/22/create-documentation-updater-chatmode-20251022/conversation.md))
+- [`.github/chatmodes/documentation-visualizer.chatmode.md`](.github/chatmodes/documentation-visualizer.chatmode.md) — Technical documentation, diagramming with Mermaid, and readability improvements
+- [`.github/chatmodes/security-expert.chatmode.md`](.github/chatmodes/security-expert.chatmode.md) — Code security analysis, vulnerability detection, and automated issue creation
 - [`.github/chatmodes/codebase-explorer.chatmode.md`](.github/chatmodes/codebase-explorer.chatmode.md) — Rapid codebase understanding and evaluation
-- [`.github/chatmodes/GitFlowStrategist.chatmode.md`](.github/chatmodes/GitFlowStrategist.chatmode.md) — Branching policies, merge style enforcement, and CI/CD hygiene
+- [`.github/chatmodes/git-expert.chatmode.md`](.github/chatmodes/git-expert.chatmode.md) — Branching policies, merge style enforcement, and CI/CD hygiene
 
 ### Meta-Prompts (Prompt Generators)
 
-- [`.github/prompts/meta/create-instruction-prompt.prompt.md`](.github/prompts/meta/create-instruction-prompt.prompt.md) — Generates new instruction-generating prompts with AI provenance built-in ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
+- [`.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`](.github/prompts/meta/create-instruction-files-prompt-file.prompt.md) — Generates new instruction-generating prompts with AI provenance built-in ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
 
 ### Instruction-Generating Prompts
 
-- [`.github/prompts/create-chatmode-instructions.prompt.md`](.github/prompts/create-chatmode-instructions.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
+- [`.github/prompts/create-chatmode-instructions-file.prompt.md`](.github/prompts/create-chatmode-instructions-file.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
 
 ### Notable Artifacts
 
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
-  - Generated from: [`.github/prompts/create-prompt-instructions.prompt.md`](.github/prompts/create-prompt-instructions.prompt.md)
+  - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)
   - Provenance: [Chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md)
 
 - **Instruction Validation Report** ([`validation-report-20251015-212137.md`](validation-report-20251015-212137.md))

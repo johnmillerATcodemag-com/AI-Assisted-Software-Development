@@ -10,7 +10,7 @@
 ## Context
 
 - Inputs: User request for AI-specific vertical slice implementation instructions
-- Targets: `.github/instructions/ai-vertical-slice-implementation.instructions.md`
+- Targets: `.github/instructions/vertical-slice-implementation.instructions.md`
 - Constraints/Policies: `.github/instructions/ai-assisted-output.instructions.md`, `.github/instructions/copilot-instructions.md`
 
 ## Exchanges
@@ -66,7 +66,7 @@ create an instruction file to guide AI implementations using vertical slices
 [2025-10-22T14:55:00Z] anthropic/claude-3.5-sonnet@2024-10-22
 
 ```text
-Created AI-specific instruction file at `.github/instructions/ai-vertical-slice-implementation.instructions.md`
+Created AI-specific instruction file at `.github/instructions/vertical-slice-implementation.instructions.md`
 specifically for AI assistants when generating code using vertical slice architecture:
 
 Key sections:
@@ -92,7 +92,7 @@ vertical slice code correctly and consistently.
 
 **Artifacts Produced**:
 
-- `.github/instructions/ai-vertical-slice-implementation.instructions.md` - Comprehensive AI-specific guide for implementing vertical slice architecture
+- `.github/instructions/vertical-slice-implementation.instructions.md` - Comprehensive AI-specific guide for implementing vertical slice architecture
 - `ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/conversation.md` - This conversation log
 - `ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/summary.md` - Session summary
 

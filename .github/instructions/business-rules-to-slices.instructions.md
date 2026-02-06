@@ -32,7 +32,7 @@ This document provides instructions for AI assistants when analyzing business re
 **Related Documentation**:
 
 - [Business Rules to Vertical Slices (Human Guide)](.github/instructions/business-rules-to-vertical-slices.instructions.md)
-- [AI Vertical Slice Implementation](.github/instructions/ai-vertical-slice-implementation.instructions.md)
+- [AI Vertical Slice Implementation](.github/instructions/vertical-slice.instructions.md)
 
 ## Table of Contents
 
@@ -146,17 +146,14 @@ Present structured output (see templates below)
 Categorize rules as you find them:
 
 1. **Structural Rules** (Facts/Definitions)
-
    - Pattern: "A [entity] has/is/contains [attribute/relationship]"
    - Example: "A customer must have an email address"
 
 2. **Operative Rules** (Constraints)
-
    - Pattern: "A [entity] must/cannot/should [action/condition]"
    - Example: "Users cannot register with duplicate emails"
 
 3. **Derivation Rules** (Calculations)
-
    - Pattern: "[Value] is calculated as/equals [formula]"
    - Example: "Total = subtotal + tax - discounts"
 
@@ -1188,5 +1185,5 @@ When requirements describe access control:
 **Related Instructions**:
 
 - `.github/instructions/business-rules-to-vertical-slices.instructions.md` - Human guide
-- `.github/instructions/ai-vertical-slice-implementation.instructions.md` - Code generation
+- `.github/instructions/vertical-slice.instructions.md` - Code generation
 - `.github/instructions/vertical-slice-architecture.instructions.md` - Architecture guide

@@ -7,6 +7,9 @@ prompt_metadata:
   id: create-use-case-instructions
   title: Generate Use Case Authoring Instructions (Markdown)
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/instructions/create-use-case.instructions.md
   category: documentation
   tags: [use-cases, documentation, authoring-guide, mermaid]

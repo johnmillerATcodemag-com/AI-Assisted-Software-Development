@@ -12,12 +12,12 @@
 - **Inputs**: User request for instruction files covering business rules analysis to vertical slice design
 - **Targets**:
   - `.github/instructions/business-rules-to-vertical-slices.instructions.md` (human guide)
-  - `.github/instructions/ai-business-rules-to-slices.instructions.md` (AI guide)
+  - `.github/instructions/business-rules-to-slices.instructions.md` (AI guide)
 - **Constraints/Policies**:
   - `.github/instructions/ai-assisted-output.instructions.md`
   - `.github/instructions/copilot-instructions.md`
   - `.github/instructions/vertical-slice-architecture.instructions.md`
-  - `.github/instructions/ai-vertical-slice-implementation.instructions.md`
+  - `.github/instructions/vertical-slice-implementation.instructions.md`
 
 ## Exchanges
 
@@ -72,7 +72,7 @@ Now creating the AI-specific version...
 [2025-10-22T16:45:00Z] anthropic/claude-3.5-sonnet@2024-10-22
 
 ```text
-Created ai-business-rules-to-slices.instructions.md (AI guide) with:
+Created business-rules-to-slices.instructions.md (AI guide) with:
 - Explicit trigger conditions for when to apply
 - Step-by-step analysis workflow with algorithms
 - Business rule extraction rules and patterns
@@ -97,7 +97,7 @@ Key differences from human guide:
 **Artifacts Produced**:
 
 - `.github/instructions/business-rules-to-vertical-slices.instructions.md` - Human-focused guide for analyzing business requirements and designing vertical slices
-- `.github/instructions/ai-business-rules-to-slices.instructions.md` - AI assistant guide with explicit procedures and templates
+- `.github/instructions/business-rules-to-slices.instructions.md` - AI assistant guide with explicit procedures and templates
 
 **Next Steps**:
 

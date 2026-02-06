@@ -6,7 +6,16 @@ This folder contains the canonical versions of all AI-assisted development instr
 
 ## Files in this folder:
 
-- [`ai-assisted-output.instructions.md`](ai-assisted-output.instructions.md) - Main AI provenance and logging policy
+| File                                                                                   | Purpose                       | Description                                                             |
+| -------------------------------------------------------------------------------------- | ----------------------------- | ----------------------------------------------------------------------- |
+| [`ai-assisted-output.instructions.md`](ai-assisted-output.instructions.md)             | AI Provenance Policy          | Main AI provenance and logging policy with chat management requirements |
+| [`business-rules-to-slices.instructions.md`](business-rules-to-slices.instructions.md) | Vertical Slice Guidelines     | Convert business rules into vertical slice implementations              |
+| [`chatmode-file.instructions.md`](chatmode-file.instructions.md)                       | Chat Mode Authoring           | Guidelines for creating custom GitHub Copilot chat modes                |
+| [`instruction-files.instructions.md`](instruction-files.instructions.md)               | Instruction Standards         | Standards for creating and maintaining instruction files                |
+| [`instruction-prompt-files.instructions.md`](instruction-prompt-files.instructions.md) | Instruction Prompt Guidelines | Creating prompts that generate instruction files                        |
+| [`marp-slides.instructions.md`](marp-slides.instructions.md)                           | Slide Creation                | Guidelines for creating Marp-based presentation slides                  |
+| [`prompt-file.instructions.md`](prompt-file.instructions.md)                           | Prompt File Standards         | Structure and requirements for AI prompt files                          |
+| [`vertical-slice.instructions.md`](vertical-slice.instructions.md)                     | Vertical Slice Architecture   | Implementation guidelines for vertical slice patterns                   |
 
 ## Purpose
 

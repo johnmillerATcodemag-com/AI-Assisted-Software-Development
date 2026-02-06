@@ -7,6 +7,9 @@ prompt_metadata:
   id: create-ai-assisted-output-instructions
   title: Generate AI-Assisted Output Policy and Logging Instructions
   owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
   output_path: .github/instructions/ai-assisted-output.instructions.md
   category: documentation
   tags: [ai-provenance, logging, policy, standards]

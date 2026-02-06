@@ -1,8 +1,19 @@
 ---
-description: "Analyze codebase and generate comprehensive instruction files following GitHub Copilot format"
-model: "anthropic/claude-3.5-sonnet@2024-10-22"
-tools: ['search', 'edit', 'fetch']
 mode: agent
+model: "anthropic/claude-3.5-sonnet@2024-10-22"
+tools: ["search", "edit", "fetch"]
+description: "Analyze codebase and generate comprehensive instruction files following GitHub Copilot format"
+prompt_metadata:
+  id: generate-instructions
+  title: Generate Project Instruction Files
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
+  created: "2025-02-05"
+  updated: "2025-02-05"
+  output_path: .github/instructions/
+  category: documentation
+  tags: [instructions, documentation, generation, codebase-analysis, copilot]
+  output_format: markdown
 ---
 
 # Generate Project Instruction Files

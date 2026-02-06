@@ -105,7 +105,7 @@ Create comprehensive prompt authoring instructions and establish a governance sy
 | `.github/prompts/meta/create-instruction-prompt.prompt.md`               | Meta-Prompt      | Generates compliant instruction-generating prompts         |
 | `.github/instructions/copilot-instructions.md`                           | Reference Guide  | Consolidated Copilot-specific requirements (11 req fields) |
 | `.github/prompts/meta/validate-and-improve-instructions.prompt.md`       | Meta-Prompt (QA) | Iterative validation and improvement orchestrator          |
-| `ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md` | Documentation    | Complete session transcript with model format fixes        |
+| `ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md` | Documentation    | Complete chat transcript with model format fixes        |
 | `ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/summary.md`      | Documentation    | This summary                                               |
 | Updated `README.md`                                                      | Documentation    | Links to artifacts with provenance trails                  |
 
@@ -148,10 +148,10 @@ Create comprehensive prompt authoring instructions and establish a governance sy
 ✅ applyTo patterns configured
 ✅ Multi-layer governance established
 
-## Session Metadata
+## Chat Metadata
 
 ```yaml
-session_id: prompt-file.instructions-2025-10-15
+chat_id: prompt-file.instructions-2025-10-15
 started: 2025-10-15T14:00:00Z
 ended: 2025-10-15T14:45:00Z
 total_duration: 00:45:00

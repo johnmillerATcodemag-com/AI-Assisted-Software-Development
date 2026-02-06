@@ -188,9 +188,8 @@ Pattern: `{domain}-{action}-{target}.prompt.md`
 
 ## Post-Creation
 After creating prompt:
-1. Update AI conversation log artifact section
-2. Update README.md with entry and chat log link
-3. Verify all links use correct relative paths
+1. Follow [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
+2. Verify all links use correct relative paths
 
 ## Reference
 - `.github/instructions/ai-assisted-output.instructions.md` - Provenance requirements

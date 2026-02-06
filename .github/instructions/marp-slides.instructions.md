@@ -103,7 +103,7 @@ Content here
 - [ ] `ai_log` path exists with conversation.md
 - [ ] `operator` is GitHub username
 - [ ] Timestamps in ISO8601 format
-- [ ] Update README.md for notable slides
+- [ ] Complete [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
 
 ## README Entry Template
 

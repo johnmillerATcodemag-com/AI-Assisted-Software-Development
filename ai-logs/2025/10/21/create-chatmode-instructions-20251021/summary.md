@@ -26,7 +26,7 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
    - Full AI provenance metadata per repository requirements
 
 2. **AI Conversation Log** (`ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md`)
-   - Complete transcript of the authoring session
+   - Complete transcript of the authoring chat
    - Context, exchanges, and work burst closure
    - Artifact and duration tracking
 
@@ -109,8 +109,8 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
 | Artifact                                                                   | Type             | Purpose                                              |
 | -------------------------------------------------------------------------- | ---------------- | ---------------------------------------------------- |
 | `.github/instructions/create-chatmode-file.instructions.md`                | Instruction File | Comprehensive chat mode authoring guidelines         |
-| `ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md` | Conversation Log | Complete session transcript with provenance          |
-| `ai-logs/2025/10/21/create-chatmode-instructions-20251021/summary.md`      | Summary          | High-level session overview and resumability context |
+| `ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md` | Conversation Log | Complete chat transcript with provenance          |
+| `ai-logs/2025/10/21/create-chatmode-instructions-20251021/summary.md`      | Summary          | High-level chat overview and resumability context |
 
 ## Lessons Learned
 
@@ -146,10 +146,10 @@ Create comprehensive authoring guidelines for custom GitHub Copilot chat modes t
 ✅ Follows `.github/instructions/copilot-instructions.md` guidance
 ⏳ README.md update pending (next step)
 
-## Session Metadata
+## Chat Metadata
 
 ```yaml
-session_id: create-chatmode-instructions-20251021
+chat_id: create-chatmode-instructions-20251021
 started: 2025-10-21T19:30:00Z
 ended: 2025-10-21T19:45:00Z
 total_duration: 00:15:00

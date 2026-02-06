@@ -62,7 +62,7 @@ Create a comprehensive dependency management policy instruction file for the AI-
 | ---------------------------------------------- | ---------------- | ---------------------------------------------- |
 | `dependency-management-policy.instructions.md` | Policy Document  | Comprehensive dependency management guidelines |
 | `conversation.md`                              | AI Log           | Full conversation transcript for provenance    |
-| `summary.md`                                   | Summary Document | High-level session overview and decisions      |
+| `summary.md`                                   | Summary Document | High-level chat overview and decisions      |
 
 ## Lessons Learned
 

@@ -83,7 +83,7 @@ Created technical-writer.chatmode.md with:
 
 **Next Steps**:
 
-- [ ] Create summary.md for this session
+- [ ] Create summary.md for this chat
 - [ ] Update README.md with link to new chat mode
 - [ ] Validate chat mode file structure and content
 - [ ] Test chat mode activation in GitHub Copilot

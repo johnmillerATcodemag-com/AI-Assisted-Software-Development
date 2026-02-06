@@ -107,7 +107,7 @@ Ready for immediate use by chat mode authors.
 **Next Steps**:
 
 - [ ] Update README.md with link to new instruction file
-- [ ] Create summary.md for this session
+- [ ] Create summary.md for this chat
 - [ ] Test instructions by authoring a new chat mode
 
 **Duration Summary**:

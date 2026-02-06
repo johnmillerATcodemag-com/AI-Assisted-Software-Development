@@ -1,7 +1,7 @@
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-operator: "GITHUB_USERNAME_HERE"
+operator: "johnmillerATcodemag-com"
 chat_id: "optimize-instructions-20251023"
 prompt: |
   Create AI-optimized version of chatmode-file.instructions.md with minimal tokens

@@ -351,6 +351,22 @@ Once VS Code is installed:
    - `Ctrl+`` (Windows) or `Cmd+`` (Mac) - Toggle integrated terminal
    - `Ctrl+P` (Windows) or `Cmd+P` (Mac) - Quick file open
 
+### Useful Keybinding
+
+This keybinding opens markdown files in a side-by-side preview and copies the editor to a new window for easier review:
+
+```json
+  {
+    "key": "ctrl+shift+alt+x",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["markdown.showPreviewToSide", "workbench.action.copyEditorToNewWindow"]
+    },
+    "when": "editorLangId == mdc"
+  }
+```
+This requires the `multiCommand` extension and is configured to trigger when editing Marp markdown files (`.mdc`).
+
 ---
 
 ## 5. GitHub Copilot Extension

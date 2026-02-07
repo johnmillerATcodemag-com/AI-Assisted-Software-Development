@@ -31,7 +31,7 @@ Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `
 
 1. **Overview**: Purpose, benefits, when to create vs use default, integration
 2. **File Structure**:
-   - Naming: `<ChatModeName>.chatmode.md` (PascalCase) in `.github/chatmodes/`
+   - Naming: `<chat-mode-name>.chatmode.md` (kebab-case) in `.github/chatmodes/`
    - Header: Name, Focus, Temperature (0.0-1.0), Style
    - Sections: Mission, Core Expertise, Methodology, Commands, Response Format, Principles, Examples
 3. **Header Fields**:
@@ -64,7 +64,7 @@ Must comply with `.github/instructions/ai-assisted-output.instructions.md` and `
 
 ### Quality Checklist:
 
-- PascalCase filename with `.chatmode.md`
+- kebab-case filename with `.chatmode.md`
 - All header fields present
 - Mission clear, expertise listed (5-10)
 - Commands use `@kebab-case`

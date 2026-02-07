@@ -24,7 +24,7 @@ Create specialized GitHub Copilot chat modes with domain expertise.
 
 ### Naming & Location
 
-- Pattern: `<ChatModeName>.chatmode.md` (PascalCase)
+- Pattern: `<chat-mode-name>.chatmode.md` (kebab-case)
 - Location: `.github/chatmodes/`
 - Extension: `.chatmode.md` (required)
 
@@ -239,7 +239,7 @@ You help understand unfamiliar codebases...
 
 ## Validation Checklist
 
-- [ ] PascalCase filename with `.chatmode.md`
+- [ ] kebab-case filename with `.chatmode.md`
 - [ ] Located in `.github/chatmodes/`
 - [ ] All header fields present (Name, Focus, Temperature, Style)
 - [ ] Mission statement clear

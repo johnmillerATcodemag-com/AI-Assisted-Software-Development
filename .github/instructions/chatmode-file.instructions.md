@@ -239,7 +239,7 @@ You help understand unfamiliar codebases...
 
 ## Validation Checklist
 
-- [ ] Kebab-case filename with `.chatmode.md`
+- [ ] kebab-case filename with `.chatmode.md`
 - [ ] Located in `.github/chatmodes/`
 - [ ] All header fields present (Name, Focus, Temperature, Style)
 - [ ] Mission statement clear

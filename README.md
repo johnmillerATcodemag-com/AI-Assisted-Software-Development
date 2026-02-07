@@ -58,7 +58,7 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 - [`.github/chatmodes/product-manager.chatmode.md`](.github/chatmodes/product-manager.chatmode.md) — Requirements translation, stakeholder communication, and business alignment for product management workflows
 - [`.github/chatmodes/solution-architect.chatmode.md`](.github/chatmodes/solution-architect.chatmode.md) — System design, architecture patterns, and technology evaluation for enterprise solutions
 - [`.github/chatmodes/senior-developer.chatmode.md`](.github/chatmodes/senior-developer.chatmode.md) — Advanced code generation, debugging expertise, performance optimization, and technical mentorship
-- [`.github/chatmodes/TechnicalWriter.chatmode.md`](.github/chatmodes/TechnicalWriter.chatmode.md) — Documentation creation, content organization, and multi-format publishing for user-focused technical content
+- [`.github/chatmodes/technical-writer.chatmode.md`](.github/chatmodes/technical-writer.chatmode.md) — Documentation creation, content organization, and multi-format publishing for user-focused technical content
 - [`.github/chatmodes/security-reviewer.chatmode.md`](.github/chatmodes/security-reviewer.chatmode.md) — Comprehensive security analysis, vulnerability detection, and compliance validation for secure systems
 - [`.github/chatmodes/devops-engineer.chatmode.md`](.github/chatmodes/devops-engineer.chatmode.md) — Infrastructure automation, CI/CD pipeline optimization, and cloud resource management
 - [`.github/chatmodes/devtest-engineer.chatmode.md`](.github/chatmodes/devtest-engineer.chatmode.md) — Test automation, quality assurance, and comprehensive performance testing strategies

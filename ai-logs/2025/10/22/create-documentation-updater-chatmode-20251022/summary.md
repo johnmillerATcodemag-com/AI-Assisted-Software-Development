@@ -79,7 +79,7 @@ Create a custom GitHub Copilot chat mode specialized in documentation maintenanc
 
 ### File Structure
 
-- Used PascalCase naming: `technical-writer.chatmode.md`
+- Used Kebab-case naming: `technical-writer.chatmode.md`
 - Followed established header format (Name, Focus, Temperature, Style)
 - Organized content into logical sections with clear hierarchy
 - Included all recommended sections from guidelines

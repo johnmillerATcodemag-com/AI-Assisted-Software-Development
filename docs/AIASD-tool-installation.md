@@ -1,8 +1,8 @@
 # Welcome to the AIASD Toolkit Setup!
 
-Hey there, future AI assisted software developer!
+Hey there, future AI-assisted software developer!
 
-You're about to set up an the tools that will install the tools you'll need for the AI-Assisted Software Development environment. This guide will walk you through installing everything you need.
+You're about to set up the tools that will install everything you'll need for the AI-Assisted Software Development environment. This guide will walk you through installing everything you need.
 
 ## What You're Building
 
@@ -19,6 +19,7 @@ By the end of this guide, you'll have a complete AI-assisted software developmen
 - **Mob.sh** - Tool for seamless team coding sessions
 
 **Bonus Tools** (Install these later if you need them):
+
 - **Pandoc** - Converts documents between different formats (Markdown → PDF, etc.)
 - **Marp** - Creates presentations from Markdown files
 
@@ -33,16 +34,20 @@ By the end of this guide, you'll have a complete AI-assisted software developmen
 ## Before We Start: Important Notes
 
 ### For Windows Users
+
 You'll see several installation options for most tools. Here's what they mean:
+
 - **Direct Download**: Download and run an installer (easiest for beginners)
 - **Chocolatey**: A package manager that lets you install software via commands (super convenient once set up)
 - **Winget**: Microsoft's built-in package manager (comes with Windows 10/11)
 
 ### For Mac Users
+
 - **Homebrew**: The most popular package manager for Mac (like an app store for developers)
 - **Direct Download**: Traditional installer files
 
 ### Pro Tips
+
 - Install tools in the exact order listed - they depend on each other!
 - Restart your terminal/command prompt after each installation
 - When in doubt, choose the "recommended" option for your platform
@@ -50,10 +55,13 @@ You'll see several installation options for most tools. Here's what they mean:
 ---
 
 ## 1. Git
+
 ### Why do you need it?
-The primary reason is to share files and collaborate with others. We'll a lot time working together on code and Git is the foundation this collaboration is built on.
+
+The primary reason is to share files and collaborate with others. We'll spend a lot of time working together on code, and Git is the foundation that this collaboration is built on.
 
 ### Official Resources
+
 - Download: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - Learn Git: [https://learngitbranching.js.org/](https://learngitbranching.js.org/) (interactive tutorial - highly recommended!)
 - Documentation: [https://git-scm.com/doc](https://git-scm.com/doc)
@@ -77,6 +85,7 @@ The primary reason is to share files and collaborate with others. We'll a lot ti
 **Option B — Using Chocolatey**
 
 First, you need Chocolatey (a package manager):
+
 - What is Chocolatey: [https://chocolatey.org/](https://chocolatey.org/)
 - Installation guide: [https://chocolatey.org/install](https://chocolatey.org/install)
 
@@ -97,6 +106,7 @@ winget install --id Git.Git
 **Option A — Using Homebrew** (Recommended)
 
 First, install Homebrew if you haven't already:
+
 - What is Homebrew: [https://brew.sh/](https://brew.sh/)
 - Installation: [https://docs.brew.sh/Installation](https://docs.brew.sh/Installation)
 
@@ -124,11 +134,13 @@ You should see something like `git version 2.41.0`. The exact numbers don't matt
 ### Troubleshooting
 
 **"Command not found"**:
+
 - Restart your terminal completely
 - On Windows, try Git Bash instead of Command Prompt
 - Check if the installation actually completed
 
 **Permission errors on Mac**:
+
 - You might need to install Xcode Command Line Tools: `xcode-select --install`
 
 ---
@@ -136,9 +148,11 @@ You should see something like `git version 2.41.0`. The exact numbers don't matt
 ## 2. Create Your GitHub Account
 
 ### Why GitHub?
+
 In the course we'll use GitHub for Issues and Pull Requests, in addition to GitHub's Copilot features.
 
 ### Official Resources
+
 - Sign up: [https://github.com/signup](https://github.com/signup)
 - Learning resources: [https://docs.github.com/en/get-started](https://docs.github.com/en/get-started)
 - GitHub Skills: [https://skills.github.com/](https://skills.github.com/) (interactive learning)
@@ -179,9 +193,11 @@ In the course we'll use GitHub for Issues and Pull Requests, in addition to GitH
 ## 3. GitHub CLI - Terminal Superpowers
 
 ### Why the GitHub CLI?
-The GitHub CLI (Command Line Interface) lets you do GitHub things right from your terminal without opening a web browser. We'll use to to automate the creation of issues and PRs.
+
+The GitHub CLI (Command Line Interface) lets you do GitHub things right from your terminal without opening a web browser. We'll use it to automate the creation of issues and PRs.
 
 ### Official Resources
+
 - Download: [https://cli.github.com/](https://cli.github.com/)
 - Documentation: [https://cli.github.com/manual/](https://cli.github.com/manual/)
 - Quick start: [https://docs.github.com/en/github-cli/github-cli/quickstart](https://docs.github.com/en/github-cli/github-cli/quickstart)
@@ -243,6 +259,7 @@ gh auth login
 ```
 
 Follow the prompts:
+
 - Choose "GitHub.com"
 - Choose "HTTPS" for Git protocol
 - Authenticate via web browser (easiest)
@@ -261,10 +278,12 @@ gh repo list
 ### Troubleshooting
 
 **Authentication fails**:
+
 - Make sure you're logged into GitHub in your browser
 - Try `gh auth logout` then `gh auth login` again
 
 **Command not found**:
+
 - Restart your terminal
 - Check that installation completed successfully
 
@@ -273,9 +292,11 @@ gh repo list
 ## 4. Visual Studio Code
 
 ### Why Visual Studio Code?
+
 Visual Studio Code is where we will live for most of the course.
 
 ### Official Resources
+
 - Download: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 - Getting started: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 - Tips and tricks: [https://code.visualstudio.com/docs/getstarted/tips-and-tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
@@ -348,33 +369,46 @@ Once VS Code is installed:
 
 3. **Learn key shortcuts**:
    - `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac) - Command Palette (your best friend!)
-   - `Ctrl+`` (Windows) or `Cmd+`` (Mac) - Toggle integrated terminal
+   - ``Ctrl+` `` (Windows) or ``Cmd+` `` (Mac) - Toggle integrated terminal
    - `Ctrl+P` (Windows) or `Cmd+P` (Mac) - Quick file open
 
 ### Useful Keybinding
 
-This keybinding opens markdown files in a side-by-side preview and copies the editor to a new window for easier review:
+This keybinding opens markdown files in a side-by-side preview and copies the editor to a new window for easier review. Add this to your `keybindings.json` file:
 
 ```json
-  {
-    "key": "ctrl+shift+alt+x",
-    "command": "extension.multiCommand.execute",
-    "args": {
-      "sequence": ["markdown.showPreviewToSide", "workbench.action.copyEditorToNewWindow"]
-    },
-    "when": "editorLangId == mdc"
-  }
+{
+  "key": "ctrl+shift+alt+x",
+  "command": "extension.multiCommand.execute",
+  "args": {
+    "sequence": [
+      "markdown.showPreviewToSide",
+      "workbench.action.copyEditorToNewWindow"
+    ]
+  },
+  "when": "editorLangId == markdown || resourceExtname == .mdc"
+}
 ```
-This requires the `multiCommand` extension and is configured to trigger when editing Marp markdown files (`.mdc`).
+
+**To add this keybinding**:
+
+1. Open VS Code
+2. Press `Ctrl+K Ctrl+S` (Windows/Linux) or `Cmd+K Cmd+S` (Mac) to open Keybindings
+3. Click the "Open Keybindings (JSON)" icon in the top right
+4. Add the above object to the array in `keybindings.json`
+
+This requires the `multiCommand` extension and triggers when editing Markdown files (`editorLangId == markdown`) or files with the `.mdc` extension (Marp markdown files).
 
 ---
 
 ## 5. GitHub Copilot Extension
 
 ### Why do you need it?
+
 Copilot is the interface between you and the power of AI in your coding workflow. It helps you write code faster, learn new languages, and get unstuck when you're facing a problem. It's like having an expert programmer sitting next to you, ready to help at any moment.
 
 Copilot helps by:
+
 - **Writing code for you** - describe what you want, and it writes it
 - **Completing your thoughts** - start typing and it finishes the code
 - **Explaining code** - ask it to explain any code you don't understand
@@ -384,6 +418,7 @@ Copilot helps by:
 ⚠️ **Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
 
 ### 🔗 Official Resources
+
 - Information: [https://github.com/features/copilot](https://github.com/features/copilot)
 - Pricing: [https://github.com/features/copilot#pricing](https://github.com/features/copilot#pricing)
 - Getting started: [https://docs.github.com/en/copilot/quickstart](https://docs.github.com/en/copilot/quickstart)
@@ -394,11 +429,13 @@ Copilot helps by:
 ### 💳 Get GitHub Copilot Access
 
 **For Students**:
+
 1. Verify your student status at [https://education.github.com/](https://education.github.com/)
 2. Apply for GitHub Student Developer Pack
 3. Once approved, Copilot is included free!
 
 **For Everyone Else**:
+
 1. Go to [https://github.com/features/copilot](https://github.com/features/copilot)
 2. Click "Start free trial"
 3. Enter payment details (won't be charged during trial)
@@ -446,6 +483,7 @@ Copilot helps by:
 1. **Create a new file**: Make a new file with a programming language extension (like `test.js` or `test.py`)
 
 2. **Try a simple prompt**:
+
    ```javascript
    // Function to calculate the area of a circle
    ```
@@ -455,12 +493,14 @@ Copilot helps by:
 ### Learning to Use Copilot
 
 **Best Practices**:
+
 - **Write descriptive comments** - Copilot reads them and generates relevant code
 - **Start with function signatures** - define what you want, let Copilot fill it in
 - **Use natural language** - describe what you want in plain English
 - **Review suggestions** - Copilot is smart but not perfect, always double-check code
 
 **Common Shortcuts**:
+
 - `Tab` - Accept current suggestion
 - `Alt+]` (Windows) or `Opt+]` (Mac) - Next suggestion
 - `Alt+[` (Windows) or `Opt+[` (Mac) - Previous suggestion
@@ -469,11 +509,13 @@ Copilot helps by:
 ### Troubleshooting
 
 **Not seeing suggestions**:
+
 - Check that you're signed into GitHub
 - Make sure your Copilot subscription is active
 - Try reloading VS Code (`Ctrl+R` or `Cmd+R`)
 
 **Suggestions are poor quality**:
+
 - Write more descriptive comments
 - Provide more context in your code
 - Try typing a bit more before expecting suggestions
@@ -483,15 +525,18 @@ Copilot helps by:
 ## 6. GitHub Copilot CLI
 
 ### Why the GitHub Copilot CLI?
+
 In the course we use the GH CLI to automate AI operations.
 
 Copilot CLI helps with:
+
 - **Complex git commands** - no more googling git syntax
 - **System administration** - file operations, permissions, etc.
 - **Tool usage** - command syntax for any CLI tool
 - **Script generation** - create bash/PowerShell scripts with AI help
 
 ### Official Resources
+
 - Documentation: [https://docs.github.com/en/copilot/github-copilot-in-the-cli](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
 - Installation guide: [https://docs.github.com/en/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli](https://docs.github.com/en/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli)
 
@@ -500,6 +545,7 @@ Copilot CLI helps with:
 ### ⚙️ Installation (All Platforms)
 
 **Prerequisites**:
+
 - GitHub CLI (installed in step 3) ✅
 - Active GitHub Copilot subscription ✅
 
@@ -533,6 +579,7 @@ gh copilot explain "git rebase -i HEAD~3"
 **Two main commands**:
 
 1. **`gh copilot suggest`** - Get command suggestions
+
    ```bash,
    gh copilot suggest "create a new git branch"
    gh copilot suggest "find all JavaScript files modified in last week"
@@ -546,6 +593,7 @@ gh copilot explain "git rebase -i HEAD~3"
    ```
 
 **Pro Tips**:
+
 - Use natural language - describe what you want to accomplish
 - Be specific about your operating system if commands differ
 - Review suggestions before running them (especially destructive operations!)
@@ -555,15 +603,18 @@ gh copilot explain "git rebase -i HEAD~3"
 ## 7. Mob.sh - Team Coding Made Simple
 
 ### Why Mob.sh?
+
 Mob.sh makes pair programming and team coding sessions incredibly smooth. Instead of awkward screen sharing and "can you type this for me", mob.sh lets team members seamlessly hand off code changes to each other using git. It's perfect for code reviews, pair programming, and team problem-solving.
 
 Mob.sh enables:
+
 - **Smooth handoffs** - pass code back and forth effortlessly
 - **Multiple contributors** - whole team can contribute to one session
 - **No merge conflicts** - automatically handles the git complexity
 - **Natural breaks** - built-in timer and break reminders
 
 ### Official Resources
+
 - Website: [https://mob.sh/](https://mob.sh/)
 - Documentation: [https://github.com/remotemobprogramming/mob](https://github.com/remotemobprogramming/mob)
 - Video introduction: [https://www.youtube.com/watch?v=SHOVVnRB4h0](https://www.youtube.com/watch?v=SHOVVnRB4h0)
@@ -587,6 +638,7 @@ choco install mob
 
 1. Open **Git Bash** (right-click in a folder and select "Git Bash Here")
 2. **Secure Installation** (inspect script before running):
+
    ```bash
    # Download the install script first
    curl -s https://mob.sh/install.sh -o mob-install.sh
@@ -601,6 +653,7 @@ choco install mob
    # Clean up
    rm mob-install.sh
    ```
+
 3. Verify it worked:
    ```bash
    mob version
@@ -618,9 +671,11 @@ If you want to use Linux tools on Windows:
    # Run in PowerShell as Administrator
    wsl --install
    ```
+
    (You'll need to restart your computer)
 
 2. **Inside WSL, install mob**:
+
    ```bash
    # Download the install script first
    curl -s https://mob.sh/install.sh -o mob-install.sh
@@ -637,6 +692,7 @@ If you want to use Linux tools on Windows:
    ```
 
    **Alternative: Use Linux package managers if available**
+
    ```bash
    # For Debian/Ubuntu (if mob is packaged)
    # sudo apt update && sudo apt install mob
@@ -656,6 +712,7 @@ brew install mob
 ```
 
 **Verify installation**:
+
 ```bash
 mob version
 ```
@@ -675,6 +732,7 @@ mob help
 **Basic workflow** (simplified):
 
 1. **Start a mob session** (one person):
+
    ```bash
    mob start
    ```
@@ -682,11 +740,13 @@ mob help
 2. **Work on code together**
 
 3. **Hand off to next person**:
+
    ```bash
    mob next
    ```
 
 4. **Other person takes over**:
+
    ```bash
    mob start
    ```
@@ -697,6 +757,7 @@ mob help
    ```
 
 **Pro Tips**:
+
 - Everyone on the team needs mob.sh installed
 - Work in feature branches, not main branch
 - Set a timer for regular handoffs (mob.sh can do this automatically)
@@ -705,10 +766,12 @@ mob help
 ### Troubleshooting
 
 **"Command not found" on Windows**:
+
 - Make sure you're using Git Bash or WSL, not regular Command Prompt
 - Try restarting your terminal after installation
 
 **Permission issues**:
+
 - On Mac: You might need to run `chmod +x $(which mob)` after installation
 - On Windows: Make sure you're running installation commands as Administrator
 
@@ -723,20 +786,24 @@ These tools are not used in the course, but were helpful in preparing the course
 ## 8. Pandoc (CLI Command) [OPTIONAL]
 
 ### What is Pandoc?
+
 Pandoc is a powerful command-line tool that converts documents between different formats. Think of it as a universal translator for text files - it can convert Markdown to PDF, Word to HTML, reStructuredText to LaTeX, and hundreds of other combinations.
 
 **When you might need it**:
+
 - Converting documentation to different formats
 - Generating PDF reports from Markdown
 - Converting between markup languages
 - Academic writing with complex formatting needs
 
 **You probably don't need it if**:
+
 - You're just starting out programming
 - You don't work with documentation much
 - Your editor already handles your format conversion needs
 
 ### Official Resources
+
 - Website: [https://pandoc.org/](https://pandoc.org/)
 - Installation guide: [https://pandoc.org/installing.html](https://pandoc.org/installing.html)
 - Documentation: [https://pandoc.org/MANUAL.html](https://pandoc.org/MANUAL.html)
@@ -802,6 +869,7 @@ pandoc --defaults=slides-to-pptx input.md -o output.pptx
 ```
 
 **Learning Resources**:
+
 - [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
 - [Common use cases](https://pandoc.org/demos.html)
 
@@ -810,20 +878,24 @@ pandoc --defaults=slides-to-pptx input.md -o output.pptx
 ## 9. Marp CLI (Markdown Variant) [OPTIONAL]
 
 ### What is Marp CLI?
+
 Marp CLI is a tool for creating beautiful presentations from Markdown files. Instead of wrestling with PowerPoint or Google Slides, you write your presentation content in simple Markdown and Marp converts it to beautiful HTML, PDF, or PowerPoint slides.
 
 **When you might need it**:
+
 - Creating technical presentations for work
 - Academic presentations with code samples
 - Quick slide decks from existing documentation
 - Presentations that need to be version controlled
 
 **You probably don't need it if**:
+
 - You don't give presentations
 - You're happy with traditional presentation tools
 - You're just starting your programming journey
 
 ### Official Resources
+
 - Main website: [https://marp.app/](https://marp.app/)
 - CLI documentation: [https://github.com/marp-team/marp-cli](https://github.com/marp-team/marp-cli)
 - Marpit framework: [https://marpit.marp.app/](https://marpit.marp.app/) (the engine behind Marp)
@@ -834,6 +906,7 @@ Marp CLI is a tool for creating beautiful presentations from Markdown files. Ins
 ### Prerequisites
 
 **Node.js is required** for Marp CLI:
+
 - Download: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 - Choose the LTS (Long Term Support) version
 - npm (Node Package Manager) comes bundled with Node.js
@@ -843,17 +916,20 @@ Marp CLI is a tool for creating beautiful presentations from Markdown files. Ins
 **Step 1: Install Node.js**
 
 **Option A — Direct Download** (Recommended)
+
 1. Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 2. Download the Windows Installer (.msi)
 3. Run the installer (defaults are fine)
 4. Restart your terminal
 
 **Option B — Using Chocolatey**
+
 ```powershell
 choco install nodejs
 ```
 
 **Option C — Using Winget**
+
 ```powershell
 winget install --id OpenJS.NodeJS
 ```
@@ -870,11 +946,13 @@ npm install -g @marp-team/marp-cli
 **Step 1: Install Node.js**
 
 **Option A — Using Homebrew** (Recommended)
+
 ```bash
 brew install node
 ```
 
 **Option B — Direct Download**
+
 1. Visit [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 2. Download the macOS installer (.pkg)
 3. Run the installer
@@ -903,7 +981,8 @@ npm --version
 **Create a simple presentation**:
 
 1. Create a file called `slides.md`:
-   ```markdown
+
+   ````markdown
    ---
    marp: true
    theme: default
@@ -924,25 +1003,32 @@ npm --version
    ```python
    print("Hello, World!")
    ```
+   ````
 
-   ---
+   ***
 
    # The End
 
    Questions?
+
+   ```
+
    ```
 
 2. Convert to HTML:
+
    ```bash
    marp slides.md
    ```
 
 3. Convert to PDF:
+
    ```bash
    marp slides.md --pdf
    ```
 
 4. Convert to PowerPoint:
+
    ```bash
    marp slides.md --pptx
    ```
@@ -953,6 +1039,7 @@ npm --version
    ```
 
 **Learning Resources**:
+
 - [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) (live preview)
 - [Marpit Markdown syntax](https://marpit.marp.app/markdown)
 - [Built-in themes](https://github.com/marp-team/marp-core/tree/main/themes)
@@ -960,15 +1047,18 @@ npm --version
 ### Troubleshooting
 
 **npm command not found**:
+
 - Make sure Node.js installed properly
 - Restart your terminal completely
 - Check that Node.js is in your PATH
 
 **Permission errors (Mac/Linux)**:
+
 - You might need to use `sudo`: `sudo npm install -g @marp-team/marp-cli`
 - Or configure npm to use a different directory (recommended): [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 
 **Marp command not found after installation**:
+
 - Make sure the global npm bin directory is in your PATH
 - Try `npx @marp-team/marp-cli` instead of `marp`
 

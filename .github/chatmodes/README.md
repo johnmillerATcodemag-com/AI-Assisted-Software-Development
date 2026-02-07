@@ -43,7 +43,7 @@ To create a new chat mode, follow the guidelines in [`.github/instructions/chatm
 
 All chat mode files follow the pattern:
 
-- **Filename**: `{ModeName}.chatmode.md` (PascalCase)
+- **Filename**: `{mode-name}.chatmode.md` (kebab-case)
 - **Header**: Name, Focus, Temperature, Style
 - **Sections**: Mission, Core Expertise, Methodology, Commands, Response Format, Principles, Examples
 

@@ -98,7 +98,7 @@ This guide provides download and installation instructions for Windows and macOS
 
 ### 🔗 Official Resources
 
-- Copilot CLI Documentation: `https://docs.github.com/en/copilot/github-copilot-in-the-cli` [(docs.github.com)](https://www.bing.com/search?q="https%3A%2F%2Fdocs.github.com%2Fen%2Fcopilot%2Fgithub-copilot-in-the-cli")
+- Copilot CLI Documentation: `https://docs.github.com/en/copilot/github-copilot-in-the-cli` [(docs.github.com)](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
 - GitHub CLI (required): [https://cli.github.com/](https://cli.github.com/)
 
 ---

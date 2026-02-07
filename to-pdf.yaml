@@ -1,0 +1,52 @@
+# Pandoc Defaults for PDF Output
+# Optimized for slides and documentation
+# Usage: pandoc --defaults=to-pdf input.md -o output.pdf
+
+# Input configuration
+from: markdown+yaml_metadata_block+fenced_code_blocks+pipe_tables+footnotes+smart+task_lists
+strip-comments: true
+
+# PDF output settings
+to: pdf
+pdf-engine: xelatex # Better for slides and Unicode support
+
+# Page layout for presentations
+geometry:
+  - papersize=letter
+  - margin=0.75in
+  - top=1in
+  - bottom=1in
+
+# Typography
+mainfont: "Calibri"
+sansfont: "Arial"
+monofont: "Consolas"
+fontsize: 12pt
+
+# Document structure
+number-sections: false
+table-of-contents: false
+slide-level: 2
+
+# Code highlighting
+highlight-style: pygments
+
+# Image and table handling
+fig-caption: true
+table-caption: true
+
+# Metadata defaults
+metadata:
+  lang: en-US
+  date: \today
+  colorlinks: true
+  linkcolor: blue
+  urlcolor: blue
+
+# LaTeX packages for better formatting
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+  - \usepackage{graphicx}
+  - \usepackage{longtable}
+  - \usepackage{booktabs}

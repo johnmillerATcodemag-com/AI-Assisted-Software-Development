@@ -94,7 +94,7 @@ MEDIUM SEVERITY (4):
 - Missing source field in generated instruction files
 
 LOW SEVERITY (3):
-- Terminology inconsistency ("chat session" vs "chat")
+- Terminology inconsistency ("chat" vs "chat ID")
 - Minor wording variations
 
 Total: 7 actionable issues identified

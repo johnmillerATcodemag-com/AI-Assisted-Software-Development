@@ -43,6 +43,7 @@ This repository enforces provenance and logging for any AI-assisted outputs (cod
 - [`.github/instructions/vertical-slice.instructions.md`](.github/instructions/vertical-slice.instructions.md) — **AI Assistants**: Comprehensive guide for generating vertical slice code with rules, templates, and validation checklists ([chat log](ai-logs/2025/10/22/ai-vertical-slice-implementation-20251022/conversation.md))
 - [`.github/instructions/business-rules-to-vertical-slices.instructions.md`](.github/instructions/business-rules-to-vertical-slices.instructions.md) — **Developers**: Guide for analyzing business requirements, extracting rules, and designing implementable vertical slices ([chat log](ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md))
 - [`.github/instructions/copilot-instructions.md`](.github/instructions/copilot-instructions.md) — **GitHub Copilot Users Start Here** - Comprehensive Copilot-specific guidance for model format, conversation logging, and quality standards ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
+- [`.github/instructions/github-cli.instructions.md`](.github/instructions/github-cli.instructions.md) — Comprehensive guidance for using GitHub CLI effectively in development workflows, including authentication, repository operations, PR management, and automation ([chat log](ai-logs/2026/02/06/github-cli-instructions-20260206/conversation.md))
 - [`.github/instructions/chatmode-file.instructions.md`](.github/instructions/chatmode-file.instructions.md) — Comprehensive authoring guidelines for creating custom GitHub Copilot chat modes ([chat log](ai-logs/2025/10/21/create-chatmode-instructions-20251021/conversation.md))
 - [`.github/instructions/create-prompt.instructions.md`](.github/instructions/create-prompt.instructions.md) — Comprehensive guidelines for authoring effective repository prompts ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
 - [`.github/instructions/instruction-prompt-files.instructions.md`](.github/instructions/instruction-prompt-files.instructions.md) — Requirements for creating prompts that generate instruction files ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
@@ -67,6 +68,18 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 - [`.github/prompts/create-chatmode-instructions-file.prompt.md`](.github/prompts/create-chatmode-instructions-file.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
 
 ### Notable Artifacts
+
+- **VS Code Copilot Agents Overview Slides** ([`Slides/individual-slides/vscode-copilot-agents-overview.md`](Slides/individual-slides/vscode-copilot-agents-overview.md))
+  - Comprehensive Marp slide deck covering VS Code Copilot Agents ecosystem with interactive workflows
+  - 12 slides with detailed speaker notes covering local, background, cloud, and third-party agents
+  - Includes decision matrices, hand-off workflows, and practical implementation guidance
+  - Provenance: [Chat log](ai-logs/2026/02/06/vscode-agents-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/vscode-agents-slides-20260206/summary.md)
+
+- **GitHub Worktrees Guide Slides** ([`Slides/individual-slides/github-worktrees-guide.md`](Slides/individual-slides/github-worktrees-guide.md))
+  - Comprehensive Marp slide deck teaching parallel development with Git worktrees
+  - 12 slides covering introduction, essential commands, practical workflows, hands-on exercises, and best practices
+  - Includes detailed speaker notes, troubleshooting guidance, and resources for continued learning
+  - Provenance: [Chat log](ai-logs/2026/02/06/github-worktrees-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/github-worktrees-slides-20260206/summary.md)
 
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
@@ -113,3 +126,27 @@ Scripts for managing GitHub security issues:
 - `close_new_security_issues.ps1` - Close new security issues
 - `close_resolved_security_issues.ps1` - Close resolved security issues
 - `emergency_security_cleanup.ps1` - Emergency security cleanup
+
+## Document Conversion
+
+### Pandoc Configuration Files
+
+Standardized document conversion configurations for slides, documentation, and presentations:
+
+- **[`slides-to-pptx.yaml`](slides-to-pptx.yaml)** - Optimized for converting Marp slides to PowerPoint presentations
+- **[`to-pdf.yaml`](to-pdf.yaml)** - Professional PDF output for slides and documentation
+- **[`pandoc-defaults.yaml`](pandoc-defaults.yaml)** - Comprehensive multi-format configuration
+- **[`PANDOC.md`](PANDOC.md)** - Complete usage guide with examples and customization options
+- **[`templates/`](templates/)** - PowerPoint reference templates for professional formatting
+
+**Quick Examples:**
+
+```bash
+# Convert slide deck to PowerPoint with template support
+pandoc --defaults=slides-to-pptx Slides/individual-slides/github-worktrees-guide.md -o github-worktrees.pptx
+
+# Convert documentation to PDF
+pandoc --defaults=to-pdf README.md -o project-overview.pdf
+```
+
+**Note**: For professional PowerPoint formatting, create a reference template in the `templates/` directory. See [`templates/README.md`](templates/README.md) for instructions.

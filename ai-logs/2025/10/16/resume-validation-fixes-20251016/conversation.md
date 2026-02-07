@@ -9,15 +9,15 @@
 
 ## Context
 
-- Inputs: 
+- Inputs:
   - ai-logs/2025/10/15/validate-improve-instructions-20251015-212137/summary.md
   - validation-report-20251015-212137.md
   - .github/instructions/*.md (instruction files to verify)
-- Targets: 
+- Targets:
   - validation-fixes-verified-20251016.md
   - README.md verification
   - This conversation log
-- Constraints/Policies: 
+- Constraints/Policies:
   - .github/instructions/ai-assisted-output.instructions.md
   - .github/instructions/copilot-instructions.md
 
@@ -114,7 +114,7 @@ All immediate follow-up tasks from summary.md are now complete:
 **Next Steps**:
 
 - [ ] Review verification report
-- [ ] Create summary.md for this session
+- [ ] Create summary.md for this chat
 - [ ] Update README.md with link to verification report
 - [ ] Consider creating GitHub issues for deferred refactoring work
 - [ ] Review and merge feature branch to main

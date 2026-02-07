@@ -89,6 +89,18 @@ Contributors generating or curating AI-assisted content (code, docs, diagrams, t
 
 **🔒 CANONICAL SOURCE**: This section is the single source of truth for AI provenance metadata requirements. Other instruction files should reference this section rather than duplicating it.
 
+## Post-Creation Requirements (CANONICAL)
+
+**🔒 CANONICAL SOURCE**: This section is the single source of truth for post-creation requirements. Other instruction files should reference this section rather than duplicating these requirements.
+
+All AI-assisted artifacts must complete these steps after creation:
+
+1. **Conversation Log Creation**: Create `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
+2. **Summary Creation**: Create session summary with resumability context
+3. **README Update**: Add entry to appropriate README.md section with description and chat log link
+4. **Metadata Verification**: Ensure all required provenance fields are present and correct
+5. **Link Validation**: Verify all internal links work correctly
+
 Authors must attach or embed the following metadata near the top of the artifact, following the [Metadata placement policy](#metadata-placement-policy):
 
 Conceptual fields (map to YAML when embedding):
@@ -456,7 +468,7 @@ Before committing AI-assisted content, verify:
 - [ ] chat reference included in artifact metadata (`chat_id` and `ai_log`)
 - [ ] No sensitive data exposed in prompts or outputs
 - [ ] Naming conventions followed for files and paths
-- [ ] README.md updated for new notable artifacts
+- [ ] Complete [Post-Creation Requirements (CANONICAL)](#post-creation-requirements-canonical)
 - [ ] Chat scaffolding in place before artifact creation
 - [ ] Embedded metadata used for Markdown (no sidecar files; see “Metadata placement policy”)- [ ] **Artifact optimized for AI agent consumption and processing**
 - [ ] **Content structured to minimize token usage while maintaining clarity and completeness**

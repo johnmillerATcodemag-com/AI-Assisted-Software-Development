@@ -153,10 +153,10 @@ Create comprehensive instruction files (one for human developers, one for AI ass
 ⏳ README.md update pending
 ⏳ Quality validation pending
 
-## Session Metadata
+## Chat Metadata
 
 ```yaml
-session_id: business-rules-vertical-slices-20251022
+chat_id: business-rules-vertical-slices-20251022
 started: 2025-10-22T16:00:00Z
 ended: 2025-10-22T17:00:00Z
 total_duration: 01:00:00

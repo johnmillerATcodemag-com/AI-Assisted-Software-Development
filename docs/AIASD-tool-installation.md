@@ -1068,10 +1068,6 @@ npm --version
 
    Questions?
 
-   ```
-
-   ```
-
 2. Convert to HTML:
 
    ```bash

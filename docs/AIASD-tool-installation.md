@@ -586,9 +586,20 @@ choco install mob
 **Option B — Using Git Bash** (Comes with Git)
 
 1. Open **Git Bash** (right-click in a folder and select "Git Bash Here")
-2. Install via curl:
+2. **Secure Installation** (inspect script before running):
    ```bash
-   curl -s https://mob.sh/install.sh | sh
+   # Download the install script first
+   curl -s https://mob.sh/install.sh -o mob-install.sh
+
+   # Review the script (ALWAYS do this before running unknown scripts)
+   cat mob-install.sh
+
+   # If the script looks safe, make it executable and run it
+   chmod +x mob-install.sh
+   ./mob-install.sh
+
+   # Clean up
+   rm mob-install.sh
    ```
 3. Verify it worked:
    ```bash
@@ -611,7 +622,29 @@ If you want to use Linux tools on Windows:
 
 2. **Inside WSL, install mob**:
    ```bash
-   curl -s https://mob.sh/install.sh | sh
+   # Download the install script first
+   curl -s https://mob.sh/install.sh -o mob-install.sh
+
+   # Review the script contents (critical security step)
+   cat mob-install.sh
+
+   # If the script looks safe, make it executable and run it
+   chmod +x mob-install.sh
+   ./mob-install.sh
+
+   # Clean up
+   rm mob-install.sh
+   ```
+
+   **Alternative: Use Linux package managers if available**
+   ```bash
+   # For Debian/Ubuntu (if mob is packaged)
+   # sudo apt update && sudo apt install mob
+
+   # Or download binary directly from GitHub releases
+   # wget https://github.com/remotemobprogramming/mob/releases/latest/download/mob_linux
+   # sudo mv mob_linux /usr/local/bin/mob
+   # sudo chmod +x /usr/local/bin/mob
    ```
 
 ### macOS Installation

@@ -150,7 +150,7 @@ This guide provides download and installation instructions for Windows and macOS
 ### 🔗 Official Resources
 
 - Project Page: [https://mob.sh](https://mob.sh)
-- GitHub Repository: `https://github.com/remotemobprogramming/mob` [(github.com)](https://www.bing.com/search?q="https%3A%2F%2Fgithub.com%2Fremotemobprogramming%2Fmob")
+- GitHub Repository: [https://github.com/remotemobprogramming/mob](https://github.com/remotemobprogramming/mob)
 - Documentation: [https://mob.sh/docs/](https://mob.sh/docs/)
 
 ---

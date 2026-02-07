@@ -1,6 +1,8 @@
 # Tool Installation Guide
 
-**Git • GitHub Account • GitHub CLI • Visual Studio Code • GitHub Copilot Extension • GitHub Copilot CLI • Mob.sh • Pandoc • Marp CLI**
+**Required Tools:** Git • GitHub Account • GitHub CLI • Visual Studio Code • GitHub Copilot Extension • GitHub Copilot CLI • Mob.sh
+
+**Optional Tools:** Pandoc • Marp CLI
 
 This guide provides download and installation instructions for Windows and macOS, along with links to official documentation for each tool. **Tools are ordered by dependencies** — install them in sequence for the smoothest setup experience.
 
@@ -350,7 +352,7 @@ choco install mob.sh
 
 ---
 
-## 8. Pandoc (Document Converter)
+## 8. Pandoc (Document Converter) [OPTIONAL]
 
 ### 🔗 Official Resources
 
@@ -412,7 +414,7 @@ pandoc --defaults=slides-to-pptx input.md -o output.pptx
 
 ---
 
-## 9. Marp CLI (Presentation Builder)
+## 9. Marp CLI (Presentation Builder) [OPTIONAL]
 
 ### 🔗 Official Resources
 

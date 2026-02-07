@@ -69,7 +69,7 @@ This guide provides download and installation instructions for Windows and macOS
 
 ### 🔗 Official Resources
 
-- Extension Marketplace: `https://marketplace.visualstudio.com/items?itemName=GitHub.copilot` [(marketplace.visualstudio.com)](https://www.bing.com/search?q="https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DGitHub.copilot")
+- Extension Marketplace: [https://marketplace.visualstudio.com/items?itemName=GitHub.copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - Documentation: [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)
 
 ---
@@ -98,7 +98,7 @@ This guide provides download and installation instructions for Windows and macOS
 
 ### 🔗 Official Resources
 
-- Copilot CLI Documentation: `https://docs.github.com/en/copilot/github-copilot-in-the-cli` [(docs.github.com)](https://www.bing.com/search?q="https%3A%2F%2Fdocs.github.com%2Fen%2Fcopilot%2Fgithub-copilot-in-the-cli")
+- Copilot CLI Documentation: `https://docs.github.com/en/copilot/github-copilot-in-the-cli` [(docs.github.com)](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
 - GitHub CLI (required): [https://cli.github.com/](https://cli.github.com/)
 
 ---
@@ -150,7 +150,7 @@ This guide provides download and installation instructions for Windows and macOS
 ### 🔗 Official Resources
 
 - Project Page: [https://mob.sh](https://mob.sh)
-- GitHub Repository: `https://github.com/remotemobprogramming/mob` [(github.com)](https://www.bing.com/search?q="https%3A%2F%2Fgithub.com%2Fremotemobprogramming%2Fmob")
+- GitHub Repository: [https://github.com/remotemobprogramming/mob](https://github.com/remotemobprogramming/mob)
 - Documentation: [https://mob.sh/docs/](https://mob.sh/docs/)
 
 ---

@@ -69,7 +69,7 @@ This guide provides download and installation instructions for Windows and macOS
 
 ### 🔗 Official Resources
 
-- Extension Marketplace: `https://marketplace.visualstudio.com/items?itemName=GitHub.copilot` [(marketplace.visualstudio.com)](https://www.bing.com/search?q="https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DGitHub.copilot")
+- Extension Marketplace: [https://marketplace.visualstudio.com/items?itemName=GitHub.copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - Documentation: [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)
 
 ---

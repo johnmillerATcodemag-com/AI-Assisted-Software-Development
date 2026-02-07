@@ -352,7 +352,7 @@ choco install mob.sh
 
 ---
 
-## 8. Pandoc (Document Converter) [OPTIONAL]
+## 8. Pandoc (CLI Command) [OPTIONAL]
 
 ### 🔗 Official Resources
 
@@ -414,7 +414,7 @@ pandoc --defaults=slides-to-pptx input.md -o output.pptx
 
 ---
 
-## 9. Marp CLI (Presentation Builder) [OPTIONAL]
+## 9. Marp CLI (Markdown Variant) [OPTIONAL]
 
 ### 🔗 Official Resources
 

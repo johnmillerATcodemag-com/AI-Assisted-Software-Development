@@ -143,7 +143,7 @@ You should see something like `git version 2.41.0`. The exact numbers don't matt
 
 - You might need to install Xcode Command Line Tools: `xcode-select --install`
 
----
+**Option C — Using Winget** (Built into Windows 10/11)
 
 ## 2. Create Your GitHub Account
 
@@ -415,9 +415,10 @@ Copilot helps by:
 - **Debugging help** - it can spot and fix common errors
 - **Learning accelerator** - see how an expert would solve problems
 
-⚠️ **Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
+**Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
 
-### 🔗 Official Resources
+### Why Visual Studio Code?
+Visual Studio Code is where we will live for most of the course.
 
 - Information: [https://github.com/features/copilot](https://github.com/features/copilot)
 - Pricing: [https://github.com/features/copilot#pricing](https://github.com/features/copilot#pricing)
@@ -426,7 +427,7 @@ Copilot helps by:
 
 ---
 
-### 💳 Get GitHub Copilot Access
+### Get GitHub Copilot Access
 
 **For Students**:
 
@@ -436,6 +437,62 @@ Copilot helps by:
 
 **For Everyone Else**:
 
+1. Go to [https://github.com/features/copilot](https://github.com/features/copilot)
+2. Click "Start free trial"
+3. Enter payment details (won't be charged during trial)
+4. You get 30 days free, then it's $10/month
+
+### Windows Installation
+
+1. **Open VS Code** (make sure it's running)
+
+2. **Open Extensions view**:
+   - Click the Extensions icon in the Activity Bar (left side)
+   - Or press `Ctrl+Shift+X`
+
+3. **Search for GitHub Copilot**:
+   - Type "GitHub Copilot" in the search box
+   - Look for the official one by "GitHub" (should be the first result)
+
+4. **Install the extension**:
+   - Click "Install" button
+   - It might install additional recommended extensions (that's good!)
+
+5. **Sign in to GitHub**:
+   - You'll see a sign-in prompt
+   - Click "Sign in to GitHub"
+   - Authorize VS Code to access your GitHub account
+
+## 5. GitHub Copilot Extension
+
+### Why do you need it?
+Copilot is the interface between you and the power of AI in your coding workflow. It helps you write code faster, learn new languages, and get unstuck when you're facing a problem. It's like having an expert programmer sitting next to you, ready to help at any moment.
+
+Copilot helps by:
+- **Writing code for you** - describe what you want, and it writes it
+- **Completing your thoughts** - start typing and it finishes the code
+- **Explaining code** - ask it to explain any code you don't understand
+- **Debugging help** - it can spot and fix common errors
+- **Learning accelerator** - see how an expert would solve problems
+
+**Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
+
+### 🔗 Official Resources
+- Information: [https://github.com/features/copilot](https://github.com/features/copilot)
+- Pricing: [https://github.com/features/copilot#pricing](https://github.com/features/copilot#pricing)
+- Getting started: [https://docs.github.com/en/copilot/quickstart](https://docs.github.com/en/copilot/quickstart)
+- Student benefits: [https://education.github.com/](https://education.github.com/) (free Copilot!)
+
+---
+
+### Get GitHub Copilot Access
+
+**For Students**:
+1. Verify your student status at [https://education.github.com/](https://education.github.com/)
+2. Apply for GitHub Student Developer Pack
+3. Once approved, Copilot is included free!
+
+**For Everyone Else**:
 1. Go to [https://github.com/features/copilot](https://github.com/features/copilot)
 2. Click "Start free trial"
 3. Enter payment details (won't be charged during trial)

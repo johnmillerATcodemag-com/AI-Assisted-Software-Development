@@ -9,7 +9,7 @@ This directory contains custom chat mode definitions for specialized AI assistan
 | [`codebase-explorer.chatmode.md`](codebase-explorer.chatmode.md)               | Codebase Explorer        | Code Analysis     | Navigate and understand large codebases with guided exploration        |
 | [`documentation-visualizer.chatmode.md`](documentation-visualizer.chatmode.md) | Documentation Visualizer | Documentation     | Create visual diagrams and documentation from code and specs           |
 | [`git-expert.chatmode.md`](git-expert.chatmode.md)                             | Git Expert               | Version Control   | Git workflow guidance, branching strategies, and repository management |
-| [`security-expert.chatmode.md`](security-expert.chatmode.md)                   | Security Expert          | Security Analysis | Security code review, vulnerability detection, and compliance guidance |
+| [`security-expert.chatmode.md`](security-expert.chatmode.md)                   | Security Expert          | Security Analysis | Comprehensive security analysis, vulnerability detection, compliance validation, and automated issue creation |
 | [`technical-writer.chatmode.md`](technical-writer.chatmode.md)                 | Technical Writer         | Documentation     | Professional documentation creation and content strategy               |
 
 ## Usage

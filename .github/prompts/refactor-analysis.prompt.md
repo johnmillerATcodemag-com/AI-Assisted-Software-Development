@@ -6,9 +6,11 @@ description: "Analyze codebase for refactoring opportunities with evidence, impa
 prompt_metadata:
   id: refactor-analysis
   title: Codebase Refactoring Opportunities Analysis
-  owner: johnmillerATcodemag-com  version: "1.0.0"
+  owner: johnmillerATcodemag-com
+  version: "1.0.0"
   created: "2025-02-05"
-  updated: "2025-02-05"  output_path: reports/refactor-analysis.md
+  updated: "2025-02-05"
+  output_path: reports/refactor-analysis.md
   category: analysis
   tags: [refactoring, code-quality, technical-debt, analysis, recommendations]
   output_format: markdown

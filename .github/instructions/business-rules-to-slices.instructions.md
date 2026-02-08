@@ -32,7 +32,7 @@ This document provides instructions for AI assistants when analyzing business re
 **Related Documentation**:
 
 - [Business Rules to Vertical Slices (Human Guide)](.github/instructions/business-rules-to-vertical-slices.instructions.md)
-- [AI Vertical Slice Implementation](.github/instructions/vertical-slice.instructions.md)
+- [AI Vertical Slice Implementation](.github/instructions/vertical-slice-implementation.instructions.md)
 
 ## Table of Contents
 

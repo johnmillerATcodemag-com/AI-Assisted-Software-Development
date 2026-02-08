@@ -10,7 +10,6 @@ prompt_metadata:
   version: 1.0.0
   created: 2026-02-07
   updated: 2026-02-07
-  output_path: docs/architecture/performance-analysis.md
   output_format: markdown
   category: architecture
   tags: [performance, analysis, bottlenecks, optimization]

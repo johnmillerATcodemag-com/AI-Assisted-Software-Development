@@ -10,6 +10,7 @@ prompt_metadata:
   version: 1.0.0
   created: 2026-02-07
   updated: 2026-02-07
+  output_path: docs/architecture/compliance-check.md
   output_format: markdown
   category: governance
   tags: [compliance, standards, governance, validation]

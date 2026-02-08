@@ -40,6 +40,21 @@ This directory contains standardized AI prompts for various development and anal
 | ------------------------------------------------------------------------ | ------------------------ | ------------------------------------------ |
 | [`update-application-c4-diagrams.md`](update-application-c4-diagrams.md) | C4 Architecture Diagrams | Updated C4 model diagrams for applications |
 
+#### Solution Architect Specialized Prompts
+
+| File                                                                                                 | Purpose                                 | Output                                              |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
+| [`solution-architect/architecture-design.prompt.md`](solution-architect/architecture-design.prompt.md)         | System Architecture Design              | Comprehensive architectural blueprints              |
+| [`solution-architect/compliance-check.prompt.md`](solution-architect/compliance-check.prompt.md)               | Compliance Validation                   | Standards and regulatory compliance analysis        |
+| [`solution-architect/integration-design.prompt.md`](solution-architect/integration-design.prompt.md)           | System Integration and APIs             | Integration strategies and API contracts            |
+| [`solution-architect/migration-strategy.prompt.md`](solution-architect/migration-strategy.prompt.md)           | System Migration Planning               | Migration and modernization plans                   |
+| [`solution-architect/pattern-analysis.prompt.md`](solution-architect/pattern-analysis.prompt.md)               | Architectural Pattern Analysis          | Pattern recommendations with detailed justification |
+| [`solution-architect/performance-analysis.prompt.md`](solution-architect/performance-analysis.prompt.md)       | Performance Analysis                    | Performance characteristics and optimization plans  |
+| [`solution-architect/risk-assessment.prompt.md`](solution-architect/risk-assessment.prompt.md)                 | Architectural Risk Assessment           | Risk identification and mitigation strategies       |
+| [`solution-architect/scalability-planning.prompt.md`](solution-architect/scalability-planning.prompt.md)       | Scalability Planning                    | Scalability strategies and capacity plans           |
+| [`solution-architect/security-architecture.prompt.md`](solution-architect/security-architecture.prompt.md)     | Security Architecture                   | Security controls and threat mitigation             |
+| [`solution-architect/technology-evaluation.prompt.md`](solution-architect/technology-evaluation.prompt.md)     | Technology Evaluation                   | Technology assessment and selection guidance        |
+
 ## Meta Prompts
 
 The [`meta/`](meta/) subdirectory contains prompts that generate other prompts or instruction files. See [meta/README.md](meta/README.md) for details.

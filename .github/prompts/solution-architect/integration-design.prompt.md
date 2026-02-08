@@ -10,6 +10,7 @@ prompt_metadata:
   version: 1.0.0
   created: 2026-02-07
   updated: 2026-02-07
+  output_path: integration-design.md
   output_format: markdown
   category: architecture
   tags: [integration, apis, service-communication, protocols]

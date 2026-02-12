@@ -1,0 +1,164 @@
+# Creating custom agents
+
+You can create specialized agents with tailored expertise for specific development tasks.
+
+Custom agents allow you to create specialized agents with tailored expertise for specific tasks. For a conceptual overview of custom agents, see [About custom agents](/en/copilot/concepts/agents/coding-agent/about-custom-agents).
+
+> \[!NOTE]
+> Custom agents are in public preview for JetBrains IDEs, Eclipse, and Xcode, and subject to change.
+
+## Creating a custom agent profile in a repository on GitHub
+
+1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot\&ref_type=engagement\&ref_style=text).
+
+2. Using the dropdown menu in the prompt box, select the repository you want to create the custom agent profile in.
+
+   > \[!NOTE]
+   > Organization and enterprise owners can create organization and enterprise-level custom agents in a `.github-private` repository that are available across all repositories within their organization or enterprise. For more information, see [Preparing to use custom agents in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents) and [Preparing to use custom agents in your organization](/en/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents).
+
+3. Optionally, select the branch you want to create the agent profile in. The default is the main branch.
+
+4. Click <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-copilot" aria-label="Select a custom agent" role="img"><path d="M7.998 15.035c-4.562 0-7.873-2.914-7.998-3.749V9.338c.085-.628.677-1.686 1.588-2.065.013-.07.024-.143.036-.218.029-.183.06-.384.126-.612-.201-.508-.254-1.084-.254-1.656 0-.87.128-1.769.693-2.484.579-.733 1.494-1.124 2.724-1.261 1.206-.134 2.262.034 2.944.765.05.053.096.108.139.165.044-.057.094-.112.143-.165.682-.731 1.738-.899 2.944-.765 1.23.137 2.145.528 2.724 1.261.566.715.693 1.614.693 2.484 0 .572-.053 1.148-.254 1.656.066.228.098.429.126.612.012.076.024.148.037.218.924.385 1.522 1.471 1.591 2.095v1.872c0 .766-3.351 3.795-8.002 3.795Zm0-1.485c2.28 0 4.584-1.11 5.002-1.433V7.862l-.023-.116c-.49.21-1.075.291-1.727.291-1.146 0-2.059-.327-2.71-.991A3.222 3.222 0 0 1 8 6.303a3.24 3.24 0 0 1-.544.743c-.65.664-1.563.991-2.71.991-.652 0-1.236-.081-1.727-.291l-.023.116v4.255c.419.323 2.722 1.433 5.002 1.433ZM6.762 2.83c-.193-.206-.637-.413-1.682-.297-1.019.113-1.479.404-1.713.7-.247.312-.369.789-.369 1.554 0 .793.129 1.171.308 1.371.162.181.519.379 1.442.379.853 0 1.339-.235 1.638-.54.315-.322.527-.827.617-1.553.117-.935-.037-1.395-.241-1.614Zm4.155-.297c-1.044-.116-1.488.091-1.681.297-.204.219-.359.679-.242 1.614.091.726.303 1.231.618 1.553.299.305.784.54 1.638.54.922 0 1.28-.198 1.442-.379.179-.2.308-.578.308-1.371 0-.765-.123-1.242-.37-1.554-.233-.296-.693-.587-1.713-.7Z"></path><path d="M6.25 9.037a.75.75 0 0 1 .75.75v1.501a.75.75 0 0 1-1.5 0V9.787a.75.75 0 0 1 .75-.75Zm4.25.75v1.501a.75.75 0 0 1-1.5 0V9.787a.75.75 0 0 1 1.5 0Z"></path></svg>, then click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-plus" aria-label="Plus button" role="img"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg> Create an agent**. This will open a template agent profile called `my-agent.agent.md` in the `.github/agents` directory of your target repository.
+
+5. If you are creating an organization or enterprise-level custom agent, delete the `.github/` portion of the file path to move your template to the root `agents` directory.
+
+6. Edit the filename (the text before `.agent.md`), selecting a unique, descriptive name that identifies the agent's purpose. Note that the filename may only contain the following characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`.
+
+7. Configure the agent profile, including the name, description, tools, and prompts. For more information on what the agent profile can include, see [Configuring an agent profile](#configuring-an-agent-profile).
+
+8. Commit the file to the repository and merge it into the default branch. Go back to the agents tab and refresh the page if needed. Your custom agent will now appear in the dropdown when you click <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-copilot" aria-label="copilot" role="img"><path d="M7.998 15.035c-4.562 0-7.873-2.914-7.998-3.749V9.338c.085-.628.677-1.686 1.588-2.065.013-.07.024-.143.036-.218.029-.183.06-.384.126-.612-.201-.508-.254-1.084-.254-1.656 0-.87.128-1.769.693-2.484.579-.733 1.494-1.124 2.724-1.261 1.206-.134 2.262.034 2.944.765.05.053.096.108.139.165.044-.057.094-.112.143-.165.682-.731 1.738-.899 2.944-.765 1.23.137 2.145.528 2.724 1.261.566.715.693 1.614.693 2.484 0 .572-.053 1.148-.254 1.656.066.228.098.429.126.612.012.076.024.148.037.218.924.385 1.522 1.471 1.591 2.095v1.872c0 .766-3.351 3.795-8.002 3.795Zm0-1.485c2.28 0 4.584-1.11 5.002-1.433V7.862l-.023-.116c-.49.21-1.075.291-1.727.291-1.146 0-2.059-.327-2.71-.991A3.222 3.222 0 0 1 8 6.303a3.24 3.24 0 0 1-.544.743c-.65.664-1.563.991-2.71.991-.652 0-1.236-.081-1.727-.291l-.023.116v4.255c.419.323 2.722 1.433 5.002 1.433ZM6.762 2.83c-.193-.206-.637-.413-1.682-.297-1.019.113-1.479.404-1.713.7-.247.312-.369.789-.369 1.554 0 .793.129 1.171.308 1.371.162.181.519.379 1.442.379.853 0 1.339-.235 1.638-.54.315-.322.527-.827.617-1.553.117-.935-.037-1.395-.241-1.614Zm4.155-.297c-1.044-.116-1.488.091-1.681.297-.204.219-.359.679-.242 1.614.091.726.303 1.231.618 1.553.299.305.784.54 1.638.54.922 0 1.28-.198 1.442-.379.179-.2.308-.578.308-1.371 0-.765-.123-1.242-.37-1.554-.233-.296-.693-.587-1.713-.7Z"></path><path d="M6.25 9.037a.75.75 0 0 1 .75.75v1.501a.75.75 0 0 1-1.5 0V9.787a.75.75 0 0 1 .75-.75Zm4.25.75v1.501a.75.75 0 0 1-1.5 0V9.787a.75.75 0 0 1 1.5 0Z"></path></svg> in the prompt box.
+
+## Creating a custom agent profile in Visual Studio Code
+
+1. Open GitHub Copilot Chat in Visual Studio Code.
+2. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-plus" aria-label="Plus button" role="img"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg> Create new custom agent**.
+3. Choose the location where the agent profile should be created:
+   * **Workspace**: Create the custom agent profile in the `.github/agents` folder of your workspace to only use it within that workspace.
+   * **User profile**: Create the custom agent profile in the current user profile folder to use it across all your workspaces.
+4. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+5. Configure the agent profile in the newly created `.agent.md` file, including the description, tools, and prompts. For more information on what the agent profile can include, see [Configuring an agent profile](#configuring-an-agent-profile).
+   * You can use the **Configure Tools...** button within the editor to open the "Configure Tools" dialog, where you can view and select available tools, including built-in tools and tools from MCP servers. Click **OK** to add selected tools to the agent profile.
+   * To set which AI model the agent uses, add a `model:` property and select your preferred model from the autocomplete dropdown.
+
+To update an agent profile, select **Configure Custom Agents** from the agents dropdown, and then click on an agent from the list to modify it. For more information on custom agents in VS Code, see [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents).
+
+## Creating a custom agent profile in JetBrains IDEs
+
+1. Open the GitHub Copilot Chat window in your JetBrains IDE.
+2. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then in the settings window, under "Chat Agents", click **Workspace**.
+3. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+4. Configure the agent profile in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the agent profile can include, see [Configuring an agent profile](#configuring-an-agent-profile).
+   * You can use the **Configure Tools...** button within the editor to open the tools dialog, where you can view and select available tools, including built-in tools and tools from MCP servers. Click **Apply** to add selected tools to the agent profile.
+   * To set which AI model the agent uses, add a `model:` property and select your preferred model from the autocomplete dropdown.
+
+To update an agent profile, select **Configure Custom Agents** from the agents dropdown, and then click <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pencil" aria-label="The pencil icon" role="img"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg> next to the agent you want to modify.
+
+## Creating a custom agent profile in Eclipse
+
+1. Open the GitHub Copilot Chat window in Eclipse.
+2. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then click **Add...**.
+3. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+4. Configure the agent profile in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the agent profile can include, see [Configuring an agent profile](#configuring-an-agent-profile).
+   * You can use the **Configure Tools...** button within the editor to open the "Configure Tools" dialog, where you can view and select available tools, including built-in tools and tools from MCP servers. Click **Apply** to add selected tools to the agent profile.
+   * To set which AI model the agent uses, add a `model:` property and select your preferred model from the autocomplete dropdown.
+
+To update an agent profile, select **Configure Agents...** from the agents dropdown, and then select the agent you want to modify and click **Edit**.
+
+## Creating a custom agent profile in Xcode
+
+1. Open the GitHub Copilot Chat window in Xcode.
+2. From the agents dropdown at the bottom of the chat view, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-plus" aria-label="Plus button" role="img"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg> Create an agent**.
+3. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+4. Configure the agent profile in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the agent profile can include, see [Configuring an agent profile](#configuring-an-agent-profile).
+   * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between custom agents. Click **Apply** to add selected options to the agent profile.
+
+To update an agent profile, from the agents dropdown, click the pencil icon next to the agent you want to modify.
+
+## Configuring an agent profile
+
+An agent profile is a Markdown file with YAML frontmatter that specifies the custom agent's name, description, available tools, and MCP server configurations (for organization/enterprise level agents). Configuring an agent profile involves defining the agent's identity, capabilities, tool access, and behavioral instructions.
+
+For detailed configuration information about YAML properties, tools, MCP server setup, tool aliases, and how custom agents are processed, see [Custom agents configuration](/en/copilot/reference/custom-agents-configuration).
+
+To configure your agent profile:
+
+1. Optionally, write a `name` for your custom agent. If unset, the name will default to the filename (without the `.md` or `.agent.md` suffix).
+2. Write a brief `description` (required) explaining what your agent does and its specific capabilities or domain expertise.
+3. In the `tools` property, define which tools the agent can use. This is a list of tool names or aliases, including tools from MCP servers configured in the repository settings or the agent profile (for example, `tools: ["read", "edit", "search", "some-mcp-server/tool-1"]`). If you omit this property, the agent will have access to all available tools.
+4. If creating an organization or enterprise level agent on GitHub, you can use the `mcp-servers` property to optionally configure MCP servers that will be available only to this agent to extend its capabilities.
+5. If you are creating and using the agent profile in VS Code, JetBrains IDEs, Eclipse, or Xcode, you can also use the `model` property to control which AI model the agent should use.
+6. Optionally, set the `target` property to either `vscode` or `github-copilot` if you want to only use the agent in a specific environment. The agent will be available in both environments if you omit the property.
+7. Write the agent's prompt. Define the agent's behavior, expertise, and instructions in the Markdown content below the YAML frontmatter. The prompt can be a maximum of 30,000 characters.
+
+## Example agent profiles
+
+The following examples demonstrate what an agent profile could look like for the common tasks of writing tests or planning the implementation of a project. For additional inspiration, see the [Custom agents](/en/copilot/tutorials/customization-library/custom-agents) examples in the customization library. You can also find more specific examples in the [awesome-copilot](https://github.com/github/awesome-copilot/tree/main/agents) community collection.
+
+### Testing specialist
+
+This example enables all tools by omitting the `tools` property.
+
+```text copy
+---
+name: test-specialist
+description: Focuses on test coverage, quality, and testing best practices without modifying production code
+---
+
+You are a testing specialist focused on improving code quality through comprehensive testing. Your responsibilities:
+
+- Analyze existing tests and identify coverage gaps
+- Write unit tests, integration tests, and end-to-end tests following best practices
+- Review test quality and suggest improvements for maintainability
+- Ensure tests are isolated, deterministic, and well-documented
+- Focus only on test files and avoid modifying production code unless specifically requested
+
+Always include clear test descriptions and use appropriate testing patterns for the language and framework.
+```
+
+### Implementation planner
+
+This example only enables a subset of tools.
+
+```text copy
+---
+name: implementation-planner
+description: Creates detailed implementation plans and technical specifications in markdown format
+tools: ["read", "search", "edit"]
+---
+
+You are a technical planning specialist focused on creating comprehensive implementation plans. Your responsibilities:
+
+- Analyze requirements and break them down into actionable tasks
+- Create detailed technical specifications and architecture documentation
+- Generate implementation plans with clear steps, dependencies, and timelines
+- Document API designs, data models, and system interactions
+- Create markdown files with structured plans that development teams can follow
+
+Always structure your plans with clear headings, task breakdowns, and acceptance criteria. Include considerations for testing, deployment, and potential risks. Focus on creating thorough documentation rather than implementing code.
+```
+
+## Using custom agents
+
+Once you've created a custom agent, you can use it wherever Copilot coding agent is available.
+
+* When prompting Copilot coding agent with a task on GitHub.com, use the dropdown menu in the agents panel or agents tab to select your custom agent instead of the default coding agent.
+* When assigning Copilot coding agent to an issue, you can select your custom agent from the dropdown menu to handle the issue with your specialized configuration.
+* When using the GitHub Copilot CLI, you can choose to use a particular custom agent by using the `/agent` slash command or referencing the agent in a prompt or via a command-line argument. For more information, see [Using GitHub Copilot CLI](/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
+
+When Copilot opens pull requests, it will note which custom agent was used to complete the work in the pull request description.
+
+For more information on using Copilot coding agent, see [Asking GitHub Copilot to create a pull request](/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+
+### Using custom agents in your IDE
+
+You can also use your custom agent profiles directly in supported IDEs, including Visual Studio Code, JetBrains IDEs, Eclipse, and Xcode. You can switch between custom agents using the agent dropdown in the Chat window, allowing you to access specialized configurations for different tasks like planning, code editing, or research.
+
+Note that some properties may function differently, or be ignored, between the GitHub.com and IDE environments. For more information on supported properties, see [Custom agents configuration](/en/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties).
+
+For more information on custom agents in VS Code specifically, see [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents) in the VS Code documentation.
+
+## Next steps
+
+* For a hands-on tutorial to create your first custom agent, see [Your first custom agent](/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent).
+* For detailed configuration information, see [Custom agents configuration](/en/copilot/reference/custom-agents-configuration).
+* For information on using coding agents, including your custom agents, to create pull requests, see [Asking GitHub Copilot to create a pull request](/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).

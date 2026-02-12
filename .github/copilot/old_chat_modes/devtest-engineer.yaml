@@ -198,6 +198,12 @@ instructions: |
   **Response**: Define test pyramid distribution, specify frameworks per
   layer, outline test scenarios, establish coverage targets, plan CI
   integration, include performance testing requirements
+promptfiles:
+  - tests-gap-analysis
+  - codebase-review
+  - create-issues-for-found-bugs
+  - performance-analysis
+  - compliance-check
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

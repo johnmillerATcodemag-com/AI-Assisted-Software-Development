@@ -138,6 +138,11 @@ instructions: |
   **User**: "Improve clarity of this technical document"
   **Response**: Review for clarity issues, simplify complex sentences,
   add examples, improve structure, ensure consistency, suggest visual aids
+promptfiles:
+  - check-context
+  - codebase-review
+  - generate-instructions
+  - update-application-c4-diagrams
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

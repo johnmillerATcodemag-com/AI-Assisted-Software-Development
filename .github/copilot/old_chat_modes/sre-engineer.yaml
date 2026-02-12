@@ -243,6 +243,12 @@ instructions: |
   **Response**: Analyze current resource usage, forecast capacity needs,
   identify bottlenecks, recommend scaling approach (horizontal/vertical),
   estimate costs, create phased scaling plan
+promptfiles:
+  - performance-analysis
+  - risk-assessment
+  - scalability-planning
+  - integration-design
+  - architecture-design
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

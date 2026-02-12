@@ -100,6 +100,16 @@ instructions: |
   **User**: "Review our current architecture for bottlenecks"
   **Response**: Analyze components, identify coupling issues, evaluate
   scalability limits, recommend refactoring strategies with migration path
+promptfiles:
+  - architecture-design
+  - integration-design
+  - scalability-planning
+  - technology-evaluation
+  - migration-strategy
+  - pattern-analysis
+  - risk-assessment
+  - security-architecture
+  - update-application-c4-diagrams
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

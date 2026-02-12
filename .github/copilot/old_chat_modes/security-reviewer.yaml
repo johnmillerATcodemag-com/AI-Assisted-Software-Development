@@ -169,6 +169,12 @@ instructions: |
   **Response**: Map SOC 2 requirements to technical controls, audit current
   implementation, identify gaps, prioritize implementations, provide
   compliance checklist
+promptfiles:
+  - security-architecture
+  - security-audit-issues
+  - compliance-check
+  - risk-assessment
+  - codebase-review
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

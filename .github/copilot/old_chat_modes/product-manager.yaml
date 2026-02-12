@@ -87,6 +87,11 @@ instructions: |
   **User**: "Explain this technical architecture to executives"
   **Response**: Create non-technical summary focusing on business benefits, costs,
   risks, and ROI rather than technical details
+promptfiles:
+  - derive-use-cases-from-conceptual-model
+  - create-use-case-instructions
+  - risk-assessment
+  - check-context
 metadata:
   ai_generated: true
   model: "anthropic/claude-3.5-sonnet@2024-10-22"

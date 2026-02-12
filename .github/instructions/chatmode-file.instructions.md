@@ -16,31 +16,44 @@ source: "optimization-task"
 applyTo: "**/*.chatmode.md"
 ---
 
-# AI Instructions: Custom Chat Mode Creation
+# AI Instructions: GitHub Copilot Agent Creation
 
-Create specialized GitHub Copilot chat modes with domain expertise.
+Create specialized GitHub Copilot agents (chat modes) with domain expertise.
 
 ## File Structure
 
 ### Naming & Location
 
-- Pattern: `<chat-mode-name>.chatmode.md` (kebab-case)
-- Location: `.github/chatmodes/`
-- Extension: `.chatmode.md` (required)
+- Pattern: `<agent-name>.yaml` (kebab-case)
+- Location: `.github/copilot/chat_modes/` (exact casing required)
+- Extension: `.yaml` (required)
+- Format: YAML
 
-### Required Header
+### Required YAML Fields
 
-```markdown
-# Name: <Display Name>
-
-# Focus: <Primary domain>
-
-# Temperature: <0.0-1.0>
-
-# Style: <Communication style>
+```yaml
+name: "agent-name" # Must match filename (minus .yaml extension)
+description: "Short description shown in Copilot UI"
+instructions: |
+  # All behavioral guidance goes here as multiline string
+  # This is where you define the agent's behavior
+promptfiles: # Promptfiles this agent can invoke (required)
+  - prompt-name-1
+  - prompt-name-2
 ```
 
-### Core Sections
+### Optional YAML Fields
+
+```yaml
+capabilities: [] # Reserved for future Copilot features
+metadata: # Your custom extension point
+  temperature: 0.3
+  style: "thorough, action-oriented"
+  owner: "team-name"
+  lastReviewed: "2026-02-11"
+```
+
+### Content Structure (Inside `instructions:` field)
 
 1. Mission Statement (required)
 2. Core Expertise (required)
@@ -50,214 +63,447 @@ Create specialized GitHub Copilot chat modes with domain expertise.
 6. Communication Principles (recommended)
 7. Example Interactions (recommended)
 
-## Header Field Specs
+## Required Field Specifications
 
-### Name
+### name (Required)
 
-- Title Case, 2-4 words
-- Descriptive, memorable
-- Example: `# Name: Security Analyzer`
+- Must match filename (minus `.yaml` extension)
+- Lowercase, hyphenated recommended
+- Example: `name: "security-analyzer"`
 
-### Focus
+### instructions (Required)
 
-- Specific domain description
-- Key capabilities, comma-separated
-- Example: `# Focus: Code security analysis, vulnerability detection, automated issue creation`
+- Multiline YAML block (use `|` or `>` syntax)
+- Contains ALL behavioral guidance
+- Can include Markdown formatting
+- Example:
+  ```yaml
+  instructions: |
+    You are a security analyst...
+  ```
 
-### Temperature
+### description (Required)
 
-Scale:
+- Short text shown in Copilot UI
+- Example: `description: "Code security analysis and vulnerability detection"`
 
-- 0.0-0.3: Deterministic (security, compliance)
-- 0.4-0.5: Balanced (documentation, analysis)
-- 0.6-0.7: Creative (brainstorming, architecture)
-- 0.8-1.0: Highly creative (rarely used)
+## Optional Field Specifications
 
-Example: `# Temperature: 0.3`
+### promptfiles (Optional)
 
-### Style
+- Array of promptfile names this agent can invoke
+- Example:
+  ```yaml
+  promptfiles:
+    - generate-tests
+    - summarize-file
+  ```
 
-- 2-4 descriptive adjectives
-- Align with domain
-- Example: `# Style: Thorough, security-focused, action-oriented`
+### metadata (Optional - Your Extension Point)
 
-## Content Structure
+Store custom fields here. Common patterns:
+
+- **temperature**: 0.0-1.0 scale for behavioral guidance
+  - 0.0-0.3: Deterministic (security, compliance)
+  - 0.4-0.5: Balanced (documentation, analysis)
+  - 0.6-0.7: Creative (brainstorming, architecture)
+  - 0.8-1.0: Highly creative (rarely used)
+- **style**: Communication style (e.g., "thorough, action-oriented")
+- **owner**: Team or person responsible
+- **domain**: Domain classification
+- **lastReviewed**: ISO date of last review
+- **riskLevel**: Risk classification
+- **jiraProject**: Associated project
+
+Example:
+
+```yaml
+metadata:
+  temperature: 0.3
+  style: "thorough, security-focused"
+  owner: "security-team"
+  domain: "security"
+  lastReviewed: "2026-02-11"
+```
+
+## Selecting Appropriate Promptfiles
+
+### Selection Criteria
+
+When populating `promptfiles`, choose prompts that align with the agent's mission and domain expertise. Consider:
+
+1. **Domain Alignment**: Promptfiles should support the agent's core expertise areas
+2. **Workflow Support**: Include prompts that enable the agent's methodology phases
+3. **Common Tasks**: Add prompts for frequently needed operations in this domain
+4. **User Experience**: Include prompts that reduce repetitive work for this agent type
+
+### Selection Process
+
+1. **Identify Core Tasks**: List the top 5-10 tasks users perform with this agent
+2. **Map to Existing Prompts**: Find promptfiles that support these tasks
+3. **Prioritize by Frequency**: Include most-used promptfiles first
+4. **Limit Scope**: Keep list focused (5-15 promptfiles) to avoid overwhelming users
+5. **Document in Instructions**: Reference promptfiles in agent's `instructions` field
+
+### Example: Security Analyzer Agent
+
+```yaml
+name: "security-analyzer"
+description: "Code security analysis and vulnerability detection"
+instructions: |
+  You are an expert security analyst. Your mission is to identify
+  security risks and provide actionable remediation.
+
+  ## Your Core Expertise
+  - Vulnerability Detection
+  - Dependency Security
+  - OWASP Top 10
+
+  ## Available Promptfiles
+  Use these specialized prompts for thorough analysis:
+  - `@security-scan` - Comprehensive security assessment
+  - `@owasp-check` - OWASP Top 10 focused analysis
+  - `@dependency-audit` - Check dependencies for vulnerabilities
+  - `@threat-model` - Generate threat models
+promptfiles:
+  - security-scan
+  - owasp-check
+  - dependency-audit
+  - threat-model
+metadata:
+  domain: "security"
+  owner: "security-team"
+```
+
+### Best Practices
+
+**DO**:
+
+- ✅ Match promptfiles to agent's stated expertise
+- ✅ Reference promptfiles in `instructions` field with usage guidance
+- ✅ Keep list focused (5-15 items)
+- ✅ Order by usage frequency (most common first)
+- ✅ Use consistent naming conventions
+- ✅ Document what each promptfile does in comments
+
+**DON'T**:
+
+- ❌ Include unrelated promptfiles
+- ❌ Add every available promptfile
+- ❌ List promptfiles without documenting them in `instructions`
+- ❌ Use promptfiles that conflict with agent's mission
+- ❌ Include deprecated or experimental promptfiles
+
+### Validation Questions
+
+Before finalizing your `promptfiles` list, ask:
+
+1. Does each promptfile support a core expertise area?
+2. Would a user of this agent expect these capabilities?
+3. Are the promptfiles documented in the `instructions` field?
+4. Is the list manageable (not overwhelming)?
+5. Are the most common tasks covered?
+
+### Creating Missing Promptfiles
+
+**IMPORTANT**: When you identify a needed promptfile that doesn't exist in `.github/copilot/Promptfiles/`, you must create it before referencing it in the chat mode.
+
+#### Verification Process
+
+1. **Check Existence**: Search for the promptfile in `.github/copilot/Promptfiles/`
+
+   ```bash
+   # Check if prompt exists
+   ls .github/copilot/Promptfiles/*<prompt-name>.prompt.md
+   ```
+
+2. **Create if Missing**: If the promptfile doesn't exist, create it following the guidance in `#file:prompt-file.instructions.md`
+
+3. **Update Chat Mode**: Only reference existing or newly-created promptfiles in your chat mode's `promptfiles` list
+
+#### Creation Workflow
+
+```yaml
+# Step 1: Identify needed promptfiles
+needed_prompts:
+  - security-scan          # ✅ Exists
+  - owasp-check            # ✅ Exists
+  - custom-threat-model    # ❌ Missing - needs creation
+
+# Step 2: Create missing promptfiles
+New file: .github/copilot/Promptfiles/custom-threat-model.prompt.md
+Following: #file:prompt-file.instructions.md
+
+# Step 3: Verify promptfile works
+Test the promptfile independently before adding to chat mode
+
+# Step 4: Add to chat mode
+promptfiles:
+  - security-scan
+  - owasp-check
+  - custom-threat-model    # ✅ Now exists
+```
+
+#### Integration Checklist
+
+Before adding promptfiles to your chat mode:
+
+- [ ] Verify each promptfile exists in `.github/copilot/Promptfiles/`
+- [ ] Test each promptfile independently to confirm functionality
+- [ ] Ensure promptfile descriptions match chat mode's domain
+- [ ] Document promptfile purpose in chat mode's `instructions` field
+- [ ] Follow naming conventions (kebab-case, descriptive)
+- [ ] Add proper metadata to new promptfiles
+- [ ] Link promptfiles to chat mode's core expertise areas
+
+#### Example: Complete Workflow
+
+```yaml
+# Chat mode identifies needed capabilities
+agent_needs:
+  - security_scanning
+  - vulnerability_detection
+  - compliance_checking
+
+# Map to promptfiles
+existing:
+  - security-scan (exists)
+  - dependency-audit (exists)
+
+missing:
+  - compliance-check (needs creation)
+
+# Create missing promptfile
+# File: .github/copilot/Promptfiles/compliance-check.prompt.md
+# Content: Follow prompt-file.instructions.md
+
+# Final chat mode with all promptfiles available
+name: "security-analyzer"
+promptfiles:
+  - security-scan # Existing
+  - dependency-audit # Existing
+  - compliance-check # Newly created
+```
+
+#### Common Mistakes to Avoid
+
+❌ **DON'T**:
+
+- Reference non-existent promptfiles in chat mode
+- Create promptfiles without proper metadata
+- Skip testing promptfiles before integration
+- Use inconsistent naming between file and ID
+- Create duplicate promptfiles with different names
+
+✅ **DO**:
+
+- Verify promptfile existence before referencing
+- Follow prompt-file.instructions.md for creation
+- Test promptfiles independently
+- Use consistent, descriptive naming
+- Document promptfile purpose in chat mode instructions
+
+#### Promptfile Creation
+
+If you need to create a new promptfile, follow the guidance in `#file:prompt-file.instructions.md` for proper structure and location requirements.
+
+## Content Structure (Inside `instructions:` field)
 
 ### Mission Statement
 
-1-2 sentences defining role and value:
+1-2 sentences defining role and value (place at start of `instructions:`):
 
-```markdown
-You are [role] specializing in [domain]. Your mission is to [value]
-through [approach].
+```yaml
+instructions: |
+  You are [role] specializing in [domain]. Your mission is to [value]
+  through [approach].
 ```
 
 ### Core Expertise
 
-5-10 specific areas:
+5-10 specific areas (inside `instructions:`):
 
-```markdown
-## Your Core Expertise
+```yaml
+instructions: |
+  ## Your Core Expertise
 
-- **[Area]**: Description
-- **[Area]**: Description
+  - **[Area]**: Description
+  - **[Area]**: Description
 ```
 
 ### Methodology (Optional)
 
-Multi-phase workflow:
+Multi-phase workflow (inside `instructions:`):
 
-```markdown
-## Analysis Methodology
+```yaml
+instructions: |
+  ## Analysis Methodology
 
-### Phase 1: [Name]
+  ### Phase 1: [Name]
 
-1. **[Step]**: Description
-2. **[Step]**: Description
+  1. **[Step]**: Description
+  2. **[Step]**: Description
 ```
 
-### Interactive Commands (Optional)
+### Available Commands (Optional)
 
-Command shortcuts:
+Document commands users can invoke when using this agent. Commands fall into two categories:
 
-```markdown
-## Interactive Commands
+#### 1. Promptfile Invocations
 
-- **`@command-name`** - Description
-- **`@another-command`** - Description
+Commands that call external `.prompt.md` files (must be listed in `promptfiles:` array):
+
+```yaml
+instructions: |
+  ## Available Promptfiles
+  Use these specialized prompts:
+  - `@security-scan` - Runs comprehensive security assessment
+  - `@owasp-check` - Runs OWASP Top 10 focused analysis
+
+promptfiles:
+  - security-scan  # .github/copilot/Promptfiles/security-scan.prompt.md
+  - owasp-check    # .github/copilot/Promptfiles/owasp-check.prompt.md
 ```
+
+**How it works**: When user types `@security-scan`, Copilot executes the external promptfile.
+
+#### 2. Behavioral Shortcuts
+
+Commands defined purely as behavioral guidance (no external file, no `promptfiles:` entry):
+
+```yaml
+instructions: |
+  ## Quick Commands
+  - **`@quick-scan`** - Provide rapid security overview of current file
+  - **`@explain-vuln`** - Explain detected vulnerability in detail
+  - **`@fix-hint`** - Suggest fix for identified issue
+
+# Note: No promptfiles array needed for pure behavioral commands
+```
+
+**How it works**: When user types `@quick-scan`, agent responds based on behavioral instructions (no external file called).
+
+**Best Practice**: Use promptfiles for complex, reusable workflows. Use behavioral shortcuts for simple, agent-specific responses.
 
 ### Response Format
 
-Output structure:
+Output structure (inside `instructions:`):
 
-```markdown
-## Response Format
+```yaml
+instructions: |
+  ## Response Format
 
-1. **[Icon] Section** (guidance)
-2. **[Icon] Section** (guidance)
+  1. **[Icon] Section** (guidance)
+  2. **[Icon] Section** (guidance)
 ```
 
 ### Communication Principles
 
-Behavioral guidelines:
+Behavioral guidelines (inside `instructions:`):
 
-```markdown
-## Communication Guidelines
+```yaml
+instructions: |
+  ## Communication Guidelines
 
-- **Be [Attribute]**: Description
-- **Be [Attribute]**: Description
+  - **Be [Attribute]**: Description
+  - **Be [Attribute]**: Description
 ```
 
 ### Example Interactions
 
-Usage demonstrations:
+Usage demonstrations (inside `instructions:`):
 
-```markdown
-## Example Interactions
+```yaml
+instructions: |
+  ## Example Interactions
 
-**User**: "[request]"
-**Response**: [action/response]
+  **User**: "[request]"
+  **Response**: [action/response]
 ```
 
 ## Templates
 
-### Security Analysis
+### Security Analysis Agent
 
-```markdown
-# Name: Security Analyzer
+```yaml
+name: "security-analyzer"
+description: "Code security analysis and vulnerability detection"
+instructions: |
+  # Behavioral Definition
 
-# Focus: Code security, vulnerability detection
+  You are an expert security analyst specializing in code security
+  and vulnerability detection. Your mission is to identify security
+  risks and provide actionable remediation through systematic analysis.
 
-# Temperature: 0.3
+  ## Reasoning Style
+  - Temperature: 0.3 (deterministic, precise)
+  - Style: Thorough, security-focused, action-oriented
 
-# Style: Thorough, security-focused, action-oriented
+  ## Your Core Expertise
 
-You are an expert security analyst...
+  - **Vulnerability Detection**: OWASP Top 10, CWE classifications
+  - **Static Analysis**: Security anti-patterns and code scanning
 
-## Your Core Expertise
+  ## Available Promptfiles
+  Use these specialized prompts for deep analysis:
+  - `@security-scan` - Runs comprehensive security assessment
+  - `@owasp-check` - Runs OWASP Top 10 analysis
+  - `@dependency-audit` - Checks dependency vulnerabilities
+  - `@threat-model` - Generates threat model
 
-- **Vulnerability Detection**: OWASP Top 10, CWE
-- **Static Analysis**: Security anti-patterns
+  ## Quick Commands
+  Behavioral shortcuts for rapid responses:
+  - `@quick-scan` - Rapid security overview of current file
+  - `@explain-risk` - Explain security risk in plain language
 
-## Interactive Commands
+  ## Response Format
 
-- **`@security-scan`** - Comprehensive assessment
-- **`@owasp-check`** - OWASP Top 10 analysis
+  Present findings with severity levels and remediation steps.
+promptfiles:
+  - security-scan
+  - owasp-check
+  - dependency-audit
+  - threat-model
+metadata:
+  temperature: 0.3
+  style: "thorough, security-focused, action-oriented"
+  domain: "security"
+  owner: "security-team"
 ```
-
-### Documentation Assistant
-
-```markdown
-# Name: Documentation Assistant
-
-# Focus: Technical documentation, clarity
-
-# Temperature: 0.4
-
-# Style: Clear, helpful, detail-oriented
-
-You help create comprehensive documentation...
-
-## Capabilities
-
-- Generate API docs
-- Create READMEs
-- Produce diagrams
-
-## Interactive Commands
-
-- **`@doc-api`** - API documentation
-- **`@doc-readme`** - README creation
-```
-
-### Code Explorer
-
-```markdown
-# Name: Codebase Explorer
-
-# Focus: Rapid codebase understanding
-
-# Temperature: 0.5
-
-# Style: Systematic, educational, context-aware
-
-You help understand unfamiliar codebases...
-
-## Analysis Methodology
-
-### Phase 1: Discovery
-
-1. **Structure Mapping**: Analyze organization
-2. **Tech Stack**: Identify frameworks
-
-## Interactive Commands
-
-- **`@overview`** - Project summary
-- **`@architecture`** - Design analysis
-```
-
 ## Validation Checklist
 
-- [ ] kebab-case filename with `.chatmode.md`
-- [ ] Located in `.github/chatmodes/`
-- [ ] All header fields present (Name, Focus, Temperature, Style)
-- [ ] Mission statement clear
-- [ ] Core expertise listed (5-10 items)
-- [ ] Commands use `@kebab-case` format
-- [ ] Temperature appropriate for use case
-- [ ] Style aligns with domain
+- [ ] kebab-case filename with `.yaml` extension
+- [ ] Located in `.github/copilot/chat_modes/` (exact casing)
+- [ ] YAML or JSON format (NOT Markdown)
+- [ ] No YAML metadata at top (only `name:`, `instructions:`, etc.)
+- [ ] No top-level arbitrary fields
+- [ ] `name` field matches filename (minus extension)
+- [ ] `name` field is lowercase, hyphenated
+- [ ] `instructions` field contains behavioral definition
+- [ ] All behavioral content inside `instructions:` block
+- [ ] Mission statement clear (in `instructions:`)
+- [ ] Core expertise listed (5-10 items, in `instructions:`)
+- [ ] Commands use `@kebab-case` format (in `instructions:`)
+- [ ] Temperature in `metadata` (if used) appropriate for use case
+- [ ] Style in `metadata` (if used) aligns with domain
+- [ ] No `.chatmode.md` files (they're UI-only, non-functional)
 
 ## Anti-Patterns
 
+❌ Using `.chatmode.md` files (UI-only, non-functional)
+❌ Wrong directory (not `.github/copilot/chat_modes/`)
+❌ Markdown format instead of YAML
+❌ YAML metadata at top of file
+❌ Top-level arbitrary fields (use `metadata:` instead)
+❌ Behavioral content outside `instructions:` field
+❌ `name` doesn't match filename
 ❌ Overly broad focus
 ❌ Unclear commands
 ❌ Missing examples
 ❌ Vague mission
 ❌ Inconsistent formatting
-❌ Wrong temperature for task
 
-## Quality Rules
+## Quality Rules (For `instructions:` content)
 
 **Be Specific**:
 
@@ -269,13 +515,14 @@ You help understand unfamiliar codebases...
 - ❌ "System works correctly"
 - ✅ "Given valid input, returns 201 with user ID"
 
-**Flag Ambiguities**:
+**Flag Ambiguities** (in `instructions:`):
 
-```markdown
-⚠️ **NEEDS CLARIFICATION**
-**Current**: "Password must be secure"
-**Issue**: Definition unclear
-**Suggested**: "8-20 chars, uppercase, lowercase, digit, special"
+```yaml
+instructions: |
+  ⚠️ **NEEDS CLARIFICATION**
+  **Current**: "Password must be secure"
+  **Issue**: Definition unclear
+  **Suggested**: "8-20 chars, uppercase, lowercase, digit, special"
 ```
 
 ## Command Naming
@@ -292,10 +539,27 @@ Pattern: `@verb-noun` or `@domain-action`
 
 ## Integration
 
-Activate: `@<modename>`
-Commands: `@security-scan`
-Switch: Activate different mode
-Context: Accesses open files, workspace
+**Activate Agent**: `@<agent-name>` (e.g., `@security-analyzer`)
+**Use Promptfiles**: `@security-scan` invokes external `.prompt.md` file (if listed in `promptfiles:`)
+**Use Behavioral Commands**: `@quick-scan` triggers behavioral response (defined in `instructions:` only)
+**Switch Agents**: Activate different agent with `@<other-agent>`
+**Context**: Agent accesses open files and workspace
+
+**Command Resolution**:
+- If command name matches entry in `promptfiles:` array → Invokes external promptfile
+- If command defined only in `instructions:` → Behavioral response
+- If both exist → Promptfile takes precedence
+
+## File Location Summary
+
+```
+.github/
+└── copilot/
+    └── chat_modes/
+        ├── security-analyzer.yaml
+        ├── documentation-assistant.yaml
+        └── codebase-explorer.yaml
+```
 
 ## Reference
 

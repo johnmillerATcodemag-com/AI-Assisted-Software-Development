@@ -2,20 +2,35 @@
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 operator: "johnmillerATcodemag-com"
-chat_id: "create-instruction-guide-20251023"
+chat_id: "submit-create-instruction-files-20260211"
 prompt: |
-  create an instruction file to guide the creation of new instruction fiules
-started: "2025-10-23T10:00:00Z"
-ended: "2025-10-23T10:15:00Z"
+  Create comprehensive Markdown guide for creating new `.instructions.md` files in the repository.
+  Include complete structure, YAML front matter requirements, content guidelines, creation process,
+  quality standards, common patterns, AI-specific considerations, integration requirements,
+  validation checklists, common mistakes, and working examples with full metadata.
+started: "2026-02-11T18:30:00Z"
+ended: "2026-02-11T18:45:00Z"
 task_durations:
-  - task: "requirements analysis"
+  - task: "front matter and overview"
+    duration: "00:03:00"
+  - task: "content structure and guidelines"
     duration: "00:05:00"
-  - task: "instruction file creation"
-    duration: "00:10:00"
+  - task: "examples and checklists"
+    duration: "00:04:00"
+  - task: "validation and refinement"
+    duration: "00:03:00"
 total_duration: "00:15:00"
-ai_log: "ai-logs/2025/10/23/create-instruction-guide-20251023/conversation.md"
-source: "johnmillerATcodemag-com"
-applyTo: "**/*.instructions.md"
+ai_log: "ai-logs/2026/02/11/submit-create-instruction-files-20260211/conversation.md"
+source: ".github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md"
+name: instruction-files
+description: Comprehensive guide for creating new instruction files
+appliesTo: "**/*.instructions.md"
+version: "2.0.0"
+author: "johnmillerATcodemag-com"
+tags: ["instructions", "documentation", "authoring-guide", "ai-optimization"]
+owner: "Development Team"
+reviewedDate: "2026-02-11"
+nextReview: "2026-05-11"
 ---
 
 # Creating New Instruction Files

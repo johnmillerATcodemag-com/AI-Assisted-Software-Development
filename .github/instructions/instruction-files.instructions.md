@@ -81,10 +81,11 @@ Create instruction files when you need to:
 
 ### 2. Required YAML Front Matter
 
-All instruction files MUST include complete AI provenance metadata:
+All instruction files MUST include complete metadata:
 
 ```yaml
 ---
+# AI Provenance (required)
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 operator: "johnmillerATcodemag-com"
@@ -96,28 +97,34 @@ ended: "2025-10-23T10:15:00Z"
 task_durations:
   - task: "requirements analysis"
     duration: "00:05:00"
-  - task: "content creation"
-    duration: "00:10:00"
 total_duration: "00:15:00"
 ai_log: "ai-logs/2025/10/23/chat-id/conversation.md"
 source: "johnmillerATcodemag-com"
-applyTo: "**/*.{ext}" # Optional: when to auto-apply
+
+# Copilot Metadata (required for discoverability)
+name: "Domain Instructions"
+description: "Brief description shown to users"
+appliesTo: ["python", "javascript"]  # Language/file type scoping
+version: "1.0.0"
+author: "team-name"
+tags: ["domain", "category", "purpose"]
+
+# Governance (recommended)
+owner: "team-name"
+reviewedDate: "2025-10-23"
+nextReview: "2026-01-23"
 ---
 ```
 
-**Field Requirements**:
+**Required Fields**:
 
-- `ai_generated`: Always `true` for AI-created files
-- `model`: Use `provider/model@version` format (e.g., `"anthropic/claude-3.5-sonnet@2024-10-22"`)
-- `operator`: GitHub username (e.g., `"johnmillerATcodemag-com"`)
-- `chat_id`: Unique identifier for the conversation
-- `prompt`: Exact prompt text that initiated creation
-- `started`/`ended`: ISO8601 timestamps
-- `task_durations`: Breakdown of work activities
-- `total_duration`: Sum of all task durations
-- `ai_log`: Path to conversation log
-- `source`: What created this file (username or prompt file path)
-- `applyTo`: Optional glob pattern for when to apply instructions
+- `ai_generated`, `model`, `operator`, `chat_id`, `prompt`, `started`, `ended`, `task_durations`, `total_duration`, `ai_log`, `source` (AI provenance)
+- `name`: Human-readable instruction name
+- `description`: One-sentence purpose (shown to users)
+- `appliesTo`: Array of languages/file types or `["all"]`
+- `version`: Semantic version
+- `author`: Creator/team name
+- `tags`: 3-7 discovery tags
 
 ### 3. Required Content Structure
 
@@ -161,37 +168,40 @@ Concrete examples demonstrating the instructions.
 
 ### 1. Writing Principles
 
-**Be Specific and Actionable**:
+**Use Imperative, Declarative Language** (agents respond best to clear directives):
 
-- ✅ "Use semantic commit messages following conventional commits format"
-- ❌ "Write good commit messages"
+**ALWAYS use**:
+- "Always X"
+- "Never Y"
+- "When generating X, you MUST Y"
+- "X is required"
+- "MUST NOT Z"
 
-**Provide Examples**:
+**NEVER use**:
+- "Please try to..."
+- "It would be great if..."
+- "Consider doing..."
+- "You might want to..."
+- "When you can..."
+
+**Examples**:
+- ✅ "Always use semantic commit messages following conventional commits format"
+- ❌ "Try to write good commit messages"
+- ✅ "Never commit secrets or credentials"
+- ❌ "Please avoid committing secrets when possible"
+
+**Provide Examples** (examples are highly influential):
 
 ```markdown
-**Example**: Semantic Commit Message
-```
-
 feat(auth): add OAuth2 integration
-
-Implement OAuth2 authentication flow with Google provider
 
 - Add OAuth2 configuration
 - Create authentication middleware
 - Update user model with external ID
-
-Closes #123
-
 ```
 
-```
-
-**Use Clear Structure**:
-
-- Start with overview and context
-- Organize content logically
-- Include quality checklist
-- Provide concrete examples
+**Structure**:
+1. Overview, 2. Rules, 3. Examples, 4. Quality checklist
 
 ### 2. Content Organization
 
@@ -205,22 +215,17 @@ Closes #123
 6. **Common Mistakes** - What to avoid
 7. **References** - Related documentation
 
-### 3. Target Audience Considerations
+### 3. Target Audience: AI Agents (Primary)
 
-**For Human Developers**:
-
-- Provide rationale and context
-- Include learning resources
-- Explain trade-offs and decisions
-- Use educational tone
-
-**For AI Assistants**:
-
+**Optimize for Token Efficiency**:
 - Use imperative commands
 - Provide explicit rules
-- Include validation checklists
-- Use structured formats (YAML, JSON)
+- Use structured formats (YAML, JSON, checklists)
 - Minimize explanatory prose
+- Remove redundant text
+- Use shorthand where clear
+
+**Keep files under 300-500 lines** (exceeding limits may cause truncation)
 
 ## Creation Process
 
@@ -340,16 +345,17 @@ For quality and compliance checking:
 
 ## AI-Specific Considerations
 
-### For AI-Targeted Instructions
+### Critical Safety Rule
 
-When creating instructions specifically for AI assistants:
+**When Uncertain, Ask**:
+```
+When uncertain about any requirement, constraint, or interpretation,
+you MUST ask the user for clarification rather than making assumptions.
+```
 
-**Use Imperative Language**:
+Prevents hallucinations and incorrect code generation.
 
-- ✅ "Generate code following these patterns..."
-- ❌ "You might want to consider..."
-
-**Provide Explicit Rules**:
+### Rules Format
 
 ```markdown
 ## Rules
@@ -359,38 +365,63 @@ When creating instructions specifically for AI assistants:
 3. **SHOULD**: Include comprehensive tests
 ```
 
-**Include Validation Checklists**:
+### Validation Checklists
 
 ```markdown
 ## Pre-Generation Checklist
-
 - [ ] Requirements understood
 - [ ] Dependencies identified
 - [ ] Architecture validated
 
 ## Post-Generation Checklist
-
 - [ ] Code compiles
 - [ ] Tests pass
 - [ ] Documentation updated
 ```
 
-### AI-Optimized Versions
-
-For frequently-used AI instructions, create optimized versions:
-
-1. **Create Standard Version**: Full instruction file for humans
-2. **Create AI Version**: Token-optimized in `.github/instructions/ai/`
-3. **Cross-Reference**: Link between versions
-4. **Maintain Sync**: Keep both versions aligned
-
-**Optimization Techniques**:
+### Token Optimization
 
 - Remove explanatory prose
-- Use YAML/JSON schemas instead of examples
+- Use YAML/JSON schemas over verbose examples
 - Combine related rules
 - Use shorthand notation
-- Focus on actionable directives
+- Keep files under 300-500 lines
+- Move lengthy examples to promptfiles
+
+## Known Limitations and Constraints
+
+Document constraints that affect instruction effectiveness:
+
+```markdown
+## Known Limitations
+
+- This repository uses internal package `@company/auth-lib` (Copilot cannot access)
+- Security scanning requires manual `npm run security-check` execution
+- Integration tests require local Docker environment setup
+```
+
+**Document**:
+- **Private Dependencies**: Packages Copilot cannot access
+- **Custom Tooling**: Tools requiring manual setup
+- **Environment-Specific**: Configuration varying by environment
+- **Context Window**: Large files may be truncated
+- **External Resources**: Cannot access private documentation
+
+## Security and Compliance (NON-NEGOTIABLE)
+
+All instruction files involving code generation MUST include:
+
+```markdown
+## Security Requirements (NON-NEGOTIABLE)
+
+- **NEVER** hardcode secrets, passwords, API keys, or credentials
+- **NEVER** generate code bypassing authentication or authorization
+- **ALWAYS** use parameterized queries (never string concatenation for SQL)
+- **ALWAYS** validate and sanitize user inputs
+- **ALWAYS** use secure random number generation for security operations
+```
+
+**Placement**: Security rules MUST appear in repo-level guardrails (`.github/instructions/*.md`), NOT in optional promptfiles.
 
 ### Integration Requirements
 
@@ -486,116 +517,103 @@ Before finalizing any instruction file:
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-# ... complete metadata
-applyTo: "**/*.{js,ts,py,java,cs}"
+# ... complete AI provenance metadata
+name: "Code Review Standards"
+description: "Enforces thorough, constructive code review practices"
+appliesTo: ["all"]
+version: "1.0.0"
+author: "Engineering Team"
+tags: ["code-review", "quality", "standards"]
 ---
 
 # Code Review Instructions
 
-## Overview
-
-Guidelines for conducting thorough, constructive code reviews.
-
-**Target Audience**: Developers, team leads, AI assistants
-**Scope**: All code changes requiring review
-
 ## Review Criteria
 
-### Functional Requirements
+**Functional Requirements**:
+- [ ] Implements stated requirements
+- [ ] Handles edge cases
+- [ ] Manages error conditions
 
-- [ ] Code implements stated requirements
-- [ ] Edge cases are handled
-- [ ] Error conditions are managed
+**Code Quality**:
+- [ ] Follows coding standards
+- [ ] Clear, semantic names
+- [ ] Single responsibility functions
 
-### Code Quality
-
-- [ ] Follows established coding standards
-- [ ] Names are clear and semantic
-- [ ] Functions have single responsibility
-
-### Testing
-
+**Testing**:
 - [ ] Unit tests cover new functionality
 - [ ] Integration tests validate interactions
 - [ ] Test names clearly describe scenarios
 
 ## Review Process
 
-1. **Understand Context**: Read linked issues and documentation
-2. **Check Functionality**: Verify requirements are met
-3. **Evaluate Quality**: Apply quality criteria
-4. **Test Coverage**: Ensure adequate testing
-5. **Provide Feedback**: Constructive, specific comments
-6. **Approve or Request Changes**: Clear decision with rationale
+1. Read linked issues/documentation
+2. Verify requirements met
+3. Apply quality criteria
+4. Ensure adequate testing
+5. Provide specific feedback
+6. Approve or request changes with rationale
+
+## Security Requirements (NON-NEGOTIABLE)
+
+- **NEVER** approve code with hardcoded secrets
+- **ALWAYS** verify input validation present
+- **ALWAYS** check for SQL injection vulnerabilities
 ```
 
 ### Example 2: API Documentation Instructions
 
-`````markdown
+```markdown
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-# ... complete metadata
-applyTo: "**/api/**/*.{js,ts,py,java,cs}"
+# ... complete AI provenance metadata
+name: "API Documentation Standards"
+description: "Enforces consistent REST API documentation"
+appliesTo: ["javascript", "typescript", "python"]
+version: "1.0.0"
+author: "API Team"
+tags: ["api", "documentation", "rest", "standards"]
 ---
 
 # API Documentation Instructions
 
-## Overview
+## Required Fields
 
-Standards for documenting REST APIs to ensure consistency and usability.
+**MUST include for each endpoint**:
+- Method and path: `GET /api/users/{id}`
+- Description: What endpoint does
+- Parameters: Path, query, body (with types)
+- Responses: Success and error codes with examples
+- Authentication: Required permissions/tokens
 
-## Required Documentation
+## Example Format
 
-### Endpoint Documentation
-
-- **Method and Path**: `GET /api/users/{id}`
-- **Description**: What the endpoint does
-- **Parameters**: Path, query, and body parameters
-- **Responses**: Success and error responses with examples
-- **Authentication**: Required permissions or tokens
-
-### Example Format
-
-````markdown
+```markdown
 ## GET /api/users/{id}
 
-Retrieves a specific user by ID.
+Retrieves specific user by ID.
 
 **Parameters**:
-
-- `id` (path, required): User identifier (UUID)
+- `id` (path, UUID, required): User identifier
 
 **Responses**:
-
-- `200 OK`: User found
-- `404 Not Found`: User does not exist
-- `401 Unauthorized`: Authentication required
+- `200`: User found
+- `404`: User does not exist
+- `401`: Authentication required
 
 **Example**:
-
-```http
 GET /api/users/123e4567-e89b-12d3-a456-426614174000
 Authorization: Bearer {token}
-```
-````
-`````
 
-````
-
-Response:
-
-```json
-{
-  "id": "123e4567-e89b-12d3-a456-426614174000",
-  "email": "user@example.com",
-  "name": "John Doe"
-}
+Response: {"id": "123...", "email": "user@example.com"}
 ```
 
-```
+## Security Requirements (NON-NEGOTIABLE)
 
-```
+- **NEVER** include actual credentials in examples
+- **ALWAYS** document authentication requirements
+- **ALWAYS** document rate limiting```
 
 ## Maintenance and Updates
 
@@ -623,17 +641,27 @@ Update instruction files when:
 - Maintain conversation logs for significant changes
 - Consider creating new AI-optimized versions when needed
 
+## File Length Management
+
+**Maximum Recommended**: 300-500 lines per instruction file
+
+**When file exceeds limit**:
+1. Split by logical domain boundaries
+2. Extract examples to separate promptfiles
+3. Create specialized files (e.g., `domain-core.instructions.md`, `domain-advanced.instructions.md`)
+4. Link to external detailed documentation
+
 ## Summary
 
-Creating effective instruction files requires:
-
-1. **Clear Purpose**: Well-defined scope and objectives
-2. **Complete Metadata**: All AI provenance requirements
-3. **Actionable Content**: Specific, implementable guidance
-4. **Quality Standards**: Validation criteria and examples
-5. **Proper Integration**: Updated documentation and links
-
-Follow this guide to create instruction files that provide valuable, consistent guidance for your domain while meeting all repository standards and compliance requirements.
+**Required for all instruction files**:
+1. Complete metadata (AI provenance + Copilot discovery fields)
+2. Imperative, declarative language ("Always", "Never", "MUST")
+3. Security rules (NON-NEGOTIABLE section if applicable)
+4. Known limitations documented
+5. "When uncertain, ask" clause
+6. Token-optimized (under 500 lines)
+7. Concrete examples
+8. Version control and governance fields
 
 ---
 

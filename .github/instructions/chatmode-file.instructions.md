@@ -46,10 +46,20 @@ promptfiles: # Promptfiles this agent can invoke (required)
 
 ```yaml
 capabilities: [] # Reserved for future Copilot features
-metadata: # Your custom extension point
+metadata: # AI provenance + custom fields (see metadata field specification)
+  # AI Provenance Metadata (required if this file is AI-generated)
+  ai_generated: true
+  model: "anthropic/claude-3.5-sonnet@2024-10-22"
+  operator: "username"
+  chat_id: "chat-uuid"
+  started: "2025-10-23T04:40:00Z"
+  ended: "2025-10-23T04:45:00Z"
+  ai_log: "ai-logs/2025/10/23/chat-uuid/conversation.md"
+  # Custom behavioral metadata
   temperature: 0.3
   style: "thorough, action-oriented"
   owner: "team-name"
+  domain: "domain-name"
   lastReviewed: "2026-02-11"
 ```
 
@@ -99,9 +109,25 @@ metadata: # Your custom extension point
     - summarize-file
   ```
 
-### metadata (Optional - Your Extension Point)
+### metadata (Field Specification)
 
-Store custom fields here. Common patterns:
+**For AI-Assisted Chat Modes**: The `metadata:` field is where ALL metadata goes—both AI provenance metadata (required by [#file:ai-assisted-output.instructions.md](ai-assisted-output.instructions.md)) and custom behavioral metadata.
+
+**AI Provenance Metadata** (required if this chat mode file is AI-generated):
+
+These fields come directly from [#file:ai-assisted-output.instructions.md](ai-assisted-output.instructions.md#standard-metadata-front-matter) and MUST be nested under `metadata:`:
+
+- **ai_generated**: `true` (boolean)
+- **model**: `"provider/model-name@version"` (e.g., `"anthropic/claude-3.5-sonnet@2024-10-22"`)
+- **operator**: Username or full name of the person/agent
+- **chat_id**: Unique identifier for the AI chat/session
+- **started**: ISO8601 timestamp of generation start
+- **ended**: ISO8601 timestamp of generation completion
+- **ai_log**: Relative path to the conversation log (e.g., `"ai-logs/2025/10/23/<chat-id>/conversation.md"`)
+
+**Custom Behavioral Metadata** (extend as needed):
+
+Store additional custom fields here. Common patterns:
 
 - **temperature**: 0.0-1.0 scale for behavioral guidance
   - 0.0-0.3: Deterministic (security, compliance)
@@ -115,16 +141,27 @@ Store custom fields here. Common patterns:
 - **riskLevel**: Risk classification
 - **jiraProject**: Associated project
 
-Example:
+**Example with both AI provenance and custom metadata**:
 
 ```yaml
 metadata:
+  # AI Provenance (from ai-assisted-output.instructions.md)
+  ai_generated: true
+  model: "anthropic/claude-3.5-sonnet@2024-10-22"
+  operator: "john-doe"
+  chat_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+  started: "2025-10-23T04:40:00Z"
+  ended: "2025-10-23T04:45:00Z"
+  ai_log: "ai-logs/2025/10/23/a1b2c3d4-e5f6-7890-abcd-ef1234567890/conversation.md"
+  # Custom Behavioral Metadata
   temperature: 0.3
   style: "thorough, security-focused"
   owner: "security-team"
   domain: "security"
   lastReviewed: "2026-02-11"
 ```
+
+**Reference**: See [AI-Assisted Output Instructions](ai-assisted-output.instructions.md#standard-metadata-front-matter) for complete provenance requirements.
 
 ## Selecting Appropriate Promptfiles
 
@@ -361,8 +398,8 @@ instructions: |
   - `@owasp-check` - Runs OWASP Top 10 focused analysis
 
 promptfiles:
-  - security-scan  # .github/copilot/Promptfiles/security-scan.prompt.md
-  - owasp-check    # .github/copilot/Promptfiles/owasp-check.prompt.md
+  - security-scan # .github/copilot/Promptfiles/security-scan.prompt.md
+  - owasp-check # .github/copilot/Promptfiles/owasp-check.prompt.md
 ```
 
 **How it works**: When user types `@security-scan`, Copilot executes the external promptfile.
@@ -465,11 +502,21 @@ promptfiles:
   - dependency-audit
   - threat-model
 metadata:
+  # AI Provenance Metadata (from ai-assisted-output.instructions.md)
+  ai_generated: true
+  model: "anthropic/claude-3.5-sonnet@2024-10-22"
+  operator: "security-team-lead"
+  chat_id: "security-analyzer-design-20260211"
+  started: "2026-02-11T14:30:00Z"
+  ended: "2026-02-11T14:45:00Z"
+  ai_log: "ai-logs/2026/02/11/security-analyzer-design-20260211/conversation.md"
+  # Custom Behavioral Metadata
   temperature: 0.3
   style: "thorough, security-focused, action-oriented"
   domain: "security"
   owner: "security-team"
 ```
+
 ## Validation Checklist
 
 - [ ] kebab-case filename with `.yaml` extension
@@ -484,6 +531,8 @@ metadata:
 - [ ] Mission statement clear (in `instructions:`)
 - [ ] Core expertise listed (5-10 items, in `instructions:`)
 - [ ] Commands use `@kebab-case` format (in `instructions:`)
+- [ ] If AI-generated: All provenance fields from [ai-assisted-output.instructions.md](ai-assisted-output.instructions.md) present in `metadata:` field
+- [ ] If AI-generated: `ai_log` field points to valid conversation log file
 - [ ] Temperature in `metadata` (if used) appropriate for use case
 - [ ] Style in `metadata` (if used) aligns with domain
 - [ ] No `.chatmode.md` files (they're UI-only, non-functional)
@@ -546,6 +595,7 @@ Pattern: `@verb-noun` or `@domain-action`
 **Context**: Agent accesses open files and workspace
 
 **Command Resolution**:
+
 - If command name matches entry in `promptfiles:` array → Invokes external promptfile
 - If command defined only in `instructions:` → Behavioral response
 - If both exist → Promptfile takes precedence

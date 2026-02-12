@@ -73,6 +73,17 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 - [`.github/chatmodes/codebase-explorer.chatmode.md`](.github/chatmodes/codebase-explorer.chatmode.md) — Rapid codebase understanding and evaluation
 - [`.github/chatmodes/git-expert.chatmode.md`](.github/chatmodes/git-expert.chatmode.md) — Branching policies, merge style enforcement, and CI/CD hygiene
 
+### Custom GitHub Copilot Agents
+
+- [`.github/agents/product-manager.agent.md`](.github/agents/product-manager.agent.md) — Product strategy, requirements analysis, and stakeholder alignment ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/solution-architect.agent.md`](.github/agents/solution-architect.agent.md) — System design, architecture patterns, and decision support ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/senior-developer.agent.md`](.github/agents/senior-developer.agent.md) — Code quality, best practices, and implementation guidance ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/technical-writer.agent.md`](.github/agents/technical-writer.agent.md) — Documentation, API references, and user guidance ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/security-reviewer.agent.md`](.github/agents/security-reviewer.agent.md) — Security analysis, vulnerability detection, and compliance review ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/devops-engineer.agent.md`](.github/agents/devops-engineer.agent.md) — CI/CD, infrastructure automation, and deployment strategy ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/devtest-engineer.agent.md`](.github/agents/devtest-engineer.agent.md) — Test automation, QA strategy, and coverage guidance ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+- [`.github/agents/sre-engineer.agent.md`](.github/agents/sre-engineer.agent.md) — Site reliability, monitoring, and incident response ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
+
 ### Meta-Prompts (Prompt Generators)
 
 - [`.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`](.github/prompts/meta/create-instruction-files-prompt-file.prompt.md) — Generates new instruction-generating prompts with AI provenance built-in ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))
@@ -94,6 +105,12 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - 12 slides covering introduction, essential commands, practical workflows, hands-on exercises, and best practices
   - Includes detailed speaker notes, troubleshooting guidance, and resources for continued learning
   - Provenance: [Chat log](ai-logs/2026/02/06/github-worktrees-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/github-worktrees-slides-20260206/summary.md)
+
+- **Creating Custom Agents Slides** ([`Slides/individual-slides/creating-custom-agents.md`](Slides/individual-slides/creating-custom-agents.md))
+  - Comprehensive Marp slide deck teaching how to create specialized GitHub Copilot custom agents
+  - 12 slides covering overview, creation workflows across platforms (GitHub, VS Code, JetBrains, Eclipse, Xcode), configuration, examples, usage, and best practices
+  - Includes extensive speaker notes with timing guidance, delivery instructions, audience interaction points, and Q&A preparation
+  - Provenance: [Chat log](ai-logs/2026/02/12/create-custom-agents-marp-20260212/conversation.md) | [Summary](ai-logs/2026/02/12/create-custom-agents-marp-20260212/summary.md)
 
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts

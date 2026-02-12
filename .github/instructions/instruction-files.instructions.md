@@ -37,598 +37,657 @@ nextReview: "2026-05-11"
 
 ## Overview
 
-This document provides comprehensive guidance for creating new instruction files in the repository. Instruction files (`.instructions.md`) provide guidance for specific domains, processes, or tools to ensure consistency and quality.
+Instruction files (`.instructions.md`) define rules, workflows, and best practices that AI assistants and developers should follow when working in specific domains or on specific tasks. These canonical reference documents provide clear, actionable guidance optimized for AI consumption while remaining useful to human readers.
 
-**Target Audience**: Developers, AI assistants, and contributors creating guidance documentation
-
+**Target Audience**: AI assistants (primary), developers, documentation maintainers
+**Scope**: Complete guide for authoring, structuring, validating, and maintaining `.instructions.md` files
 **Related Documentation**:
 
-- [AI-Assisted Output Instructions](.github/instructions/ai-assisted-output.instructions.md)
-- [Copilot Instructions](.github/instructions/copilot-instructions.md)
-- [Instruction Prompt Requirements](.github/instructions/instruction-prompt-files.instructions.md)
+- [AI-Assisted Output Instructions](ai-assisted-output.instructions.md) - Canonical post-creation requirements
+- [GitHub CLI Instructions](github-cli.instructions.md) - Example instruction file
+- [Business Rules to Vertical Slices](business-rules-to-slices.instructions.md) - Example instruction file
 
 ## Table of Contents
 
 - [When to Create Instruction Files](#when-to-create-instruction-files)
 - [File Structure Requirements](#file-structure-requirements)
+- [YAML Front Matter Fields](#yaml-front-matter-fields)
 - [Content Guidelines](#content-guidelines)
 - [Creation Process](#creation-process)
 - [Quality Standards](#quality-standards)
 - [Common Patterns](#common-patterns)
 - [AI-Specific Considerations](#ai-specific-considerations)
+- [Security and Compliance](#security-and-compliance)
 - [Integration Requirements](#integration-requirements)
 - [Validation Checklist](#validation-checklist)
-- [Common Mistakes](#common-mistakes)
-- [Examples](#examples)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Complete Examples](#complete-examples)
+- [Maintenance and Updates](#maintenance-and-updates)
 
 ## When to Create Instruction Files
 
-Create instruction files when you need to:
+**Create instruction files when**:
 
-- **Standardize processes**: Define consistent approaches for common tasks
-- **Guide AI behavior**: Provide specific instructions for AI assistants
-- **Document best practices**: Capture proven approaches for reuse
-- **Ensure compliance**: Define requirements for specific domains
-- **Reduce ambiguity**: Clarify expectations for complex activities
+- You need to define canonical rules for a domain or process
+- Multiple developers need consistent guidance (NOT just a README)
+- Rules affect code generation, architecture, or security
+- You want AI assistants to apply specific policies or patterns
+- Documentation must be enforced and validated
 
-### Examples of Good Instruction Files
+**Examples of good instruction files**:
 
-- `code-review.instructions.md` - Guidelines for conducting code reviews
-- `api-documentation.instructions.md` - Standards for documenting APIs
-- `vertical-slice-architecture.instructions.md` - Implementing architectural patterns
-- `ai-assisted-output.instructions.md` - AI provenance requirements
+- Code review guidelines
+- Architecture patterns (CQRS, vertical slices)
+- API documentation standards
+- Dependency management policies
+- Security requirements and hardening practices
+- Domain-specific workflows and processes
+
+**Do NOT create instruction files for**:
+
+- One-off guidance or temporary workflows
+- Project-specific README content
+- Configuration files or tool settings
+- Personal preferences or style guides
+- Content better suited to promptfiles or agents
 
 ## File Structure Requirements
 
-### 1. Location and Naming
+### Location and Naming
 
-**Standard Location**: `.github/instructions/`
-**AI-Optimized Location**: `.github/instructions/ai/` (for token-optimized versions)
+**MUST**: Place files in `.github/instructions/` directory
 
-**Naming Convention**: `<domain>.instructions.md`
-
-**Examples**:
-
-- `testing.instructions.md`
-- `deployment.instructions.md`
-- `code-style.instructions.md`
-- `security-review.instructions.md`
-
-### 2. Required YAML Front Matter
-
-All instruction files MUST include complete metadata:
-
-```yaml
----
-# AI Provenance (required)
-ai_generated: true
-model: "anthropic/claude-3.5-sonnet@2024-10-22"
-operator: "johnmillerATcodemag-com"
-chat_id: "unique-chat-identifier"
-prompt: |
-  Original prompt text that created this file
-started: "2025-10-23T10:00:00Z"
-ended: "2025-10-23T10:15:00Z"
-task_durations:
-  - task: "requirements analysis"
-    duration: "00:05:00"
-total_duration: "00:15:00"
-ai_log: "ai-logs/2025/10/23/chat-id/conversation.md"
-source: "johnmillerATcodemag-com"
-
-# Copilot Metadata (required for discoverability)
-name: "Domain Instructions"
-description: "Brief description shown to users"
-appliesTo: ["python", "javascript"]  # Language/file type scoping
-version: "1.0.0"
-author: "team-name"
-tags: ["domain", "category", "purpose"]
-
-# Governance (recommended)
-owner: "team-name"
-reviewedDate: "2025-10-23"
-nextReview: "2026-01-23"
----
+```
+.github/instructions/
+├── instruction-files.instructions.md
+├── ai-assisted-output.instructions.md
+├── business-rules-to-slices.instructions.md
+├── cqrs-architecture.instructions.md
+├── dependency-management-policy.instructions.md
+├── github-cli.instructions.md
+└── vertical-slice.instructions.md
 ```
 
-**Required Fields**:
+**File naming pattern**:
 
-- `ai_generated`, `model`, `operator`, `chat_id`, `prompt`, `started`, `ended`, `task_durations`, `total_duration`, `ai_log`, `source` (AI provenance)
-- `name`: Human-readable instruction name
-- `description`: One-sentence purpose (shown to users)
-- `appliesTo`: Array of languages/file types or `["all"]`
-- `version`: Semantic version
-- `author`: Creator/team name
-- `tags`: 3-7 discovery tags
+- Use kebab-case
+- Describe the domain: `{domain}-{aspect}.instructions.md`
+- Examples: `dependency-management-policy.instructions.md`, `cqrs-architecture.instructions.md`
 
-### 3. Required Content Structure
+**NOT acceptable**:
+
+- ❌ `.github/docs/instructions/`
+- ❌ `instructions.md` (no domain identifier)
+- ❌ `style_guide.instructions.md` (use snake_case)
+- ❌ `MyInstructions.instructions.md` (use lowercase)
+
+### Required Structure
+
+Every instruction file MUST follow this structure:
 
 ```markdown
+---
+[YAML Front Matter - See section below]
+---
+
 # [Title]
 
 ## Overview
 
-Brief description of what this instruction file covers and its purpose.
-
-**Target Audience**: Who should use these instructions
-**Scope**: What domains/activities these instructions apply to
-
-**Related Documentation**:
-
-- [Link to related instruction file](path)
-- [Link to another related file](path)
+[Purpose, target audience, scope, related documentation]
 
 ## Table of Contents
 
-- [Section 1](#section-1)
-- [Section 2](#section-2)
-- [Quality Checklist](#quality-checklist)
+[Full navigation]
 
-## [Main Sections]
+## Main Content Sections
 
-### Clear, actionable guidance organized by topic
+[Domain-specific sections]
 
-## Quality Checklist
+## Validation Checklist
 
-- [ ] Requirement 1 met
-- [ ] Requirement 2 met
-- [ ] All standards followed
+[Quality verification]
 
-## Examples
+## Summary
 
-Concrete examples demonstrating the instructions.
+[Key requirements recap]
+
+---
+
+**Document Version**: X.Y.Z
+**Last Updated**: YYYY-MM-DD
+**Maintainer**: [Name/Team]
+**Related Instructions**: [Links to related files]
+```
+
+## YAML Front Matter Fields
+
+### AI Provenance (Required - All Fields Mandatory)
+
+**CRITICAL**: These 12 fields are REQUIRED for all AI-generated instruction files:
+
+```yaml
+ai_generated: true
+model: "<provider>/<model-name>@<version>"
+operator: "<github-username>"
+chat_id: "<unique-identifier>"
+prompt: |
+  [Exact user prompt that initiated creation]
+started: "<ISO8601-timestamp>"
+ended: "<ISO8601-timestamp>"
+task_durations:
+  - task: "[task name]"
+    duration: "[HH:MM:SS]"
+total_duration: "[HH:MM:SS]"
+ai_log: "ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md"
+source: "<creator-identifier>"
+```
+
+**Field Details**:
+
+- **ai_generated**: Always `true` for AI-created files
+- **model**: Format `"provider/model@version"` (e.g., `"anthropic/claude-3.5-sonnet@2024-10-22"`)
+- **operator**: GitHub username (e.g., `"johnmillerATcodemag-com"`)
+- **chat_id**: Unique chat identifier (e.g., `"create-api-docs-20260211"`)
+- **prompt**: Exact prompt text that initiated creation (preserve formatting)
+- **started/ended**: ISO8601 timestamps (e.g., `"2026-02-11T18:30:00Z"`)
+- **task_durations**: Array of task breakdowns with HH:MM:SS durations
+- **total_duration**: Sum of all task durations in HH:MM:SS format
+- **ai_log**: Path to conversation log (must exist)
+- **source**: What/who created file (prompt file path or username)
+
+### Domain and Governance Metadata
+
+**Required**:
+
+```yaml
+name: "[kebab-case-name]"
+description: "[One-line purpose, shown in tooling]"
+appliesTo: "[glob pattern - e.g., '**/*.instructions.md']"
+version: "[semantic version]"
+author: "[creator name or team]"
+tags: ["[tag1]", "[tag2]"]
+owner: "[responsible team/person]"
+reviewedDate: "[YYYY-MM-DD]"
+nextReview: "[YYYY-MM-DD - 3 months from review]"
+```
+
+**Example**:
+
+```yaml
+name: api-documentation-standards
+description: Guidelines for documenting REST APIs
+appliesTo: "**/*.md"
+version: "1.2.0"
+author: "api-team"
+tags: ["api", "documentation", "standards"]
+owner: "Architecture Team"
+reviewedDate: "2026-02-11"
+nextReview: "2026-05-11"
 ```
 
 ## Content Guidelines
 
-### 1. Writing Principles
+### Writing Principles
 
-**Use Imperative, Declarative Language** (agents respond best to clear directives):
+**MUST Use Imperative Language**:
 
-**ALWAYS use**:
-- "Always X"
-- "Never Y"
-- "When generating X, you MUST Y"
-- "X is required"
-- "MUST NOT Z"
+- ✅ "Create instruction files in `.github/instructions/`"
+- ❌ "Instruction files should go in `.github/instructions/`"
 
-**NEVER use**:
-- "Please try to..."
-- "It would be great if..."
-- "Consider doing..."
-- "You might want to..."
-- "When you can..."
+**MUST Be Specific**:
 
-**Examples**:
-- ✅ "Always use semantic commit messages following conventional commits format"
-- ❌ "Try to write good commit messages"
-- ✅ "Never commit secrets or credentials"
-- ❌ "Please avoid committing secrets when possible"
+- ✅ "Validate email format using RFC 5322 standard"
+- ❌ "Validate email format properly"
 
-**Provide Examples** (examples are highly influential):
+**MUST Include Examples**:
+
+- ✅ "`name: api-documentation-standards` (correct)"
+- ❌ "Use descriptive names"
+
+**MUST Avoid Tentative Language**:
+
+- ✅ "All instruction files MUST include front matter"
+- ❌ "Please try to include front matter if possible"
+
+### Structure and Organization
+
+**Use Standard Sections**:
 
 ```markdown
-feat(auth): add OAuth2 integration
+## [Domain Section]
 
-- Add OAuth2 configuration
-- Create authentication middleware
-- Update user model with external ID
+### Rule Category
+
+**Rule 1: [Specific requirement]**
+
+- **Requirement**: What must be true
+- **Validation**: How to check it
+- **Examples**: ✅ Good / ❌ Bad
+- **Rationale**: Why this matters
+
+### Example
+
+[Complete working example]
+
+### Quality Checklist
+
+- [ ] Specific requirement 1
+- [ ] Specific requirement 2
 ```
 
-**Structure**:
-1. Overview, 2. Rules, 3. Examples, 4. Quality checklist
+### AI Optimization
 
-### 2. Content Organization
+**Token Efficiency Strategies**:
 
-**Standard Sections**:
+1. **Use Schema Over Prose**:
 
-1. **Overview** - Purpose, audience, scope
-2. **Requirements** - What must be done
-3. **Guidelines** - How to do it well
-4. **Examples** - Concrete demonstrations
-5. **Quality Checklist** - Validation criteria
-6. **Common Mistakes** - What to avoid
-7. **References** - Related documentation
+   ```yaml
+   # NOT: Write a YAML field for the model with provider, name, and version
+   # YES:
+   model: "<provider>/<model-name>@<version>"
+   ```
 
-### 3. Target Audience: AI Agents (Primary)
+2. **Use Lists Instead of Paragraphs**:
 
-**Optimize for Token Efficiency**:
-- Use imperative commands
-- Provide explicit rules
-- Use structured formats (YAML, JSON, checklists)
-- Minimize explanatory prose
-- Remove redundant text
-- Use shorthand where clear
+   ```markdown
+   # NOT: "The following are required fields that must be present..."
 
-**Keep files under 300-500 lines** (exceeding limits may cause truncation)
+   # YES:
+
+   **Required Fields**:
+
+   - `name`
+   - `description`
+   - `version`
+   ```
+
+3. **Structured Examples Over Explanations**:
+
+   ```markdown
+   # NOT: "Create filenames using kebab-case, such as..."
+
+   # YES:
+
+   | Pattern    | Example                    | Result       |
+   | ---------- | -------------------------- | ------------ |
+   | ✅ Correct | `api-docs.instructions.md` | Discoverable |
+   | ❌ Wrong   | `apiDocs.instructions.md`  | Not found    |
+   ```
+
+4. **Keep Under 500 Lines**: If exceeding this, split into multiple files
+
+### Target Audience: AI Agents
+
+Instruction files are **primarily for AI consumption**:
+
+- Use declarative rules (MUST, NEVER, ALWAYS)
+- Structure content for efficient parsing
+- Minimize prose; maximize actionable content
+- Include validation checklists
+- Provide complete working examples
+- Format: rules → examples → validation
 
 ## Creation Process
 
-### Method 1: Using Meta-Prompt (Recommended)
+### Step 1: Plan the Content
 
-1. **Submit Meta-Prompt**: Use `.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`
-2. **Specify Domain**: Clearly define the instruction domain
-3. **Review Generated Prompt**: Ensure it meets requirements
-4. **Execute Prompt**: Run the generated prompt to create instructions
-5. **Validate Output**: Check against quality criteria
+Define:
 
-### Method 2: Manual Creation
+- **Domain**: What aspect does this cover?
+- **Scope**: What's included? What's excluded?
+- **Audience**: AI agents, developers, both?
+- **Related Files**: What existing docs are related?
 
-1. **Plan Content**: Define scope, audience, and key requirements
-2. **Create File**: Use naming convention in correct location
-3. **Add Metadata**: Include complete AI provenance front matter
-4. **Write Content**: Follow content guidelines and structure
-5. **Review**: Validate against quality checklist
-6. **Update Documentation**: Add to README.md and related files
+### Step 2: Use Meta-Prompt
 
-### Method 3: Copy and Adapt
+Use `.github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md` in GitHub Copilot chat.
 
-1. **Find Similar File**: Locate existing instruction file with similar scope
-2. **Copy Structure**: Use as template for new file
-3. **Update Metadata**: Change all provenance fields appropriately
-4. **Adapt Content**: Modify for new domain while keeping structure
-5. **Validate**: Ensure all references and examples are correct
+### Step 3: Execute in Copilot
+
+Copilot will:
+
+1. Generate the instruction file with complete metadata
+2. Create conversation log (if not auto-generated)
+3. Output to specified location
+
+### Step 4: Complete Post-Creation Requirements
+
+See [Integration Requirements](#integration-requirements) below.
 
 ## Quality Standards
 
-### Content Quality
+### Content Quality Checklist
 
-- [ ] **Clear Purpose**: Instructions have well-defined scope and objectives
-- [ ] **Actionable Guidance**: Specific, implementable requirements and steps
-- [ ] **Complete Coverage**: All important aspects of domain are addressed
-- [ ] **Consistent Structure**: Follows standard organization patterns
-- [ ] **Concrete Examples**: Real examples demonstrate key concepts
-- [ ] **Quality Criteria**: Measurable validation requirements provided
+- [ ] Clear purpose statement in overview
+- [ ] Actionable guidance (specific, testable)
+- [ ] Complete coverage (no gaps or ambiguities)
+- [ ] Consistent structure throughout
+- [ ] Concrete examples (✅ Good / ❌ Bad pairs)
+- [ ] Quality criteria defined and measurable
+- [ ] Scope clearly defined (what's included/excluded)
 
-### Technical Quality
+### Technical Quality Checklist
 
-- [ ] **Complete Metadata**: All 11 required provenance fields present
-- [ ] **Correct Format**: YAML front matter, markdown content
-- [ ] **Valid Links**: All internal links work correctly
-- [ ] **Proper Location**: File in correct directory with right name
-- [ ] **Unique Content**: No duplicate or conflicting instructions
+- [ ] All 12 AI provenance fields present and correct
+- [ ] Correct file location (`.github/instructions/`)
+- [ ] Valid YAML front matter
+- [ ] Correct file naming (kebab-case)
+- [ ] All links functional and relative-pathed
+- [ ] References to other files use markdown links
+- [ ] No secrets, credentials, or sensitive data
 
-### Process Quality
+### Process Quality Checklist
 
-- [ ] **Conversation Log**: AI log file created and linked
-- [ ] **Summary Created**: Session summary with resumability context
-- [ ] **README Updated**: New file added to appropriate section
-- [ ] **Git Integration**: File committed with semantic commit message
+- [ ] Conversation log created and linked (`ai_log` field)
+- [ ] Summary created with complete context
+- [ ] README.md updated with new entry
+- [ ] Git commit with semantic message
+- [ ] All required post-creation steps completed
+- [ ] File reviewed by appropriate team member
 
 ## Common Patterns
 
-### Pattern 1: Process Instructions
+### Pattern 1: Rules-Based (Most Common)
 
-For step-by-step processes:
+For defining requirements and validation:
 
 ```markdown
-## Process Overview
+## Rules
 
-1. **Step 1**: [Action]
+### Rule 1: [Category]
+
+**Statement**: [What must be true]
+
+- **Type**: [Structural/Operative/Derivation/Action Enabler]
+- **Priority**: [Critical/High/Medium/Low]
+- **Validation**: [How to verify this rule]
+- **Examples**:
+  - ✅ Good: [Example]
+  - ❌ Bad: [Example]
+- **Rationale**: [Why this matters]
+```
+
+### Pattern 2: Process-Based
+
+For workflows and procedures:
+
+```markdown
+## Process
+
+### Step 1: [Phase Name]
+
+**Objective**: [What to accomplish]
+
+1. **Action**: [First step]
    - Requirement A
    - Requirement B
 
-2. **Step 2**: [Action]
-   - Requirement C
-   - Requirement D
-
-## Quality Gates
-
-- [ ] Step 1 completed successfully
-- [ ] Step 2 validation passed
+2. **Action**: [Second step]
+   - Acceptance criteria
 ```
 
-### Pattern 2: Standard Templates
+### Pattern 3: Template-Based
 
-For creating standardized artifacts:
+For format definitions:
 
 ````markdown
-## Template Structure
+## Template
 
-### Required Sections
+**Required Fields**:
 
-```markdown
-# [Title]
+- `field1`: [Type] - [Description]
+- `field2`: [Type] - [Description]
 
-## [Section 1]
-
-Content requirements...
-
-## [Section 2]
-
-Content requirements...
+```yaml
+field1: "value"
+field2: "value"
 ```
 ````
 
-````
-
-### Pattern 3: Validation Rules
-
-For quality and compliance checking:
-
-```markdown
-## Validation Rules
-
-### Rule 1: [Category]
-- **Requirement**: Specific requirement
-- **Validation**: How to check
-- **Examples**: ✅ Good / ❌ Bad
-
-### Rule 2: [Category]
-- **Requirement**: Another requirement
 ````
 
 ## AI-Specific Considerations
 
 ### Critical Safety Rule
 
-**When Uncertain, Ask**:
-```
-When uncertain about any requirement, constraint, or interpretation,
-you MUST ask the user for clarification rather than making assumptions.
-```
+**WHEN UNCERTAIN, ASK**:
 
-Prevents hallucinations and incorrect code generation.
+When an instruction file is ambiguous or conflicts with other guidance:
 
-### Rules Format
+1. **Do NOT guess** the intended behavior
+2. **Do NOT extrapolate** from examples
+3. **Ask the user** for clarification
+4. **Document the ambiguity** in the instruction file
 
-```markdown
-## Rules
+### Rules Format for AI Consumption
 
-1. **MUST**: Always include error handling
-2. **MUST NOT**: Use deprecated APIs
-3. **SHOULD**: Include comprehensive tests
-```
+**Optimal Format**:
+
+```yaml
+rules:
+  rule_1:
+    statement: "[Clear, testable requirement]"
+    priority: "[Critical|High|Medium|Low]"
+    validation: "[How to verify]"
+    examples:
+      good: "[Example that meets rule]"
+      bad: "[Example that violates rule]"
+````
 
 ### Validation Checklists
 
-```markdown
-## Pre-Generation Checklist
-- [ ] Requirements understood
-- [ ] Dependencies identified
-- [ ] Architecture validated
-
-## Post-Generation Checklist
-- [ ] Code compiles
-- [ ] Tests pass
-- [ ] Documentation updated
-```
-
-### Token Optimization
-
-- Remove explanatory prose
-- Use YAML/JSON schemas over verbose examples
-- Combine related rules
-- Use shorthand notation
-- Keep files under 300-500 lines
-- Move lengthy examples to promptfiles
-
-## Known Limitations and Constraints
-
-Document constraints that affect instruction effectiveness:
+Include specific, measurable items:
 
 ```markdown
-## Known Limitations
+### Validation Checklist
 
-- This repository uses internal package `@company/auth-lib` (Copilot cannot access)
-- Security scanning requires manual `npm run security-check` execution
-- Integration tests require local Docker environment setup
+- [ ] All rules have unique IDs (BR-001, BR-002, etc.)
+- [ ] All rules have type classification
+- [ ] All rules reference examples
+- [ ] Examples follow ✅ Good / ❌ Bad format
+- [ ] All unclear rules flagged as ⚠️ NEEDS CLARIFICATION
 ```
 
-**Document**:
-- **Private Dependencies**: Packages Copilot cannot access
-- **Custom Tooling**: Tools requiring manual setup
-- **Environment-Specific**: Configuration varying by environment
-- **Context Window**: Large files may be truncated
-- **External Resources**: Cannot access private documentation
+### Token Efficiency Techniques
 
+1. **Use Bullet Lists**: More efficient than prose paragraphs
+2. **Use Tables**: Dense information presentation
+3. **Reference Other Files**: Link to canonical sources instead of duplicating
+4. **Use Schema Format**: YAML/JSON over narrative text
+5. **Minimize Prose**: Move explanations to comments section
+6. **Use Abbreviations**: Within guidance section (define once)
+
+## Security and Compliance
+
+### Non-Negotiable Security Rules
+
+**ALL instruction files involving code generation MUST include security requirements**:
+
+```markdown
 ## Security and Compliance (NON-NEGOTIABLE)
 
-All instruction files involving code generation MUST include:
+### Rule: Never Generate Credentials
 
-```markdown
-## Security Requirements (NON-NEGOTIABLE)
+- **Requirement**: Generated code MUST NEVER include:
+  - API keys, tokens, or secrets
+  - Database passwords
+  - Private encryption keys
+  - Hardcoded credentials of any kind
+- **Compliance**: Violations block pull requests
+- **Audit**: All generated artifacts scanned for secrets
 
-- **NEVER** hardcode secrets, passwords, API keys, or credentials
-- **NEVER** generate code bypassing authentication or authorization
-- **ALWAYS** use parameterized queries (never string concatenation for SQL)
-- **ALWAYS** validate and sanitize user inputs
-- **ALWAYS** use secure random number generation for security operations
+### Rule: Validate User Input
+
+- **Requirement**: All user-provided input MUST be validated
+- **Scope**: Commands, file paths, configuration values
+- **Method**: Whitelist known-good values; reject unknown
+- **Compliance**: Non-compliance fails security gate
+
+### Rule: Log Security Events
+
+- **Requirement**: All security-sensitive operations MUST be logged
+- **What**: Successful and failed authentication, authorization changes
+- **Where**: Centralized audit log
+- **When**: Real-time
 ```
 
-**Placement**: Security rules MUST appear in repo-level guardrails (`.github/instructions/*.md`), NOT in optional promptfiles.
+## Integration Requirements
 
-### Integration Requirements
+### Post-Creation Requirements (Canonical)
 
-### 1. README Updates
+After creating any instruction file, complete these steps:
 
-**See**: [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical) for complete requirements.
+1. **Create Conversation Log**: `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
+2. **Create Summary**: `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/summary.md`
+3. **Update README**: Add brief entry to appropriate README section with link to chat log
+4. **Verify Metadata**: Ensure all 12 AI provenance fields present and correct
+5. **Test Links**: Verify all internal links function correctly
 
-Add new instruction files to appropriate README section:
+See [AI-Assisted Output Instructions - Post-Creation Requirements](ai-assisted-output.instructions.md#post-creation-requirements-canonical) for complete procedures.
 
-```markdown
-### Guidance & Instructions
+## Validation Checklist
 
-- [Domain Instructions](.github/instructions/domain.instructions.md) — Description ([chat log](ai-logs/path))
-```
+### Before Publishing
 
-### 2. Related File Updates
+**Process Validation**:
 
-Update any related instruction files that should reference the new file.
+- [ ] Conversation log created and exists
+- [ ] Summary created with complete context
+- [ ] README updated with new entry
+- [ ] Related files linked and verified
+- [ ] File committed to main branch
 
-### 3. Prompt File Creation
+**Content Validation**:
 
-Consider creating a corresponding prompt file:
+- [ ] Clear purpose and scope
+- [ ] All concepts explained with examples
+- [ ] Complete coverage of domain
+- [ ] Consistent terminology throughout
+- [ ] Quality criteria defined and measurable
 
-- `.github/prompts/apply-[domain]-instructions.prompt.md`
+**Technical Validation**:
 
-### Process Validation
+- [ ] Correct file location (`.github/instructions/`)
+- [ ] Valid YAML front matter (all 12 fields)
+- [ ] Correct file naming (kebab-case)
+- [ ] All markdown links format correctly
+- [ ] No sensitive data included
 
-Before finalizing any instruction file:
+**Compliance Validation**:
 
-**Complete Post-Creation Requirements**: See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
-
-### Content Validation
-
-- [ ] Clear purpose and scope defined
-- [ ] Target audience identified
-- [ ] Actionable guidance provided
-- [ ] Examples demonstrate key concepts
-- [ ] Quality criteria specified
-- [ ] Common mistakes addressed
-
-### Technical Validation
-
-- [ ] Complete AI provenance metadata (all 11 fields)
-- [ ] Correct file location and naming
-- [ ] Valid markdown formatting
-- [ ] Working internal links
-- [ ] Proper YAML front matter
-
-### Compliance Validation
-
-- [ ] Follows repository standards
-- [ ] AI provenance requirements met
-- [ ] No sensitive information exposed
-- [ ] Consistent with existing instructions
+- [ ] All security rules included (if code generation)
+- [ ] AI provenance complete and accurate
+- [ ] Review date set (next review 3 months out)
+- [ ] Owner assigned to responsible team
+- [ ] Related documentation linked
 
 ## Common Mistakes to Avoid
 
-### Content Mistakes
+| Mistake                    | Problem               | Fix                                                       |
+| -------------------------- | --------------------- | --------------------------------------------------------- |
+| ❌ Vague: "Use good names" | Not enforceable       | ✅ "Use PascalCase for class names (e.g., `UserAccount`)" |
+| ❌ Missing examples        | Ambiguous intent      | ✅ Include ✅ Good / ❌ Bad examples                      |
+| ❌ Incomplete rules        | Gaps and edge cases   | ✅ Document all variations and exceptions                 |
+| ❌ Inconsistent structure  | Confusing navigation  | ✅ Use consistent sections throughout                     |
+| ❌ Wrong location          | File not found        | ✅ Use `.github/instructions/`                            |
+| ❌ Missing AI metadata     | Violates policy       | ✅ Include all 12 provenance fields                       |
+| ❌ No README update        | File not discoverable | ✅ Add entry to README with link                          |
 
-❌ **Vague Requirements**: "Write good code"
-✅ **Specific Requirements**: "Use semantic variable names, maximum 20 characters"
+## Complete Examples
 
-❌ **Missing Examples**: Only abstract guidance
-✅ **Concrete Examples**: Show actual implementations
+### Example 1: Code Review Standards
 
-❌ **No Validation**: No way to verify compliance
-✅ **Clear Criteria**: Measurable quality gates
-
-### Technical Mistakes
-
-❌ **Incomplete Metadata**: Missing required provenance fields
-✅ **Complete Metadata**: All 11 fields with correct values
-
-❌ **Wrong Location**: Files in root or incorrect directory
-✅ **Correct Location**: `.github/instructions/` or `.github/instructions/ai/`
-
-❌ **Interface as Model**: `"github/copilot"`
-✅ **Actual Model**: `"anthropic/claude-3.5-sonnet@2024-10-22"`
-
-### Process Mistakes
-
-❌ **No Documentation**: File created without updating README
-✅ **Complete Documentation**: See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
-
-❌ **Reused Chat Logs**: Appending to existing conversation files
-✅ **Unique Chat Logs**: New conversation file for each session
-
-## Examples
-
-### Example 1: Code Review Instructions
-
-```markdown
+```yaml
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-# ... complete AI provenance metadata
-name: "Code Review Standards"
-description: "Enforces thorough, constructive code review practices"
-appliesTo: ["all"]
+operator: "johnmillerATcodemag-com"
+chat_id: "code-review-standards-20260211"
+prompt: "Create code review standards instruction"
+started: "2026-02-11T14:00:00Z"
+ended: "2026-02-11T14:30:00Z"
+task_durations:
+  - task: "standards creation"
+    duration: "00:30:00"
+total_duration: "00:30:00"
+ai_log: "ai-logs/2026/02/11/code-review-standards-20260211/conversation.md"
+source: "johnmillerATcodemag-com"
+name: code-review-standards
+description: Standards and procedures for code review
+appliesTo: "**/*.md"
 version: "1.0.0"
-author: "Engineering Team"
-tags: ["code-review", "quality", "standards"]
+author: "engineering-team"
+tags: ["code-review", "quality"]
+owner: "QA Team"
+reviewedDate: "2026-02-11"
+nextReview: "2026-05-11"
 ---
 
-# Code Review Instructions
+# Code Review Standards
+
+All pull requests MUST receive review before merging.
 
 ## Review Criteria
 
-**Functional Requirements**:
-- [ ] Implements stated requirements
-- [ ] Handles edge cases
-- [ ] Manages error conditions
+**Functional Review**: Code MUST implement all requirements from linked issues
+**Security Review**: Code MUST NEVER include credentials or secrets
+**Quality Review**: All code changes MUST include corresponding tests
 
-**Code Quality**:
-- [ ] Follows coding standards
-- [ ] Clear, semantic names
-- [ ] Single responsibility functions
+## Security and Compliance (NON-NEGOTIABLE)
 
-**Testing**:
-- [ ] Unit tests cover new functionality
-- [ ] Integration tests validate interactions
-- [ ] Test names clearly describe scenarios
-
-## Review Process
-
-1. Read linked issues/documentation
-2. Verify requirements met
-3. Apply quality criteria
-4. Ensure adequate testing
-5. Provide specific feedback
-6. Approve or request changes with rationale
-
-## Security Requirements (NON-NEGOTIABLE)
-
-- **NEVER** approve code with hardcoded secrets
-- **ALWAYS** verify input validation present
-- **ALWAYS** check for SQL injection vulnerabilities
+- Generated code must NEVER include API keys, tokens, or secrets
+- All generated artifacts MUST pass security scanning
 ```
 
-### Example 2: API Documentation Instructions
+### Example 2: API Documentation Standards
 
-```markdown
+```yaml
 ---
 ai_generated: true
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
-# ... complete AI provenance metadata
-name: "API Documentation Standards"
-description: "Enforces consistent REST API documentation"
-appliesTo: ["javascript", "typescript", "python"]
+operator: "johnmillerATcodemag-com"
+chat_id: "api-documentation-standards-20260211"
+prompt: "Create API documentation standards"
+started: "2026-02-11T15:00:00Z"
+ended: "2026-02-11T15:20:00Z"
+task_durations:
+  - task: "documentation standards"
+    duration: "00:20:00"
+total_duration: "00:20:00"
+ai_log: "ai-logs/2026/02/11/api-documentation-standards-20260211/conversation.md"
+source: "johnmillerATcodemag-com"
+name: api-documentation-standards
+description: Standards for documenting REST API endpoints
+appliesTo: "**/*.md"
 version: "1.0.0"
-author: "API Team"
-tags: ["api", "documentation", "rest", "standards"]
+author: "api-team"
+tags: ["api", "documentation", "rest"]
+owner: "API Team"
+reviewedDate: "2026-02-11"
+nextReview: "2026-05-11"
 ---
 
-# API Documentation Instructions
+# API Documentation Standards
+
+All REST API endpoints MUST be documented with consistent format.
 
 ## Required Fields
 
-**MUST include for each endpoint**:
-- Method and path: `GET /api/users/{id}`
-- Description: What endpoint does
-- Parameters: Path, query, body (with types)
-- Responses: Success and error codes with examples
-- Authentication: Required permissions/tokens
+Every endpoint MUST include:
+- Method and path
+- Description
+- Parameters
+- Responses (success and error codes)
+- Authentication requirements
+- Examples
 
-## Example Format
+## Security and Compliance (NON-NEGOTIABLE)
 
-```markdown
-## GET /api/users/{id}
-
-Retrieves specific user by ID.
-
-**Parameters**:
-- `id` (path, UUID, required): User identifier
-
-**Responses**:
-- `200`: User found
-- `404`: User does not exist
-- `401`: Authentication required
-
-**Example**:
-GET /api/users/123e4567-e89b-12d3-a456-426614174000
-Authorization: Bearer {token}
-
-Response: {"id": "123...", "email": "user@example.com"}
+- NEVER include actual credentials in examples
+- ALWAYS document authentication requirements
+- ALWAYS document rate limiting
 ```
-
-## Security Requirements (NON-NEGOTIABLE)
-
-- **NEVER** include actual credentials in examples
-- **ALWAYS** document authentication requirements
-- **ALWAYS** document rate limiting```
 
 ## Maintenance and Updates
 
@@ -636,56 +695,35 @@ Response: {"id": "123...", "email": "user@example.com"}
 
 Update instruction files when:
 
-- Requirements change
-- New best practices emerge
-- Feedback identifies gaps
-- Related tools or processes change
-- Compliance requirements evolve
+- Domain knowledge changes significantly
+- New rules or patterns emerge
+- Existing rules prove ineffective
+- Process improvements identified
+- Dependencies or related systems change
 
 ### Update Process
 
-1. **Identify Changes**: What needs to be updated and why
-2. **Update Content**: Modify instructions while preserving structure
-3. **Update Metadata**: Change `ended` timestamp, add to `task_durations`
-4. **Test Instructions**: Validate updated guidance works
-5. **Complete Post-Creation**: Follow [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#post-creation-requirements-canonical)
+1. **Create new chat**: Start new conversation (new chat ID)
+2. **Update file**: Modify content with complete new metadata
+3. **Update version**: Increment semantic version number
+4. **Update dates**: Set new `reviewedDate` and `nextReview`
+5. **Create log**: Document update in conversation log
+6. **Communicate**: Notify relevant teams of changes
 
-### Version Control
+### Review Cadence
 
-- Use semantic commit messages for updates
-- Maintain conversation logs for significant changes
-- Consider creating new AI-optimized versions when needed
-
-## File Length Management
-
-**Maximum Recommended**: 300-500 lines per instruction file
-
-**When file exceeds limit**:
-1. Split by logical domain boundaries
-2. Extract examples to separate promptfiles
-3. Create specialized files (e.g., `domain-core.instructions.md`, `domain-advanced.instructions.md`)
-4. Link to external detailed documentation
-
-## Summary
-
-**Required for all instruction files**:
-1. Complete metadata (AI provenance + Copilot discovery fields)
-2. Imperative, declarative language ("Always", "Never", "MUST")
-3. Security rules (NON-NEGOTIABLE section if applicable)
-4. Known limitations documented
-5. "When uncertain, ask" clause
-6. Token-optimized (under 500 lines)
-7. Concrete examples
-8. Version control and governance fields
+- **Active files**: Review every 3 months
+- **Critical files**: Review every 30 days
+- **Stable files**: Review every 6 months
 
 ---
 
-**Document Version**: 1.0.0
-**Last Updated**: 2025-10-23
-**Maintainer**: AI-Assisted Development Team
+**Document Version**: 2.0.0
+**Last Updated**: 2026-02-11
+**Maintainer**: Development Team
+**Next Review**: 2026-05-11
 **Related Instructions**:
 
-- `.github/instructions/ai-assisted-output.instructions.md`
-- `.github/instructions/copilot-instructions.md`
-- `.github/instructions/instruction-prompt-files.instructions.md`
-````
+- [AI-Assisted Output Instructions](ai-assisted-output.instructions.md)
+- [Business Rules to Vertical Slices](business-rules-to-slices.instructions.md)
+- [GitHub CLI Instructions](github-cli.instructions.md)

@@ -135,7 +135,7 @@ Generate comprehensive, production-ready guide for creating new `.instructions.m
 
 ### Short Term (1-2 weeks)
 
-- [ ] Create corresponding promptfile at `.github/copilot/Promptfiles/guidance/use-instruction-file-creation-guide.prompt.md` to help users reference this guide
+- [ ] Create corresponding promptfile at `.github/copilot/promptfiles/guidance/use-instruction-file-creation-guide.prompt.md` to help users reference this guide
 
 - [ ] Gather feedback from first 3 users who create instruction files using this guide
 

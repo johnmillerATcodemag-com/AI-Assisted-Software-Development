@@ -36,16 +36,20 @@ See **[Template Examples](#template-examples)** below for complete working examp
 
 ### Core Promptfile Fields (Required by Copilot)
 
-#### name (Required)
-- Must match filename (minus `.md` extension)
-- Use kebab-case
-- Example: `generate-tests.md` → `name: generate-tests`
-
 #### description (Required)
+
 - Short, clear description of the task
 - Shown in Copilot promptfile picker
 - 1-2 sentences max
 - Example: `"Generate unit tests for a given file"`
+
+#### name (Optional)
+
+- Used for Copilot discovery and invocation
+- If provided, should match filename (minus `.md` or `.prompt.md` extension)
+- Use kebab-case
+- Example: `generate-tests.md` → `name: generate-tests`
+- **Note**: Copilot can function without this field, but including it improves discoverability
 
 ### Arguments (Optional - for Copilot)
 
@@ -63,6 +67,7 @@ arguments:
 ```
 
 **Supported types:**
+
 - `string`
 - `number`
 - `boolean`
@@ -70,6 +75,7 @@ arguments:
 - `object` (rare)
 
 **Use arguments when:**
+
 - Task depends on user input
 - Want to avoid rewriting promptfiles
 - Want to enforce consistent structure
@@ -77,6 +83,7 @@ arguments:
 **Reference arguments in body:** `{{file}}`, `{{severity}}`
 
 ### tags (Optional - for Copilot)
+
 - Array of strings
 - Example: `["testing", "automation", "security"]`
 - Helps with discoverability
@@ -114,6 +121,7 @@ Copilot ignores unknown fields, safe to add for governance:
 - **updated** - Last update date
 
 Example:
+
 ```yaml
 owner: "Security Team"
 version: "2.1"
@@ -131,7 +139,9 @@ Here is a fully-formed promptfile with all core and optional fields included:
 
 ```yaml
 ---
-# Core Promptfile Fields (Required by Copilot)
+# Core Promptfile Fields
+# - description: Required by Copilot
+# - name: Optional (improves discoverability via @name syntax)
 name: generate-tests
 description: Generate unit tests for a given file
 
@@ -181,6 +191,7 @@ Follow these rules:
 ```
 
 ### Minimal Promptfile
+
 ```yaml
 ---
 name: summarize-file
@@ -201,13 +212,13 @@ total_duration: "00:02:00"
 ai_log: "ai-logs/2026/02/12/chat-20260212/conversation.md"
 source: "username"
 ---
-
 # Summarize File
 
 Summarize the contents of the selected file in 3–5 bullet points.
 ```
 
 ### With Arguments
+
 ```yaml
 ---
 name: generate-tests
@@ -251,6 +262,7 @@ Follow these rules:
 ```
 
 ### Architecture Analysis
+
 ```yaml
 ---
 name: summarize-service-boundaries
@@ -306,102 +318,120 @@ Provide actionable improvements.
 
 **Task-Oriented**
 Tell Copilot what to do, not how to behave:
+
 - ✅ "Generate unit tests for {{file}}"
 - ❌ "Act like a senior QA engineer and think carefully about testing"
 
 **Deterministic**
 Avoid ambiguity, use explicit steps:
+
 - ✅ "1. Analyze all public methods\n2. Generate test for each\n3. Include edge cases"
 - ❌ "Write some tests"
 
 **Structured**
 Use headings, lists, sections:
+
 ```markdown
 # Generate Tests
 
 Your output must include:
 
 ## Test File
+
 Create test file with proper naming convention.
 
 ## Test Cases
+
 - Happy path scenarios
 - Error handling
 - Edge cases
 
 ## Assertions
+
 Use specific assertion methods appropriate to the framework.
 ```
 
 **Short**
 Aim for 10-30 lines, not 200:
+
 - ✅ Concise task definition
 - ❌ Multi-page documentation
 
 **Context-Aware**
 Use arguments to avoid hard-coding:
+
 - ✅ `{{file}}`, `{{severity}}`, `{{framework}}`
 - ❌ `src/main.js`, hardcoded values
 
 **Non-Behavioral**
 Do not define personas or tone:
+
 - ✅ "Generate tests with descriptive names"
 - ❌ "You are a friendly testing expert who loves clean code"
 
 ## Location Requirements
 
 ### Directory
+
 **MUST** be in:
+
 ```
-.github/copilot/Promptfiles/
+.github/copilot/promptfiles/
 ```
 
 **NOT**:
+
 - `.github/prompts/` ❌
-- `.github/copilot/promptfiles/` ❌ (lowercase)
-- `.github/copilot/Promptfiles/subfolder/` ❌
+- `.github/copilot/promptfiles/subfolder/` ❌
 - Anywhere else ❌
 
 Copilot only scans the exact directory above.
 
 ### File Format
+
 **MUST** be:
-- Markdown (`.md` extension)
+
+- Markdown (`.prompt.md` extension)
 - UTF-8 encoded
 - Flat structure (no nesting in subfolders)
 
 **NOT**:
+
 - YAML or JSON files ❌
-- `.prompt.md` extension ❌
 - `.MD` or uppercase extensions ❌
 
 ### File Naming
-- Filename must match `name:` field value
+
 - Use kebab-case
 - Descriptive, no abbreviations
+- If `name:` field is used, filename should match its value (minus `.md` or `.prompt.md`)
 
 **Examples:**
+
 ```
-generate-tests.md → name: generate-tests ✅
-genTests.md → name: generate-tests ❌ (filename doesn't match)
+generate-tests.md → name: generate-tests ✅ (name field matches filename)
+generate-tests.md (no name field) ✅ (name field is optional)
+genTests.md → name: generate-tests ❌ (filename doesn't match name field)
 generate_tests.md → name: generate-tests ❌ (use kebab-case)
 ```
 
 ## Validation Checklist
 
 ### Structure
+
 - [ ] File is Markdown (`.md`)
-- [ ] File is in `.github/copilot/Promptfiles/`
+- [ ] File is in `.github/copilot/promptfiles/`
 - [ ] Front-matter is valid YAML
 - [ ] No nested folders
-- [ ] Filename matches `name:` field (minus extension)
+- [ ] If `name:` field is used, filename matches it (minus extension)
 
 ### Required Fields
-- [ ] `name` field present
-- [ ] `description` field present
-- [ ] Both are strings
+
+- [ ] `description` field present (required)
+- [ ] `name` field present (optional, but recommended for discoverability)
 
 ### AI Provenance (if AI-generated)
+
 - [ ] `ai_generated: true` present
 - [ ] `model` uses format `"provider/model@version"`
 - [ ] `operator` is GitHub username
@@ -414,12 +444,14 @@ generate_tests.md → name: generate-tests ❌ (use kebab-case)
 - [ ] `source` identifies creator
 
 ### Arguments (if used)
+
 - [ ] All arguments have `type`
 - [ ] All arguments have `description`
 - [ ] No unused arguments in body
 - [ ] Arguments referenced correctly: `{{argumentName}}`
 
 ### Instructions (Body Content)
+
 - [ ] Task-oriented (not behavioral)
 - [ ] Deterministic (explicit steps)
 - [ ] Structured (headings, lists)
@@ -427,10 +459,12 @@ generate_tests.md → name: generate-tests ❌ (use kebab-case)
 - [ ] No persona content ("Act like...", "You are...")
 
 ### Metadata (Optional Fields)
+
 - [ ] User-defined fields don't conflict with core schema
 - [ ] Values are appropriate types
 
 ### Testing
+
 - [ ] File appears in Copilot promptfile picker
 - [ ] Can be invoked by name
 - [ ] Arguments are prompted correctly
@@ -439,43 +473,47 @@ generate_tests.md → name: generate-tests ❌ (use kebab-case)
 ## Anti-Patterns (Avoid These)
 
 ### ❌ Behavioral Instructions
+
 ```yaml
 ---
 name: review-code
 description: Review code for quality
 ---
-
 # Code Review
 
 Act like a senior engineer with 20 years of experience.
 Use a friendly, encouraging tone.
 ```
+
 **Why wrong:** Promptfiles are tasks, not personas. Use agents for behavior.
 
 ### ❌ Repo-Wide Rules
+
 ```yaml
 ---
 name: write-code
 ---
-
 Always follow our security guidelines.
 Never use deprecated APIs.
 Always write tests.
 ```
+
 **Why wrong:** Use `.github/instructions/` for repo-wide rules.
 
 ### ❌ Overly Long Instructions
+
 ```yaml
 ---
 name: generate-tests
 ---
-
 [200 lines of detailed test methodology]
 ```
+
 **Why wrong:** Copilot truncates long promptfiles. Keep to 10-30 lines.
 
 ### ❌ Embedding Code in Arguments
-```yaml
+
+````yaml
 arguments:
   example:
     type: string
@@ -484,29 +522,34 @@ arguments:
       def example():
           pass
       ```
-```
+````
+
 **Why wrong:** Arguments must be plain YAML values.
 
 ### ❌ Using Promptfiles as Agents
+
 ```yaml
 ---
 name: be-helpful-assistant
 description: Be a helpful coding assistant
 ---
-
 You are a helpful assistant who helps with coding.
 ```
+
 **Why wrong:** This is an agent persona, not a task. Use `.github/copilot/chat_modes/` for agents.
 
 ### ❌ Wrong File Location
+
 ```
 .github/prompts/generate-tests.md ❌
 .github/copilot/agents/generate-tests.md ❌
 .github/copilot/promptfiles/tools/generate-tests.md ❌ (lowercase p)
 ```
+
 **Correct:**
+
 ```
-.github/copilot/Promptfiles/generate-tests.md ✅
+.github/copilot/promptfiles/generate-tests.md ✅
 ```
 
 ## File Naming Rules
@@ -514,23 +557,26 @@ You are a helpful assistant who helps with coding.
 **Pattern:** `{action}-{target}.md`
 
 **Requirements:**
-- Must match `name:` field exactly (minus `.md`)
+
 - Use kebab-case
-- Use `.md` extension (NOT `.prompt.md`)
+- Use `.md` or `.prompt.md` extension
 - Be descriptive and specific
 - No abbreviations
+- If `name:` field is present, filename should match it exactly (minus extension)
 
 **Examples:**
+
 - ✅ `generate-tests.md` (name: generate-tests)
+- ✅ `generate-tests.prompt.md` (name: generate-tests)
 - ✅ `summarize-file.md` (name: summarize-file)
 - ✅ `analyze-security-risks.md` (name: analyze-security-risks)
-- ❌ `gen-tests.prompt.md` (wrong extension, abbreviated)
 - ❌ `generateTests.md` (not kebab-case)
 - ❌ `test.md` (too vague)
 
 ## Directory Structure
 
 **Correct structure:**
+
 ```
 .github/
 └── copilot/
@@ -542,6 +588,7 @@ You are a helpful assistant who helps with coding.
 ```
 
 **Rules:**
+
 - All promptfiles in flat directory (no subfolders)
 - Only `.md` files will be loaded
 - Copilot scans this exact path only
@@ -551,38 +598,45 @@ You are a helpful assistant who helps with coding.
 After creating a promptfile, verify:
 
 ### 1. Discoverability
+
 - Open GitHub Copilot in VS Code
 - Type `@` in chat
 - Your promptfile name appears in the picker
 - If not visible, check file location and name
 
 ### 2. Invocation
+
 - Type `@{your-promptfile-name}` in Copilot chat
 - Copilot recognizes and loads it
 - Instructions are executed
 
 ### 3. Arguments
+
 - If you defined arguments, Copilot prompts for values
 - Values are interpolated correctly in body (`{{argumentName}}`)
 - Can invoke with inline args: `@generate-tests file=src/app.js`
 
 ### 4. Consistency
+
 - Run multiple times with same inputs
 - Output is predictable and consistent
 - No behavioral drift
 
 ### 5. Agent Independence
+
 - Works the same regardless of active agent
 - Doesn't inherit agent behavior
 - Executes as pure task
 
 ### Troubleshooting
-- **Not visible in picker** → Check location (must be `.github/copilot/Promptfiles/`)
-- **Name doesn't match** → Filename must equal `name:` field value
+
+- **Not visible in picker** → Check location (must be `.github/copilot/promptfiles/`)
+- **Name doesn't match** → If `name:` field is used, ensure filename matches it
 - **Arguments not prompted** → Check YAML syntax in `arguments:` section
 - **Behaves inconsistently** → Remove behavioral instructions, make deterministic
 
 ### 6. Post-Creation Requirements
+
 After creating a promptfile, complete these steps:
 
 1. **Create Conversation Log**: `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
@@ -603,19 +657,19 @@ See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#
 
 ## When to Use Each System
 
-| Need | Use |
-|------|-----|
-| Reusable task | Promptfile (`.github/copilot/Promptfiles/`) |
-| Behavioral persona | Agent (`.github/copilot/chat_modes/`) |
-| Repo-wide rule | Instruction (`.github/instructions/`) |
-| One-off task | Just type it in chat |
+| Need               | Use                                         |
+| ------------------ | ------------------------------------------- |
+| Reusable task      | Promptfile (`.github/copilot/promptfiles/`) |
+| Behavioral persona | Agent (`.github/copilot/chat_modes/`)       |
+| Repo-wide rule     | Instruction (`.github/instructions/`)       |
+| One-off task       | Just type it in chat                        |
 
 ## Quick Reference
 
 **Minimal working promptfile:**
+
 ```yaml
 ---
-name: my-task
 description: Does something useful
 
 # AI Provenance (if AI-generated)
@@ -633,13 +687,13 @@ total_duration: "00:02:00"
 ai_log: "ai-logs/2026/02/12/chat-id/conversation.md"
 source: "username"
 ---
-
 # My Task
 
 Do the thing.
 ```
 
-**With arguments:**
+**With arguments and name:**
+
 ```yaml
 ---
 name: my-task
@@ -665,13 +719,13 @@ total_duration: "00:05:00"
 ai_log: "ai-logs/2026/02/12/chat-id/conversation.md"
 source: "username"
 ---
-
 # My Task
 
 Do the thing with {{input}}.
 ```
 
 **Invocation:**
+
 ```
 @my-task
 @my-task input="hello"

@@ -11,7 +11,7 @@
 
 **Inputs**:
 
-- Meta-prompt: `.github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md`
+- Meta-prompt: `.github/copilot/promptfiles/meta/create-instruction-files-instructions.prompt.md`
 - Requirement: Generate comprehensive guide for creating new instruction files
 - Target: `.github/instructions/instruction-files.instructions.md`
 
@@ -102,7 +102,7 @@ submit this prompt #file:create-instruction-files-instructions.prompt.md
    - task_durations: [Complete array with 4 tasks]
    - total_duration: 00:15:00
    - ai_log: ai-logs/2026/02/11/submit-create-instruction-files-20260211/conversation.md
-   - source: .github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md
+   - source: .github/copilot/promptfiles/meta/create-instruction-files-instructions.prompt.md
 5. ⏳ Link Validation: Internal links to be tested in VS Code
 
 ## Work Burst Closure

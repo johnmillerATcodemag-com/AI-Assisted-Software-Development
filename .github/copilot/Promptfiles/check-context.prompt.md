@@ -1,5 +1,4 @@
 ---
-mode: agent
 model: "anthropic/claude-3.5-sonnet@2024-10-22"
 tools: ["search", "edit", "fetch"]
 description: "Analyze instruction files for conflicts and inconsistencies"
@@ -31,6 +30,7 @@ Analyze provided context for conflicts, contradictions, and inconsistencies.
 7. **Duplication/Redundancy**: Repeated instructions/info, redundant processes, conflicting presentations of same info
 
 ## Response Format per Issue
+
 - **Category**: Conflict type
 - **Description**: Clear explanation
 - **Location**: Where it occurs

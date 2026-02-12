@@ -21,7 +21,7 @@ task_durations:
     duration: "00:03:00"
 total_duration: "00:15:00"
 ai_log: "ai-logs/2026/02/11/submit-create-instruction-files-20260211/conversation.md"
-source: ".github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md"
+source: ".github/copilot/promptfiles/meta/create-instruction-files-instructions.prompt.md"
 name: instruction-files
 description: Comprehensive guide for creating new instruction files
 appliesTo: "**/*.instructions.md"
@@ -341,7 +341,7 @@ Define:
 
 ### Step 2: Use Meta-Prompt
 
-Use `.github/copilot/Promptfiles/meta/create-instruction-files-instructions.prompt.md` in GitHub Copilot chat.
+Use `.github/copilot/promptfiles/meta/create-instruction-files-instructions.prompt.md` in GitHub Copilot chat.
 
 ### Step 3: Execute in Copilot
 

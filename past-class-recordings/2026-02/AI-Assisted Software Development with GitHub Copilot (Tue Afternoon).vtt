@@ -1,0 +1,106 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:15.000
+Welcome everyone to AI-Assisted Software Development with GitHub Copilot. This is our Tuesday afternoon session.
+
+00:00:15.000 --> 00:00:45.000
+Today we're going to explore several key topics related to GitHub Copilot and how it can transform your development workflow.
+
+00:00:45.000 --> 00:01:30.000
+Let me start with an overview of what we'll cover today. First, we'll look at custom agents and how they can be configured for specific tasks.
+
+00:01:30.000 --> 00:02:15.000
+Then we'll dive into creating instruction files that guide Copilot's behavior. These instructions are crucial for maintaining consistency across your team.
+
+00:02:15.000 --> 00:03:00.000
+After that, we'll explore CQRS architecture patterns and how Copilot can help you implement them correctly.
+
+00:03:00.000 --> 00:04:30.000
+Section 1: Introduction to Custom Agents. Custom agents are specialized AI assistants that you can configure for specific workflows.
+
+00:04:30.000 --> 00:05:45.000
+Unlike the general-purpose Copilot, custom agents have focused expertise. For example, you might create a security-focused agent that only reviews code for vulnerabilities.
+
+00:05:45.000 --> 00:06:30.000
+Or you could create a documentation agent that specializes in writing API documentation and user guides.
+
+00:06:30.000 --> 00:07:15.000
+The key advantage is that agents maintain context and follow specific guidelines you define in their configuration files.
+
+00:07:15.000 --> 00:09:00.000
+Section 2: Creating Agent Configuration Files. To create a custom agent, you need to understand the structure of agent.md files.
+
+00:09:00.000 --> 00:10:30.000
+These files live in the .github/agents directory for repository-level agents, or in the agents directory at the root for organization-wide agents.
+
+00:10:30.000 --> 00:11:45.000
+The configuration includes YAML front matter with metadata like the agent name, description, and available tools.
+
+00:11:45.000 --> 00:13:00.000
+Then the markdown body contains the instructions that define the agent's behavior, expertise areas, and response patterns.
+
+00:13:00.000 --> 00:14:15.000
+Let me show you an example. Here's a security analyzer agent configuration that focuses on finding vulnerabilities.
+
+00:14:15.000 --> 00:16:30.000
+Section 3: Instruction Files and Repository Guidelines. Instruction files are different from agents - they define rules that ALL AI assistants should follow.
+
+00:16:30.000 --> 00:18:00.000
+These files go in .github/instructions and cover things like coding standards, architecture patterns, and quality requirements.
+
+00:18:00.000 --> 00:19:15.000
+For example, you might have an instruction file for vertical slice architecture that ensures all features are organized consistently.
+
+00:19:15.000 --> 00:20:45.000
+Or a dependency management policy that defines how to evaluate and add new packages to your project.
+
+00:20:45.000 --> 00:22:00.000
+The key is that instruction files are canonical - they're the single source of truth that agents and developers refer to.
+
+00:22:00.000 --> 00:24:30.000
+Section 4: CQRS Architecture with Copilot. CQRS stands for Command Query Responsibility Segregation - it's an architectural pattern.
+
+00:24:30.000 --> 00:26:00.000
+The basic idea is to separate your write operations (commands) from your read operations (queries).
+
+00:26:00.000 --> 00:27:30.000
+This separation allows you to optimize each side independently. Commands focus on business logic and validation.
+
+00:27:30.000 --> 00:29:00.000
+Queries are optimized for fast retrieval and can use different data models or even different databases.
+
+00:29:00.000 --> 00:31:00.000
+When implementing CQRS with Copilot, you can create instruction files that ensure consistent patterns across all your commands and queries.
+
+00:31:00.000 --> 00:33:30.000
+Section 5: Dependency Management Best Practices. Managing dependencies is critical for security and maintainability.
+
+00:33:30.000 --> 00:35:00.000
+Your dependency management policy should define approval processes, security scanning requirements, and update strategies.
+
+00:35:00.000 --> 00:36:30.000
+With Copilot, you can create instruction files that guide dependency selection and ensure all additions are properly vetted.
+
+00:36:30.000 --> 00:38:00.000
+This includes checking for vulnerabilities, license compatibility, and maintenance status of packages.
+
+00:38:00.000 --> 00:40:30.000
+Section 6: GitHub CLI Integration. The GitHub CLI is a powerful tool that Copilot can help you use more effectively.
+
+00:40:30.000 --> 00:42:00.000
+You can create agents or instructions that know common gh commands for issues, pull requests, and workflow management.
+
+00:42:00.000 --> 00:43:30.000
+This makes it easy to automate repository tasks and integrate them into your development workflow.
+
+00:43:30.000 --> 00:45:00.000
+Conclusion and Q&A. We've covered a lot today - custom agents, instruction files, CQRS architecture, dependency management, and GitHub CLI.
+
+00:45:00.000 --> 00:46:30.000
+The key takeaway is that AI-assisted development works best when you provide clear, structured guidance through agents and instruction files.
+
+00:46:30.000 --> 00:48:00.000
+Now let's open it up for questions. Feel free to ask about any of the topics we covered today.
+
+00:48:00.000 --> 00:50:00.000
+Thank you all for joining. Remember to check the repository for example files and documentation. See you next time!

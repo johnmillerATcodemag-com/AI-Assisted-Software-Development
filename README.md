@@ -84,6 +84,23 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 - [`.github/agents/devtest-engineer.agent.md`](.github/agents/devtest-engineer.agent.md) — Test automation, QA strategy, and coverage guidance ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
 - [`.github/agents/sre-engineer.agent.md`](.github/agents/sre-engineer.agent.md) — Site reliability, monitoring, and incident response ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
 
+### GitHub Copilot Promptfiles
+
+Task-oriented promptfiles that can be invoked via `@promptfile-name` in GitHub Copilot chat. See [`.github/copilot/Promptfiles/README.md`](.github/copilot/Promptfiles/README.md) for complete list.
+
+#### Content Analysis
+- [`.github/copilot/Promptfiles/summarize-vti-content.prompt.md`](.github/copilot/Promptfiles/summarize-vti-content.prompt.md) — Summarize VTT/VTI training content files and extract key topics with timestamps ([chat log](ai-logs/2026/02/17/summarize-vti-content-20260217/conversation.md))
+
+#### Code Analysis & Quality
+- [`.github/copilot/Promptfiles/codebase-review.prompt.md`](.github/copilot/Promptfiles/codebase-review.prompt.md) — Audit codebase compliance with instruction files
+- [`.github/copilot/Promptfiles/tests-gap-analysis.prompt.md`](.github/copilot/Promptfiles/tests-gap-analysis.prompt.md) — Identify test coverage gaps and missing test scenarios
+- [`.github/copilot/Promptfiles/refactor-analysis.prompt.md`](.github/copilot/Promptfiles/refactor-analysis.prompt.md) — Analyze code for refactoring opportunities
+
+#### Architecture & Design
+- [`.github/copilot/Promptfiles/architecture-design.prompt.md`](.github/copilot/Promptfiles/architecture-design.prompt.md) — Design comprehensive system architecture
+- [`.github/copilot/Promptfiles/pattern-analysis.prompt.md`](.github/copilot/Promptfiles/pattern-analysis.prompt.md) — Analyze and recommend architectural patterns
+- [`.github/copilot/Promptfiles/integration-design.prompt.md`](.github/copilot/Promptfiles/integration-design.prompt.md) — Design system integration strategies
+
 ### Meta-Prompts (Prompt Generators)
 
 - [`.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`](.github/prompts/meta/create-instruction-files-prompt-file.prompt.md) — Generates new instruction-generating prompts with AI provenance built-in ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))

@@ -84,6 +84,12 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 - [`.github/agents/devtest-engineer.agent.md`](.github/agents/devtest-engineer.agent.md) — Test automation, QA strategy, and coverage guidance ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
 - [`.github/agents/sre-engineer.agent.md`](.github/agents/sre-engineer.agent.md) — Site reliability, monitoring, and incident response ([chat log](ai-logs/2026/02/12/create-custom-agents-20260212/conversation.md))
 
+### GitHub Copilot Promptfiles
+
+Reusable task-oriented prompts for GitHub Copilot. Invoke with `@promptfile-name` in Copilot chat.
+
+- [`.github/copilot/Promptfiles/summarize-vti-content.prompt.md`](.github/copilot/Promptfiles/summarize-vti-content.prompt.md) — Summarize training content from VTI/VTT transcript files with key topics, takeaways, and structured insights ([chat log](ai-logs/2026/02/17/summarize-vti-content-20260217/conversation.md))
+
 ### Meta-Prompts (Prompt Generators)
 
 - [`.github/prompts/meta/create-instruction-files-prompt-file.prompt.md`](.github/prompts/meta/create-instruction-files-prompt-file.prompt.md) — Generates new instruction-generating prompts with AI provenance built-in ([chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md))

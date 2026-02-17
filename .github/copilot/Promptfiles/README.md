@@ -27,7 +27,7 @@ This directory contains standardized AI prompts for various development and anal
 | [`create-use-case-instructions.prompt.md`](create-use-case-instructions.prompt.md)                     | Use Case Instructions Generator | Guidelines for use case documentation    |
 | [`derive-use-cases-from-conceptual-model.prompt.md`](derive-use-cases-from-conceptual-model.prompt.md) | Use Case Derivation             | Extract use cases from conceptual models |
 | [`generate-instructions.prompt.md`](generate-instructions.prompt.md)                                   | Instruction File Generator      | Comprehensive instruction files          |
-| [`summarize-vti-content.prompt.md`](summarize-vti-content.prompt.md)                                   | VTI Content Summarizer          | Outline with section durations from VTI files |
+| [`summarize-vti-content.prompt.md`](summarize-vti-content.prompt.md)                                   | VTI/VTT Content Summarizer          | Outline with section durations from VTI/VTT transcript files |
 
 ### Quality & Compliance
 

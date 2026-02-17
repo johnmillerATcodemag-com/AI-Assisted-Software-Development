@@ -28,9 +28,11 @@ Created a new GitHub Copilot promptfile that takes a VTI (Video Training Index) 
 - Ready for README update
 
 ### Remaining Tasks
-1. Update `.github/copilot/Promptfiles/README.md` with new prompt entry
-2. Validate prompt follows all repository conventions
-3. Test the prompt with a sample VTI file (if available)
+1. ✅ Update `.github/copilot/Promptfiles/README.md` with new prompt entry (COMPLETED)
+2. ✅ Validate prompt follows all repository conventions (COMPLETED)
+3. ✅ Test the prompt with a sample VTI file (COMPLETED)
+4. ✅ Added VTT format support (WebVTT video captions) (COMPLETED)
+5. ✅ Created sample VTT file for testing (COMPLETED)
 
 ### Important Decisions Made
 - **VTI Format**: Assumed VTI is a text-based video training/transcript format

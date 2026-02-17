@@ -117,6 +117,13 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)
   - Provenance: [Chat log](ai-logs/2025/10/15/prompt-file.instructions-2025-10-15/conversation.md)
 
+- **VTT/VTI Content Summarizer** ([`.github/copilot/Promptfiles/summarize-vti-content.prompt.md`](.github/copilot/Promptfiles/summarize-vti-content.prompt.md))
+  - GitHub Copilot promptfile for generating structured outlines from video transcript files
+  - Supports both VTT (WebVTT) and VTI formats with hierarchical section parsing
+  - Extracts sections, durations, key topics, and generates summary statistics
+  - Example: [`docs/example-vtt-summary.md`](docs/example-vtt-summary.md) | Usage Guide: [`docs/how-to-use-vtt-summarizer.md`](docs/how-to-use-vtt-summarizer.md)
+  - Provenance: [Chat log](ai-logs/2026/02/17/summarize-video-content-20260217/conversation.md) | [Summary](ai-logs/2026/02/17/summarize-video-content-20260217/summary.md)
+
 - **Instruction Validation Report** ([`validation-report-20251015-212137.md`](validation-report-20251015-212137.md))
   - Comprehensive analysis of instruction file conflicts and inconsistencies
   - Identifies 7 issues (1 high, 4 medium, 3 low severity) with fixes applied to critical issues

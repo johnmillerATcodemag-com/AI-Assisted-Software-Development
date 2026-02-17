@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+Welcome everyone to AI-Assisted Software Development with GitHub Copilot.
+
+00:00:05.000 --> 00:00:10.000
+Today we'll cover the fundamentals of using AI in your development workflow.
+
+00:00:10.000 --> 00:00:15.000
+Let's start with an overview of what we'll be learning today.
+
+00:00:15.000 --> 00:00:20.000
+GitHub Copilot is an AI pair programmer that helps you write code faster.
+
+00:00:20.000 --> 00:00:25.000
+It uses advanced machine learning models to suggest code completions.
+
+00:00:25.000 --> 00:00:30.000
+We'll explore how to use custom agents and promptfiles effectively.
+
+00:00:30.000 --> 00:00:35.000
+Custom agents allow you to create specialized AI assistants for specific tasks.
+
+00:00:35.000 --> 00:00:40.000
+Promptfiles are reusable task definitions that can be invoked in Copilot.
+
+00:00:40.000 --> 00:00:45.000
+Let's dive into creating our first custom agent together.

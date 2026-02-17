@@ -1,0 +1,95 @@
+# GitHub Copilot Custom Agents Training
+
+## Overview
+Duration: 45:00
+Topics: 5
+
+---
+
+## Section 1: Introduction to Custom Agents (8:30)
+
+### What are Custom Agents?
+- Custom agents extend GitHub Copilot with specialized behaviors
+- Agents can have specific tools and instructions
+- Available across multiple development environments
+
+### Benefits
+- Task-specific optimization
+- Consistent behavior for specialized workflows
+- Reusable configurations
+
+---
+
+## Section 2: Creating Your First Agent (12:15)
+
+### File Structure (4:00)
+- Use .agent.md extension
+- YAML front matter configuration
+- Markdown body for instructions
+
+### Required Fields (3:30)
+- name: Agent identifier
+- description: Brief purpose statement
+- tools: Available tool array
+- model: AI model specification
+
+### Agent Body Content (4:45)
+- Write clear instructions
+- Define agent role and expertise
+- Specify behavioral guidelines
+- Include examples
+
+---
+
+## Section 3: Configuring Agent Tools (9:20)
+
+### Built-in Tools (4:10)
+- read: Read file contents
+- edit: Modify files
+- search: Semantic code search
+- github: GitHub operations
+- terminal: Execute commands
+
+### Custom Tool Selection (5:10)
+- Restrict tools for security
+- Grant minimal necessary permissions
+- Consider agent purpose
+- Test tool combinations
+
+---
+
+## Section 4: Advanced Features (10:45)
+
+### Handoffs Between Agents (5:25)
+- Define workflow transitions
+- Pre-fill prompts for next agent
+- Create guided multi-step processes
+- Example: Planning → Implementation → Review
+
+### Model Context Protocol (MCP) (5:20)
+- Extend agents with external tools
+- Configure MCP servers
+- Organization-level capabilities
+- Weather, database, API integrations
+
+---
+
+## Section 5: Best Practices and Deployment (4:10)
+
+### Design Principles (2:00)
+- Focus on single responsibility
+- Use clear, actionable instructions
+- Provide relevant examples
+- Test thoroughly before deployment
+
+### Distribution Options (2:10)
+- Repository-level: .github/agents/
+- Organization: agents/ (root)
+- User profile: Personal agents
+- Choose appropriate scope
+
+---
+
+## Conclusion
+Total Duration: 45:00
+Key Takeaways: Custom agents enable specialized AI assistance, can be configured with specific tools and behaviors, and support collaborative workflows through handoffs.

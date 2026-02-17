@@ -94,6 +94,13 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 ### Notable Artifacts
 
+- **VTT Content Summarizer Promptfile** ([`.github/copilot/Promptfiles/summarize-vti-content.prompt.md`](.github/copilot/Promptfiles/summarize-vti-content.prompt.md))
+  - Analyzes VTT (Video Text Track) files from class recordings and generates structured summaries
+  - Extracts timing information, section breakdowns, key topics, and action items
+  - Includes sample files: [VTT input](past-class-recordings/2026-02/AI-Assisted%20Software%20Development%20with%20GitHub%20Copilot%20(Mon%20Afternoon).vtt) | [Generated summary](past-class-recordings/2026-02/AI-Assisted%20Software%20Development%20with%20GitHub%20Copilot%20(Mon%20Afternoon)-summary.md)
+  - Documentation: [Usage Guide](past-class-recordings/USAGE.md) | [Live Demo](past-class-recordings/DEMO.md)
+  - Provenance: [Chat log](ai-logs/2026/02/17/create-vtt-summarizer-20260217/conversation.md)
+
 - **VS Code Copilot Agents Overview Slides** ([`Slides/individual-slides/vscode-copilot-agents-overview.md`](Slides/individual-slides/vscode-copilot-agents-overview.md))
   - Comprehensive Marp slide deck covering VS Code Copilot Agents ecosystem with interactive workflows
   - 12 slides with detailed speaker notes covering local, background, cloud, and third-party agents

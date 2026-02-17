@@ -1,0 +1,111 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.120
+Welcome everyone to today's session on
+AI-Assisted Software Development with GitHub Copilot.
+
+00:00:05.120 --> 00:00:10.240
+Today we'll explore how to leverage
+GitHub Copilot effectively in your daily workflow.
+
+00:00:10.240 --> 00:00:15.360
+We have three main sections to cover:
+custom agents, promptfiles, and best practices.
+
+00:00:18.500 --> 00:00:23.620
+Section 1: Introduction to Custom Agents
+
+00:00:23.620 --> 00:00:28.740
+Custom agents are specialized AI assistants
+that extend GitHub Copilot's capabilities.
+
+00:00:28.740 --> 00:00:33.860
+They allow you to define specific behaviors,
+tools, and instructions for different tasks.
+
+00:00:33.860 --> 00:00:38.980
+For example, you could create a security analyzer
+that focuses only on finding vulnerabilities.
+
+00:00:38.980 --> 00:00:44.100
+Or a test specialist that generates
+comprehensive test coverage.
+
+00:00:44.100 --> 00:00:49.220
+The key benefit is consistency
+across your team's development process.
+
+00:00:52.300 --> 00:00:57.420
+Section 2: Creating Promptfiles
+
+00:00:57.420 --> 00:01:02.540
+Promptfiles are reusable task definitions
+that can be invoked with a simple command.
+
+00:01:02.540 --> 00:01:07.660
+They're stored in the .github/copilot/Promptfiles
+directory in your repository.
+
+00:01:07.660 --> 00:01:12.780
+Each promptfile has a YAML front matter
+with metadata and arguments.
+
+00:01:12.780 --> 00:01:17.900
+The body contains Markdown instructions
+that tell Copilot what to do.
+
+00:01:17.900 --> 00:01:23.020
+You can parameterize promptfiles with arguments
+to make them flexible and reusable.
+
+00:01:23.020 --> 00:01:28.140
+For instance, a test generation prompt
+could accept a file path as input.
+
+00:01:31.200 --> 00:01:36.320
+Section 3: Best Practices and Tips
+
+00:01:36.320 --> 00:01:41.440
+Always provide clear, specific instructions
+in your agents and promptfiles.
+
+00:01:41.440 --> 00:01:46.560
+Use task-oriented language
+instead of behavioral descriptions.
+
+00:01:46.560 --> 00:01:51.680
+Test your configurations thoroughly
+before deploying to your team.
+
+00:01:51.680 --> 00:01:56.800
+Keep your instructions focused
+on a single responsibility.
+
+00:01:56.800 --> 00:02:01.920
+Document your agents and promptfiles
+so team members understand when to use them.
+
+00:02:01.920 --> 00:02:07.040
+Version control everything
+and track changes over time.
+
+00:02:10.100 --> 00:02:15.220
+Conclusion and Q&A
+
+00:02:15.220 --> 00:02:20.340
+We've covered the fundamentals of
+custom agents and promptfiles today.
+
+00:02:20.340 --> 00:02:25.460
+Remember, these tools are most effective
+when used consistently across your team.
+
+00:02:25.460 --> 00:02:30.580
+Start small with one or two agents,
+then expand as you gain experience.
+
+00:02:30.580 --> 00:02:35.700
+Thank you for attending!
+Feel free to reach out with any questions.

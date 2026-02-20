@@ -2,34 +2,30 @@
 
 Hey there, future AI-assisted software developer!
 
-You're about to set up the tools that will install everything you'll need for the AI-Assisted Software Development environment. This guide will walk you through installing everything you need.
+You are about to set up the tools that will install everything you'll need for the AI-Assisted Software Development environment. This guide will walk you through installing everything.
 
 ## What You're Building
 
 By the end of this guide, you'll have a complete AI-assisted software development environment that includes:
 
-**Essential Tools**
+## Essential Tools
 
 - **Git** - The version control system that many developers use to manage code changes and collaborate with others
 - **GitHub Account** - Your online code repository and portfolio
 - **GitHub CLI** - Command-line for working with GitHub without a browser
 - **Visual Studio Code** - A powerful, free code editor with tons of features and extensions
-- **GitHub Copilot Extension** - AI pair programmer that helps you write code faster and learn as you go
-- **GitHub Copilot CLI** - AI help right in your terminal
-- **Mob.sh** - Tool for seamless team coding sessions
 
-**Bonus Tools** (Install these later if you need them):
+## VS Code Extensions
 
-- **Pandoc** - Converts documents between different formats (Markdown → PDF, etc.)
-- **Marp** - Creates presentations from Markdown files
+- **GitHub Copilot Chat Extension** - AI chat features powered by Copilot
+- **Mermaid Preview** - Mermaid diagram previewer for Visual Studio Code
+- **multi-command** - Used for a multi-step keybinding to preview markdown and open in a new window.
 
 ## Your Journey Ahead
 
 **Time Investment**: About 30-45 minutes for the essential tools
 **Difficulty**: Beginner
-**Dependencies**: Tools are ordered so each one builds on the previous ones
-
----
+**Dependencies**: Tools are installed in order so each one builds on the previous ones
 
 ## Before We Start: Important Notes
 
@@ -52,8 +48,6 @@ You'll see several installation options for most tools. Here's what they mean:
 - Restart your terminal/command prompt after each installation
 - When in doubt, choose the "recommended" option for your platform
 
----
-
 ## 1. Git
 
 ### Why do you need it?
@@ -66,7 +60,6 @@ The primary reason is to share files and collaborate with others. We'll spend a 
 - Learn Git: [https://learngitbranching.js.org/](https://learngitbranching.js.org/) (interactive tutorial - highly recommended!)
 - Documentation: [https://git-scm.com/doc](https://git-scm.com/doc)
 
----
 
 ### Windows Installation
 
@@ -372,9 +365,9 @@ Once VS Code is installed:
    - ``Ctrl+` `` (Windows) or ``Cmd+` `` (Mac) - Toggle integrated terminal
    - `Ctrl+P` (Windows) or `Cmd+P` (Mac) - Quick file open
 
-### Useful Keybinding
+### Useful Key binding
 
-This keybinding opens markdown files in a side-by-side preview and copies the editor to a new window for easier review. Add this to your `keybindings.json` file:
+This key binding opens markdown files in a side-by-side preview and copies the editor to a new window for easier review. Add this to your `keybindings.json` file:
 
 ```json
 {
@@ -390,10 +383,10 @@ This keybinding opens markdown files in a side-by-side preview and copies the ed
 }
 ```
 
-**To add this keybinding**:
+**To add this key binding**:
 
 1. Open VS Code
-2. Press `Ctrl+K Ctrl+S` (Windows/Linux) or `Cmd+K Cmd+S` (Mac) to open Keybindings
+2. Press `Ctrl+K Ctrl+S` (Windows/Linux) or `Cmd+K Cmd+S` (Mac) to open Key bindings
 3. Click the "Open Keybindings (JSON)" icon in the top right
 4. Add the above object to the array in `keybindings.json`
 
@@ -410,12 +403,12 @@ Copilot is the interface between you and the power of AI in your coding workflow
 Copilot helps by:
 
 - **Writing code for you** - describe what you want, and it writes it
-- **Completing your thoughts** - start typing and it finishes the code
+- **Completing your thoughts** - start typing and Copilot finishes the code
 - **Explaining code** - ask it to explain any code you don't understand
 - **Debugging help** - it can spot and fix common errors
 - **Learning accelerator** - see how an expert would solve problems
 
-**Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
+**Note**: GitHub Copilot is free for students and open-source contributors but requires a subscription for most users. There's a free trial available!
 
 ### Why Visual Studio Code?
 Visual Studio Code is where we will live for most of the course.
@@ -437,62 +430,6 @@ Visual Studio Code is where we will live for most of the course.
 
 **For Everyone Else**:
 
-1. Go to [https://github.com/features/copilot](https://github.com/features/copilot)
-2. Click "Start free trial"
-3. Enter payment details (won't be charged during trial)
-4. You get 30 days free, then it's $10/month
-
-### Windows Installation
-
-1. **Open VS Code** (make sure it's running)
-
-2. **Open Extensions view**:
-   - Click the Extensions icon in the Activity Bar (left side)
-   - Or press `Ctrl+Shift+X`
-
-3. **Search for GitHub Copilot**:
-   - Type "GitHub Copilot" in the search box
-   - Look for the official one by "GitHub" (should be the first result)
-
-4. **Install the extension**:
-   - Click "Install" button
-   - It might install additional recommended extensions (that's good!)
-
-5. **Sign in to GitHub**:
-   - You'll see a sign-in prompt
-   - Click "Sign in to GitHub"
-   - Authorize VS Code to access your GitHub account
-
-## 5. GitHub Copilot Extension
-
-### Why do you need it?
-Copilot is the interface between you and the power of AI in your coding workflow. It helps you write code faster, learn new languages, and get unstuck when you're facing a problem. It's like having an expert programmer sitting next to you, ready to help at any moment.
-
-Copilot helps by:
-- **Writing code for you** - describe what you want, and it writes it
-- **Completing your thoughts** - start typing and it finishes the code
-- **Explaining code** - ask it to explain any code you don't understand
-- **Debugging help** - it can spot and fix common errors
-- **Learning accelerator** - see how an expert would solve problems
-
-**Note**: GitHub Copilot is free for students and open source contributors, but requires a subscription for most users. There's a free trial available!
-
-### 🔗 Official Resources
-- Information: [https://github.com/features/copilot](https://github.com/features/copilot)
-- Pricing: [https://github.com/features/copilot#pricing](https://github.com/features/copilot#pricing)
-- Getting started: [https://docs.github.com/en/copilot/quickstart](https://docs.github.com/en/copilot/quickstart)
-- Student benefits: [https://education.github.com/](https://education.github.com/) (free Copilot!)
-
----
-
-### Get GitHub Copilot Access
-
-**For Students**:
-1. Verify your student status at [https://education.github.com/](https://education.github.com/)
-2. Apply for GitHub Student Developer Pack
-3. Once approved, Copilot is included free!
-
-**For Everyone Else**:
 1. Go to [https://github.com/features/copilot](https://github.com/features/copilot)
 2. Click "Start free trial"
 3. Enter payment details (won't be charged during trial)
@@ -583,7 +520,7 @@ Copilot helps by:
 
 ### Why the GitHub Copilot CLI?
 
-In the course we use the GH CLI to automate AI operations.
+In the course we use GH CLI to automate AI operations.
 
 Copilot CLI helps with:
 
@@ -639,7 +576,7 @@ gh copilot explain "git rebase -i HEAD~3"
 
    ```bash,
    gh copilot suggest "create a new git branch"
-   gh copilot suggest "find all JavaScript files modified in last week"
+   gh copilot suggest "find all JavaScript files modified in the last week"
    gh copilot suggest "compress a folder into a zip file"
    ```
 
@@ -657,462 +594,96 @@ gh copilot explain "git rebase -i HEAD~3"
 
 ---
 
-## 7. Mob.sh - Team Coding Made Simple
+## Mermaid Preview Extension
 
-### Why Mob.sh?
+### Why Mermaid Preview?
 
-Mob.sh makes pair programming and team coding sessions incredibly smooth. Instead of awkward screen sharing and "can you type this for me", mob.sh lets team members seamlessly hand off code changes to each other using git. It's perfect for code reviews, pair programming, and team problem-solving.
-
-Mob.sh enables:
-
-- **Smooth handoffs** - pass code back and forth effortlessly
-- **Multiple contributors** - whole team can contribute to one session
-- **No merge conflicts** - automatically handles the git complexity
-- **Natural breaks** - built-in timer and break reminders
+Mermaid is a powerful tool for creating diagrams and visualizations using simple text syntax. The Mermaid Preview extension allows you to see these diagrams rendered directly in Visual Studio Code, making it easier to visualize complex concepts and workflows without leaving your code editor.
 
 ### Official Resources
 
-- Website: [https://mob.sh/](https://mob.sh/)
-- Documentation: [https://github.com/remotemobprogramming/mob](https://github.com/remotemobprogramming/mob)
-- Video introduction: [https://www.youtube.com/watch?v=SHOVVnRB4h0](https://www.youtube.com/watch?v=SHOVVnRB4h0)
+- Extension: [https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
+- Mermaid documentation: [https://mermaid-js.github.io/mermaid/#/](https://mermaid-js.github.io/mermaid/#/)
 
----
+### Installation
 
-### Windows Installation
+1. Open Visual Studio Code
+2. Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`)
+3. Search for "Mermaid Preview"
+4. Click "Install"
+5. Once installed, you can open a Mermaid file and use the preview feature to visualize your diagrams.
 
-**Prerequisite**: Git (installed in step 1)
+### Usage
 
-Mob.sh needs a POSIX-compatible shell, so you have several options:
+1. Create a new file with the `.mmd` extension (e.g., `diagram.mmd`)
+2. Write your Mermaid syntax in the file. For example:
 
-**Option A — Using Chocolatey** (Easiest)
-
-```powershell
-# Run in PowerShell as Administrator
-choco install mob
+```mermaid
+graph TD
+    A[Start] --> B{Is it working?}
+    B -- Yes --> C[Great!]
+    B -- No --> D[Fix it]
+    D --> B
 ```
 
-**Option B — Using Git Bash** (Comes with Git)
-
-1. Open **Git Bash** (right-click in a folder and select "Git Bash Here")
-2. **Secure Installation** (inspect script before running):
-
-   ```bash
-   # Download the install script first
-   curl -s https://mob.sh/install.sh -o mob-install.sh
-
-   # Review the script (ALWAYS do this before running unknown scripts)
-   cat mob-install.sh
-
-   # If the script looks safe, make it executable and run it
-   chmod +x mob-install.sh
-   ./mob-install.sh
-
-   # Clean up
-   rm mob-install.sh
-   ```
-
-3. Verify it worked:
-   ```bash
-   mob version
-   ```
-
-**Option C — Using WSL** (Windows Subsystem for Linux)
-
-If you want to use Linux tools on Windows:
-
-1. **Install WSL**:
-   - Learn more: [https://learn.microsoft.com/en-us/windows/wsl/](https://learn.microsoft.com/en-us/windows/wsl/)
-   - Installation guide: [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-   ```powershell
-   # Run in PowerShell as Administrator
-   wsl --install
-   ```
-
-   (You'll need to restart your computer)
-
-2. **Inside WSL, install mob**:
-
-   ```bash
-   # Download the install script first
-   curl -s https://mob.sh/install.sh -o mob-install.sh
-
-   # Review the script contents (critical security step)
-   cat mob-install.sh
-
-   # If the script looks safe, make it executable and run it
-   chmod +x mob-install.sh
-   ./mob-install.sh
-
-   # Clean up
-   rm mob-install.sh
-   ```
-
-   **Alternative: Use Linux package managers if available**
-
-   ```bash
-   # For Debian/Ubuntu (if mob is packaged)
-   # sudo apt update && sudo apt install mob
-
-   # Or download binary directly from GitHub releases
-   # wget https://github.com/remotemobprogramming/mob/releases/latest/download/mob_linux
-   # sudo mv mob_linux /usr/local/bin/mob
-   # sudo chmod +x /usr/local/bin/mob
-   ```
-
-### macOS Installation
-
-**Using Homebrew** (Recommended):
-
-```bash
-brew install mob
-```
-
-**Verify installation**:
-
-```bash
-mob version
-```
-
-### Verification
-
-```bash
-# Check that mob is working
-mob version
-
-# Get help (shows available commands)
-mob help
-```
-
-### How to Use Mob.sh
-
-**Basic workflow** (simplified):
-
-1. **Start a mob session** (one person):
-
-   ```bash
-   mob start
-   ```
-
-2. **Work on code together**
-
-3. **Hand off to next person**:
-
-   ```bash
-   mob next
-   ```
-
-4. **Other person takes over**:
-
-   ```bash
-   mob start
-   ```
-
-5. **When session is complete**:
-   ```bash
-   mob done
-   ```
-
-**Pro Tips**:
-
-- Everyone on the team needs mob.sh installed
-- Work in feature branches, not main branch
-- Set a timer for regular handoffs (mob.sh can do this automatically)
-- Use `mob status` to see current session info
+3. To preview the diagram, right-click in the editor and select "Preview Mermaid Diagram" or use the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) and search for "Mermaid: Preview Diagram".
 
 ### Troubleshooting
 
-**"Command not found" on Windows**:
-
-- Make sure you're using Git Bash or WSL, not regular Command Prompt
-- Try restarting your terminal after installation
-
-**Permission issues**:
-
-- On Mac: You might need to run `chmod +x $(which mob)` after installation
-- On Windows: Make sure you're running installation commands as Administrator
+- If the preview doesn't render, make sure your Mermaid syntax is correct (check the Mermaid documentation for reference).
+- Ensure that the extension is properly installed and enabled in VS Code.
+- If you encounter performance issues with large diagrams, try simplifying the diagram or breaking it into smaller parts.
 
 ---
 
-## Optional Tools
+## multi-command Extension
 
-These tools are not used in the course, but were helpful in preparing the course. You might find them useful.
+### Why multi-command?
 
----
-
-## 8. Pandoc (CLI Command) [OPTIONAL]
-
-### What is Pandoc?
-
-Pandoc is a powerful command-line tool that converts documents between different formats. Think of it as a universal translator for text files - it can convert Markdown to PDF, Word to HTML, reStructuredText to LaTeX, and hundreds of other combinations.
-
-**When you might need it**:
-
-- Converting documentation to different formats
-- Generating PDF reports from Markdown
-- Converting between markup languages
-- Academic writing with complex formatting needs
-
-**You probably don't need it if**:
-
-- You're just starting out programming
-- You don't work with documentation much
-- Your editor already handles your format conversion needs
+The multi-command extension allows you to execute multiple commands in sequence with a single keybinding. This is particularly useful for automating repetitive tasks, such as opening a markdown preview and copying the editor to a new window for easier review.
 
 ### Official Resources
 
-- Website: [https://pandoc.org/](https://pandoc.org/)
-- Installation guide: [https://pandoc.org/installing.html](https://pandoc.org/installing.html)
-- Documentation: [https://pandoc.org/MANUAL.html](https://pandoc.org/MANUAL.html)
-- Try it online: [https://pandoc.org/try/](https://pandoc.org/try/)
+- Extension: [https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command](https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command)
 
----
+### Installation
 
-### Windows Installation
+1. Open Visual Studio Code
+2. Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`)
+3. Search for "multi-command"
+4. Click "Install"
 
-**Option A — Direct Download** (Recommended)
+### Configuration
 
-1. Visit [https://github.com/jgm/pandoc/releases/latest](https://github.com/jgm/pandoc/releases/latest)
-2. Look for the Windows installer (`.msi` file)
-3. Download and run it
-4. Follow the installation wizard (defaults are fine)
+To set up a multi-command keybinding, you need to add a configuration to your `settings.json` file. For example, to create a keybinding that opens a markdown preview and copies the editor to a new window, you can add the following configuration:
 
-**Option B — Using Chocolatey**
-
-```powershell
-choco install pandoc
+```json
+"multiCommand.commands": [
+    {
+        "command": "extension.multiCommand.execute",
+        "sequence": [
+            "markdown.showPreviewToSide",
+            "workbench.action.copyEditorToNewWindow"
+        ]
+    }
+]
 ```
 
-**Option C — Using Winget**
+### Usage
 
-```powershell
-winget install --id JohnMacFarlane.Pandoc
+1. After adding the configuration, you can create a keybinding for this multi-command. For example, you can add the following to your `keybindings.json` file:
+
+```json
+{
+    "key": "ctrl+shift+alt+x",
+    "command": "extension.multiCommand.execute",
+    "when": "editorLangId == markdown || resourceExtname == .mdc"
+}
 ```
-
-### macOS Installation
-
-**Option A — Using Homebrew** (Recommended)
-
-```bash
-brew install pandoc
-```
-
-**Option B — Direct Download**
-
-1. Visit [https://github.com/jgm/pandoc/releases/latest](https://github.com/jgm/pandoc/releases/latest)
-2. Download the macOS package (`.pkg` file)
-3. Run the installer
-
-### Verification
-
-```bash
-pandoc --version
-```
-
-### Basic Usage Examples
-
-```bash
-# Convert Markdown to HTML
-pandoc README.md -o README.html
-
-# Convert Markdown to PDF (requires LaTeX)
-pandoc document.md -o document.pdf
-
-# Convert with table of contents
-pandoc document.md --toc -o document.html
-
-# Use project-specific settings (if this repository has them)
-pandoc --defaults=slides-to-pptx input.md -o output.pptx
-```
-
-**Learning Resources**:
-
-- [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
-- [Common use cases](https://pandoc.org/demos.html)
-
----
-
-## 9. Marp CLI (Markdown Variant) [OPTIONAL]
-
-### What is Marp CLI?
-
-Marp CLI is a tool for creating beautiful presentations from Markdown files. Instead of wrestling with PowerPoint or Google Slides, you write your presentation content in simple Markdown and Marp converts it to beautiful HTML, PDF, or PowerPoint slides.
-
-**When you might need it**:
-
-- Creating technical presentations for work
-- Academic presentations with code samples
-- Quick slide decks from existing documentation
-- Presentations that need to be version controlled
-
-**You probably don't need it if**:
-
-- You don't give presentations
-- You're happy with traditional presentation tools
-- You're just starting your programming journey
-
-### Official Resources
-
-- Main website: [https://marp.app/](https://marp.app/)
-- CLI documentation: [https://github.com/marp-team/marp-cli](https://github.com/marp-team/marp-cli)
-- Marpit framework: [https://marpit.marp.app/](https://marpit.marp.app/) (the engine behind Marp)
-- Live editor: [https://web.marp.app/](https://web.marp.app/) (try before installing)
-
----
-
-### Prerequisites
-
-**Node.js is required** for Marp CLI:
-
-- Download: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-- Choose the LTS (Long Term Support) version
-- npm (Node Package Manager) comes bundled with Node.js
-
-### Windows Installation
-
-**Step 1: Install Node.js**
-
-**Option A — Direct Download** (Recommended)
-
-1. Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-2. Download the Windows Installer (.msi)
-3. Run the installer (defaults are fine)
-4. Restart your terminal
-
-**Option B — Using Chocolatey**
-
-```powershell
-choco install nodejs
-```
-
-**Option C — Using Winget**
-
-```powershell
-winget install --id OpenJS.NodeJS
-```
-
-**Step 2: Install Marp CLI**
-
-```bash
-# Works in Command Prompt, PowerShell, or Git Bash
-npm install -g @marp-team/marp-cli
-```
-
-### macOS Installation
-
-**Step 1: Install Node.js**
-
-**Option A — Using Homebrew** (Recommended)
-
-```bash
-brew install node
-```
-
-**Option B — Direct Download**
-
-1. Visit [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-2. Download the macOS installer (.pkg)
-3. Run the installer
-
-**Step 2: Install Marp CLI**
-
-```bash
-npm install -g @marp-team/marp-cli
-```
-
-### Verification
-
-```bash
-# Check Marp version
-marp --version
-
-# Check Node.js version
-node --version
-
-# Check npm version
-npm --version
-```
-
-### Basic Usage Examples
-
-**Create a simple presentation**:
-
-1. Create a file called `slides.md`:
-
-   ````markdown
-   ---
-   marp: true
-   theme: default
-   ---
-
-   # My First Presentation
-
-   Welcome to Marp!
-
-   ---
-
-   # Slide Two
-
-   - Bullet point one
-   - Bullet point two
-   - Code works too:
-
-   ```python
-   print("Hello, World!")
-   ```
-   ````
-
-   ***
-
-   # The End
-
-   Questions?
-
-2. Convert to HTML:
-
-   ```bash
-   marp slides.md
-   ```
-
-3. Convert to PDF:
-
-   ```bash
-   marp slides.md --pdf
-   ```
-
-4. Convert to PowerPoint:
-
-   ```bash
-   marp slides.md --pptx
-   ```
-
-5. Watch for changes while editing:
-   ```bash
-   marp slides.md --watch
-   ```
-
-**Learning Resources**:
-
-- [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) (live preview)
-- [Marpit Markdown syntax](https://marpit.marp.app/markdown)
-- [Built-in themes](https://github.com/marp-team/marp-core/tree/main/themes)
+2. This keybinding will trigger the multi-command when you are editing a markdown file (`.md` or `.mdc`).
 
 ### Troubleshooting
 
-**npm command not found**:
-
-- Make sure Node.js installed properly
-- Restart your terminal completely
-- Check that Node.js is in your PATH
-
-**Permission errors (Mac/Linux)**:
-
-- You might need to use `sudo`: `sudo npm install -g @marp-team/marp-cli`
-- Or configure npm to use a different directory (recommended): [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
-
-**Marp command not found after installation**:
-
-- Make sure the global npm bin directory is in your PATH
-- Try `npx @marp-team/marp-cli` instead of `marp`
-
----
+- If the multi-command doesn't execute, ensure that both the `multi-command` extension is installed and that your `settings.json` and `keybindings.json` configurations are correct.
+- Make sure that the commands in the sequence are valid and available in your version of VS Code.
+- If you encounter issues with specific commands in the sequence, try testing them individually to identify any potential conflicts or errors.

@@ -24,7 +24,7 @@ ai_log: "ai-logs/2026/02/11/submit-create-instruction-files-20260211/conversatio
 source: ".github/copilot/promptfiles/meta/create-instruction-files-instructions.prompt.md"
 name: instruction-files
 description: Comprehensive guide for creating new instruction files
-appliesTo: "**/*.instructions.md"
+applyTo: "**/*.instructions.md"
 version: "2.0.0"
 author: "johnmillerATcodemag-com"
 tags: ["instructions", "documentation", "authoring-guide", "ai-optimization"]

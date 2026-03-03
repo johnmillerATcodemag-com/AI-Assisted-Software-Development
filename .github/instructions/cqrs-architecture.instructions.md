@@ -17,7 +17,7 @@ task_durations:
 total_duration: "00:20:00"
 ai_log: "ai-logs/2026/02/07/cqrs-architecture-instructions-20260207/conversation.md"
 source: "johnmillerATcodemag-com"
-applyTo: "**/*"
+applyTo: "**/*.{cs,ts,js,py,java,go,rb,kt,swift}"
 ---
 
 # CQRS Architecture Instructions

@@ -15,7 +15,7 @@ task_durations:
 total_duration: "00:05:00"
 ai_log: "ai-logs/2026/02/06/github-cli-instructions-20260206/conversation.md"
 source: "johnmillerATcodemag-com"
-applyTo: "**/*"
+applyTo: "**/*.{sh,ps1,bash,zsh,fish,yml,yaml}|**/.github/**/*|**/scripts/**/*"
 ---
 
 # GitHub CLI Instructions

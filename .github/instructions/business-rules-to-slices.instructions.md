@@ -19,7 +19,7 @@ task_durations:
 total_duration: "01:00:00"
 ai_log: "ai-logs/2025/10/22/business-rules-vertical-slices-20251022/conversation.md"
 source: "johnmillerATcodemag-com"
-applyTo: "**/*.{md,txt}"
+applyTo: "**/{requirements,specs,use-cases,business-rules,features,docs}/**/*.{md,txt}"
 ---
 
 # AI Assistant Instructions: Business Rules to Vertical Slices

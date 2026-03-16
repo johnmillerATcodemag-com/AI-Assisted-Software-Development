@@ -106,6 +106,12 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Includes detailed speaker notes, troubleshooting guidance, and resources for continued learning
   - Provenance: [Chat log](ai-logs/2026/02/06/github-worktrees-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/github-worktrees-slides-20260206/summary.md)
 
+- **AI-Assisted GitHub Pull Requests Slides** ([`Slides/individual-slides/ai-assisted-github-pull-requests.md`](Slides/individual-slides/ai-assisted-github-pull-requests.md))
+  - Marp slide deck covering AI assistance at every stage of the GitHub pull request workflow
+  - 12 slides covering PR descriptions, code review, Copilot summaries, automated checks, best practices, and getting started
+  - Includes comprehensive speaker notes with timing guidance, delivery instructions, and audience interaction points
+  - Provenance: [Chat log](ai-logs/2026/03/14/ai-assisted-pr-marp-20260314/conversation.md)
+
 - **Creating Custom Agents Slides** ([`Slides/individual-slides/creating-custom-agents.md`](Slides/individual-slides/creating-custom-agents.md))
   - Comprehensive Marp slide deck teaching how to create specialized GitHub Copilot custom agents
   - 12 slides covering overview, creation workflows across platforms (GitHub, VS Code, JetBrains, Eclipse, Xcode), configuration, examples, usage, and best practices

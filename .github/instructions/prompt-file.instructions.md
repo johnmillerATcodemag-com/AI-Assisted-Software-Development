@@ -376,13 +376,13 @@ Do not define personas or tone:
 **MUST** be in:
 
 ```
-.github/copilot/promptfiles/
+.github/prompts/
 ```
 
 **NOT**:
 
-- `.github/prompts/` ❌
-- `.github/copilot/promptfiles/subfolder/` ❌
+- `.github/copilot/Promptfiles/` ❌
+- `.github/prompts/subfolder/` ❌
 - Anywhere else ❌
 
 Copilot only scans the exact directory above.
@@ -420,7 +420,7 @@ generate_tests.md → name: generate-tests ❌ (use kebab-case)
 ### Structure
 
 - [ ] File is Markdown (`.md`)
-- [ ] File is in `.github/copilot/promptfiles/`
+- [ ] File is in `.github/prompts/`
 - [ ] Front-matter is valid YAML
 - [ ] No nested folders
 - [ ] If `name:` field is used, filename matches it (minus extension)
@@ -541,15 +541,15 @@ You are a helpful assistant who helps with coding.
 ### ❌ Wrong File Location
 
 ```
-.github/prompts/generate-tests.md ❌
+.github/copilot/Promptfiles/generate-tests.md ❌
 .github/copilot/agents/generate-tests.md ❌
-.github/copilot/promptfiles/tools/generate-tests.md ❌ (lowercase p)
+.github/prompts/tools/generate-tests.md ❌ (no subfolders)
 ```
 
 **Correct:**
 
 ```
-.github/copilot/promptfiles/generate-tests.md ✅
+.github/prompts/generate-tests.md ✅
 ```
 
 ## File Naming Rules
@@ -579,12 +579,11 @@ You are a helpful assistant who helps with coding.
 
 ```
 .github/
-└── copilot/
-    └── Promptfiles/
-        ├── generate-tests.md
-        ├── summarize-file.md
-        ├── analyze-security-risks.md
-        └── refactor-code.md
+└── prompts/
+    ├── generate-tests.md
+    ├── summarize-file.md
+    ├── analyze-security-risks.md
+    └── refactor-code.md
 ```
 
 **Rules:**
@@ -630,7 +629,7 @@ After creating a promptfile, verify:
 
 ### Troubleshooting
 
-- **Not visible in picker** → Check location (must be `.github/copilot/promptfiles/`)
+- **Not visible in picker** → Check location (must be `.github/prompts/`)
 - **Name doesn't match** → If `name:` field is used, ensure filename matches it
 - **Arguments not prompted** → Check YAML syntax in `arguments:` section
 - **Behaves inconsistently** → Remove behavioral instructions, make deterministic
@@ -659,7 +658,7 @@ See [Post-Creation Requirements (CANONICAL)](ai-assisted-output.instructions.md#
 
 | Need               | Use                                         |
 | ------------------ | ------------------------------------------- |
-| Reusable task      | Promptfile (`.github/copilot/promptfiles/`) |
+| Reusable task      | Promptfile (`.github/prompts/`) |
 | Behavioral persona | Agent (`.github/copilot/chat_modes/`)       |
 | Repo-wide rule     | Instruction (`.github/instructions/`)       |
 | One-off task       | Just type it in chat                        |

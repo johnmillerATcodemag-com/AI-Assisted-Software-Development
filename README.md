@@ -94,7 +94,7 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 
 ### Notable Artifacts
 
-- **VTT Content Summarizer Promptfile** ([`.github/copilot/Promptfiles/summarize-vti-content.prompt.md`](.github/copilot/Promptfiles/summarize-vti-content.prompt.md))
+- **VTT Content Summarizer Promptfile** ([`.github/prompts/summarize-vti-content.prompt.md`](.github/prompts/summarize-vti-content.prompt.md))
   - Analyzes VTT (Video Text Track) files from class recordings and generates structured summaries
   - Extracts timing information, section breakdowns, key topics, and action items
   - Includes sample files: [VTT input](past-class-recordings/2026-02/AI-Assisted%20Software%20Development%20with%20GitHub%20Copilot%20(Mon%20Afternoon).vtt) | [Generated summary](past-class-recordings/2026-02/AI-Assisted%20Software%20Development%20with%20GitHub%20Copilot%20(Mon%20Afternoon)-summary.md)

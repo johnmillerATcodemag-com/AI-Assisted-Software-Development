@@ -112,6 +112,33 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Includes extensive speaker notes with timing guidance, delivery instructions, audience interaction points, and Q&A preparation
   - Provenance: [Chat log](ai-logs/2026/02/12/create-custom-agents-marp-20260212/conversation.md) | [Summary](ai-logs/2026/02/12/create-custom-agents-marp-20260212/summary.md)
 
+- **AI-Assisted Output Slides** ([`Slides/individual-slides/ai-assisted-output.md`](Slides/individual-slides/ai-assisted-output.md))
+  - Marp slide deck covering AI provenance, logging workflow, CI enforcement, and post-creation requirements
+  - 9 slides with comprehensive speaker notes based on `ai-assisted-output.instructions.md`
+  - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
+
+- **CQRS Architecture Slides** ([`Slides/individual-slides/cqrs-architecture.md`](Slides/individual-slides/cqrs-architecture.md))
+  - Marp slide deck covering CQRS decision criteria, architecture components, consistency strategies, and anti-patterns
+  - 11 slides with comprehensive speaker notes based on `cqrs-architecture.instructions.md`
+  - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
+
+- **Dependency Management Policy Slides** ([`Slides/individual-slides/dependency-management-policy.md`](Slides/individual-slides/dependency-management-policy.md))
+  - Marp slide deck covering dependency classification, selection criteria, security monitoring, and supply chain security
+  - 11 slides with comprehensive speaker notes based on `dependency-management-policy.instructions.md`
+  - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
+
+- **GitHub CLI Slides** ([`Slides/individual-slides/github-cli.md`](Slides/individual-slides/github-cli.md))
+  - Marp slide deck covering issue/PR management, GitHub Actions, code review, and CI/CD integration
+  - 9 slides with comprehensive speaker notes based on `github-cli.instructions.md`
+  - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
+
+- **AI-Assisted Dev Overview — Combined Course** ([`Slides/ai-assisted-dev-overview.md`](Slides/ai-assisted-dev-overview.md))
+  - Complete merged Marp presentation combining all 5 modules into a single cohesive course
+  - 55+ slides with section dividers, comprehensive speaker notes, and full course narrative
+  - Modules: AI-Assisted Output · CQRS Architecture · Dependency Management · GitHub CLI · Creating Custom Agents
+  - Merged using [`.github/copilot/Promptfiles/merge-marp-decks.prompt.md`](.github/copilot/Promptfiles/merge-marp-decks.prompt.md)
+  - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
+
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
   - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)

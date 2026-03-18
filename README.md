@@ -119,6 +119,12 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Includes extensive speaker notes with timing guidance, delivery instructions, audience interaction points, and Q&A preparation
   - Provenance: [Chat log](ai-logs/2026/02/12/create-custom-agents-marp-20260212/conversation.md) | [Summary](ai-logs/2026/02/12/create-custom-agents-marp-20260212/summary.md)
 
+- **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
+  - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis
+  - 11 slides covering inline chat (Ctrl+I), right-click explain, test code understanding, coverage report generation (calculator service example), gap identification, prioritized implementation plans, and hands-on exercises
+  - Includes comprehensive speaker notes with timing guidance, live demo instructions, audience interaction points, and exercise facilitation tips
+  - Provenance: [Chat log](ai-logs/2026/03/18/code-explanation-analysis-marp-20260318/conversation.md)
+
 - **Prompt Authoring Instructions** ([`.github/instructions/prompt-file.instructions.md`](.github/instructions/prompt-file.instructions.md))
   - Comprehensive guidelines for creating effective, well-structured repository prompts
   - Generated from: [`.github/prompts/create-prompt-file-instructions-file.prompt.md`](.github/prompts/create-prompt-file-instructions-file.prompt.md)

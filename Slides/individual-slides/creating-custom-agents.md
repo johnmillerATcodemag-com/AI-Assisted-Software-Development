@@ -870,6 +870,18 @@ Common Questions to Expect:
 **GitHub**: [@johnmillerATcodemag-com](https://github.com/johnmillerATcodemag-com)
 **Repository**: [AI-Assisted-Software-Development](https://github.com/johnmillerATcodemag-com/AI-Assisted-Software-Development)
 
+::: notes
+**Timing**: 5-10 minutes for Q&A
+
+**Facilitating the Closing**:
+Thank the audience for their time and engagement. Remind them that the GitHub repository contains all the resources covered in this session — agent examples, instruction files, and documentation.
+
+**Encourage Questions**:
+Open the floor for questions. Common topics: agent pricing, limits, organization-level deployment, and integration with existing workflows.
+
+**Call to Action**: Ask each participant to identify one repetitive task they'll automate with a custom agent this week. Small wins build momentum.
+:::
+
 ---
 
 **Start creating your custom agents today!**

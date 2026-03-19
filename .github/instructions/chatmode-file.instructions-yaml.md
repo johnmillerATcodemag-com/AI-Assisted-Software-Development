@@ -243,15 +243,15 @@ Before finalizing your `promptfiles` list, ask:
 
 ### Creating Missing Promptfiles
 
-**IMPORTANT**: When you identify a needed promptfile that doesn't exist in `.github/copilot/promptfiles/`, you must create it before referencing it in the chat mode.
+**IMPORTANT**: When you identify a needed promptfile that doesn't exist in `.github/prompts/`, you must create it before referencing it in the chat mode.
 
 #### Verification Process
 
-1. **Check Existence**: Search for the promptfile in `.github/copilot/promptfiles/`
+1. **Check Existence**: Search for the promptfile in `.github/prompts/`
 
    ```bash
    # Check if prompt exists
-   ls .github/copilot/promptfiles/*<prompt-name>.prompt.md
+   ls .github/prompts/*<prompt-name>.prompt.md
    ```
 
 2. **Create if Missing**: If the promptfile doesn't exist, create it following the guidance in `#file:prompt-file.instructions.md`
@@ -268,7 +268,7 @@ needed_prompts:
   - custom-threat-model    # ❌ Missing - needs creation
 
 # Step 2: Create missing promptfiles
-New file: .github/copilot/promptfiles/custom-threat-model.prompt.md
+New file: .github/prompts/custom-threat-model.prompt.md
 Following: #file:prompt-file.instructions.md
 
 # Step 3: Verify promptfile works
@@ -285,7 +285,7 @@ promptfiles:
 
 Before adding promptfiles to your chat mode:
 
-- [ ] Verify each promptfile exists in `.github/copilot/promptfiles/`
+- [ ] Verify each promptfile exists in `.github/prompts/`
 - [ ] Test each promptfile independently to confirm functionality
 - [ ] Ensure promptfile descriptions match chat mode's domain
 - [ ] Document promptfile purpose in chat mode's `instructions` field
@@ -311,7 +311,7 @@ missing:
   - compliance-check (needs creation)
 
 # Create missing promptfile
-# File: .github/copilot/promptfiles/compliance-check.prompt.md
+# File: .github/prompts/compliance-check.prompt.md
 # Content: Follow prompt-file.instructions.md
 
 # Final chat mode with all promptfiles available
@@ -398,8 +398,8 @@ instructions: |
   - `@owasp-check` - Runs OWASP Top 10 focused analysis
 
 promptfiles:
-  - security-scan # .github/copilot/promptfiles/security-scan.prompt.md
-  - owasp-check # .github/copilot/promptfiles/owasp-check.prompt.md
+  - security-scan # .github/prompts/security-scan.prompt.md
+  - owasp-check # .github/prompts/owasp-check.prompt.md
 ```
 
 **How it works**: When user types `@security-scan`, Copilot executes the external promptfile.

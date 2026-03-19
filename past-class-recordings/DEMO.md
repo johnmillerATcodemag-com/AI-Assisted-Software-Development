@@ -167,7 +167,7 @@ All files for this demo are available in this repository:
 
 1. **Input**: `past-class-recordings/2026-02/AI-Assisted Software Development with GitHub Copilot (Mon Afternoon).vtt`
 2. **Output**: `past-class-recordings/2026-02/AI-Assisted Software Development with GitHub Copilot (Mon Afternoon)-summary.md`
-3. **Promptfile**: `.github/copilot/Promptfiles/summarize-vti-content.prompt.md`
+3. **Promptfile**: `.github/prompts/summarize-vti-content.prompt.md`
 
 ## Try It Yourself
 

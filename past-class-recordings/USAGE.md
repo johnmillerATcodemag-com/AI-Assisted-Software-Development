@@ -143,7 +143,7 @@ The generated summary can be customized by:
 
 ## Related Documentation
 
-- [Promptfile README](.github/copilot/Promptfiles/README.md)
+- [Promptfile README](.github/prompts/README.md)
 - [Past Class Recordings README](README.md)
 - [AI-Assisted Output Instructions](.github/instructions/ai-assisted-output.instructions.md)
 

@@ -161,6 +161,12 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Usable as a full-day course or per-module standalone; every slide has comprehensive speaker notes
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
 
+- **AIASD Class 311 – Tuesday Session** ([`Slides/aiasd-311-tuesday.md`](Slides/aiasd-311-tuesday.md))
+  - Manifest-driven merged Marp deck for Class 311 Tuesday session, assembled from `Slides/aiasd-311-tuesday.yaml`
+  - All 6 modules: AI-Assisted Output · CQRS Architecture · Dependency Management Policy · GitHub CLI · Business Rules to Vertical Slices · Creating Custom Agents
+  - Demonstrates manifest-based merging via the updated `merge-marp-decks.prompt.md` (v2.0.0) with `$MANIFEST` variable support
+  - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-decks-311-tuesday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-decks-311-tuesday-20260320/summary.md)
+
 - **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
   - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis
   - 11 slides covering inline chat (Ctrl+I), right-click explain, test code understanding, coverage report generation (calculator service example), gap identification, prioritized implementation plans, and hands-on exercises

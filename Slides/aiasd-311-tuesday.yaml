@@ -1,0 +1,49 @@
+# AIASD 311 – Tuesday Session Manifest
+# AI-Assisted Software Development – Class 311, Tuesday
+#
+# This manifest defines the slide decks to merge for the Tuesday class session.
+# Use with merge-marp-decks.prompt.md by setting $MANIFEST to this file.
+#
+# Usage:
+#   $MANIFEST = Slides/aiasd-311-tuesday.yaml
+#   Follow instructions in merge-marp-decks.prompt.md
+
+title: "AI-Assisted Software Development – Class 311, Tuesday"
+output: "Slides/aiasd-311-tuesday.md"
+
+theme: default
+paginate: true
+
+chat_id: "merge-marp-decks-311-tuesday-20260320"
+ai_log: "ai-logs/2026/03/20/merge-marp-decks-311-tuesday-20260320/conversation.md"
+
+slides:
+  - path: "Slides/individual-slides/ai-assisted-output.md"
+    title: "AI-Assisted Output"
+    subtitle: "Provenance, Logging & Quality Standards"
+    module: 1
+
+  - path: "Slides/individual-slides/cqrs-architecture.md"
+    title: "CQRS Architecture"
+    subtitle: "Command Query Responsibility Segregation"
+    module: 2
+
+  - path: "Slides/individual-slides/dependency-management-policy.md"
+    title: "Dependency Management Policy"
+    subtitle: "Secure, Compliant, and Maintainable Dependencies"
+    module: 3
+
+  - path: "Slides/individual-slides/github-cli.md"
+    title: "GitHub CLI"
+    subtitle: "Supercharge Your GitHub Workflow from the Terminal"
+    module: 4
+
+  - path: "Slides/individual-slides/business-rules-to-vertical-slices.md"
+    title: "Business Rules to Vertical Slices"
+    subtitle: "From Requirements to Implementable Features"
+    module: 5
+
+  - path: "Slides/individual-slides/creating-custom-agents.md"
+    title: "Creating Custom Agents"
+    subtitle: "Specialized AI Assistants for Your Workflow"
+    module: 6

@@ -16,7 +16,7 @@ Executed the `merge-marp-decks` prompt against the manifest `Slides/aiasd-311-mo
 | Artifact | Path | Purpose |
 |----------|------|---------|
 | Manifest | `Slides/aiasd-311-monday.yaml` | Defines the Monday session sources and output path |
-| Combined deck | `Slides/aiasd-311-monday.md` | Full Marp slide deck for Monday session (~30 slides) |
+| Combined deck | `Slides/aiasd-311-monday.md` | Full Marp slide deck for Monday session (46 slides) |
 | Conversation log | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/conversation.md` | Exchange log |
 | This summary | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/summary.md` | Resumability context |
 

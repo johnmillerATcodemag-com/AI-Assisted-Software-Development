@@ -161,6 +161,17 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Usable as a full-day course or per-module standalone; every slide has comprehensive speaker notes
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
 
+- **AIASD Session 311 — Tuesday** ([`Slides/aiasd-311-tuesday.md`](Slides/aiasd-311-tuesday.md))
+  - Combined Marp deck for the Tuesday session of the AI-Assisted Software Development course
+  - 3 modules: CQRS Architecture · Dependency Management Policy · GitHub CLI (~30 slides with section dividers)
+  - Built from manifest [`Slides/aiasd-311-tuesday.yaml`](Slides/aiasd-311-tuesday.yaml) via `merge-marp-decks.prompt.md`
+  - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-aiasd-311-tuesday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-aiasd-311-tuesday-20260320/summary.md)
+
+- **Business Rules to Vertical Slices Slides** ([`Slides/individual-slides/business-rules-to-vertical-slices.md`](Slides/individual-slides/business-rules-to-vertical-slices.md))
+  - 9-slide Marp deck on analysis workflow, rule types, use case identification, feature boundary tests, and vertical slice design
+  - Sourced from `.github/instructions/business-rules-to-slices.instructions.md`
+  - Provenance: [Chat log](ai-logs/2026/03/20/extract-individual-slides-20260320/conversation.md)
+
 - **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
   - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis
   - 11 slides covering inline chat (Ctrl+I), right-click explain, test code understanding, coverage report generation (calculator service example), gap identification, prioritized implementation plans, and hands-on exercises

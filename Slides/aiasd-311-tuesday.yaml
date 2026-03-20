@@ -1,0 +1,44 @@
+# Manifest for AI-Assisted Software Development — Session 311 (Tuesday)
+# Used by merge-marp-decks.prompt.md to build a class-specific combined deck
+ai_generated: true
+model: "anthropic/claude-sonnet-4.5@2026-03-20"
+operator: "johnmillerATcodemag-com"
+chat_id: "merge-marp-aiasd-311-tuesday-20260320"
+created: "2026-03-20T04:00:00Z"
+ai_log: "ai-logs/2026/03/20/merge-marp-aiasd-311-tuesday-20260320/conversation.md"
+source: ".github/prompts/merge-marp-decks.prompt.md"
+
+# Session metadata
+session: "311"
+day: "Tuesday"
+course: "AI-Assisted Software Development"
+description: >
+  Tuesday session covering CQRS architecture, dependency management policy,
+  and GitHub CLI workflows. Builds on Monday's foundation and prepares for
+  Wednesday's advanced topics.
+
+# Output configuration
+output: "Slides/aiasd-311-tuesday.md"
+title: "AI-Assisted Software Development"
+subtitle: "Session 311 — Tuesday"
+topics_summary: "CQRS · Dependency Management · GitHub CLI"
+
+# Marp settings for the combined deck
+marp:
+  theme: default
+  paginate: true
+
+# Ordered list of individual slide decks to include
+slides:
+  - path: "Slides/individual-slides/cqrs-architecture.md"
+    module_number: 1
+    title: "CQRS Architecture"
+    subtitle: "Command Query Responsibility Segregation"
+  - path: "Slides/individual-slides/dependency-management-policy.md"
+    module_number: 2
+    title: "Dependency Management Policy"
+    subtitle: "Secure, Compliant, and Maintainable Dependencies"
+  - path: "Slides/individual-slides/github-cli.md"
+    module_number: 3
+    title: "GitHub CLI"
+    subtitle: "Supercharge Your GitHub Workflow from the Terminal"

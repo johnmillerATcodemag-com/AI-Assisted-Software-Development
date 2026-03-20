@@ -1,0 +1,64 @@
+# Slide Deck Manifest: AIASD-311 Monday Session
+# AI-Assisted Software Development — Section 311 (Monday)
+#
+# Usage: Follow merge-marp-decks.prompt.md with this file as $MANIFEST
+#   The prompt will read this manifest to determine which individual slide
+#   decks to include and where to write the merged output.
+#
+# To regenerate the merged deck:
+#   $MANIFEST = Slides/aiasd-311-monday.yaml
+#   Follow instructions in merge-marp-decks.prompt.md.
+
+session: "AIASD-311 Monday"
+title: "AI-Assisted Software Development with GitHub Copilot"
+subtitle: "Monday Session — Complete Course"
+description: |
+  Full-day Monday session for AIASD-311: AI-Assisted Software Development.
+  Covers all six modules of the AI-Assisted Software Development course:
+  provenance standards, CQRS architecture, dependency management, GitHub CLI,
+  business rules to vertical slices, and creating custom GitHub Copilot agents.
+
+output: "Slides/aiasd-311-monday.md"
+
+marp:
+  theme: default
+  paginate: true
+
+slides:
+  - path: "Slides/individual-slides/ai-assisted-output.md"
+    module: 1
+    title: "AI-Assisted Output"
+    description: "Provenance, logging, and quality standards for AI-generated artifacts"
+  - path: "Slides/individual-slides/cqrs-architecture.md"
+    module: 2
+    title: "CQRS Architecture"
+    description: "Command Query Responsibility Segregation — when and how to apply it"
+  - path: "Slides/individual-slides/dependency-management-policy.md"
+    module: 3
+    title: "Dependency Management Policy"
+    description: "Risk classification, selection criteria, vulnerability monitoring, and supply chain security"
+  - path: "Slides/individual-slides/github-cli.md"
+    module: 4
+    title: "GitHub CLI"
+    description: "Issue and PR management, Actions monitoring, code review, and CI/CD integration"
+  - path: "Slides/individual-slides/business-rules-to-slices.md"
+    module: 5
+    title: "Business Rules to Vertical Slices"
+    description: "Extracting rules, identifying use cases, defining feature boundaries, and designing slices"
+  - path: "Slides/individual-slides/creating-custom-agents.md"
+    module: 6
+    title: "Creating Custom Agents"
+    description: "Creating, configuring, and deploying custom GitHub Copilot agents across environments"
+
+metadata:
+  course: "AIASD-311"
+  day: "Monday"
+  format: "Full-day training"
+  duration_estimate: "6–8 hours"
+  audience: "Developers, DevOps engineers, and architects"
+  prerequisites: "Basic familiarity with Git and VS Code"
+  ai_generated: true
+  model: "anthropic/claude-opus-4.5@2026-03-20"
+  operator: "johnmillerATcodemag-com"
+  chat_id: "merge-aiasd-311-monday-20260320"
+  ai_log: "ai-logs/2026/03/20/merge-aiasd-311-monday-20260320/conversation.md"

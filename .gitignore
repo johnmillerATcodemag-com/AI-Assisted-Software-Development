@@ -187,3 +187,5 @@ Desktop.ini
 # Keep small sample files but ignore large recordings
 past-class-recordings/**/*.vtt
 !past-class-recordings/**/AI-Assisted*.vtt
+
+Slides/output/_scan_tblstyles/

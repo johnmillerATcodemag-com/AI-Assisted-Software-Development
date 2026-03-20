@@ -161,11 +161,17 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Usable as a full-day course or per-module standalone; every slide has comprehensive speaker notes
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
 
-- **AIASD Class 311 — Monday Session** ([`Slides/aiasd-311-monday.md`](Slides/aiasd-311-monday.md))
-  - 33-slide combined Marp deck for Class 311 Monday, generated from [`Slides/aiasd-311-monday.yaml`](Slides/aiasd-311-monday.yaml)
-  - Modules: AI-Assisted Output Standards · Vertical Slice Implementation · Dependency Management Policy · GitHub Copilot Prompt Files · Custom Chat Modes
-  - Every slide has comprehensive speaker notes; designed as a standalone day-1 session complementing the Tuesday deck
+- **AIASD Class 311 Monday** ([`Slides/aiasd-311-monday.md`](Slides/aiasd-311-monday.md))
+  - Combined Marp deck for the Monday session of Class 311; ~30 slides across 5 modules with section dividers
+  - Modules: AI Output · Vertical Slice Architecture · Creating Prompt Files · Dependency Management · Custom Chat Modes
+  - Every slide has comprehensive speaker notes; section dividers allow standalone per-module delivery
+  - Manifest: [`Slides/aiasd-311-monday.yaml`](Slides/aiasd-311-monday.yaml)
   - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-decks-monday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-decks-monday-20260320/summary.md)
+- **AIASD Class 311 — Tuesday Session** ([`Slides/aiasd-311-tuesday.md`](Slides/aiasd-311-tuesday.md))
+  - Combined Marp deck for Class 311 Tuesday, generated from manifest `Slides/aiasd-311-tuesday.yaml`
+  - Modules: AI Output Standards · CQRS Architecture · GitHub CLI · Business Rules to Vertical Slices · Custom Agents
+  - ~35 slides with section dividers and comprehensive speaker notes on every slide
+  - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-decks-aiasd-311-tuesday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-decks-aiasd-311-tuesday-20260320/summary.md)
 
 - **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
   - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis

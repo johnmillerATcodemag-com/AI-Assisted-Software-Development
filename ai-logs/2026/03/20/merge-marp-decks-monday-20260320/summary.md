@@ -1,46 +1,62 @@
 # Session Summary — merge-marp-decks-monday-20260320
 
 **Chat ID**: merge-marp-decks-monday-20260320  
-**Date**: 2026-03-20  
 **Operator**: johnmillerATcodemag-com  
-**Model**: anthropic/claude-sonnet-4.5@2026-03-20
+**Date**: 2026-03-20  
+**Status**: Completed
 
-## Objective
+---
 
-Create the AIASD Class 311 Monday session manifest and generate the combined Marp slide deck by following the `merge-marp-decks.prompt.md` prompt instructions.
+## What Was Accomplished
 
-## Key Decisions
+Executed the `merge-marp-decks` prompt against the manifest `Slides/aiasd-311-monday.yaml` to produce the AIASD Class 311 Monday combined slide deck.
 
-- **Manifest created**: `Slides/aiasd-311-monday.yaml` did not exist; created with five topics complementary to the existing Tuesday manifest.
-- **Monday topics chosen**: AI-Assisted Output Standards, Vertical Slice Implementation, Dependency Management Policy, GitHub Copilot Prompt Files, Custom Chat Modes — selected to avoid overlap with Tuesday (CQRS, GitHub CLI, Business Rules, Custom Agents).
-- **Output path**: `Slides/aiasd-311-monday.md` as specified in manifest.
-- **File creation vs. edit**: Both `Slides/aiasd-311-monday.yaml` and `Slides/aiasd-311-monday.md` were new files; used `create`.
-
-## Artifacts Produced
+### Artifacts Created
 
 | Artifact | Path | Purpose |
-|---|---|---|
-| Monday manifest | `Slides/aiasd-311-monday.yaml` | YAML manifest defining Monday session sources |
-| Combined deck | `Slides/aiasd-311-monday.md` | 33-slide Marp presentation for Monday |
-| Conversation log | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/conversation.md` | Full chat transcript |
-| Summary | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/summary.md` | This file |
+|----------|------|---------|
+| Manifest | `Slides/aiasd-311-monday.yaml` | Defines the Monday session sources and output path |
+| Combined deck | `Slides/aiasd-311-monday.md` | Full Marp slide deck for Monday session (46 slides) |
+| Conversation log | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/conversation.md` | Exchange log |
+| This summary | `ai-logs/2026/03/20/merge-marp-decks-monday-20260320/summary.md` | Resumability context |
 
-## Lessons Learned
+---
 
-- The manifest YAML schema (`title`, `output`, `theme`, `paginate`, `sources`) matches the format used in `aiasd-311-tuesday.yaml`.
-- All five source files are instruction files (not Marp slides), so all were converted to slides following `marp-slides.instructions.md`.
-- Every slide was given comprehensive speaker notes using the pandoc `:::notes` syntax.
+## Monday Session Modules
+
+| Module | Topic | Source File |
+|--------|-------|-------------|
+| 1 | AI-Assisted Output Standards | `.github/instructions/ai-assisted-output.instructions.md` |
+| 2 | Vertical Slice Architecture | `.github/instructions/vertical-slice.instructions.md` |
+| 3 | Creating Prompt Files | `.github/instructions/prompt-file.instructions.md` |
+| 4 | Dependency Management Policy | `.github/instructions/dependency-management-policy.instructions.md` |
+| 5 | Creating Custom Chat Modes | `.github/instructions/chatmode-file.instructions.md` |
+
+---
+
+## Deck Structure
+
+- **Title slide** with session overview
+- **5 section dividers** (one per module)
+- **Module title slides** (one per module)
+- **5–7 content slides per module**
+- **Speaker notes** on every slide (pandoc `:::notes` syntax)
+- **Closing summary slide**
+
+---
+
+## Resumability Context
+
+If this session is resumed:
+- All five modules are complete — no continuation needed for the Monday deck
+- To generate the Tuesday deck, use `Slides/aiasd-311-tuesday.yaml` with the merge-marp-decks prompt
+- If any source instruction file is updated, re-run the merge-marp-decks prompt to regenerate slides
+- The manifest at `Slides/aiasd-311-monday.yaml` can be edited to add/remove/reorder modules
+
+---
 
 ## Next Steps
 
-- Present Monday deck in Class 311 Monday session
-- Review Tuesday deck (`Slides/aiasd-311-tuesday.md`) for comparison
-- Optionally merge Monday + Tuesday into a full 2-day combined deck
-
-## Compliance Status
-
-- [x] AI provenance metadata complete in `Slides/aiasd-311-monday.md`
-- [x] `ai_log` path exists and contains `conversation.md`
-- [x] Model format: `anthropic/claude-sonnet-4.5@2026-03-20`
-- [x] README.md updated with new artifact entry
-- [x] Every slide has speaker notes (pandoc `:::notes` syntax)
+1. Review `Slides/aiasd-311-monday.md` in a Marp viewer or VS Code Marp extension
+2. Update README.md with an entry linking to the new deck and this log
+3. If content changes are needed, edit the source instruction files and re-run the merge

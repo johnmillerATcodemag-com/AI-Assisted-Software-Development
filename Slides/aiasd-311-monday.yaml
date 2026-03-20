@@ -1,0 +1,20 @@
+# Manifest for AIASD Class 311 — Monday Session
+# Use with: $MANIFEST = Slides/aiasd-311-monday.yaml
+#           Follow instructions in merge-marp-decks.prompt.md.
+
+title: "AI-Assisted Software Development — Class 311 Monday"
+output: "Slides/aiasd-311-monday.md"
+theme: default
+paginate: true
+
+sources:
+  - file: ".github/instructions/ai-assisted-output.instructions.md"
+    topic: "AI-Assisted Output Standards"
+  - file: ".github/instructions/vertical-slice.instructions.md"
+    topic: "Vertical Slice Architecture"
+  - file: ".github/instructions/prompt-file.instructions.md"
+    topic: "Creating Prompt Files"
+  - file: ".github/instructions/dependency-management-policy.instructions.md"
+    topic: "Dependency Management Policy"
+  - file: ".github/instructions/chatmode-file.instructions.md"
+    topic: "Creating Custom Chat Modes"

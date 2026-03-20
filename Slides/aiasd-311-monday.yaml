@@ -1,0 +1,18 @@
+title: "AI-Assisted Software Development 311 - Monday"
+description: >
+  Monday session for the AIASD 311 course covering VS Code Copilot Agents,
+  code explanation and analysis workflows, creating custom GitHub Copilot agents,
+  and GitHub CLI productivity techniques.
+date: "2026-03-20"
+output: "Slides/aiasd-311-monday.md"
+theme: "default"
+paginate: true
+slides:
+  - path: "Slides/individual-slides/vscode-copilot-agents-overview.md"
+    section: "VS Code Copilot Agents Overview"
+  - path: "Slides/individual-slides/code-explanation-and-analysis.md"
+    section: "Code Explanation and Analysis"
+  - path: "Slides/individual-slides/creating-custom-agents.md"
+    section: "Creating Custom Agents"
+  - path: "Slides/individual-slides/github-cli.md"
+    section: "GitHub CLI"

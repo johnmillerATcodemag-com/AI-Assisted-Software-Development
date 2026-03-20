@@ -1,22 +1,22 @@
 ---
 ai_generated: true
-model: "claude-sonnet-4.5@2026-03-20"
+model: "anthropic/claude-sonnet-4.5@2026-03-20"
 operator: "johnmillerATcodemag-com"
-chat_id: "merge-marp-decks-aiasd-311-tuesday-20260320"
+chat_id: "aiasd-311-tuesday-20260320"
 prompt: |
-  Use manifest Slides/aiasd-311-tuesday.yaml
-  run #file:merge-marp-decks.prompt.md
-started: "2026-03-20T06:21:14Z"
-ended: "2026-03-20T06:55:00Z"
+  Manifest: Slides/aiasd-311-tuesday.yaml
+  run the prompt #file:merge-marp-decks.prompt.md
+started: "2026-03-20T04:52:05Z"
+ended: "2026-03-20T05:15:00Z"
 task_durations:
   - task: "read manifest and source files"
     duration: "00:05:00"
   - task: "convert instruction files to Marp slides"
-    duration: "00:25:00"
+    duration: "00:12:00"
   - task: "assemble combined deck with section dividers"
-    duration: "00:04:00"
-total_duration: "00:34:00"
-ai_log: "ai-logs/2026/03/20/merge-marp-decks-aiasd-311-tuesday-20260320/conversation.md"
+    duration: "00:06:00"
+total_duration: "00:23:00"
+ai_log: "ai-logs/2026/03/20/aiasd-311-tuesday-20260320/conversation.md"
 source: ".github/prompts/merge-marp-decks.prompt.md"
 marp: true
 theme: default
@@ -27,26 +27,26 @@ paginate: true
 
 ## Class 311 — Tuesday Session
 
-*AI Output Standards · CQRS · GitHub CLI · Vertical Slices · Custom Agents*
+*AI Output Standards · CQRS · GitHub CLI · Business Rules to Slices · Custom Agents*
 
 ::: notes
-Welcome to AI-Assisted Software Development, Class 311 — Tuesday Session. This combined presentation covers five modules drawn from the repository's canonical instruction files.
+Welcome to the AIASD Class 311 Tuesday session. This combined presentation covers five modules drawn from the repository instruction files.
 
-**Timing**: 1 minute for title slide
+**Timing**: 1–2 minutes
 
 **Modules in This Deck**:
-1. **AI-Assisted Output Standards** — Provenance metadata, logging workflow, and CI enforcement for every AI-generated artifact
-2. **CQRS Architecture** — Decision criteria, components, consistency strategies, and anti-patterns
-3. **GitHub CLI** — Issue and PR management, Actions monitoring, and CI/CD integration
-4. **Business Rules to Vertical Slices** — Extracting rules, identifying use cases, and designing slices
-5. **Creating Custom GitHub Copilot Agents** — File structure, tool configuration, and deployment across environments
+1. **AI-Assisted Output Standards** — Required provenance metadata, logging workflow, and post-creation checklist
+2. **CQRS Architecture** — When to use, core principles, components, consistency, and anti-patterns
+3. **GitHub CLI** — Issue and PR management, Actions workflows, and CI/CD integration
+4. **Business Rules to Vertical Slices** — Extracting rules, identifying use cases, defining features, designing slices
+5. **Creating Custom GitHub Copilot Agents** — File structure, frontmatter, tools, templates, and best practices
 
 **Delivery Options**:
-- Present all modules end-to-end as a full-day class
-- Present individual sections standalone using the section dividers as entry points
+- Present all five modules end-to-end as a half-day training session
+- Navigate directly to individual section dividers for standalone delivery
 - Use as a reference deck for self-paced learning
 
-**Transition**: "Let's begin with Module 1 — AI-Assisted Output standards."
+**Transition**: "Let's start with Module 1 — AI-Assisted Output Standards."
 :::
 
 ---
@@ -59,187 +59,180 @@ Welcome to AI-Assisted Software Development, Class 311 — Tuesday Session. This
 
 ## AI-Assisted Output Standards
 
-*Provenance, Logging & Quality for Every AI Artifact*
+*Provenance · Logging · Quality Gates*
 
 ::: notes
 This section divider marks the start of Module 1: AI-Assisted Output Standards.
 
-**Module Duration**: Approximately 20–25 minutes
+**Module Duration**: Approximately 20 minutes
 
-**Module Description**: This module establishes the mandatory metadata, logging workflow, and CI enforcement requirements for all AI-assisted artifacts in the repository. Every piece of AI-generated content — code, docs, diagrams, tests, data — must carry provenance.
+**Module Description**: Covers the mandatory metadata every AI-generated artifact must carry, the chat-logging workflow, and post-creation quality requirements.
 
-**Transition**: "Let's dive into why provenance matters and what we require."
+**Transition**: "Let's dive in."
 :::
 
 ---
 
-## AI-Assisted Output: Why Provenance Matters
+## Why AI Provenance Matters
 
-- AI-generated artifacts must carry **who**, **what model**, and **which conversation** produced them
-- Provenance protects code quality, enables audits, and builds team trust
-- Applies to: code, docs, diagrams, tests, configuration, data
-- All artifacts targeted primarily at **AI agents** for consumption
-- Optimize for **minimal token consumption** while maintaining completeness
+- **Code quality**: Know which model generated what and when
+- **Auditing**: Trace any artifact back to its originating conversation
+- **Accountability**: Identify the human operator behind every AI output
+- **Reproducibility**: Re-run or debug with the exact model and prompt
+
+> *"If you don't record how it was made, you can't trust that it was made correctly."*
 
 ::: notes
-Provenance is not optional — it is a first-class quality requirement alongside correctness and security.
+AI-generated code and documentation can be excellent — or subtly wrong. Provenance metadata gives teams the ability to audit, review, and reproduce any AI output.
 
-**Key Points to Emphasize**:
-- "Who made this?" — the operator (GitHub username)
-- "What tool?" — exact model in provider/model@version format
-- "What conversation?" — chat ID linking to the full log
-- Without this, teams cannot audit, reproduce, or trust AI outputs
+**Key messages**:
+- Without provenance, an AI artifact is a black box
+- With provenance, you can answer: who asked, which model, what prompt, and when
+- This is especially important for security-sensitive or compliance-relevant outputs
 
-**Timing**: 2 minutes
+**Timing**: ~2 minutes
 
-**Audience Interaction**: Ask "How many of you have received AI-generated code without knowing which model or prompt produced it?" — use this to motivate the policy.
-
-**Transition**: "Let's look at what metadata fields are required."
+**Audience interaction**: Ask — "Has anyone been unable to track down where a piece of AI-generated code came from?"
 :::
 
 ---
 
-## Required Provenance Metadata
+## Required Metadata Fields
 
-Every AI-assisted artifact must embed these fields as YAML front matter:
-
-| Field | Description |
-|-------|-------------|
-| `ai_generated` | Always `true` |
-| `model` | `provider/model@version` (e.g., `anthropic/claude-3.5-sonnet@2024-10-22`) |
-| `operator` | GitHub username of the person who ran the AI |
-| `chat_id` | Unique identifier for the conversation |
-| `prompt` | Exact prompt text that initiated creation |
-| `started` / `ended` | ISO8601 timestamps |
-| `task_durations` | Array of task breakdowns |
-| `total_duration` | Sum of all task durations (HH:MM:SS) |
-| `ai_log` | `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md` |
-| `source` | What/who created the file |
+```yaml
+---
+ai_generated: true
+model: "anthropic/claude-3.5-sonnet@2024-10-22"
+operator: "johndoe"
+chat_id: "create-user-auth-20260120"
+prompt: |
+  Create an authentication handler for the user login feature
+started: "2026-01-20T16:45:00Z"
+ended: "2026-01-20T17:00:00Z"
+task_durations:
+  - task: "implementation"
+    duration: "00:15:00"
+total_duration: "00:15:00"
+ai_log: "ai-logs/2026/01/20/create-user-auth-20260120/conversation.md"
+source: "johndoe"
+---
+```
 
 ::: notes
-These 10 fields are required for every AI-assisted artifact. They form the provenance fingerprint.
+These 11 fields are **mandatory** for every AI-generated artifact that supports embedded front matter (Markdown, YAML files, etc.).
 
-**Timing**: 3 minutes
+**Walk through each field**:
+- `ai_generated: true` — boolean flag, never the string "Yes"
+- `model` — always `"provider/model@version"` — the underlying model, not the tool (e.g., Copilot)
+- `operator` — the GitHub username of the human who triggered the generation
+- `chat_id` — a unique slug identifying the conversation; becomes the log folder name
+- `prompt` — the exact user prompt, verbatim
+- `started` / `ended` — ISO8601 timestamps
+- `task_durations` — breakdown of time spent per sub-task
+- `total_duration` — sum of task durations in HH:MM:SS
+- `ai_log` — path to the conversation log (must exist)
+- `source` — who or what created the file (username or prompt file path)
 
-**Key Points**:
-- The model field must be specific — never use "github/copilot" or "Auto". Always record the actual model with version.
-- `chat_id` links the artifact back to the conversation log for full context
-- `prompt` captures the exact text that triggered the creation — this is crucial for reproducibility
+**Timing**: ~3 minutes
+:::
 
-**Common Mistake**: Teams often forget `task_durations`. This field breaks down how long each phase of the AI work took — useful for estimating future similar work.
+---
 
-**Transition**: "Now let's look at where to put this metadata."
+## Model Format Requirements
+
+| ✅ Correct | ❌ Wrong |
+|-----------|---------|
+| `anthropic/claude-3.5-sonnet@2024-10-22` | `claude` |
+| `openai/gpt-4o@2024-11-20` | `github/copilot` |
+| `openai/o1@2024-12-17` | `gpt-4` |
+| `google/gemini-1.5-pro@2024-02` | `Auto (copilot)` |
+
+**Format**: `"<provider>/<model-name>@<version>"`
+
+- Use the **underlying model**, not the interface
+- Copilot, Cursor, and other tools are wrappers — identify what's inside
+
+::: notes
+The most common provenance mistake is writing "github/copilot" or "Auto" as the model name. This destroys reproducibility because it doesn't identify which underlying model (GPT-4, Claude, Gemini) was used.
+
+**Key point**: GitHub Copilot is an interface, not a model. The model is whatever OpenAI or Anthropic model Copilot is currently routing to. Check your editor settings or ask Copilot directly.
+
+**Timing**: ~2 minutes
+
+**Example**: Show how to find the active model in VS Code Copilot settings (click the model selector dropdown).
 :::
 
 ---
 
 ## Metadata Placement Policy
 
-**Markdown and text files** — embed as YAML front matter at the top:
+| Artifact Type | Where to Put Metadata |
+|--------------|----------------------|
+| Markdown files | Embedded YAML front matter (**required**) |
+| Code files with header comments | YAML-style comment block at top |
+| Images, binaries | Sidecar `<artifact>.meta.md` |
+| Markdown with sidecar | ❌ **Prohibited** — embed only |
 
-```yaml
----
-ai_generated: true
-model: "anthropic/claude-3.5-sonnet@2024-10-22"
-operator: "username"
-chat_id: "my-feature-20260320"
-...
----
-```
-
-**Binaries, images, non-text formats** — create a sidecar `<artifact>.meta.md`
-
-**Prohibited**: sidecars for Markdown files — always use embedded front matter
+> Always prefer embedding. Sidecars are only for formats that cannot accept embedded front matter.
 
 ::: notes
-The placement rule is simple: if the format supports front matter, use it. If not, use a sidecar.
+The rule is simple: if the file format supports embedded YAML (Markdown does), the provenance must be embedded. Separate sidecar `.meta.md` files alongside Markdown are explicitly prohibited because they can become separated from the artifact.
 
-**Timing**: 2 minutes
+**Timing**: ~2 minutes
 
-**Why No Sidecars for Markdown?** Sidecars can get separated from their artifact when files are moved or renamed. Embedded front matter travels with the file.
-
-**Demonstration**: Show a correct vs incorrect metadata placement side by side.
-
-**Transition**: "Let's see what you must do before you start any AI-assisted work."
+**Common mistake**: Creating a `readme.md.meta.md` sidecar for a README. Don't — embed the front matter directly.
 :::
 
 ---
 
-## Before You Start (Mandatory)
+## AI Chat Logging Workflow
 
-Before generating any AI-assisted artifact:
+**Folder structure**:
+```
+ai-logs/
+└── yyyy/
+    └── mm/
+        └── dd/
+            └── <chat-id>/
+                ├── conversation.md   ← full transcript (REQUIRED)
+                └── summary.md        ← objectives & outcomes (REQUIRED)
+```
 
-1. **Open a new chat conversation** — gives you a unique chat ID
-2. **Note the model name** — record the exact provider/model@version
-3. **Record the start timestamp** — ISO8601 format (e.g., `2026-03-20T06:21:14Z`)
-4. **Define the chat ID** — typically `<purpose>-<YYYYMMDD>` (e.g., `add-login-20260320`)
-5. **Create the ai-log folder** — `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/`
-
-**Never**: start generating files without an active, identified chat context.
+**Rules**:
+- Each new chat → new folder
+- Never reuse or append to an existing conversation file
+- Auto-scaffold the folder when the first artifact is created
 
 ::: notes
-This "before you start" checklist prevents the most common compliance failure: retroactively trying to reconstruct provenance.
+Every AI-assisted work session must produce two log files: `conversation.md` (the full prompt/response transcript) and `summary.md` (a concise record of objectives, decisions, and artifacts produced).
 
-**Timing**: 2 minutes
+**Why "never reuse"?**: If you append a second conversation to an existing `conversation.md`, you lose the ability to tie specific artifacts back to specific exchanges. Each chat gets its own folder.
 
-**Analogy**: This is like signing in before entering a secure lab. The sign-in creates the paper trail that makes everything else auditable.
+**Timing**: ~3 minutes
 
-**Key Point**: If you don't know the model name, check the IDE or API settings before proceeding. Generic names like "Auto" are not acceptable.
-
-**Transition**: "After creating artifacts, here's what must happen."
+**Note for Copilot users**: Copilot can auto-scaffold this structure when it generates the first artifact — the chat ID becomes the folder name.
 :::
 
 ---
 
 ## Post-Creation Requirements
 
-After every AI-assisted artifact is created:
+After creating any AI-assisted artifact:
 
-1. **Create conversation log**: `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
-2. **Create summary**: Session summary with resumability context in `summary.md`
-3. **Update README**: Add entry with description and link to ai-log
-4. **Verify metadata**: All 10 required fields present and correct
-5. **Validate links**: All internal links in the artifact work correctly
-
-::: notes
-These five steps close the loop on provenance — the artifact is created, logged, and documented.
-
-**Timing**: 2 minutes
-
-**Why a Summary?** The summary.md enables future AI agents (or developers) to resume work in a new conversation with full context. It answers: "What was done? What decisions were made? What's next?"
-
-**README Update**: The README entry is the human-readable index of all AI-assisted artifacts. It makes the repository's AI activity transparent at a glance.
-
-**Transition**: "Let's talk about quality gates and CI enforcement."
-:::
-
----
-
-## Quality Checklist & CI Enforcement
-
-**Quality Checklist (per artifact)**:
-- [ ] All 10 provenance fields present
-- [ ] Model name in `provider/model@version` format
-- [ ] `ai_log` path exists with `conversation.md`
-- [ ] `operator` is a real GitHub username
-- [ ] Timestamps in ISO8601 format
-- [ ] README entry added or updated
-
-**CI Enforcement**:
-- PRs blocked if `ai_log` path is missing or unreachable
-- Automated scan validates required front matter fields
-- Security scanning integrated for AI-generated code
+1. ✅ **Conversation log** — `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/conversation.md`
+2. ✅ **Summary** — `ai-logs/<yyyy>/<mm>/<dd>/<chat-id>/summary.md`
+3. ✅ **README update** — Add entry with description and chat log link
+4. ✅ **Metadata verification** — All 11 provenance fields present and correct
+5. ✅ **Link validation** — All internal links resolve correctly
 
 ::: notes
-Quality gates are enforced at the PR level — you cannot merge without compliance.
+These five post-creation steps are the canonical checklist from `ai-assisted-output.instructions.md`. They apply to every AI-generated artifact — slides, code, documentation, diagrams, everything.
 
-**Timing**: 2 minutes
+**Timing**: ~2 minutes
 
-**Key Point**: The CI check is not punitive — it is a safety net. It catches the honest mistakes of forgetting a field or using the wrong model name format.
+**Audience interaction**: "Which of these steps do you think teams most commonly skip?" (Answer: usually README updates and link validation.)
 
-**Demonstration**: Show a failing CI check and what the error message looks like.
-
-**Transition**: "That concludes AI-Assisted Output Standards. Let's move to CQRS Architecture."
+**Transition**: "Now that we have the standards for AI output, let's look at a major architectural pattern — CQRS."
 :::
 
 ---
@@ -257,190 +250,198 @@ Quality gates are enforced at the PR level — you cannot merge without complian
 ::: notes
 This section divider marks the start of Module 2: CQRS Architecture.
 
-**Module Duration**: Approximately 20–25 minutes
+**Module Duration**: Approximately 20 minutes
 
-**Module Description**: This module covers when and how to apply Command Query Responsibility Segregation (CQRS) — separating the write model (commands) from the read model (queries) to improve scalability, performance, and domain clarity.
+**Module Description**: Covers the CQRS pattern — when to apply it, the core principles, the seven minimum components, command and query model design, consistency strategies, and common anti-patterns.
 
-**Transition**: "Let's start with when CQRS makes sense and when it doesn't."
+**Prerequisites**: Familiarity with basic application layering (controllers, services, databases) is helpful.
+
+**Transition**: "Let's start with when to use CQRS."
 :::
 
 ---
 
-## CQRS: When to Use It
+## What is CQRS?
+
+**Command Query Responsibility Segregation** separates the write model from the read model.
+
+| Concept | Responsibility |
+|---------|---------------|
+| **Command** | Changes state — create, update, delete |
+| **Query** | Reads state — never mutates |
 
 **Use CQRS when**:
-- Read and write workloads **scale differently**
-- Read models require denormalization, caching, or projections
-- Write model needs **strong invariants** and task-focused workflows
-- Auditing, event sourcing, or integration events are required
+- Read and write workloads scale differently
+- Read models need denormalization or caching
+- Write model needs strong invariants
+- Auditing or event sourcing is required
 - Query complexity is slowing transactional throughput
 
-**Avoid CQRS when**:
-- The domain is small and reads/writes are balanced
-- There is no clear boundary between commands and queries
-- Operational overhead is not justified
-
 ::: notes
-CQRS is not a default architecture — it is a tool for specific scaling and modeling problems.
+CQRS was coined by Greg Young, building on Bertrand Meyer's Command-Query Separation (CQS) principle. Where CQS operates at the method level ("a method should either return a value or change state, not both"), CQRS applies this separation at the architectural level.
 
-**Timing**: 3 minutes
+**Key insight**: Most applications read data far more than they write. If you use the same model for both, you end up with complex joins and indexes that compromise write performance, or a write model so normalized it's slow to query.
 
-**Key Point**: The most common mistake is applying CQRS to simple CRUD systems. If your read and write shapes are the same, a single model is simpler.
+**Timing**: ~3 minutes
 
-**Example**: An e-commerce order system is a good CQRS candidate — writes need strong consistency (inventory checks, payment validation) while reads serve dashboards and order history with different performance requirements.
-
-**Audience Question**: "Has anyone been on a project where CQRS was used? Was it the right choice?"
-
-**Transition**: "Let's look at the core principles that govern CQRS."
+**When NOT to use CQRS**:
+- Small domains where reads/writes are balanced and simple
+- No clear boundary between commands and queries
+- Operational overhead is not justified by the complexity
 :::
 
 ---
 
-## CQRS: Core Principles
+## CQRS Core Principles
 
-1. **Commands change state** — queries never change state
+1. **Commands change state** — queries never do
 2. **Write model enforces invariants** — read model optimizes retrieval
-3. **Models can be stored separately** and evolve independently
-4. **Eventual consistency** is acceptable for read model synchronization
+3. **Models evolve independently** — can use different stores
+4. **Eventual consistency** is acceptable for the read model
 
-**The fundamental separation**:
-
-| Command Side | Query Side |
-|---|---|
-| Validates business rules | Returns data fast |
-| Can fail | Should not fail |
-| Targets one aggregate root | Shaped for UI/consumer |
-
-::: notes
-These four principles are the foundation of CQRS. They are simple but have deep implications for how you design, test, and operate the system.
-
-**Timing**: 3 minutes
-
-**Key Point**: "Commands can fail, queries should not" is a crucial asymmetry. It drives different error-handling strategies on each side.
-
-**Analogy**: Think of a bank ledger. Adding a transaction (command) requires verification and can be rejected. Reading your balance (query) just returns the current state — it never rejects.
-
-**Transition**: "Now let's look at the minimum architecture components you need."
-:::
-
----
-
-## CQRS: Architecture Components
-
-Minimum components for a CQRS system:
-
-- **Command API** — Accepts commands, validates, enforces invariants
-- **Command Handler** — Orchestrates domain operations
-- **Write Store** — Transactional database for aggregates
-- **Event/Change Publisher** — Emits domain or integration events
-- **Projection/Read Updater** — Builds and updates read models
-- **Query API** — Serves read models with filtering and pagination
-- **Read Store** — Query-optimized database (relational, document, or search)
-
-::: notes
-Seven components form the minimum viable CQRS architecture. Each has a single, clear responsibility.
-
-**Timing**: 3 minutes
-
-**Key Point**: The Write Store and Read Store can be the same physical database initially — separation is logical before it is physical. Start simple and scale the physical infrastructure when needed.
-
-**Diagram Tip**: Draw the data flow: Command API → Handler → Write Store → Event Publisher → Projection Updater → Read Store → Query API. This makes the pipeline visible.
-
-**Transition**: "Let's go deeper on command model design."
-:::
-
----
-
-## CQRS: Command Model Design
-
-**Command naming** — task-based, intention-revealing:
-- `CreateOrder`, `ApproveOrder`, `CancelShipment`
-
-**Command rules**:
-- Validate at the boundary — reject invalid commands fast
-- Use aggregates to enforce invariants and consistency
-- Keep handlers deterministic and side-effect controlled
-- One command targets **one aggregate root**
-- Write to a single source of truth (write store)
-
-```csharp
-// ✅ Task-based command
-public record ApproveOrderCommand(Guid OrderId, string ApproverId);
-
-// ❌ Anemic pass-through (no invariant enforcement)
-public record UpdateOrderCommand(Order Order);
+```
+[Client] → Command → [Write Model] → [Write Store]
+                           ↓ (events/change feed)
+[Client] ← Query  ← [Read Model]  ← [Read Store]
 ```
 
 ::: notes
-Command design is where domain modeling happens. Good command names reveal intent; bad names hide it.
+The diagram shows the fundamental data flow. A command goes through the write model, which validates business rules and persists to a write store (typically a relational DB). Change events then flow to a projection process that updates the read store (often a document DB or search index optimized for queries).
 
-**Timing**: 3 minutes
+**Key principle to emphasize**: The read model is a projection — a denormalized, query-optimized copy of the data. It can be rebuilt at any time by replaying the event history.
 
-**Key Point**: "One command, one aggregate root" is the consistency boundary. If you need to update two aggregates in one command, that's a sign the command is too broad — consider a saga or process manager.
+**Timing**: ~2 minutes
 
-**Code Discussion**: Walk through the code example. Notice how `ApproveOrderCommand` carries only the identifier and approver — not the entire order state. This prevents the caller from dictating internal structure.
-
-**Transition**: "Now let's look at the query side."
+**Real-world analogy**: The write side is like an accounting ledger (every entry recorded once, in order). The read side is like the financial reports generated from that ledger (formatted for consumption, potentially aggregated).
 :::
 
 ---
 
-## CQRS: Query Model Design & Consistency
+## Architecture Components (Minimum 7)
 
-**Query model rules**:
-- Shape queries for the UI or consumer — not for domain logic
-- Avoid joins and complex calculations in the read model
-- Use projections updated from events or change feeds
-- Keep read models **versioned and rebuildable**
-- Queries are idempotent and side-effect free
-
-**Consistency decision matrix**:
-
-| Consistency Type | Use For |
-|---|---|
-| **Strong** | Payments, inventory, security |
-| **Eventual** | Dashboards, activity feeds, analytics |
-
-**Reliable event publishing** — use the **outbox pattern** to prevent lost events.
+| Component | Responsibility |
+|-----------|---------------|
+| **Command API** | Accept, validate, route commands |
+| **Command Handler** | Orchestrate domain operations |
+| **Write Store** | Transactional DB for aggregates |
+| **Event/Change Publisher** | Emit domain or integration events |
+| **Projection/Read Updater** | Build and maintain read models |
+| **Query API** | Serve read models with filtering & pagination |
+| **Read Store** | Query-optimized DB (document, search, etc.) |
 
 ::: notes
-The query model is optimized for one thing: returning data fast. Everything else — joins, calculations, business logic — belongs on the write side.
+These seven components form the minimum viable CQRS implementation. Each has a clear, single responsibility.
 
-**Timing**: 3 minutes
+**Walk through the flow**:
+1. Client sends a command to the Command API
+2. Command Handler loads the aggregate from the Write Store
+3. Aggregate validates invariants and applies the change
+4. Write Store persists the change (transaction)
+5. Event/Change Publisher emits an event
+6. Projection/Read Updater subscribes to events and updates the Read Store
+7. Client queries the Query API, which reads from the Read Store
 
-**Outbox Pattern**: Briefly explain — instead of publishing events directly after a write (which can fail), write the event to an outbox table in the same transaction, then have a background process publish it. This guarantees at-least-once delivery.
+**Timing**: ~3 minutes
 
-**Key Point**: Not everything needs eventual consistency. Security-sensitive operations (login, payment) should use strong consistency by reading from the write model directly.
-
-**Transition**: "Let's look at common pitfalls."
+**Common shortcut to avoid**: Skipping the Event Publisher and having the Command Handler directly update the Read Store ("dual write"). This creates consistency risks — if the Read Store update fails, your read model is stale with no way to detect or recover.
 :::
 
 ---
 
-## CQRS: Anti-Patterns & Migration
+## Command Model Design
 
-**Anti-patterns to avoid**:
-- ❌ Mixing query logic in command handlers
-- ❌ Sharing the same ORM model for reads and writes
-- ❌ Applying CQRS to simple CRUD domains
-- ❌ Dual writes without outbox or transaction coordination
+**Rules for commands**:
+- Use **task-based names**: `CreateOrder`, `ApproveOrder`, `CancelShipment`
+- Validate at the boundary — reject invalid commands fast
+- Use **aggregates** to enforce invariants
+- One command → one aggregate root
+- Handlers are **deterministic** and side-effect controlled
 
-**Migration strategy** (incremental):
-1. Start with a single bounded context or feature
-2. Split read model first — keep write model intact
-3. Add projections and read store incrementally
-4. Introduce event publishing after stable write flow
+```csharp
+// Command
+public record ApproveOrderCommand(Guid OrderId, Guid ApproverId)
+    : IRequest<Result<ApprovalResult>>;
+
+// Handler
+public class ApproveOrderHandler
+    : IRequestHandler<ApproveOrderCommand, Result<ApprovalResult>>
+{
+    public async Task<Result<ApprovalResult>> Handle(
+        ApproveOrderCommand cmd, CancellationToken ct) { ... }
+}
+```
 
 ::: notes
-The anti-patterns section is where experienced developers recognize past mistakes. Each anti-pattern has a specific consequence.
+Task-based command names reflect business intent rather than CRUD operations. "ApproveOrder" is far more descriptive than "UpdateOrder" — it captures the domain action and makes event history readable.
 
-**Timing**: 3 minutes
+**Key design rules**:
+- Commands can fail; include a Result pattern or throw domain exceptions
+- An aggregate root owns all invariants for a consistency boundary
+- Never let a command handler query the read store — use the write store only
+- Validation at the command boundary (FluentValidation, annotations, etc.) prevents invalid state from ever reaching the aggregate
 
-**Dual-Write Risk**: Without the outbox pattern, a crash between the database write and the event publish leaves the read model out of sync with no recovery path. This is a data consistency bug that is hard to detect and hard to fix.
+**Timing**: ~3 minutes
 
-**Migration Advice**: Don't rewrite the whole system at once. Pick one high-value feature (e.g., order processing) and migrate it as a proof of concept. Validate the operational overhead before committing to full adoption.
+**Example**: In an e-commerce system, `ApproveOrder` might check: is the order in `Pending` state? Has inventory been reserved? Does the approver have the right role? All of these are invariants the aggregate enforces.
+:::
 
-**Transition**: "That concludes CQRS Architecture. Let's move to GitHub CLI."
+---
+
+## Query Model Design
+
+**Rules for queries**:
+- Shape the query **for the consumer** (UI, API client) — not for the domain
+- Avoid joins and complex calculations at query time
+- Use **projections** updated from events or change feeds
+- Keep read models **versioned** and **rebuildable**
+
+**Consistency matrix**:
+
+| Need Strong Consistency | Need Eventual Consistency |
+|------------------------|--------------------------|
+| Payments | Dashboards |
+| Inventory checks | Activity feeds |
+| Security/auth | Analytics |
+
+::: notes
+The read model should look exactly like what the consumer needs. If your UI shows an "order summary" card, create an `OrderSummaryView` projection that has exactly those fields — don't force the UI to join Order + Customer + LineItems at query time.
+
+**Rebuildability is critical**: Because the read model is derived from events, it can always be rebuilt from scratch. This means you can add a new projection (e.g., a search index) without migrating data — just replay the event stream.
+
+**Consistency matrix explanation**:
+- Payments must reflect the current truth immediately — use the write store or enforce strong consistency
+- A dashboard showing "total orders this week" can be a few seconds stale — eventual consistency is fine
+
+**Timing**: ~3 minutes
+:::
+
+---
+
+## CQRS Anti-Patterns
+
+| ❌ Anti-Pattern | ✅ Correct Approach |
+|----------------|-------------------|
+| Query logic in command handlers | Separate Query API reads from Write Store |
+| Same ORM model for reads and writes | Distinct read and write model classes |
+| Over-applying CQRS to simple CRUD | Use CQRS only where complexity justifies it |
+| Dual writes without an outbox | Use the Outbox pattern for reliable event publication |
+
+**Migration strategy**: Start with one bounded context → split read model first → add event publishing incrementally.
+
+::: notes
+**The most dangerous anti-pattern: dual writes without an outbox.**
+If your command handler writes to the database AND directly updates the read store, you have two separate write operations with no atomic guarantee. If the second write fails, your read model is permanently stale.
+
+**The Outbox Pattern**:
+1. Write the domain change + an outbound event to the database in one transaction
+2. A background process reads the outbox and publishes events to the message broker
+3. The projection consumer receives the event and updates the read store
+
+**Migration tip**: You don't have to refactor your entire application at once. Pick one feature (e.g., order history), create a read model projection for it, and leave everything else unchanged. Prove the pattern works before expanding.
+
+**Timing**: ~3 minutes
+
+**Transition**: "With CQRS covered, let's move to a practical tool you'll use every day — the GitHub CLI."
 :::
 
 ---
@@ -453,191 +454,229 @@ The anti-patterns section is where experienced developers recognize past mistake
 
 ## GitHub CLI
 
-*Powerful Repository Operations from the Terminal*
+*`gh` — GitHub on the Command Line*
 
 ::: notes
 This section divider marks the start of Module 3: GitHub CLI.
 
-**Module Duration**: Approximately 20–25 minutes
+**Module Duration**: Approximately 20 minutes
 
-**Module Description**: The GitHub CLI (`gh`) enables developers to manage issues, pull requests, GitHub Actions workflows, and code reviews directly from the terminal. This module covers the most important workflows.
+**Module Description**: Covers using the `gh` CLI for issue management, pull request workflows, GitHub Actions monitoring, and CI/CD integration.
+
+**Prerequisites**: Basic familiarity with GitHub (issues, PRs) and a terminal.
 
 **Transition**: "Let's start with issue management."
 :::
 
 ---
 
-## GitHub CLI: Issue Management
+## Why Use the GitHub CLI?
 
-**Create issues**:
+- Work in your terminal without switching to the browser
+- Scriptable — automate repetitive GitHub workflows
+- Available on macOS, Windows, Linux
+- First-class integration with GitHub Actions and CI/CD
+
 ```bash
-gh issue create --title "Bug: crash on startup" \
-  --body "Description" --assignee @me --label "bug"
-gh issue create --template bug_report.md
+# Install
+brew install gh         # macOS
+winget install gh       # Windows
+sudo apt install gh     # Ubuntu/Debian
+
+# Authenticate
+gh auth login
 ```
 
-**List and view issues**:
+::: notes
+The GitHub CLI (`gh`) was released in 2020 and has become the standard way to interact with GitHub from scripts and terminal workflows. It uses the GitHub REST and GraphQL APIs under the hood but provides a human-friendly interface.
+
+**Key advantages over the REST API directly**:
+- Authentication handled automatically (no token management in scripts)
+- Output formatting with `--json` and `--jq` for scripting
+- Native support for GitHub Actions workflows
+
+**First run after install**:
 ```bash
-gh issue list --state open --assignee @me --label bug
+gh auth login
+# Follow the browser-based OAuth flow
+gh auth status
+# Verify authentication succeeded
+```
+
+**Timing**: ~2 minutes
+:::
+
+---
+
+## Issue Management
+
+```bash
+# Create an issue with full metadata
+gh issue create \
+  --title "Bug: Login fails for SSO users" \
+  --body "Detailed reproduction steps..." \
+  --assignee @me \
+  --label "bug,high-priority" \
+  --milestone "v2.1.0"
+
+# List open issues assigned to me
+gh issue list --assignee @me --state open
+
+# View issue with comments
 gh issue view 123 --comments
-gh issue list --json number,title,state --jq '.[] | "\(.number): \(.title)"'
-```
 
-**Manage issues**:
-```bash
-gh issue edit 123 --add-label "enhancement"
+# Close with a comment
 gh issue close 123 --comment "Fixed in PR #456"
-gh issue comment 123 --body "See related issue #789"
 ```
 
 ::: notes
-Issue management via the CLI is faster than the web UI for bulk operations and automation.
+The `gh issue` command group covers the full issue lifecycle: create, list, view, edit, close, reopen, pin, unpin, and transfer.
 
-**Timing**: 3 minutes
+**Flags to know**:
+- `--json` + `--jq` — extract specific fields for scripting
+- `--template` — use an issue template from `.github/ISSUE_TEMPLATE/`
+- `--body-file` — read the body from a file (great for long descriptions)
 
-**Key Points**:
-- `--json` + `--jq` combination enables powerful custom output formatting for scripts
-- Creating issues from templates (`--template`) enforces consistent issue structure
-- `gh issue close --comment` combines two operations into one command
+**Custom query example**:
+```bash
+gh issue list \
+  --json number,title,state,assignees \
+  --jq '.[] | select(.assignees | length > 0) | "\(.number): \(.title)"'
+```
 
-**Live Demo Opportunity**: Show `gh issue list --json number,title,state,author --jq '.[] | "\(.number): \(.title) (\(.state))"'` live in terminal.
+**Timing**: ~3 minutes
 
-**Transition**: "Now let's look at pull request workflows."
+**Live demo tip**: Create a test issue with `gh issue create --title "Test" --body "Demo" --label "test"` and immediately close it.
 :::
 
 ---
 
-## GitHub CLI: Pull Request Workflows
+## Pull Request Workflows
 
-**Create PRs**:
 ```bash
-gh pr create --title "feat: add feature" \
-  --assignee @me --reviewer team-lead --draft
-gh pr create --head feature-branch --base main
-```
+# Create a PR from the current branch
+gh pr create \
+  --title "feat: add SSO support" \
+  --body "Implements SAML 2.0 SSO..." \
+  --reviewer security-team \
+  --draft
 
-**Review and manage PRs**:
-```bash
-gh pr list --state open --author @me
-gh pr checkout 456           # check out PR locally
-gh pr diff 456               # view diff
-gh pr review 456 --approve
-gh pr review 456 --request-changes --body "Please fix these issues"
-```
+# Review status
+gh pr checks 456
+gh pr view 456 --comments
 
-**Merge PRs**:
-```bash
-gh pr merge 456 --squash     # squash and merge
-gh pr merge 456 --auto --squash  # auto-merge when checks pass
+# Merge strategies
+gh pr merge 456 --squash --subject "feat: SSO support"
+gh pr merge 456 --auto --squash   # merge when all checks pass
 ```
 
 ::: notes
-The PR workflow commands cover the entire lifecycle from creation to merge.
+The `gh pr` command group mirrors the full GitHub PR UI from the terminal.
 
-**Timing**: 3 minutes
+**Workflow patterns**:
+1. **Draft PRs**: Create with `--draft`, remove draft status with `gh pr ready 456` when the work is done
+2. **Auto-merge**: `gh pr merge --auto --squash` is ideal for dependency update PRs — they merge automatically when CI passes
+3. **Review requests**: `--reviewer` accepts usernames and team slugs (`@org/team-name`)
 
-**Key Points**:
-- `gh pr checkout 456` — eliminates the need to manually find and checkout the branch. Essential for reviewing PRs locally.
-- `--auto --squash` — sets up auto-merge so a PR merges automatically once all checks pass. Great for dependency update PRs.
-- `--draft` — create a work-in-progress PR that signals the team it's not ready for review yet.
+**Useful shortcut**:
+```bash
+# Open the current branch's PR in the browser
+gh pr view --web
+```
 
-**Pro Tip**: Use `gh pr create --web` to open the PR creation form in the browser with the branch pre-filled. Good for complex PRs where you want the UI.
+**Timing**: ~3 minutes
 
-**Transition**: "Let's look at GitHub Actions management."
+**Best practice**: Always use `--squash` for feature branches to keep the main branch history clean. Use `--merge` only for release branches where you want to preserve commit history.
 :::
 
 ---
 
-## GitHub CLI: GitHub Actions Management
+## GitHub Actions via `gh`
 
-**Monitor workflow runs**:
 ```bash
-gh run list --status failure          # list failed runs
-gh run view 123456 --log              # view full logs
-gh run watch 123456                   # follow logs in real-time
-```
+# List recent workflow runs
+gh run list --workflow=ci.yml --limit 10
 
-**Control runs**:
-```bash
-gh run cancel 123456
-gh run rerun 123456 --failed-jobs     # re-run only failed jobs
-```
+# Watch a running workflow in real time
+gh run watch 123456
 
-**Trigger and manage workflows**:
-```bash
-gh workflow run manual.yml -f env=staging -f version=1.2.0
-gh workflow disable ci.yml            # disable a workflow
-gh workflow enable ci.yml             # re-enable
-```
+# View logs for a failed job
+gh run view 123456 --log
 
-**Download artifacts**:
-```bash
-gh run download 123456 --name test-results
+# Re-run only failed jobs
+gh run rerun 123456 --failed-jobs
+
+# Trigger a workflow manually
+gh workflow run deploy.yml \
+  --ref main \
+  -f environment=staging
 ```
 
 ::: notes
-GitHub Actions CLI commands are essential for CI/CD troubleshooting and automation.
+The `gh run` and `gh workflow` command groups are indispensable for CI/CD debugging.
 
-**Timing**: 3 minutes
+**Debugging workflow**:
+1. `gh run list --status=failure` — find recent failures
+2. `gh run view <id> --log` — read the full log
+3. `gh run rerun <id> --failed-jobs` — re-run only what failed (saves CI minutes)
 
-**Key Points**:
-- `gh run watch` is invaluable during active development — follow your CI in real-time without switching to the browser
-- `--failed-jobs` on rerun saves time when only a subset of jobs failed (e.g., a flaky test)
-- Workflow dispatch with `-f` flags enables programmatic triggering — great for deployment automation
+**Workflow inputs**:
+The `-f key=value` flag passes `workflow_dispatch` inputs. Multiple `-f` flags are supported.
 
-**Live Demo Opportunity**: If CI is running, show `gh run watch` following a live run.
+**Enabling/disabling workflows**:
+```bash
+gh workflow disable dependabot-auto-merge.yml
+gh workflow enable dependabot-auto-merge.yml
+```
 
-**Transition**: "Now let's look at integration with development tools."
+**Timing**: ~3 minutes
+
+**Audience interaction**: "Who has used `gh run view --log` to debug a failing pipeline?" This is one of the most time-saving features of the CLI.
 :::
 
 ---
 
-## GitHub CLI: Integration & Automation
+## CI/CD Scripting with `gh`
 
-**VS Code integration**:
-```bash
-gh repo clone owner/repo && cd repo && code .
-gh pr create --web  # open PR form in browser with branch pre-filled
+```yaml
+# .github/workflows/ci.yml — comment on PR after tests pass
+- name: Comment on PR
+  if: github.event_name == 'pull_request'
+  run: |
+    gh pr comment ${{ github.event.number }} \
+      --body "✅ All tests passed — ready for review."
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-**CI/CD script integration**:
 ```bash
-# Auto-merge PR after checks pass
-gh pr merge $1 --auto --squash
-
-# Comment on PR from a workflow step
-gh pr comment $PR_NUMBER --body "✅ Tests passed on staging"
+# Deployment gate script
+if gh pr checks $PR_NUMBER --json state \
+    -q '.[] | select(.state != "completed")' | grep -q .; then
+  echo "Checks still running — aborting deploy"
+  exit 1
+fi
+gh pr merge $PR_NUMBER --squash
 ```
 
-**Shell completions**:
+::: notes
+The `gh` CLI shines in automation scripts. The `GITHUB_TOKEN` environment variable is automatically available in GitHub Actions, so no extra setup is needed.
+
+**Common automation patterns**:
+1. **Post-test PR comments** — notify reviewers when CI passes
+2. **Deployment gates** — block deploys until PR checks are green
+3. **Auto-labeling** — add labels based on file changes
+4. **Stale issue management** — close or comment on issues with no activity
+
+**Shell completion**:
 ```bash
 eval "$(gh completion -s bash)"   # bash
 eval "$(gh completion -s zsh)"    # zsh
 ```
 
-**GitHub Actions integration**:
-```yaml
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-run: gh pr comment ${{ github.event.number }} --body "Deployed!"
-```
+**Timing**: ~2 minutes
 
-::: notes
-The real power of the GitHub CLI is in automation — scripting repository operations that would otherwise require manual web UI interactions.
-
-**Timing**: 3 minutes
-
-**Key Point**: The `GITHUB_TOKEN` in GitHub Actions already has the permissions needed for most `gh` commands. You don't need to create a PAT for basic operations.
-
-**Best Practice**: Add shell completions to your dotfiles. Tab-completing `gh` commands dramatically speeds up your workflow.
-
-**Automation Use Cases**: 
-- Auto-close stale issues
-- Auto-label PRs based on files changed
-- Post deployment status comments
-- Trigger release workflows based on milestone completion
-
-**Transition**: "That concludes GitHub CLI. Let's move to Business Rules to Vertical Slices."
+**Transition**: "Now let's look at a structured approach for turning business requirements into implementable vertical slices."
 :::
 
 ---
@@ -650,137 +689,142 @@ The real power of the GitHub CLI is in automation — scripting repository opera
 
 ## Business Rules to Vertical Slices
 
-*From Requirements to Deployable Feature Slices*
+*Extract · Identify · Define · Design*
 
 ::: notes
 This section divider marks the start of Module 4: Business Rules to Vertical Slices.
 
-**Module Duration**: Approximately 25–30 minutes
+**Module Duration**: Approximately 20 minutes
 
-**Module Description**: This module covers the systematic process of analyzing business requirements, extracting business rules, identifying use cases, defining feature boundaries, and designing vertical slices for implementation.
+**Module Description**: Covers the structured process of analyzing business requirements, extracting business rules, identifying use cases, defining feature boundaries, and designing vertical slices for implementation.
 
-**Transition**: "Let's start with when to apply this approach."
+**Prerequisites**: Basic familiarity with agile user stories is helpful.
+
+**Transition**: "Let's walk through the analysis workflow."
 :::
 
 ---
 
-## Business Rules to Slices: Overview
+## The Analysis Workflow
 
-Apply this approach when:
-- User provides business requirements or describes a workflow
-- User asks to design features or break down into vertical slices
-- User mentions "business rules," "use cases," or "user stories"
+**6-step process** for any requirement document:
 
-**The 6-step process**:
-1. **Extract** business rules from requirements
-2. **Identify** use cases (actor, goal, flows)
-3. **Define** feature boundaries
-4. **Design** vertical slices (complete, testable)
-5. **Present** structured analysis using templates
-6. **Validate** completeness and quality
+1. **Acknowledge & Clarify** — confirm scope and assumptions
+2. **Extract Business Rules** — scan for must/cannot/when patterns
+3. **Identify Use Cases** — find actor-action-goal pairs
+4. **Define Features** — group use cases by cohesion
+5. **Design Vertical Slices** — break features into independent, shippable slices
+6. **Present Analysis** — structured output with IDs and links
 
 ::: notes
-This process turns natural language requirements into structured implementation plans.
+This workflow is the canonical process from `business-rules-to-slices.instructions.md`. AI assistants should follow these six steps whenever a user asks to analyze requirements or design features.
 
-**Timing**: 2 minutes
+**Why this order?**
+- You can't design slices without knowing the features
+- You can't define features without knowing the use cases
+- You can't identify use cases without first extracting the underlying rules
 
-**Key Point**: Each step builds on the previous. You cannot design good slices without first identifying use cases, and you cannot identify use cases without extracting the business rules that constrain them.
+**Key output**: A numbered catalog of business rules (BR-###), use cases (UC-###), features (F-###), and vertical slices (S-###-###) — all cross-linked.
 
-**Real-World Value**: Teams that skip this process end up with slices that are too large, too small, or missing critical business logic. The structured approach prevents this.
+**Timing**: ~2 minutes
 
-**Transition**: "Let's start with business rule extraction."
+**Audience interaction**: Ask — "What's the difference between a business rule and a use case?" (A rule is a constraint or fact; a use case is a goal-directed interaction.)
 :::
 
 ---
 
-## Business Rule Extraction
-
-**Four rule types**:
+## Business Rule Extraction — 4 Types
 
 | Type | Pattern | Example |
 |------|---------|---------|
 | **Structural** | "A [entity] has/is/contains..." | "A customer must have an email" |
-| **Operative** | "A [entity] must/cannot/should..." | "Emails must be unique" |
-| **Derivation** | "[Value] = [formula]" | "Total = subtotal + tax - discounts" |
-| **Action Enabler** | "When [event], [action]" | "When registered, send welcome email" |
+| **Operative** | "Must/cannot/should [action]" | "Emails must be unique" |
+| **Derivation** | "Calculated as / equals..." | "Total = subtotal + tax − discounts" |
+| **Action Enabler** | "When [event], [action]..." | "When registered, send welcome email" |
 
-**Extraction signals**: modal verbs (must, should, cannot), constraints (only, never, always), calculations, triggers
-
-**Format**: `BR-001: Email addresses must be unique across all users`
+**Triggers to scan for**: `must`, `should`, `cannot`, `shall`, `when`, `automatically`, `calculated as`
 
 ::: notes
-Business rule extraction is a scanning exercise. You read every sentence looking for the four signal types.
+These four categories cover the full range of business rules found in requirements documents, contracts, and policy documents.
 
-**Timing**: 4 minutes
+**ID assignment rule**: Number rules sequentially — BR-001, BR-002, etc. This makes it easy to cross-reference rules in use cases and acceptance criteria.
 
-**Exercise**: Read this requirement aloud and ask participants to identify the rules:
+**Ambiguity flag**: When a rule is vague, flag it:
+```
+⚠️ BR-050: NEEDS CLARIFICATION
+Statement: "Passwords must be strong"
+Suggested: "Passwords must be 8–20 chars with uppercase, lowercase, and digit"
+```
 
-"Users must register with a valid email address. Emails must be unique across all users. The system should send a welcome email when registration is complete. Users cannot access premium features until they verify their email."
+**Timing**: ~3 minutes
 
-Expected rules: BR-001 (valid email required), BR-002 (email unique), BR-003 (welcome email trigger), BR-004 (verification gate)
-
-**Key Point**: Flag ambiguous rules immediately. "Passwords must be strong" is not a testable rule. "Passwords must be 8–20 characters with uppercase, lowercase, and digit" is.
-
-**Transition**: "Now let's identify use cases from the requirements."
+**Live exercise**: Show a short requirement paragraph and ask the class to identify the rule types before revealing the answer.
 :::
 
 ---
 
 ## Use Case Identification
 
-**Use case = Actor + Goal + Flows**
+**Pattern**: `[Actor] [verb] [object]` → Use Case Name
 
-Extract use cases by looking for actor-action pairs:
-- "User registers an account" → UC-001: Register User Account
-- "Admin approves refund" → UC-002: Approve Refund Request
+```markdown
+**UC-010**: Request Password Reset
 
-**Standard format**:
-```
-UC-010: Request Password Reset
-- Actor: User (forgot password)
-- Goal: Initiate password reset process
-- Main Flow: 1. User enters email → 2. System validates → 3. Token sent → ...
-- Alternative Flows: 3a. Email not found → display generic message (security)
-- Business Rules: BR-020, BR-021
+- **Actor**: User (forgot password)
+- **Goal**: Initiate password reset process
+- **Preconditions**: User has a registered account
+- **Main Flow**:
+  1. User enters email address
+  2. System validates email exists
+  3. System generates reset token (1-hour expiry)
+  4. System sends reset email with link
+- **Alternative Flows**:
+  - 3a. Email not found → generic message (security)
+- **Business Rules**: BR-020, BR-021
 ```
 
 ::: notes
-Use cases translate business rules into user-facing interactions.
+Use cases describe *what* the system does for an actor, not *how* it does it. They should be technology-agnostic.
 
-**Timing**: 4 minutes
+**Finding use cases in requirements**:
+- Look for actor + verb + object: "User resets their forgotten password"
+- Look for user stories: "As a user, I want to reset my password so that I can regain access"
+- Look for workflow descriptions: "First the user..., then the system..., finally..."
 
-**Key Point**: "Alternative flows" are where most bugs live. Requirements documents describe the happy path. Good use case analysis explicitly lists what happens when things go wrong.
+**Template fields**:
+- Main flow = happy path only
+- Alternative flows = error cases, edge cases, variations
+- Preconditions = what must be true before the use case starts
+- Postconditions = what is true after successful completion
 
-**Security Note**: In the password reset example, showing a generic "email not found" message (rather than "email does not exist") is a deliberate security choice that prevents user enumeration attacks. This should be captured as a business rule.
-
-**Template**: Every use case needs actor, goal, preconditions, postconditions, main flow, alternative flows, and linked business rule IDs.
-
-**Transition**: "Now let's define feature boundaries."
+**Timing**: ~3 minutes
 :::
 
 ---
 
 ## Feature Boundary Definition
 
-**Four tests for valid feature boundaries**:
+**4 tests every feature must pass**:
 
-| Test | Question | Example: ✅ Pass | Example: ❌ Fail |
-|------|----------|---------|---------|
-| **Cohesion** | Do all parts naturally belong together? | "Password Reset" | "User Management" |
-| **Independence** | Can this be implemented without modifying other features? | "Password Reset" | "Update User Email" |
-| **Value** | Does this deliver complete user value? | "Checkout Process" | "Validate Credit Card" |
-| **Size** | Can this be done in 1–5 days? | "Basic Search" | "Full E-Commerce Platform" |
+| Test | Question | Failure Sign |
+|------|----------|-------------|
+| **Cohesion** | Do all parts naturally belong together? | "User Management" (too broad) |
+| **Independence** | Can it be implemented without other features? | Tightly coupled to 3 other features |
+| **Value** | Does it deliver complete user value? | "Validate Credit Card" (partial) |
+| **Size** | Can it be done in 1–5 days? | "Full E-commerce Platform" |
 
 ::: notes
-Feature boundary definition prevents two common problems: features that are too large to estimate reliably, and features that are too small to deliver standalone value.
+Feature boundaries are the hardest part of vertical slice design. The four tests give you objective criteria to validate your boundaries.
 
-**Timing**: 3 minutes
+**Cohesion test in practice**: If you find yourself saying "...and also..." while describing a feature, it probably needs to be split.
 
-**Key Point**: The Independence test is the hardest. A feature that seems independent often has hidden coupling to shared state, authentication, or data. Test this by asking "If I implement this feature first, before anything else, can it be deployed and demonstrated?"
+**Independence test in practice**: Draw a dependency graph. If a feature has edges going to more than 1–2 other features, reconsider the boundary.
 
-**Size Test Practical Note**: 1–5 days is a guideline for a developer familiar with the codebase. Adjust for team velocity and complexity.
+**Value test in practice**: Ask "can a user *do something meaningful* with just this feature?" If the answer is no, combine it with a related feature.
 
-**Transition**: "Now let's design the vertical slices within each feature."
+**Size test in practice**: 1–5 days is a rough guide for a small team. The key is that the feature should be completable, releasable, and testable within a single sprint.
+
+**Timing**: ~3 minutes
 :::
 
 ---
@@ -788,28 +832,43 @@ Feature boundary definition prevents two common problems: features that are too 
 ## Vertical Slice Design
 
 **Each slice must be**:
-- **Complete** — spans all layers (DB, domain, API, tests)
+- **Complete** — spans all layers (DB → handler → API → test)
 - **Valuable** — user can do something meaningful
-- **Independent** — can be implemented and deployed separately
+- **Independent** — can be deployed separately
 - **Testable** — has clear acceptance criteria
 
-**Decomposition strategies**:
-1. **MVS (Minimal Viable Slice)** — simplest path first, enrich later
-2. **Happy Path First** — complete success case, then add error handling
-3. **Core + Extensions** — essential functionality, then optional enhancements
+```markdown
+**Slice S-001-1**: Basic User Registration
 
-**Acceptance criteria format**: `Given [valid inputs], [user account is created and returns 201]`
+- Files: RegisterUserCommand, RegisterUserHandler,
+         RegisterUserValidator, RegistrationResult, tests
+- Endpoint: POST /api/users/register
+- Acceptance: Given valid inputs → account created, 201 returned
+- Business Rules: BR-001, BR-002, BR-003
+```
 
 ::: notes
-Vertical slices are the implementation unit of vertical slice architecture. Each slice is a thin end-to-end cut through all layers.
+Vertical slices are the unit of delivery. Each slice should produce working, tested software that can be reviewed and merged independently.
 
-**Timing**: 4 minutes
+**Decomposition strategies**:
+1. **MVS (Minimal Viable Slice)**: Start with the absolute minimum; add error handling and edge cases in subsequent slices
+2. **Happy path first**: Implement the success path completely before handling errors
+3. **Core + Extensions**: Deliver essential functionality first, add optional enhancements as separate slices
 
-**Key Point**: "Spans all layers" means the slice includes the database migration (if needed), domain model, business logic handler, API endpoint, and tests. A slice that only creates an API endpoint without the underlying logic is not a slice — it's a stub.
+**The slice template** (from the instructions):
+- Slice ID (S-[feature-id]-[number])
+- User story
+- Business rules referenced
+- Acceptance criteria (checkboxes)
+- Files to create
+- API contract
+- Database changes (if any)
+- Dependencies
+- Test scenarios
 
-**Example**: For User Registration, the first slice (MVS) is "User can register with email and password and account is created." The second slice adds email verification. The third adds welcome email. Each is independently deployable and testable.
+**Timing**: ~3 minutes
 
-**Transition**: "That concludes Business Rules to Vertical Slices. Let's move to Custom Agents."
+**Transition**: "In the final module, we'll look at how to create custom GitHub Copilot agents that embody these domain-specific workflows."
 :::
 
 ---
@@ -822,242 +881,232 @@ Vertical slices are the implementation unit of vertical slice architecture. Each
 
 ## Creating Custom GitHub Copilot Agents
 
-*Specialized AI Assistants with Domain Expertise*
+*Specialized AI Assistants for Your Domain*
 
 ::: notes
 This section divider marks the start of Module 5: Creating Custom GitHub Copilot Agents.
 
-**Module Duration**: Approximately 20–25 minutes
+**Module Duration**: Approximately 20 minutes
 
-**Module Description**: GitHub Copilot custom agents allow teams to create specialized AI assistants with focused domain expertise. This module covers the file structure, YAML front matter, tool configuration, and deployment workflow.
+**Module Description**: Covers creating, configuring, and deploying custom GitHub Copilot agents — from file naming and YAML frontmatter to tool configuration and best practices.
 
-**Transition**: "Let's start with file structure and naming."
+**Prerequisites**: Access to GitHub Copilot in VS Code or GitHub.com.
+
+**Transition**: "Let's start with what custom agents are and where they live."
 :::
 
 ---
 
-## Custom Agents: File Structure & Naming
+## What Are Custom Agents?
 
-**Repository-level agents**:
-- Location: `.github/agents/`
-- Pattern: `<agent-name>.agent.md` (kebab-case)
-- Scope: Available to all repository collaborators
+Custom agents are **specialized Copilot assistants** scoped to a domain or workflow.
 
-**Organization/Enterprise agents**:
-- Location: `agents/` (root directory)
-- Scope: Available across all repositories in the org
+- Defined in a single `.agent.md` file
+- Activated with `@agent-name` in Copilot Chat
+- Can have restricted or full tool access
+- Support MCP server integrations (org/enterprise only)
 
-**Valid characters**: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`
-```
-✅ security-analyzer.agent.md
-✅ test-specialist.agent.md
-❌ security analyzer.agent.md   (no spaces)
-❌ security@analyzer.agent.md   (invalid character)
-```
+**Repository agent** → `.github/agents/<name>.agent.md`
+**Org/Enterprise agent** → `agents/<name>.agent.md` (root)
+**User agent** (VS Code only) → user profile folder
 
 ::: notes
-File naming and location are the first things to get right. Copilot only discovers agents in the correct directory with the correct extension.
+Custom agents were introduced to give teams a way to create AI assistants with domain-specific expertise embedded in the system prompt — without having to retype instructions in every chat.
 
-**Timing**: 2 minutes
+**Why custom agents over promptfiles?**
+- Agents define *who Copilot is* in a conversation (persona, expertise, constraints)
+- Promptfiles define *what task to perform* (reusable task templates)
+- An agent persists across the conversation; a promptfile is a one-shot invocation
 
-**Common Mistake**: Placing agents in `.github/copilot/agents/` instead of `.github/agents/`. The directory must be exactly `.github/agents/`.
+**Availability**:
+- Repository agents: available to all repo collaborators
+- Org/Enterprise agents: available across all repositories
+- User agents: personal, only in VS Code
 
-**User-Level Agents** (VS Code only): Users can also create personal agents in their VS Code user profile folder — these are not checked into the repository.
-
-**Transition**: "Let's look at the required YAML front matter."
+**Timing**: ~3 minutes
 :::
 
 ---
 
-## Custom Agents: YAML Front Matter
+## File Structure & Naming
 
-**Required**:
-```yaml
----
-description: Expert security analyst for vulnerability detection  # REQUIRED
----
+```
+.github/
+└── agents/
+    ├── security-analyzer.agent.md
+    ├── test-specialist.agent.md
+    └── documentation-assistant.agent.md
 ```
 
-**Optional**:
+**Filename rules**:
+- Extension: `.agent.md` (required)
+- Characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9` only
+- Case: kebab-case recommended
+
+✅ `security-analyzer.agent.md`
+❌ `security analyzer.agent.md` (no spaces)
+❌ `security@analyzer.agent.md` (invalid `@`)
+
+::: notes
+The file extension `.agent.md` is required — GitHub uses it to identify agent files in the `.github/agents/` directory. Files with other extensions in that directory are ignored.
+
+**Creating an agent via VS Code**:
+1. Open Copilot Chat
+2. Click the agent dropdown → "Configure Custom Agents..."
+3. Click "+ Create new custom agent"
+4. Choose repository location
+5. VS Code creates the file in `.github/agents/`
+
+**Creating via GitHub.com**:
+1. Go to github.com/copilot/agents
+2. Select your repository
+3. Click the Copilot icon → "Create an agent"
+4. Edit the generated template and commit
+
+**Timing**: ~2 minutes
+:::
+
+---
+
+## YAML Frontmatter
+
 ```yaml
 ---
-name: security-analyzer          # display name (defaults to filename)
-description: Expert security analyst...
-tools: ["read", "search", "create_issue"]  # omit = ALL tools
-model: "gpt-4"                   # IDE only (VS Code, JetBrains, Eclipse, Xcode)
+name: security-analyzer          # optional — defaults to filename
+description: Expert security analyst for OWASP Top 10 detection  # REQUIRED
+tools: ["read", "search", "create_issue"]  # restrict tools
+model: "gpt-4"                   # IDE-specific only
 target: "vscode"                 # vscode | github-copilot | omit for both
-mcp-servers:                     # org/enterprise only
-  weather:
-    command: npx
-    args: ["-y", "@modelcontextprotocol/server-weather"]
 ---
 ```
 
-**Character limit**: 30,000 characters total (including all markdown content)
+**Property summary**:
+| Property | Required | Notes |
+|----------|----------|-------|
+| `description` | ✅ Yes | Shown in the agent picker |
+| `name` | No | Defaults to filename without extension |
+| `tools` | No | Omit for full tool access |
+| `mcp-servers` | No | Org/Enterprise only |
 
 ::: notes
-The YAML front matter controls how the agent is discovered, displayed, and constrained.
+**`description` is the only required field** — it must clearly state what the agent does.
 
-**Timing**: 3 minutes
+**Tool restriction best practices**:
+- Security agents: restrict to `["read", "search", "create_issue"]` — no production code edits
+- Test agents: `["read", "search", "create", "edit", "test"]` — only modify test files
+- Documentation agents: `["read", "edit", "create", "github"]` — file operations plus GitHub
 
-**Key Points**:
-- `description` is the only required field. Without it, the agent won't appear correctly in the picker.
-- `tools` is optional but important for security — if you omit it, the agent gets ALL tools including terminal. Restrict this for agents that should only read files.
-- `model` is only available in IDEs, not on GitHub.com — keep this in mind for cross-environment agents.
+**`mcp-servers` (org/enterprise)**:
+Enables custom MCP (Model Context Protocol) servers that extend the agent with external tool capabilities — e.g., a weather API, internal knowledge base, or custom code analysis tool.
 
-**MCP Servers**: Model Context Protocol servers extend agent capabilities with external tools. Organization-level only — they require server infrastructure.
-
-**Transition**: "Let's look at how to write effective agent prompt content."
+**Timing**: ~3 minutes
 :::
 
 ---
 
-## Custom Agents: Prompt Content
+## Writing the Agent Prompt
 
-**Recommended structure** (stays under 30,000 chars):
+**Structure** (under 30,000 characters):
 
 ```markdown
-You are a [role] specializing in [domain]. Your responsibilities:
-- [Responsibility 1]
-- [Responsibility 2]
+---
+description: Expert security analyst for OWASP Top 10 detection
+tools: ["read", "search", "create_issue"]
+---
+
+You are a security specialist focused on vulnerability detection.
 
 ## Core Expertise
-- **[Area]**: Description (5–10 areas)
-
-## Analysis Approach
-1. [Step 1]
-2. [Step 2]
+- **Vulnerability Detection**: OWASP Top 10, CWE patterns
+- **Static Analysis**: Security anti-patterns, injection flaws
+- **Reporting**: GitHub issues with CVSS scores and remediation steps
 
 ## Key Principles
-- [Principle 1]
-- [Principle 2]
+- Analyze code without modifying production files
+- Reference OWASP and CWE standards in every finding
+- Provide actionable, specific remediation guidance
 ```
+
+::: notes
+The prompt content is what makes an agent genuinely useful. It defines the agent's mission, expertise, methodology, and behavioral constraints.
 
 **Content guidelines**:
-- ✅ Task-oriented — "Analyze for OWASP Top 10 vulnerabilities"
-- ❌ Behavioral persona — "Act like a friendly senior engineer"
-- ✅ Specific constraints — "Do not modify production code"
+- **Mission statement**: 1–3 paragraphs, specific and domain-focused
+- **Core expertise**: 5–10 specific capability areas (not generic)
+- **Methodology**: optional step-by-step approach for complex tasks
+- **Constraints**: what the agent should NOT do (critical for safety)
+- **Examples**: interaction examples help users understand how to invoke the agent
 
-::: notes
-Agent prompt content is the heart of the agent — it defines what the agent does and how it behaves.
+**What NOT to include**:
+- Generic statements like "You are a helpful assistant"
+- Instructions to use a different model
+- Behavioral personas ("You are friendly and enthusiastic")
+- Repository-wide rules (those belong in `.github/instructions/`)
 
-**Timing**: 3 minutes
-
-**Key Point**: Agents are for tasks, not personas. "Be a friendly assistant" belongs in a chat mode. "Analyze security vulnerabilities and create GitHub issues for findings" is an agent.
-
-**Constraints are Critical**: Always define what the agent should NOT do. A security agent that modifies production code while looking for vulnerabilities could inadvertently introduce changes. Add "Do not modify production code" to the Key Principles.
-
-**Character Limit**: 30,000 characters sounds like a lot, but complex templates can hit it quickly. Be concise — good agent prompts are focused, not exhaustive.
-
-**Transition**: "Let's look at tool configuration."
+**Timing**: ~3 minutes
 :::
 
 ---
 
-## Custom Agents: Tool Configuration
+## Agent Best Practices
 
-**Tool categories**:
-| Category | Tools |
-|----------|-------|
-| File ops | `read`, `edit`, `create`, `delete` |
-| Code intelligence | `search`, `grep`, `list_code_usages` |
-| GitHub integration | `github`, `create_issue`, `create_pr` |
-| Workspace | `workspace`, `terminal` |
+| ✅ Do | ❌ Don't |
+|-------|---------|
+| Define a focused, specific domain | Try to do everything |
+| Restrict tools to minimum needed | Give terminal access to a security-only agent |
+| Include concrete examples | Leave users guessing how to invoke it |
+| State what the agent will NOT do | Make promises you can't keep |
+| Keep prompts under 30k characters | Write 50+ pages of instructions |
 
-**Tool selection strategy**:
-```yaml
-# Security agent — no production code modification
-tools: ["read", "search", "create_issue", "github"]
-
-# Test specialist — no terminal access
-tools: ["read", "search", "create", "edit"]
-
-# Documentation agent — read-only
-tools: ["read", "search", "create"]
-```
-
-**Omit `tools` entirely** to grant access to ALL available tools.
+**Test your agent**: Check that `@agent-name` appears in the Copilot picker after committing to the default branch.
 
 ::: notes
-Tool configuration is the security boundary for agents. Use the principle of least privilege.
+**The single most important best practice**: Start narrow. A focused agent that does one thing excellently is far more valuable than a broad agent that does many things adequately.
 
-**Timing**: 3 minutes
+**Iteration cycle**:
+1. Write a minimal agent (mission + 3–5 expertise areas)
+2. Test with real use cases
+3. Identify gaps and refine the prompt
+4. Add constraints for anything the agent does incorrectly
 
-**Security Principle**: An agent with `terminal` access can run arbitrary commands on the developer's machine. Only grant `terminal` to agents that explicitly need it (e.g., a build agent).
+**Troubleshooting checklist**:
+- Agent not appearing in picker? → Check `.agent.md` extension and location
+- Agent not following instructions? → Review prompt for conflicts; tighten constraints
+- Tool access errors? → Verify `tools` array has the correct tool names
+- Character limit exceeded? → Trim examples; keep methodology sections concise
 
-**Testing Agents**: Test agents should be able to create and edit test files but not modify application code. Restrict to the test file directories via workspace scoping if possible.
+**Timing**: ~3 minutes
 
-**Key Point**: When you omit `tools`, the agent inherits ALL tools — including terminal. Be explicit about which tools you want for production agents.
-
-**Transition**: "Let's look at the creation workflow."
+**Final transition**: "That wraps up all five modules. Let me summarize the key takeaways."
 :::
 
 ---
 
-## Custom Agents: Creation Workflow
-
-**Via GitHub.com**:
-1. Navigate to `github.com/copilot/agents`
-2. Select repository from dropdown
-3. Click Copilot icon → "Create an agent"
-4. Edit the template `.agent.md` file
-5. Commit to default branch → agent is live
-
-**Via VS Code**:
-1. Copilot Chat → agents dropdown → "Configure Custom Agents..."
-2. Click "+ Create new custom agent"
-3. Choose location (repository or user profile)
-4. Edit file and save → agent is immediately available
-
-**Activating an agent in chat**:
-- Click agents dropdown and select the agent
-- Or type `@agent-name` to switch context
-
-::: notes
-The creation workflow is straightforward — it's just committing a markdown file to the right location.
-
-**Timing**: 3 minutes
-
-**Key Point**: Agents must be merged to the default branch to be available to all collaborators. During development, you can test from a feature branch in VS Code (via the user profile location) before merging.
-
-**Best Practices**:
-1. Start narrow — specific use cases, then expand
-2. Define both what the agent does AND doesn't do
-3. Iterate based on team feedback
-4. Track agent changes in version control (they're just files)
-
-**Troubleshooting**:
-- Agent not visible? Check `.github/agents/` location and `.agent.md` extension
-- Tools not working? Verify tool names in the `tools` array
-
-**Transition**: "That concludes Module 5 and this full training session."
-:::
-
----
-
-## Course Summary
+## Class 311 — Summary
 
 | Module | Key Takeaway |
 |--------|-------------|
-| **AI-Assisted Output** | Every artifact needs provenance: 10 required fields + ai-log + README entry |
-| **CQRS Architecture** | Separate read/write models when workloads scale differently; use outbox for reliable events |
-| **GitHub CLI** | `gh` replaces web UI for issues, PRs, Actions — essential for scripting and CI/CD |
-| **Business Rules → Slices** | Extract rules → identify use cases → define features → design complete, testable slices |
-| **Custom Agents** | `.github/agents/<name>.agent.md` — focused tasks, least-privilege tools, committed to default branch |
+| **AI Output Standards** | 11 required provenance fields; embed front matter; log every chat |
+| **CQRS** | Separate write and read models; use the Outbox pattern; rebuild projections from events |
+| **GitHub CLI** | Automate issue, PR, and Actions workflows with `gh`; script CI gates |
+| **Business Rules → Slices** | Extract 4 rule types → use cases → feature tests → complete vertical slices |
+| **Custom Agents** | `.agent.md` in `.github/agents/`; focus the domain; restrict tools |
 
 ::: notes
-This summary slide closes the full session and reinforces the key takeaways from all five modules.
+This final summary slide recaps the core takeaway from each module in one sentence.
 
-**Timing**: 3 minutes
+**Closing message**:
+The common thread across all five modules is **clarity and accountability** — whether it's provenance metadata tracking who created an AI artifact, CQRS separating concerns to make each responsibility clear, CLI automation replacing manual steps, structured analysis turning vague requirements into shippable slices, or focused agents that know exactly what they do and don't do.
 
-**Delivery**: Read through each row and invite a quick question or comment from participants on each module.
+**Questions to prompt discussion**:
+1. "Which module will have the most immediate impact on your day-to-day work?"
+2. "Where do you see the biggest gap between what we covered and your current practices?"
+3. "What would you add to the custom agents module for your team's specific domain?"
 
-**Action Items for Participants**:
-1. Add AI provenance to the next AI-generated artifact they create
-2. Identify one workflow in their codebase that might benefit from CQRS
-3. Install `gh` and try `gh pr list` in their current project
-4. Take one set of requirements and extract the business rules using the BR-001 format
-5. Create a simple custom agent for a repetitive task in their project
+**Resources**:
+- Repository: `johnmillerATcodemag-com/AI-Assisted-Software-Development`
+- Instructions folder: `.github/instructions/`
+- Prompts folder: `.github/prompts/`
 
-**Closing**: "Thank you for attending Class 311. The source instruction files for all five modules are in `.github/instructions/` — use them as ongoing references in your development work."
+**Timing**: ~5 minutes for Q&A after this slide
 :::

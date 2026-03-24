@@ -4,7 +4,7 @@ model: "anthropic/claude-sonnet-4.5@2026-03-20"
 operator: "johnmillerATcodemag-com"
 chat_id: "aiasd-311-tuesday-20260320"
 prompt: |
-  Manifest: Slides/aiasd-311-tuesday.yaml
+  Manifest: slides/aiasd-311-tuesday.yaml
   run the prompt #file:merge-marp-decks.prompt.md
 started: "2026-03-20T04:52:05Z"
 ended: "2026-03-20T05:15:00Z"

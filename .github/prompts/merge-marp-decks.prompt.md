@@ -5,14 +5,14 @@ tags: ["marp", "slides", "presentation", "merge"]
 arguments:
   manifest:
     type: string
-    description: "Path to the YAML manifest file that defines which source slide files to merge and where to write the output (e.g., 'Slides/aiasd-311-tuesday.yaml'). When using $MANIFEST in chat, pass its value here."
+    description: "Path to the YAML manifest file that defines which source slide files to merge and where to write the output (e.g., 'slides/aiasd-311-tuesday.yaml'). When using $MANIFEST in chat, pass its value here."
 ai_generated: true
 model: "anthropic/claude-sonnet-4.5@2026-03-18"
 operator: "johnmillerATcodemag-com"
 chat_id: "merge-marp-decks-20260318"
 prompt: |
   Follow instructions in merge-marp-decks.prompt.md — create promptfile for merging
-  individual Marp slide decks from Slides/individual-slides/ into a combined deck
+  individual Marp slide decks from slides/marp/ into a combined deck
 started: "2026-03-18T23:25:18Z"
 ended: "2026-03-18T23:30:00Z"
 task_durations:
@@ -34,11 +34,11 @@ Merge Marp slide decks according to a manifest file into a single combined prese
 Invoke this prompt with a manifest path:
 
 ```
-$MANIFEST = Slides/aiasd-311-tuesday.yaml
+$MANIFEST = slides/aiasd-311-tuesday.yaml
 Follow instructions in merge-marp-decks.prompt.md.
 ```
 
-Or pass it directly as an argument: `manifest="Slides/aiasd-311-tuesday.yaml"`
+Or pass it directly as an argument: `manifest="slides/aiasd-311-tuesday.yaml"`
 
 ## Manifest File Format
 
@@ -46,7 +46,7 @@ The manifest YAML file controls all inputs and the output path. It must follow t
 
 ```yaml
 title: "Combined deck title"
-output: "Slides/output-filename.md"   # path to write the merged deck
+output: "slides/marp/output-filename.deck.md"   # path to write the merged deck
 theme: default                         # Marp theme (default: default)
 paginate: true                         # Marp paginate (default: true)
 sources:
@@ -58,8 +58,8 @@ When the `manifest` argument is provided (or `$MANIFEST` is set), read that file
 obtain the `title`, `output`, `theme`, `paginate`, and `sources` list.
 
 If no manifest is provided, fall back to discovering all `*.md` files in
-`Slides/individual-slides/` that contain `marp: true` in their front matter and
-write the output to `Slides/ai-assisted-dev-overview.md`.
+`slides/marp/` that contain `marp: true` in their front matter and
+write the output to `slides/marp/ai-assisted-dev-overview.deck.md`.
 
 ## Instructions
 
@@ -73,7 +73,7 @@ write the output to `Slides/ai-assisted-dev-overview.md`.
    Otherwise use the fallback defaults described above.
 
 1. **Discover sources**: Collect the list of source files from the manifest `sources` field
-   (or from `Slides/individual-slides/*.md` in fallback mode). For each source entry, note
+   (or from `slides/marp/*.deck.md` in fallback mode). For each source entry, note
    the `file` path and `topic` label.
 
 2. **Read each source file**: Read its content. If it is a Marp slide file (contains
@@ -89,7 +89,7 @@ write the output to `Slides/ai-assisted-dev-overview.md`.
      then append that source's slide content.
 
 4. **Determine the output path** from the manifest `output` field (or the fallback
-   `Slides/ai-assisted-dev-overview.md`).
+   `slides/marp/ai-assisted-dev-overview.deck.md`).
 
 5. **Write the output file** — **IMPORTANT: check file existence first**:
    - Use a file-read tool to check whether the output path already exists in the repository.
@@ -124,5 +124,5 @@ write the output to `Slides/ai-assisted-dev-overview.md`.
 
 - **1.1.0** — Added `manifest` argument and manifest-driven workflow; added explicit file-existence
   check (edit vs. create) to fix cloud Copilot overwrite bug; retained fallback discovery mode.
-- **1.0.0** — Initial version: discover `Slides/individual-slides/*.md` and write to
-  `Slides/ai-assisted-dev-overview.md`.
+- **1.0.0** — Initial version: discover `slides/marp/*.deck.md` and write to
+  `slides/marp/ai-assisted-dev-overview.deck.md`.

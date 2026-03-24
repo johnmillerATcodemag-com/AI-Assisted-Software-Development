@@ -13,7 +13,7 @@ This directory contains pandoc defaults files for standardized document conversi
 ### Convert Marp slides to PowerPoint
 
 ```bash
-pandoc --defaults=slides-to-pptx Slides/individual-slides/github-worktrees-guide.md -o github-worktrees-guide.pptx
+pandoc --defaults=slides-to-pptx slides/marp/github-worktrees-guide.deck.md -o github-worktrees-guide.pptx
 ```
 
 ### Convert documentation to PDF

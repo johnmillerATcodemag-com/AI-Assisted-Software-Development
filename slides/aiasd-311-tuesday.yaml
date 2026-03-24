@@ -1,9 +1,9 @@
 # Manifest for AIASD Class 311 — Tuesday Session
-# Use with: $MANIFEST = Slides/aiasd-311-tuesday.yaml
+# Use with: $MANIFEST = slides/aiasd-311-tuesday.yaml
 #           Follow instructions in merge-marp-decks.prompt.md.
 
 title: "AI-Assisted Software Development — Class 311 Tuesday"
-output: "Slides/aiasd-311-tuesday.md"
+output: "slides/marp/aiasd-311-tuesday.deck.md"
 theme: default
 paginate: true
 

@@ -5,7 +5,7 @@ operator: "johnmillerATcodemag-com"
 chat_id: "merge-marp-decks-20260318"
 prompt: |
   Follow instructions in merge-marp-decks.prompt.md — merge all individual Marp slide
-  decks from Slides/individual-slides/ into a single combined presentation
+  decks from slides/marp/ into a single combined presentation
 started: "2026-03-18T23:25:18Z"
 ended: "2026-03-18T23:55:00Z"
 task_durations:

@@ -91,7 +91,7 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
 ### Instruction-Generating Prompts
 
 - [`.github/prompts/create-chatmode-instructions-file.prompt.md`](.github/prompts/create-chatmode-instructions-file.prompt.md) — Generates comprehensive authoring guidelines for creating custom GitHub Copilot chat modes
-- [`.github/prompts/merge-marp-decks.prompt.md`](.github/prompts/merge-marp-decks.prompt.md) — Merges individual Marp slide decks from `Slides/individual-slides/` into a single combined presentation ([chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md))
+- [`.github/prompts/merge-marp-decks.prompt.md`](.github/prompts/merge-marp-decks.prompt.md) — Merges individual Marp slide decks from `slides/marp/` into a single combined presentation ([chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md))
 
 ### Notable Artifacts
 
@@ -102,78 +102,78 @@ Custom chat modes are specialized AI assistants that extend GitHub Copilot's cap
   - Documentation: [Usage Guide](past-class-recordings/USAGE.md) | [Live Demo](past-class-recordings/DEMO.md)
   - Provenance: [Chat log](ai-logs/2026/02/17/create-vtt-summarizer-20260217/conversation.md)
 
-- **VS Code Copilot Agents Overview Slides** ([`Slides/individual-slides/vscode-copilot-agents-overview.md`](Slides/individual-slides/vscode-copilot-agents-overview.md))
+- **VS Code Copilot Agents Overview Slides** ([`slides/marp/vscode-copilot-agents-overview.deck.md`](slides/marp/vscode-copilot-agents-overview.deck.md))
   - Comprehensive Marp slide deck covering VS Code Copilot Agents ecosystem with interactive workflows
   - 12 slides with detailed speaker notes covering local, background, cloud, and third-party agents
   - Includes decision matrices, hand-off workflows, and practical implementation guidance
   - Provenance: [Chat log](ai-logs/2026/02/06/vscode-agents-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/vscode-agents-slides-20260206/summary.md)
 
-- **GitHub Worktrees Guide Slides** ([`Slides/individual-slides/github-worktrees-guide.md`](Slides/individual-slides/github-worktrees-guide.md))
+- **GitHub Worktrees Guide Slides** ([`slides/marp/github-worktrees-guide.deck.md`](slides/marp/github-worktrees-guide.deck.md))
   - Comprehensive Marp slide deck teaching parallel development with Git worktrees
   - 12 slides covering introduction, essential commands, practical workflows, hands-on exercises, and best practices
   - Includes detailed speaker notes, troubleshooting guidance, and resources for continued learning
   - Provenance: [Chat log](ai-logs/2026/02/06/github-worktrees-slides-20260206/conversation.md) | [Summary](ai-logs/2026/02/06/github-worktrees-slides-20260206/summary.md)
 
-- **Creating Custom Agents Slides** ([`Slides/individual-slides/creating-custom-agents.md`](Slides/individual-slides/creating-custom-agents.md))
+- **Creating Custom Agents Slides** ([`slides/marp/creating-custom-agents.deck.md`](slides/marp/creating-custom-agents.deck.md))
   - Comprehensive Marp slide deck teaching how to create specialized GitHub Copilot custom agents
   - 12 slides covering overview, creation workflows across platforms (GitHub, VS Code, JetBrains, Eclipse, Xcode), configuration, examples, usage, and best practices
   - Includes extensive speaker notes with timing guidance, delivery instructions, audience interaction points, and Q&A preparation
   - Provenance: [Chat log](ai-logs/2026/02/12/create-custom-agents-marp-20260212/conversation.md) | [Summary](ai-logs/2026/02/12/create-custom-agents-marp-20260212/summary.md)
 
-- **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
+- **Code Explanation and Analysis Slides** ([`slides/marp/code-explanation-and-analysis.deck.md`](slides/marp/code-explanation-and-analysis.deck.md))
   - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis
   - 11 slides covering inline chat (Ctrl+I), right-click explain, test code understanding, coverage report generation (calculator service example), gap identification, prioritized implementation plans, and hands-on exercises
   - Includes comprehensive speaker notes with timing guidance, live demo instructions, audience interaction points, and exercise facilitation tips
   - Provenance: [Chat log](ai-logs/2026/03/18/code-explanation-analysis-marp-20260318/conversation.md)
 - **Merge Marp Decks Promptfile** ([`.github/prompts/merge-marp-decks.prompt.md`](.github/prompts/merge-marp-decks.prompt.md))
-  - Defines the discover→strip→assemble workflow for merging `Slides/individual-slides/*.md` into a combined presentation
+  - Defines the discover→strip→assemble workflow for merging `slides/marp/*.deck.md` into a combined presentation
   - Includes acceptance criteria: all decks represented, section dividers, speaker notes on every slide, valid front matter
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
 
-- **AI-Assisted Output Slides** ([`Slides/individual-slides/ai-assisted-output.md`](Slides/individual-slides/ai-assisted-output.md))
+- **AI-Assisted Output Slides** ([`slides/marp/ai-assisted-output.deck.md`](slides/marp/ai-assisted-output.deck.md))
   - 10-slide Marp deck on provenance metadata, placement policy, logging workflow, quality gates, and CI enforcement
   - Sourced from `.github/instructions/ai-assisted-output.instructions.md`
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md)
 
-- **CQRS Architecture Slides** ([`Slides/individual-slides/cqrs-architecture.md`](Slides/individual-slides/cqrs-architecture.md))
+- **CQRS Architecture Slides** ([`slides/marp/cqrs-architecture.deck.md`](slides/marp/cqrs-architecture.deck.md))
   - 12-slide Marp deck on when to use CQRS, core principles, architecture components, consistency strategies, anti-patterns, and migration
   - Sourced from `.github/instructions/cqrs-architecture.instructions.md`
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md)
 
-- **Dependency Management Policy Slides** ([`Slides/individual-slides/dependency-management-policy.md`](Slides/individual-slides/dependency-management-policy.md))
+- **Dependency Management Policy Slides** ([`slides/marp/dependency-management-policy.deck.md`](slides/marp/dependency-management-policy.deck.md))
   - 12-slide Marp deck on risk classification, selection criteria, approval workflow, vulnerability SLAs, license compliance, and supply chain security
   - Sourced from `.github/instructions/dependency-management-policy.instructions.md`
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md)
 
-- **GitHub CLI Slides** ([`Slides/individual-slides/github-cli.md`](Slides/individual-slides/github-cli.md))
+- **GitHub CLI Slides** ([`slides/marp/github-cli.deck.md`](slides/marp/github-cli.deck.md))
   - 10-slide Marp deck on issue management, PR workflows, Actions monitoring, code review, and CI/CD integration
   - Sourced from `.github/instructions/github-cli.instructions.md`
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md)
 
-- **Business Rules to Vertical Slices** ([`Slides/individual-slides/business-rules-to-slices.md`](Slides/individual-slides/business-rules-to-slices.md))
+- **Business Rules to Vertical Slices** ([`slides/marp/business-rules-to-slices.deck.md`](slides/marp/business-rules-to-slices.deck.md))
   - 10-slide Marp deck on analysis workflow, rule types, use case identification, feature boundary tests, and vertical slice design
   - Sourced from `.github/instructions/business-rules-to-slices.instructions.md`
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md)
 
-- **AI-Assisted Dev Overview** ([`Slides/ai-assisted-dev-overview.md`](Slides/ai-assisted-dev-overview.md))
+- **AI-Assisted Dev Overview** ([`slides/marp/ai-assisted-dev-overview.deck.md`](slides/marp/ai-assisted-dev-overview.deck.md))
   - 62-slide combined Marp deck merging all 6 individual module presentations with section divider slides
   - Modules: AI Output · CQRS · Dependency Management · GitHub CLI · Business Rules to Slices · Custom Agents
   - Usable as a full-day course or per-module standalone; every slide has comprehensive speaker notes
   - Provenance: [Chat log](ai-logs/2026/03/18/merge-marp-decks-20260318/conversation.md) | [Summary](ai-logs/2026/03/18/merge-marp-decks-20260318/summary.md)
 
-- **AIASD Class 311 Monday** ([`Slides/aiasd-311-monday.md`](Slides/aiasd-311-monday.md))
+- **AIASD Class 311 Monday** ([`slides/marp/aiasd-311-monday.deck.md`](slides/marp/aiasd-311-monday.deck.md))
   - Combined Marp deck for the Monday session of Class 311; ~30 slides across 5 modules with section dividers
   - Modules: AI Output · Vertical Slice Architecture · Creating Prompt Files · Dependency Management · Custom Chat Modes
   - Every slide has comprehensive speaker notes; section dividers allow standalone per-module delivery
-  - Manifest: [`Slides/aiasd-311-monday.yaml`](Slides/aiasd-311-monday.yaml)
+  - Manifest: [`slides/aiasd-311-monday.yaml`](slides/aiasd-311-monday.yaml)
   - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-decks-monday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-decks-monday-20260320/summary.md)
-- **AIASD Class 311 — Tuesday Session** ([`Slides/aiasd-311-tuesday.md`](Slides/aiasd-311-tuesday.md))
-  - Combined Marp deck for Class 311 Tuesday, generated from manifest `Slides/aiasd-311-tuesday.yaml`
+- **AIASD Class 311 — Tuesday Session** ([`slides/marp/aiasd-311-tuesday.deck.md`](slides/marp/aiasd-311-tuesday.deck.md))
+  - Combined Marp deck for Class 311 Tuesday, generated from manifest `slides/aiasd-311-tuesday.yaml`
   - Modules: AI Output Standards · CQRS Architecture · GitHub CLI · Business Rules to Vertical Slices · Custom Agents
   - ~35 slides with section dividers and comprehensive speaker notes on every slide
   - Provenance: [Chat log](ai-logs/2026/03/20/merge-marp-decks-aiasd-311-tuesday-20260320/conversation.md) | [Summary](ai-logs/2026/03/20/merge-marp-decks-aiasd-311-tuesday-20260320/summary.md)
 
-- **Code Explanation and Analysis Slides** ([`Slides/individual-slides/code-explanation-and-analysis.md`](Slides/individual-slides/code-explanation-and-analysis.md))
+- **Code Explanation and Analysis Slides** ([`slides/marp/code-explanation-and-analysis.deck.md`](slides/marp/code-explanation-and-analysis.deck.md))
   - Marp slide deck for Section 10 of the AI-Assisted Software Development course covering code explanation and test coverage gap analysis
   - 11 slides covering inline chat (Ctrl+I), right-click explain, test code understanding, coverage report generation (calculator service example), gap identification, prioritized implementation plans, and hands-on exercises
   - Includes comprehensive speaker notes with timing guidance, live demo instructions, audience interaction points, and exercise facilitation tips
@@ -241,7 +241,7 @@ Standardized document conversion configurations for slides, documentation, and p
 
 ```bash
 # Convert slide deck to PowerPoint with template support
-pandoc --defaults=slides-to-pptx Slides/individual-slides/github-worktrees-guide.md -o github-worktrees.pptx
+pandoc --defaults=slides-to-pptx slides/marp/github-worktrees-guide.deck.md -o github-worktrees.pptx
 
 # Convert documentation to PDF
 pandoc --defaults=to-pdf README.md -o project-overview.pdf

@@ -39,7 +39,7 @@
 
 #### 4. marp-slides.instructions.md
 
-- **Current**: `applyTo: "Slides/individual-slides/**"`
+- **Current**: `applyTo: "slides/marp/**"`
 - **Status**: ✅ CORRECT
 - **Rationale**: Applies only to files in the specific slides directory, which is exactly where Marp slides are created
 - **Action**: None needed
@@ -214,7 +214,7 @@
 | ----------------------- | ------------------------- | ----------------------------- |
 | Specific file extension | `**/*.ext`                | `**/*.prompt.md`              |
 | Multiple extensions     | `**/*.{ext1,ext2}`        | `**/*.{ts,js}`                |
-| Specific directory      | `path/to/dir/**`          | `Slides/individual-slides/**` |
+| Specific directory      | `path/to/dir/**`          | `slides/marp/**` |
 | Multiple directories    | `**/{dir1,dir2}/**`       | `**/{src,lib}/**`             |
 | Complex conditions      | Multiple patterns with \| | `**/*.sh\|**/.github/**/*`    |
 
